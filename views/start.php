@@ -2,7 +2,7 @@
 
 $admin_page_title = 'Думай';
 
-require_once 'templates/header.php';
+require_once 'views/templates/header.php';
 ?>
 
 <div class="wrapper">
@@ -16,4 +16,4 @@ require_once 'templates/header.php';
 
 <?php
 
-require_once 'templates/footer.php';
+require_once 'views/templates/footer.php';

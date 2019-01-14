@@ -1,0 +1,4 @@
+# закрытие папки от внешнего доступа
+order deny,allow 
+deny from all 
+allow from 31.31.198.5

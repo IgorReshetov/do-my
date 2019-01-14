@@ -1,29 +1,11 @@
-$(document).ready(function() {
+(function() {
 
 
 
-
-
-    
-});
+})
 
     
 
-
-// ДЕЙСТВИЯ
-    // $('._').click(function() {
-
-    // });
-
-        // mouseenter, mouseleave, mousemove
-        // .hide();
-        // .show();
-        
-    // $(window).scroll(function(){
-    // })
-
-    // $(window).resize(function(){
-    // }
 
 
 // AJAX ОТПРАВКА
@@ -48,59 +30,6 @@ $(document).ready(function() {
 
 // var messages = JSON.parse(xhr.responseText);
 // }
-
-
-// ДВИЖЕНИЯ
-        // var coord = $('.target')[0].getBoundingClientRect().top
-        // - определяет раастояние от верха элемента до верха страницы
-        
-        // window.innerHeight;
-        // window.innerWidth;
-        // - это РАЗМЕРЫ ОКНА
-
-
-    //$(this).animate({
-    //  width: '150px',
-    //  height: '150px'
-    // },
-    // 1000)
-        
-        // СКРОЛЛ окна к элементу
-        // var coord_target = $('.target').offset().top;
-        // $('html').animate({scrollTop: coord_target},2000);
-
-    // Задержки
-    // setInterval(function(){
-        
-    // },
-    // 1000)
-
-    // setTimeout (function(){
-    //     clearInterval()
-    // }, 5000)
-
-    // ОСТАНОВКА
-    // $('.adres').stop(true, true)
-
-
-// КАРКАС
-    // $().append(
-        
-    // );
-    // $().remove(
-        
-    // );
-
-    // $().after(
-        
-    // );
-    
-        // $().removeClass();
-        // $().addClass();
-        // $().attr();
-        
-        // $(this).parent().next().prev().children().siblings(); .find(''); 'div:nth-child()'
-    
 
 
 
@@ -129,7 +58,7 @@ $(document).ready(function() {
         // .splice(index, count)
     
 
-    //console.log(fruits);
+    //console.log();
 
 
     
@@ -141,5 +70,6 @@ $(document).ready(function() {
      // ______.getAttribute('href');
     // ______.setAttribute('href', 'привет');
     // ______.style.color = 'red';
-    // div.innerHTML = '___'
+    // div.innerHTML = '___';
     // div.textContent = '___';
+    
