@@ -1,10 +1,4 @@
 <?php 
 
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db = 'igor0701';
-
-$link = mysqli_connect($host, $user, $pass, $db);
-mysqli_set_charset($link, 'utf8');
-
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$mysqli->set_charset('utf8');

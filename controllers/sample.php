@@ -4,14 +4,6 @@
 // require_once '../models/___.php';
 // require_once '../views/____.php';
 
-// header('');exit; 
-
-
-
-
-
-
-
 // if () {
 // 
 // } else {
