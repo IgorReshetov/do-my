@@ -10,7 +10,7 @@ require_once 'models/db.php'; // ПОДКЛЮЧЕНИЕ ЯДРА БД
 $page = (((isset($_GET['page'])) && $_GET['page'] !== "")?$_GET['page']:false);
 switch ($page) {
     case "page":
-    require_once 'controllers/page.php';;
+    require_once 'controllers/page.php';
     break;
     default:
     require_once 'controllers/home.php';
