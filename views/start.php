@@ -8,9 +8,8 @@ require_once 'views/templates/header.php';
 <div class="wrapper">
     <br>
     <div> <b>Hello world!</b></div>
-    <hr>
     <br>
-    <div>Стартовая страница проекта "Думай" в разработке. Привет Юра</div>
+    <div>Стартовая страница проекта "Думай" в разработке.</div>
     <br>
 </div>
 

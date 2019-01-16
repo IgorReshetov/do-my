@@ -20,7 +20,7 @@ html {
 }
 
 .wrapper {
-    width: 900px;
+    max-width: 900px;
     margin: 0 auto;
     background-color: #ffffff;
 }
@@ -33,6 +33,66 @@ html {
     }
 }
 
-footer .footer{
+.footer{
     padding-top: 150px;
+}
+
+.menu-block{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #2b2b2b
+}
+
+.footer-block{
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #2b2b2b
+}
+
+.footer-block > div{
+    margin: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.icon-menu {
+    background: url(/views/images/icon/pytak.svg) center center / cover no-repeat;
+    padding: 20px;
+    margin: 5px;
+    margin-left: 30px;
+    transition: 1s;
+}
+
+.icon-menu:hover {
+    transform: rotate(90deg);
+}
+
+
+.icon-user {
+    background: url(/views/images/icon/user.svg) center center / cover no-repeat;
+    padding: 20px;
+    margin: 5px;
+    margin-right: 30px;
+    transition: 0.1s;
+}
+
+.icon-user:hover {
+    background: url(/views/images/icon/user_hover.svg) center center / cover no-repeat;
+}
+
+
+.hiden-menu {
+    display: none;
+    display: flex;
+    flex-flow: column;
+}
+
+.hiden-menu-user {
+    display: none;
+    display: flex;
+    flex-flow: column;
+}
+
+.proect:hover {
+    color: red;
 }

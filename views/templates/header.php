@@ -8,5 +8,13 @@
 </head>
 <body>
     <header>
-      
+        <div class="wrapper">
+            <div class="menu-block">
+                <div class="icon-menu"></div>
+                <div class="icon-user"></div>
+
+            </div>
+            <div class="hiden-menu"></div>
+            <div class="hiden-menu-user"></div>
+        </div>      
     </header>
