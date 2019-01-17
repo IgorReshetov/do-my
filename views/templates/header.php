@@ -10,7 +10,11 @@
     <header>
         <div class="wrapper">
             <div class="menu-block">
-                <div class="icon-menu"></div>
+                <div class="menu-block-first">
+                    <a href="index.php" class="icon-menu"></a>
+                    <a href="index.php" class="menu-start">Думай</a>
+                    <a href="index.php?page=proect" class="menu-proect">О проекте</a>
+                </div>
                 <div class="icon-user"></div>
 
             </div>
