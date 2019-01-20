@@ -1,9 +1,11 @@
+
 * {
     /* border: 0; */
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 a {
@@ -13,12 +15,12 @@ a {
 
 body {
     background: white;
-    margin-top: 10px;
-    margin-bottom: 10px;     
+    margin-top: 60px;
+    margin-bottom: 0px;     
 }
 
 html {
-    background-color: #f8f8f8;
+    background-color: #ffffff;
 }
 
 .wrapper {
@@ -32,17 +34,26 @@ html {
     padding-top: 150px;
 }
 
-.menu-block{
+.wrapper-menu {
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #2b2b2b
+}
+
+.menu-block{
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid #2b2b2b;
+    position: fixed;
+    top: 0px;
+    z-index: 50;
 }
 
 .menu-block-first {
     display: flex;
     justify-content: left;
     align-items: center;
-    font-weight: 600; 
 }
 
 .menu-block-first a:hover {
@@ -57,19 +68,21 @@ margin-left: 15px;
 }
 
 .footer-block{
-    display: flex;
-    justify-content: space-between;
-    border-top: 2px solid #2b2b2b
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 2px solid #2b2b2b;
+    position: fixed;
+    bottom: 0px;
+    z-index: 50;
 }
 
-.footer-block > div{
+.footer-block-inside1, .footer-block-inside2{
     margin: 5px;
     margin-left: 30px;
     margin-right: 30px;
 }
 
 .icon-menu {
-    background: url(/views/images/icon/pytak.svg) center center / cover no-repeat;
     padding: 20px;
     margin: 5px;
     margin-left: 30px;
@@ -82,17 +95,12 @@ margin-left: 15px;
 
 
 .icon-user {
-    background: url(/views/images/icon/user.svg) center center / cover no-repeat;
     padding: 20px;
     margin: 5px;
     margin-right: 30px;
+    cursor: pointer;
     transition: 0.1s;
 }
-
-.icon-user:hover {
-    background: url(/views/images/icon/user_hover.svg) center center / cover no-repeat;
-}
-
 
 .hiden-menu {
     display: none;
@@ -122,5 +130,10 @@ margin-left: 15px;
 
     .menu-proect {
       display: none;
+    }
+
+    .footer-block-inside2 {
+        font-size: 15px;
+        margin-left: 0px;
     }
 }

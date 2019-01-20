@@ -1,0 +1,12 @@
+.icon-menu {
+  background: url("https://do-my.ru/test/views/images/icon/pytak.svg") center center/cover no-repeat;
+}
+
+.icon-user {
+  background: url("https://do-my.ru/test/views/images/icon/user.svg") center center/cover no-repeat;
+}
+
+.icon-user:hover {
+  background: url("https://do-my.ru/test/views/images/icon/user_hover.svg") center center/cover no-repeat;
+}
+/*# sourceMappingURL=image.css.map */

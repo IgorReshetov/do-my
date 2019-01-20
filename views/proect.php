@@ -1,7 +1,5 @@
 <?php 
 
-$admin_page_title = 'Думай';
-
 require_once 'views/templates/header.php';
 ?>
 

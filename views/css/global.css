@@ -4,6 +4,7 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
   outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 a {
@@ -13,12 +14,12 @@ a {
 
 body {
   background: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 60px;
+  margin-bottom: 0px;
 }
 
 html {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
 }
 
 .wrapper {
@@ -31,14 +32,24 @@ html {
   padding-top: 150px;
 }
 
-.menu-block {
+.wrapper-menu {
+  max-width: 900px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.menu-block {
+  width: 100%;
+  background-color: #ffffff;
   border-bottom: 2px solid #2b2b2b;
+  position: fixed;
+  top: 0px;
+  z-index: 50;
 }
 
 .menu-block-first {
@@ -51,7 +62,6 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-weight: 600;
 }
 
 .menu-block-first a:hover {
@@ -67,23 +77,21 @@ html {
 }
 
 .footer-block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: 100%;
+  background-color: #ffffff;
   border-top: 2px solid #2b2b2b;
+  position: fixed;
+  bottom: 0px;
+  z-index: 50;
 }
 
-.footer-block > div {
+.footer-block-inside1, .footer-block-inside2 {
   margin: 5px;
   margin-left: 30px;
   margin-right: 30px;
 }
 
 .icon-menu {
-  background: url(/views/images/icon/pytak.svg) center center/cover no-repeat;
   padding: 20px;
   margin: 5px;
   margin-left: 30px;
@@ -97,16 +105,12 @@ html {
 }
 
 .icon-user {
-  background: url(/views/images/icon/user.svg) center center/cover no-repeat;
   padding: 20px;
   margin: 5px;
   margin-right: 30px;
+  cursor: pointer;
   -webkit-transition: 0.1s;
   transition: 0.1s;
-}
-
-.icon-user:hover {
-  background: url(/views/images/icon/user_hover.svg) center center/cover no-repeat;
 }
 
 .hiden-menu {
@@ -145,6 +149,10 @@ html {
   }
   .menu-proect {
     display: none;
+  }
+  .footer-block-inside2 {
+    font-size: 15px;
+    margin-left: 0px;
   }
 }
 /*# sourceMappingURL=global.css.map */

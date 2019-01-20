@@ -1,0 +1,18 @@
+// МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
+@mixin url($url){
+    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   // $url: '/views/images/icon/'+$url;
+   background: url($url) center center / cover no-repeat;   
+}
+
+
+//    Картинки хэдера и футера
+.icon-menu {
+    @include url('pytak.svg');
+}
+.icon-user {
+    @include url('user.svg');
+}
+.icon-user:hover {
+    @include url('user_hover.svg');
+}
