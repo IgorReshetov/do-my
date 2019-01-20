@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+  }
+
+  #pig {
+    font-size: 20px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+  }
+
+  #clock {
+    width: 25px;
+    height: 15px;
+    position: fixed;
+    right: 10%;
+    top: 10%;
+  }
+
+  .pyatakBig {
+    fill: #3535ff;
+    stroke: #111111;
+    stroke-width: 2;
+    
+  }
+  .pyatakSmal-1 {
+    fill: #ff3535;
+    stroke: #111111;
+    stroke-width: 2;
+    
+  }
+
+  .pyatakSmal-2 {
+    fill: #fff235;
+    stroke: #111111;
+    stroke-width: 2;
+    
+  }
