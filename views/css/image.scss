@@ -1,0 +1,95 @@
+// МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
+@mixin url($url){
+   $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+//    $url: '/views/images/icon/'+$url;
+   background: url($url) center center / contain no-repeat;   
+ 
+}
+
+
+//    Картинки хэдера и футера
+.icon-menu {
+    @include url('pytak.svg');
+}
+.icon-user {
+    @include url('user.svg');
+}
+.icon-user:hover {
+    @include url('user_hover.svg');
+}
+
+// картирнки стартовой страницы
+.start-main-block div:nth-child(1) > .start-main-block-icon {
+    @include url('keyhole.svg');
+}
+
+
+@keyframes city {
+    
+    50%{transform: scaleX(-1);
+
+    }
+
+    100% {transform: scaleX(+1);
+    }
+}
+
+.start-main-block div:nth-child(2) > .start-main-block-icon {
+    @include url('city.svg');
+    animation: city 5s infinite;
+}
+
+
+@keyframes castle {
+    0% {@include url('castle.svg');
+
+    }
+    20% {@include url('castle2.svg');
+
+    }
+    40% {@include url('castle.svg');
+
+    }
+
+    60%{@include url('castle3.svg');
+
+    }
+
+    80%{@include url('castle.svg');
+
+    }
+
+    100% {@include url('castle4.svg');
+    }
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon {
+    animation: castle 5s infinite;
+}
+
+.start-main-block div:nth-child(4) > .start-main-block-icon,
+.start-main-block div:nth-child(5) > .start-main-block-icon,
+.start-main-block div:nth-child(6) > .start-main-block-icon,
+.start-main-block div:nth-child(7) > .start-main-block-icon,
+{
+    @include url('question_ring.svg');
+}
+
+// ЭТО НАЩ БОТ ЛИСЕНОК СПИТ
+
+@keyframes fox_sleep {
+    0% {@include url('fox_ring.svg');
+
+    }
+    50% {@include url('fox_ring_sleep.svg');
+
+    }
+    
+
+    100% {@include url('fox_ring.svg');
+    }
+}
+
+.fox {
+    animation: fox_sleep 10s infinite;
+}
