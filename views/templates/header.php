@@ -35,10 +35,10 @@
                             }
                         ?>
                     </div>
+                    <div class="fox"></div> 
                     <div class="icon-user"></div>
-                </div> 
+                </div>
             </div>
-
             <div class="hiden-menu"></div>
             <div class="hiden-menu-user"></div>
              

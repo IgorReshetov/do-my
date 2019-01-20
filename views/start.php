@@ -4,10 +4,10 @@ require_once 'views/templates/header.php';
 ?>
 
 <div class="wrapper">
-    <h1 class = "start-h1"> Мы даем рекомендации в выборе жилья</h1>
+    <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1>
     <main class = "start-main-block">
         <div class="start-main-block-row-title">  
-            <div class="start-main-block-title">Вот, что вы пропустили</div>
+            <div class="start-main-block-title">Вот, что вы пропустили:</div>
             <div class="start-main-block-icon"></div>
         </div>
         <div class="start-main-block-row">
@@ -34,10 +34,7 @@ require_once 'views/templates/header.php';
             <div class="start-main-block-icon"></div>
             <h2 class ="start-main-block-h2"> Для тех, кто не любит думать своей головой.</h2>
         </div>
-        <div class="start-main-block-row">
-            <div class="start-main-block-icon"></div>
-            <h2 class ="start-main-block-h2"> Так вот кто создатели?</h2>
-        </div>
+
     </main>
     </div>
 
