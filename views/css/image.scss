@@ -1,7 +1,7 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
-   $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-//    $url: '/views/images/icon/'+$url;
+//    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   $url: '/views/images/icon/'+$url;
    background: url($url) center center / contain no-repeat;   
  
 }

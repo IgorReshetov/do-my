@@ -36,7 +36,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 70px;
+    cursor: pointer;
 }
+
+.start-main-block-row:hover {
+    box-shadow: 10px 0px 10px rgb(240, 240, 240);
+}
+
 
 .start-main-block-icon {
     padding: 20px;

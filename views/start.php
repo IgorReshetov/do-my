@@ -24,11 +24,11 @@ require_once 'views/templates/header.php';
         </div>
         <div class="start-main-block-row">
             <div class="start-main-block-icon"></div>
-            <h2 class ="start-main-block-h2"> Какую оценку заслуживает ваш выбор квартиры?</h2>
+            <h2 class ="start-main-block-h2"> Хотите узнать секрет, как работает наш сервис?</h2>
         </div>
         <div class="start-main-block-row">
             <div class="start-main-block-icon"></div>
-            <h2 class ="start-main-block-h2"> Хотите узнать секрет, как работает наш сервис?</h2>
+            <h2 class ="start-main-block-h2"> Не пора ли завершить начатое и определиться?</h2>
         </div>
         <div class="start-main-block-row">
             <div class="start-main-block-icon"></div>
