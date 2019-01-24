@@ -1,5 +1,12 @@
 .start-h1 {
   text-align: center;
+  width: 531px;
+  height: 177px;
+  position: absolute;
+  top: 174px;
+  right: 171px;
+  font-size: 48px;
+  text-align: left;
 }
 
 .start-main-block {

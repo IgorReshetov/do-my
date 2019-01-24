@@ -38,7 +38,6 @@ html {
 
 .wrapper-menu {
   max-width: 1200px;
-  height: 71px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,6 +66,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 35px;
 }
 
 .menu-block-first a:hover {
@@ -75,10 +75,16 @@ html {
 
 .menu-start {
   margin-left: 15px;
+  font-size: 30px;
+  width: 106px;
+  height: 35px;
 }
 
 .menu-proect {
   margin-left: 15px;
+  font-size: 18px;
+  width: 106px;
+  padding-top: 10px;
 }
 
 .footer-block {
@@ -94,7 +100,7 @@ html {
 }
 
 .icon-menu {
-  padding: 20px;
+  padding: 40px;
   margin: 5px;
   margin-left: 30px;
   -webkit-transition: 1s;
@@ -106,6 +112,19 @@ html {
           transform: rotate(90deg);
 }
 
+.user-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 35px;
+}
+
 .icon-user {
   padding: 20px;
   margin: 5px;
@@ -113,6 +132,13 @@ html {
   cursor: pointer;
   -webkit-transition: 0.1s;
   transition: 0.1s;
+  display: none;
+}
+
+.user-menu-reg, .user-menu-auth {
+  margin-left: 15px;
+  font-size: 18px;
+  padding-top: 10px;
 }
 
 .hiden-menu {
@@ -142,15 +168,30 @@ html {
 }
 
 .fox {
-  padding: 20px;
+  padding: 30px;
   margin: 5px;
   margin-right: 150px;
+}
+
+.house {
+  width: 469px;
+  height: 568px;
+  position: fixed;
+  top: 171px;
+  right: 0px;
+  z-index: -1;
 }
 
 @media (max-width: 570px) {
   .wrapper {
     width: 300px;
     margin: 0 auto;
+  }
+  .icon-user {
+    display: block;
+  }
+  .user-menu-reg, .user-menu-auth {
+    display: none;
   }
   .menu-start {
     display: none;

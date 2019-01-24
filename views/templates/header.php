@@ -38,7 +38,11 @@
                         ?>
                     </div>
                     <div class="fox"></div> 
-                    <div class="icon-user"></div>
+                    <div class="user-menu">
+                        <div class="icon-user"></div>
+                        <div class="user-menu-reg">Зарегистрироваться</div>
+                        <div class="user-menu-auth">Войти</div>
+                    </div>
                 </div>
             </div>
             <div class="hiden-menu"></div>
