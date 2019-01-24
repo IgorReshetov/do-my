@@ -27,7 +27,7 @@ html {
 }
 
 .wrapper {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: #ffffff;
 }
@@ -37,7 +37,8 @@ html {
 }
 
 .wrapper-menu {
-  max-width: 900px;
+  max-width: 1200px;
+  height: 71px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
