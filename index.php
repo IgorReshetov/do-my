@@ -13,6 +13,6 @@ switch ($page) {
     require_once 'controllers/page.php';;
     break;
     default:
-    require_once 'controllers/home.php';
+    require_once 'controllers/survey.php';
     break;
     }
