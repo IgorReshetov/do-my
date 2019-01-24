@@ -1,18 +1,17 @@
-@charset "UTF-8";
 .icon-menu {
-  background: url("/views/images/icon/кольца.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/rings.svg") center center/contain no-repeat;
 }
 
 .icon-user {
-  background: url("/views/images/icon/user.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/user.svg") center center/contain no-repeat;
 }
 
 .icon-user:hover {
-  background: url("/views/images/icon/user_hover.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/user_hover.svg") center center/contain no-repeat;
 }
 
 .start-main-block div:nth-child(1) > .start-main-block-icon {
-  background: url("/views/images/icon/keyhole.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/keyhole.svg") center center/contain no-repeat;
 }
 
 @-webkit-keyframes city {
@@ -38,50 +37,50 @@
 }
 
 .start-main-block div:nth-child(2) > .start-main-block-icon {
-  background: url("/views/images/icon/city.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/city.svg") center center/contain no-repeat;
   -webkit-animation: city 5s infinite;
           animation: city 5s infinite;
 }
 
 @-webkit-keyframes castle {
   0% {
-    background: url("/views/images/icon/castle.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   20% {
-    background: url("/views/images/icon/castle2.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
   }
   40% {
-    background: url("/views/images/icon/castle.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   60% {
-    background: url("/views/images/icon/castle3.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle3.svg") center center/contain no-repeat;
   }
   80% {
-    background: url("/views/images/icon/castle.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   100% {
-    background: url("/views/images/icon/castle4.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle4.svg") center center/contain no-repeat;
   }
 }
 
 @keyframes castle {
   0% {
-    background: url("/views/images/icon/castle.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   20% {
-    background: url("/views/images/icon/castle2.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
   }
   40% {
-    background: url("/views/images/icon/castle.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   60% {
-    background: url("/views/images/icon/castle3.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle3.svg") center center/contain no-repeat;
   }
   80% {
-    background: url("/views/images/icon/castle.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   100% {
-    background: url("/views/images/icon/castle4.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/castle4.svg") center center/contain no-repeat;
   }
 }
 
@@ -94,30 +93,30 @@
 .start-main-block div:nth-child(5) > .start-main-block-icon,
 .start-main-block div:nth-child(6) > .start-main-block-icon,
 .start-main-block div:nth-child(7) > .start-main-block-icon {
-  background: url("/views/images/icon/question_ring.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/question_ring.svg") center center/contain no-repeat;
 }
 
 @-webkit-keyframes fox_sleep {
   0% {
-    background: url("/views/images/icon/fox_ring.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/fox_ring.svg") center center/contain no-repeat;
   }
   50% {
-    background: url("/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
   }
   100% {
-    background: url("/views/images/icon/fox_ring.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/fox_ring.svg") center center/contain no-repeat;
   }
 }
 
 @keyframes fox_sleep {
   0% {
-    background: url("/views/images/icon/fox_ring.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/fox_ring.svg") center center/contain no-repeat;
   }
   50% {
-    background: url("/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
   }
   100% {
-    background: url("/views/images/icon/fox_ring.svg") center center/contain no-repeat;
+    background: url("/do-my/views/images/icon/fox_ring.svg") center center/contain no-repeat;
   }
 }
 

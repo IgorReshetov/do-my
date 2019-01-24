@@ -1,7 +1,7 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
 //    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-   $url: 'http://localhost/views/images/icon/'+$url;
+   $url: '/do-my/views/images/icon/'+$url;
    background: url($url) center center / contain no-repeat;   
  
 }
@@ -9,7 +9,7 @@
 
 //    Картинки хэдера и футера
 .icon-menu {
-    @include url('кольца.svg');
+    @include url('rings.svg');
 }
 .icon-user {
     @include url('user.svg');
