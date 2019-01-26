@@ -32,6 +32,11 @@ html {
   background-color: #ffffff;
 }
 
+.lite-shadow {
+  -webkit-box-shadow: 0 0 10px 4px #ebebeb;
+          box-shadow: 0 0 10px 4px #ebebeb;
+}
+
 .footer {
   padding-top: 150px;
 }

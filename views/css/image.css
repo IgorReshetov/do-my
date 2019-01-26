@@ -124,4 +124,12 @@
   -webkit-animation: fox_sleep 10s infinite;
           animation: fox_sleep 10s infinite;
 }
+
+.column2-proect1 {
+  background: url("/views/images/icon/keyhole.svg") center center/contain no-repeat;
+}
+
+.column2-proect2 {
+  background: url("/views/images/icon/IgorR.jpg") center center/contain no-repeat;
+}
 /*# sourceMappingURL=image.css.map */

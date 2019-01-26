@@ -93,3 +93,13 @@
 .fox {
     animation: fox_sleep 10s infinite;
 }
+
+// КАРТИНКИ СТРАНИЦЫ ПРОЕКТА
+
+.column2-proect1 {
+    @include url('keyhole.svg');
+}
+
+.column2-proect2 {
+    @include url('IgorR.jpg');
+}
