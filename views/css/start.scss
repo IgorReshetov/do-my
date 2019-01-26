@@ -1,13 +1,110 @@
 .start-h1 {
     text-align: center;
-    width: 531px;
+    width: 500px;
     height: 177px;
     position: absolute;
-    top: 174px;
-    right: 171px;
-    font-size: 48px;
+    top: 150px;
+    right: 100px;
+    font-size: 40px;
     text-align: left;
-  
+    font-weight: 600;
+}
+
+.start-h2 {
+    text-align: left;
+    width: 400px;
+    height: 177px;
+    position: absolute;
+    top: 374px;
+    left: 95px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.start-ozenka {
+    text-align: left;
+    width: 170px;
+    height: 150px;
+    position: absolute;
+    top: 300px;
+    right: 250px;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+.house {
+    width: 269px;
+    height: 368px;
+    position: fixed;
+    top: 110px;
+    right: 0px;
+    z-index: -1;
+}
+
+.start-path {
+    height: 1600px;
+    width: 1600px;
+    position: fixed;
+    left: -180px;
+    top: -380px;
+    transform: rotate(10deg);
+    z-index: -2;
+}
+
+.start-planeta-img {
+    width: 350px;
+    height: 350px;
+    position: fixed;
+    top: 200px;
+    left: -175px;
+    z-index: -1;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+}
+
+.start-qustions-flex {
+    position: absolute;
+    max-width: 1200px;
+    top: 80%;
+    right: 15%;
+    left: 15%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.start-qustions-flex>div {
+    width: 150px;
+    height: 90px;
+    margin-right: 10px; 
+    font-size: 14px;
+    position: relative;
+
+}
+
+.start-qustions-flex-appendix-1 {
+    position: absolute;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
+}
+
+.start-qustions-flex-appendix-2 {
+    position: absolute;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon/qustion2.svg") center center / contain no-repeat;
+}
+
+.start-qustions-flex-appendix-3 {
+    position: absolute;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon/qustion3.svg") center center / contain no-repeat;
 }
 
 .start-main-block {

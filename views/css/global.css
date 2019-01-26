@@ -66,7 +66,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 35px;
+  margin-left: 5px;
 }
 
 .menu-block-first a:hover {
@@ -88,6 +88,7 @@ html {
 }
 
 .footer-block {
+  display: none;
   width: 100%;
   background-color: #ffffff;
   border-top: 2px solid #2b2b2b;
@@ -122,7 +123,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 35px;
+  margin-right: 5px;
 }
 
 .icon-user {
@@ -171,15 +172,6 @@ html {
   padding: 30px;
   margin: 5px;
   margin-right: 150px;
-}
-
-.house {
-  width: 469px;
-  height: 568px;
-  position: fixed;
-  top: 171px;
-  right: 0px;
-  z-index: -1;
 }
 
 @media (max-width: 570px) {
