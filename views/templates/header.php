@@ -14,32 +14,30 @@
               <div class="wrapper-menu">
                     <div class="menu-block-first">
                         <a href="index.php" class="icon-menu"></a>
+                        <a href="index.php" class="menu-start">Думай</a>
+                    </div>
+                    <div class="fox"></div> 
+                    <div class="user-menu">
+                        <div class="icon-user"></div>
                         <?php
                             switch ($page) {
                                 case 'project':
                                 echo ('
-                                <a href="index.php" class="menu-start">Думай</a>
                                 <div class="menu-proect"><b>О проекте</b></div>
                                 ');
                                 break;
                                 case 'privacy':
                                 echo ('
-                                <a href="index.php" class="menu-start">Думай</a>
                                 <div class="menu-proect"><b>Политика конфиденциальности</b></div>
                                 ');
                                 break;
                                 default:
                                 echo ('
-                                <div class="menu-start"><b>Думай</b></div>
                                 <a href="index.php?page=project" class="menu-proect">О проекте</a>
                                 ');
                                 break;      
                             }
                         ?>
-                    </div>
-                    <div class="fox"></div> 
-                    <div class="user-menu">
-                        <div class="icon-user"></div>
                         <div class="user-menu-reg">Зарегистрироваться</div>
                         <div class="user-menu-auth">Войти</div>
                     </div>
@@ -49,3 +47,5 @@
             <div class="hiden-menu-user"></div>
              
     </header>
+
+    

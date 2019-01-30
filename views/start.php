@@ -4,14 +4,19 @@ require_once 'views/templates/header.php';
 ?>
 
 <div class="wrapper">
-    <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1>
-    <img class = "house" src="views/images/icon/house.svg" alt="multistory building">
-    <h2 class ="start-h2">Эта игра покажет, где вам лучше жить, а где нет</h2>
-    <div class="start-ozenka">Вот какую оценку заслуживает ваш выбор квартиры</div>
+    <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1> <!--ИСПP-->
+    <img class = "house" src="views/images/icon/house.svg" alt="multistory building"> <!--ИСПP-->
+    <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры</h2>
+    <div class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</div>
     <div class="start-planeta-img"></div>
     <img class="start-path" src="views/images/icon/path-start.svg" alt="">
 
-    <div class="start-qustions-flex">
+
+
+
+
+    <!-- __________________________________________________________________________________ -->
+    <!-- <div class="start-qustions-flex">
         <div>
             <div class="start-qustions-flex-appendix-1"></div>
             Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    
@@ -28,8 +33,11 @@ require_once 'views/templates/header.php';
             <div class="start-qustions-flex-appendix-1"></div>
             Для тех, кто не любит думать своей головой
         </div>
-    </div>
+    </div> -->
 
+
+
+    <!-- ____________________________________________________________________________ -->
     <!-- <main class = "start-main-block">
         <div class="start-main-block-row-title">  
             <div class="start-main-block-title">Вот, что вы пропустили:</div>

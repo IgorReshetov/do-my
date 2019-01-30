@@ -17,19 +17,13 @@ h2 {
 }
 
 body {
-  background: white;
   margin-top: 60px;
   margin-bottom: 0px;
-}
-
-html {
-  background-color: #ffffff;
 }
 
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #ffffff;
 }
 
 .footer {
@@ -78,13 +72,15 @@ html {
   font-size: 30px;
   width: 106px;
   height: 35px;
+  font-weight: 500;
 }
 
 .menu-proect {
-  margin-left: 15px;
+  margin-left: 0px;
   font-size: 18px;
   width: 106px;
   padding-top: 10px;
+  font-weight: 500;
 }
 
 .footer-block {
@@ -137,8 +133,8 @@ html {
 }
 
 .user-menu-reg, .user-menu-auth {
-  margin-left: 15px;
-  font-size: 18px;
+  margin-left: 10px;
+  font-size: 14px;
   padding-top: 10px;
 }
 
