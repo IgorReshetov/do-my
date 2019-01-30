@@ -2,7 +2,7 @@
 require_once 'views/templates/header.php';
 ?>
 
-<div class="wrapper block-proect">
+<div class="wrapper block-proect" id="first">
     <h1 class="proect-h1">Рекомендательный сервис выбора жилья</h1>
     <div class="row-proect" left="<?=$proect_left[0]?>" right="<?=$proect_right[0]?>">
         <div class="column1-proect column-proect">

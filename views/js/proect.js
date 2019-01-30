@@ -1,7 +1,28 @@
 window.onload = init;
 function init() {
+    // определяем на каком вопросе о команде остановился пользователь
+    var start_elem = document.getElementById('first');
+    start_elem = start_elem.children[2];
+    for(var i = 1; i < 7; i++) {
+        var check = start_elem.getAttribute('left');
+        if (check > 0) {
+            var slogan = start_elem.children[0].children[check-1].getAttribute('row');
+            if (slogan != 0){var point = i}
+        }
+        start_elem = start_elem.nextElementSibling;
+    }
+    console.log(point);
 
-};
+}
+
+// фугкция отработки нажатия на вопрос
+function question(point) {
+    var start_elem = document.getElementById('first');
+    
+    
+    
+    return result;
+}
 
 
 
@@ -57,7 +78,7 @@ function init() {
     
     // }
     // for(var i = 0; i < 3; i++) {}
-    // $().is()
+  
 
 
 
