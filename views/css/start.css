@@ -16,6 +16,19 @@
   text-align: left;
 }
 
+.start-linia {
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  bottom: 200px;
+  height: 50px;
+  z-index: -2;
+}
+
+svg {
+  width: 90%;
+}
+
 .start-ozenka {
   text-align: left;
   width: 170px;
