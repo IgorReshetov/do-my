@@ -6,8 +6,8 @@ require_once 'views/templates/header.php';
     <h1 class="proect-h1">Рекомендательный сервис выбора жилья</h1>
     <div class="row-proect" left="<?=$proect_left[0]?>" right="<?=$proect_right[0]?>">
         <div class="column1-proect column-proect">
-            <div class="column-proect-text <?=($proect_left[0] == 1)?'display-block':''?>">Зачем нужен ваш проект?</div> 
-            <div class="column-proect-text <?=($proect_left[0] == 2)?'display-block':''?>">Мы даем точные и достоверные рекомендации.</div>
+            <div class="column-proect-text <?=($proect_left[0] == 1)?'display-block':''?>">Зачем нужен ваш сервис?</div> 
+            <div class="column-proect-text <?=($proect_left[0] == 2)?'display-block':''?>">Мы точно скажем вам, где лучше жить.</div>
         </div>
         <div class="column2-proect column-proect column2-image1"><img src="views/images/icon/question_ring.svg" class="<?=($proect_left[0]+$proect_right[0] > 2)?'opacity07':''?> <?=($proect_left[0]+$proect_right[0] > 3)?'display-none':''?>"></div>
         <div class="column3-proect column-proect">
@@ -78,7 +78,7 @@ require_once 'views/templates/header.php';
 
     <div class="row-proect" left="<?=$proect_left[5]?>" right="<?=$proect_right[5]?>">
         <div class="column1-proect column-proect">
-            <div class="column-proect-text <?=($proect_left[5] == 1)?'display-block':''?>" row = "2" pos = "1">Кто среди нас больше всех любит объекты и кует победу в тылу?</div> 
+            <div class="column-proect-text <?=($proect_left[5] == 1)?'display-block':''?>" row = "1" pos = "1">Кто среди нас больше всех любит объекты и кует победу в тылу?</div> 
             <div class="column-proect-text <?=($proect_left[5] == 2)?'display-block':''?>" row ="2" pos ="2">В его руках все богатство команды?</div>
             <div class="column-proect-text <?=($proect_left[5] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Чтобы видеть дальше других, нужно стоять на плечах гигантов"</i></div>
         </div>

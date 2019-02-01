@@ -1,7 +1,7 @@
 <?php
 
 if( !isset($_SESSION['proect_left']) ) {
-    $proect_left =[1,4,0,2,0,3,0];
+    $proect_left =[1,1,0,0,0,0,0];
 } else {
     $proect_left = $_SESSION['proect_left']; 
 }
