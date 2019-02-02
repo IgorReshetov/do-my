@@ -88,11 +88,15 @@
     .column-proect {
         margin-top: 15px;
     }
-
    
     .row-proect {
         flex-wrap: wrap;
         margin-bottom: 15px;
+    }
+
+    .column-proect-text{
+        margin: 20px;
+        text-align: center;
     }
 
      .block-proect .row-proect:nth-child(odd) .column1-proect {
@@ -102,13 +106,13 @@
 
     .block-proect .row-proect:nth-child(odd) .column3-proect {
         height: 140px;
-        width: 180px;
+        width: 200px;
     }
 
     .block-proect .row-proect:nth-child(even) .column3-proect {
         order: -1;
         height: 140px;
-        width: 180px;
+        width: 200px;
     }
 
     .block-proect .row-proect:nth-child(even) .column1-proect {

@@ -107,7 +107,10 @@ function question(point) {
     if (pos > 1) {start_elem.children[2].children[pos-2].classList.add('display-none')};
     start_elem.children[2].children[pos-1].classList.add('display-block');
     if (row == 1) {pos=pos+1};
-    if (row == 1 && pos == 4) {show();return false;}
+    if (row == 1 && pos == 4) {
+        show();
+        document.getElementById('first').children[1].scrollIntoView(true);
+        return false;}
     blue(start_elem.children[2]);
     window.setTimeout(function(){
     start_elem.children[0].children[pos-1].classList.add('display-block');
@@ -118,7 +121,7 @@ function question(point) {
     return;
 }
 
-// функция финального показ
+// функция финального показa
 function show(){
     var start_elem = document.getElementById('first');
     start_elem.children[2].children[0].children[3].classList.add('display-block');
@@ -137,7 +140,7 @@ function show(){
     start_elem.children[3].children[2].children[3].classList.add('display-block');
     yellow(start_elem.children[3].children[2]);
     }, 2000);
-    
+
     for (let index = 1; index < 5; index++) {
         window.setTimeout(function(){
         var row = index+3;
@@ -150,6 +153,7 @@ function show(){
         yellow(start_elem.children[row].children[2]);
         }, 2000+index*2000);
     }
+    
     return;
 }
 
