@@ -5,13 +5,13 @@ function init() {
     var right_qw = document.getElementById('first').children[1].getAttribute('right');
 
     if (left_qw == 1){
-        var button1 = document.getElementById('first').children[1].children[0].children[0];
+        var button1 = document.getElementById('first').children[1].children[0];
         button1.onclick = func1;
         
         
         function func1() {
-            this.classList.add('display-none');
-            this.nextElementSibling.classList.add('display-block');
+            this.children[0].classList.add('display-none');
+            this.children[0].nextElementSibling.classList.add('display-block');
             document.getElementById('first').children[1].setAttribute('left', 2);
             init();
             return; 
@@ -19,13 +19,13 @@ function init() {
     }
 
     if (right_qw == 1){
-        var button2 = document.getElementById('first').children[1].children[2].children[0];
+        var button2 = document.getElementById('first').children[1].children[2];
         button2.onclick = func2;
         
 
         function func2() {
-            this.classList.add('display-none');
-            this.nextElementSibling.classList.add('display-block');
+            this.children[0].classList.add('display-none');
+            this.children[0].nextElementSibling.classList.add('display-block');
             document.getElementById('first').children[1].setAttribute('right', 2);
             init();
             return; 
