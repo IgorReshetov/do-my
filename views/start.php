@@ -16,8 +16,8 @@ require_once 'views/templates/header.php';
             Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    
         </div>
          <div class="start-linia">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 500">
-                <path fill="none" stroke="#FF3535"  stroke-width="1" d="M40,60 Q400,100 500,75" />
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 500" preserveAspectRatio="none">
+                <path width="100%"  height="300px" fill="none" stroke="#FF3535"  stroke-width="5" d="M40,300 Q100,500 400,400" />
                 </svg>
         </div>
     </div>
