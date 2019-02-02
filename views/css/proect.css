@@ -31,7 +31,22 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.column-proect-light-red {
   cursor: pointer;
+  -webkit-box-shadow: 0 0 20px #ffc0c0;
+          box-shadow: 0 0 20px #ffc0c0;
+}
+
+.column-proect-light-blue {
+  -webkit-box-shadow: 0 0 20px #727bff;
+          box-shadow: 0 0 20px #727bff;
+}
+
+.column-proect-light-yellow {
+  -webkit-box-shadow: 0 0 20px #ffeb7c;
+          box-shadow: 0 0 20px #ffeb7c;
 }
 
 .column1-proect, .column3-proect {
@@ -52,9 +67,9 @@
   border-radius: 100%;
 }
 
-.column-proect:hover {
-  -webkit-box-shadow: 0 0 10px 4px #ebebeb;
-          box-shadow: 0 0 10px 4px #ebebeb;
+.column-proect-light-red:hover {
+  -webkit-box-shadow: 0 0 10px 4px #ff7878;
+          box-shadow: 0 0 10px 4px #ff7878;
 }
 
 .column2-proect img:hover {
@@ -86,22 +101,77 @@
   display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 570px) {
+  .column-proect {
+    margin-top: 15px;
+  }
+  .row-proect {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
   .block-proect .row-proect:nth-child(odd) .column1-proect {
-    display: none;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    height: 80px;
+  }
+  .block-proect .row-proect:nth-child(odd) .column3-proect {
+    height: 140px;
+    width: 180px;
   }
   .block-proect .row-proect:nth-child(even) .column3-proect {
-    display: none;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    height: 140px;
+    width: 180px;
+  }
+  .block-proect .row-proect:nth-child(even) .column1-proect {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    height: 80px;
+  }
+  #top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #top-image {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    min-width: 50px;
+    min-height: 50px;
+    width: 50px;
+    height: 50px;
+  }
+  #top .column2-proect img {
+    width: 50px;
+    height: 50px;
+  }
+  #top .column1-proect {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    height: 60px;
+    width: 100%;
+  }
+  #top .column3-proect {
+    height: 60px;
+    width: 100%;
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 700px) {
   .column-proect {
     height: 140px;
   }
   .column2-proect {
-    width: 100px;
-    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 /*# sourceMappingURL=proect.css.map */

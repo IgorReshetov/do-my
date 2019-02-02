@@ -19,7 +19,19 @@
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+.column-proect-light-red{
     cursor: pointer;
+    box-shadow: 0 0 20px rgb(255, 192, 192);
+}
+
+.column-proect-light-blue{
+    box-shadow: 0 0 20px rgb(114, 123, 255);
+}
+
+.column-proect-light-yellow{
+    box-shadow: 0 0 20px rgb(255, 235, 124);
 }
 
 .column1-proect, .column3-proect {
@@ -40,8 +52,8 @@
 }
 
 
-.column-proect:hover {
-    box-shadow: 0 0 10px 4px rgb(235, 235, 235);
+.column-proect-light-red:hover {
+    box-shadow: 0 0 10px 4px rgb(255, 120, 120);
 }
 
 .column2-proect img:hover {
@@ -71,25 +83,74 @@
     display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 570px) {
 
-    .block-proect .row-proect:nth-child(odd) .column1-proect {
-        display: none;
+    .column-proect {
+        margin-top: 15px;
+    }
+
+   
+    .row-proect {
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+
+     .block-proect .row-proect:nth-child(odd) .column1-proect {
+        order: 1;
+        height: 80px;
+    }
+
+    .block-proect .row-proect:nth-child(odd) .column3-proect {
+        height: 140px;
+        width: 180px;
     }
 
     .block-proect .row-proect:nth-child(even) .column3-proect {
-        display: none;
+        order: -1;
+        height: 140px;
+        width: 180px;
     }
 
+    .block-proect .row-proect:nth-child(even) .column1-proect {
+        order: 1;
+        height: 80px;
+    }
+
+    #top {
+        flex-direction: column;
+    }
+
+    #top-image {
+        order: -1;
+        min-width: 50px;
+        min-height: 50px;
+        width: 50px;
+        height: 50px;
+    }
+
+    #top .column2-proect img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #top .column1-proect {
+        order: -1;
+        height: 60px;
+        width: 100%;
+    }
+
+    #top .column3-proect {
+        height: 60px;
+        width: 100%;
+    }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 700px) {
     .column-proect{
         height: 140px;
     }
-
     .column2-proect {
-        width: 100px;
-        height: 100px;
+        max-width: 100px;
+        max-height: 100px;
     }
 }
