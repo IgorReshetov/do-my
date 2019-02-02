@@ -2,7 +2,7 @@ window.onload = init;
 function init() {
 var timeLoadPage = new Date();
 
-document.onclick = onclick_swap;
+document.onclick = onclick_flowQuestion;
 };
 
 

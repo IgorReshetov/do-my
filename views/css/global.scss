@@ -66,9 +66,9 @@ html {
 }
 
 .menu-start {
-margin-left: 15px;
-font-size: 30px;
-width: 106px;
+margin-left: 10px;
+font-size: 26px;
+width: 100px;
 height: 35px;
 font-weight: 500;
 }
@@ -76,12 +76,14 @@ font-weight: 500;
 margin-left: 0px;
 font-size: 18px;
 width: 106px;
-padding-top: 10px;
+// padding-top: 10px;
 font-weight: 500;
 }
 
 .footer-block{
-    display: none;
+    position: fixed;
+    bottom: 0;
+    display: block;
     width: 100%;
     background-color: #ffffff;
     border-top: 2px solid #2b2b2b;
@@ -120,9 +122,9 @@ font-weight: 500;
 }
 
 .user-menu-reg, .user-menu-auth {
-    margin-left: 10px;
+    margin-left: 5px;
     font-size: 14px;
-    padding-top: 10px;
+    // padding-top: 10px;
 }
 
 .hiden-menu {
@@ -142,9 +144,10 @@ font-weight: 500;
 }
 
 .fox {
+    justify-items: center;
     padding: 30px;
-    margin: 5px;
-    margin-right: 150px;
+    // margin: ;
+    // margin-right: px;
 }
 
 
