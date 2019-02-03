@@ -12,7 +12,7 @@
   position: relative;
   width: 360px;
   margin-top: 100px;
-  margin-left: 260px;
+  margin-left: 20%;
   font-size: 22px;
   font-weight: 600;
   text-align: left;
@@ -24,20 +24,6 @@
   bottom: 0;
   right: -30px;
   background: url("../images/icon/krug.svg") center center/contain no-repeat;
-}
-
-.start-linia {
-  position: fixed;
-  left: 5%;
-  right: 5%;
-  bottom: 300px;
-  height: 50px;
-  z-index: -2;
-}
-
-svg {
-  width: 100%;
-  height: 300px;
 }
 
 .start-ozenka {
@@ -53,13 +39,45 @@ svg {
   font-weight: 400;
 }
 
+.start-planeta-img {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: -90px;
+  right: -80px;
+  z-index: -1;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+}
+
+.start-linia {
+  border: 2px solid;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 400px;
+  z-index: -2;
+}
+
 .house {
   width: 400px;
   height: 400px;
-  position: fixed;
-  bottom: 20%;
-  left: -75px;
+  position: absolute;
+  top: 0;
+  left: -180px;
   z-index: -1;
+}
+
+svg {
+  width: 100%;
+  height: 400px;
+  z-index: -2;
 }
 
 .start-path {
@@ -71,17 +89,6 @@ svg {
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
   z-index: -2;
-}
-
-.start-planeta-img {
-  width: 350px;
-  height: 350px;
-  position: fixed;
-  bottom: 0px;
-  right: -50px;
-  z-index: -1;
-  background-color: #d8d8d8;
-  border-radius: 50%;
 }
 
 .start-qustions-flex {
