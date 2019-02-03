@@ -25,12 +25,19 @@ body {
 
 html {
     background-color: #ffffff;
+    scroll-behavior: smooth;
+     
 }
 
 .wrapper {
     max-width: 900px;
     margin: 0 auto;
     background-color: #ffffff;
+}
+
+
+.lite-shadow {
+    box-shadow: 0 0 10px 4px rgb(235, 235, 235);
 }
 
 
@@ -90,11 +97,6 @@ margin-left: 15px;
     transition: 1s;
 }
 
-.icon-menu:hover {
-    transform: rotate(90deg);
-}
-
-
 .icon-user {
     padding: 20px;
     margin: 5px;
@@ -120,14 +122,15 @@ margin-left: 15px;
 }
 
 .fox {
-    padding: 20px;
+    width: 40px;
+    height: 40px;
     margin: 5px;
     margin-right: 150px;
 }
 
 @media (max-width: 570px) {
     .wrapper {
-        width: 300px;
+        width: 320px;
         margin: 0 auto;
     }
 

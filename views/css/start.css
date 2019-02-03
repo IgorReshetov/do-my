@@ -1,5 +1,7 @@
+@charset "UTF-8";
 .start-h1 {
   text-align: center;
+  font-size: 20px;
 }
 
 .start-main-block {
@@ -54,13 +56,45 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 70px;
+  cursor: pointer;
+}
+
+.start-main-block-row:hover {
+  -webkit-box-shadow: 10px 0px 10px #f0f0f0;
+          box-shadow: 10px 0px 10px #f0f0f0;
+}
+
+.start-main-block-row:hover .start-main-block-h2 a {
+  color: red;
+}
+
+.start-main-block-row:hover .start-main-block-h2:not(a) {
+  color: white;
+}
+
+.start-main-block-h2:after {
+  content: "Извините, раздел в разработке.";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+}
+
+.start-main-block-row:hover .start-main-block-h2:not(#done):after {
+  display: block;
+  color: red;
 }
 
 .start-main-block-icon {
-  padding: 20px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 .start-main-block-h2 {
+  position: relative;
   color: #1a1a1a;
   font-size: 18px;
   margin: 15px;

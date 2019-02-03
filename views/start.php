@@ -4,7 +4,7 @@ require_once 'views/templates/header.php';
 ?>
 
 <div class="wrapper">
-    <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1>
+    <h1 class = "start-h1">Рекомендательный сервис выбора жилья</h1>
     <main class = "start-main-block">
         <div class="start-main-block-row-title">  
             <div class="start-main-block-title">Вот, что вы пропустили:</div>
@@ -20,15 +20,15 @@ require_once 'views/templates/header.php';
         </div>
         <div class="start-main-block-row">
             <div class="start-main-block-icon"></div>
+            <h2 class ="start-main-block-h2" id="done"><a href="index.php?page=project"> Хотите узнать секрет, как работает наш сервис?</a></h2>
+        </div>
+        <div class="start-main-block-row">
+            <div class="start-main-block-icon"></div>
             <h2 class ="start-main-block-h2"> Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?</h2>
         </div>
         <div class="start-main-block-row">
             <div class="start-main-block-icon"></div>
-            <h2 class ="start-main-block-h2"> Какую оценку заслуживает ваш выбор квартиры?</h2>
-        </div>
-        <div class="start-main-block-row">
-            <div class="start-main-block-icon"></div>
-            <h2 class ="start-main-block-h2"> Хотите узнать секрет, как работает наш сервис?</h2>
+            <h2 class ="start-main-block-h2"> Не пора ли завершить начатое и определиться?</h2>
         </div>
         <div class="start-main-block-row">
             <div class="start-main-block-icon"></div>
