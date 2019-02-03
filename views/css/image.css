@@ -54,47 +54,41 @@
 
 @-webkit-keyframes castle {
   0% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
+    opacity: 1;
   }
-  20% {
-    background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
-  }
-  40% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
-  }
-  60% {
-    background: url("/do-my/views/images/icon/castle3.svg") center center/contain no-repeat;
-  }
-  80% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
+  50% {
+    opacity: 0;
   }
   100% {
-    background: url("/do-my/views/images/icon/castle4.svg") center center/contain no-repeat;
+    opacity: 1;
   }
 }
 
 @keyframes castle {
   0% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
+    opacity: 1;
   }
-  20% {
-    background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
-  }
-  40% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
-  }
-  60% {
-    background: url("/do-my/views/images/icon/castle3.svg") center center/contain no-repeat;
-  }
-  80% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
+  50% {
+    opacity: 0;
   }
   100% {
-    background: url("/do-my/views/images/icon/castle4.svg") center center/contain no-repeat;
+    opacity: 1;
   }
 }
 
 .start-main-block div:nth-child(3) > .start-main-block-icon {
+  background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
+  position: relative;
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon::after {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 0px;
+  left: 0x;
+  background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
   -webkit-animation: castle 5s infinite;
           animation: castle 5s infinite;
 }
@@ -108,29 +102,41 @@
 
 @-webkit-keyframes fox_sleep {
   0% {
-    background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+    opacity: 1;
   }
   50% {
-    background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/cover no-repeat;
+    opacity: 0;
   }
   100% {
-    background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+    opacity: 1;
   }
 }
 
 @keyframes fox_sleep {
   0% {
-    background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+    opacity: 1;
   }
   50% {
-    background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/cover no-repeat;
+    opacity: 0;
   }
   100% {
-    background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+    opacity: 1;
   }
 }
 
 .fox {
+  background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+  position: relative;
+}
+
+.fox::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 17px;
+  top: 0px;
+  left: 14px;
+  background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
   -webkit-animation: fox_sleep 10s infinite;
           animation: fox_sleep 10s infinite;
 }

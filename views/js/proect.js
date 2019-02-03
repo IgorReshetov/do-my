@@ -52,7 +52,9 @@ function init() {
         document.getElementById('first').children[1].children[1].children[0].classList.add('display-none');
         if (document.getElementById('first').children[2].children[0].children[0].classList.contains('display-none') == true){
         document.getElementById('first').children[2].children[0].children[0].classList.remove('display-none');
+        document.getElementById('first').children[1].scrollIntoView(true);
         document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
+
         }
         opros();
     }
@@ -64,9 +66,9 @@ function opros() {
     var start_elem = document.getElementById('first');
     start_elem = start_elem.children[2];
     for(var i = 1; i < 7; i++) {
-        var check = Number.parseInt(start_elem.getAttribute('left'));
+        var check = parseInt(start_elem.getAttribute('left'));
         if (check > 0) {
-            var slogan = Number.parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
+            var slogan = parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
             if (slogan != 0){var point = i}
         }
         start_elem = start_elem.nextElementSibling;
@@ -90,14 +92,14 @@ function opros() {
 function question(point) {
     var start_elem = document.getElementById('first');
     start_elem = start_elem.children[1+point];
-    var check = Number.parseInt(start_elem.getAttribute('left'));
+    var check = parseInt(start_elem.getAttribute('left'));
     if (check > 0) {
-        var slogan = Number.parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
+        var slogan = parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
         if (slogan == 0){return false}
     }
     if (check == 0) {return false};
-    var row = Number.parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
-    var pos = Number.parseInt(start_elem.children[0].children[check-1].getAttribute('pos'));
+    var row = parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
+    var pos = parseInt(start_elem.children[0].children[check-1].getAttribute('pos'));
     start_elem.children[0].children[check-1].classList.add('display-none');
     start_elem.children[0].classList.remove('column-proect-light-red');
     start_elem.setAttribute('left', 0);
@@ -151,18 +153,45 @@ function show(){
     yellow(start_elem.children[3].children[2]);
     }, 2000);
 
-    for (let index = 1; index < 5; index++) {
-        window.setTimeout(function(){
-        var row = index+3;
-        start_elem.children[row].previousElementSibling.scrollIntoView(true);
-        start_elem.children[row].children[0].children[2].classList.add('display-block');
-        yellow(start_elem.children[row].children[0]);
-        start_elem.children[row].children[1].children[0].classList.add('display-none');
-        start_elem.children[row].children[2].children[1].classList.add('display-none');
-        start_elem.children[row].children[2].children[2].classList.add('display-block');
-        yellow(start_elem.children[row].children[2]);
-        }, 2000+index*2000);
-    }
+    window.setTimeout(function(){
+    start_elem.children[4].previousElementSibling.scrollIntoView(true);
+    start_elem.children[4].children[0].children[2].classList.add('display-block');
+    yellow(start_elem.children[4].children[0]);
+    start_elem.children[4].children[1].children[0].classList.add('display-none');
+    start_elem.children[4].children[2].children[1].classList.add('display-none');
+    start_elem.children[4].children[2].children[2].classList.add('display-block');
+    yellow(start_elem.children[4].children[2]);
+    }, 4000);
+
+    window.setTimeout(function(){
+    start_elem.children[5].previousElementSibling.scrollIntoView(true);
+    start_elem.children[5].children[0].children[2].classList.add('display-block');
+    yellow(start_elem.children[5].children[0]);
+    start_elem.children[5].children[1].children[0].classList.add('display-none');
+    start_elem.children[5].children[2].children[1].classList.add('display-none');
+    start_elem.children[5].children[2].children[2].classList.add('display-block');
+    yellow(start_elem.children[5].children[2]);
+    }, 6000);
+
+    window.setTimeout(function(){
+    start_elem.children[6].previousElementSibling.scrollIntoView(true);
+    start_elem.children[6].children[0].children[2].classList.add('display-block');
+    yellow(start_elem.children[6].children[0]);
+    start_elem.children[6].children[1].children[0].classList.add('display-none');
+    start_elem.children[6].children[2].children[1].classList.add('display-none');
+    start_elem.children[6].children[2].children[2].classList.add('display-block');
+    yellow(start_elem.children[6].children[2]);
+    }, 8000);
+
+    window.setTimeout(function(){
+    start_elem.children[7].previousElementSibling.scrollIntoView(true);
+    start_elem.children[7].children[0].children[2].classList.add('display-block');
+    yellow(start_elem.children[7].children[0]);
+    start_elem.children[7].children[1].children[0].classList.add('display-none');
+    start_elem.children[7].children[2].children[1].classList.add('display-none');
+    start_elem.children[7].children[2].children[2].classList.add('display-block');
+    yellow(start_elem.children[7].children[2]);
+    }, 10000);
     
     return;
 }

@@ -57,31 +57,32 @@
 
 
 @keyframes castle {
-    0% {@include urlcont('castle.svg');
+    0% {opacity: 1;
 
     }
-    20% {@include urlcont('castle2.svg');
-
+    50% {opacity: 0;;
     }
-    40% {@include urlcont('castle.svg');
-
-    }
-
-    60%{@include urlcont('castle3.svg');
-
-    }
-
-    80%{@include urlcont('castle.svg');
-
-    }
-
-    100% {@include urlcont('castle4.svg');
+    
+    100% {opacity: 1;
     }
 }
 
 .start-main-block div:nth-child(3) > .start-main-block-icon {
+    @include urlcont('castle.svg');
+    position: relative
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon::after {
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 0px;
+    left: 0x;
+    @include urlcont('castle2.svg');
     animation: castle 5s infinite;
 }
+
 
 .start-main-block div:nth-child(4) > .start-main-block-icon,
 .start-main-block div:nth-child(5) > .start-main-block-icon,
@@ -94,19 +95,29 @@
 // ЭТО НАЩ БОТ ЛИСЕНОК СПИТ
 
 @keyframes fox_sleep {
-    0% {@include url('fox_ring.svg');
+    0% {opacity: 1;
 
     }
-    50% {@include url('fox_ring_sleep.svg');
-
+    50% {opacity: 0;;
     }
     
-
-    100% {@include url('fox_ring.svg');
+    100% {opacity: 1;
     }
 }
 
 .fox {
+    @include url('fox_ring.svg');
+    position: relative
+}
+
+.fox::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 17px;
+    top: 0px;
+    left: 14px;
+    @include urlcont('fox_ring_sleep.svg');
     animation: fox_sleep 10s infinite;
 }
 
