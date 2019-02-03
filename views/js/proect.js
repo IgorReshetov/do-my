@@ -5,38 +5,43 @@ function init() {
     var right_qw = document.getElementById('first').children[1].getAttribute('right');
 
     if (left_qw == 1){
-        var button1 = document.getElementById('first').children[1].children[0];
-        button1.onclick = func1;
-        
-        
-        function func1() {
-            this.children[0].classList.add('display-none');
-            this.classList.remove('column-proect-light-red');
-            this.children[0].nextElementSibling.classList.add('display-block');
-            blue(this);
-            document.getElementById('first').children[1].setAttribute('left', 2);
-            init();
-            return; 
+    var button1 = document.getElementById('first').children[1].children[0];
+    button1.onclick = func1;
+
+    function func1() {
+        var left_qw = document.getElementById('first').children[1].getAttribute('left');
+        if (left_qw == 1){
+        this.children[0].classList.add('display-none');
+        this.classList.remove('column-proect-light-red');
+        this.children[0].nextElementSibling.classList.add('display-block');
+        blue(button1);
+        document.getElementById('first').children[1].setAttribute('left', 2);
+        init();
         }
+        return; 
+    }
     }
 
+    
     if (right_qw == 1){
-        var button2 = document.getElementById('first').children[1].children[2];
-        button2.onclick = func2;
-        
+    var button2 = document.getElementById('first').children[1].children[2];
+    button2.onclick = func2;
 
-        function func2() {
-            this.children[0].classList.add('display-none');
-            this.classList.remove('column-proect-light-red');
-            this.children[0].nextElementSibling.classList.add('display-block');
-            blue(this);
-            document.getElementById('first').children[1].setAttribute('right', 2);
-            init();
-            return; 
+    function func2() {
+        var right_qw = document.getElementById('first').children[1].getAttribute('right');
+        if (right_qw == 1){
+        this.children[0].classList.add('display-none');
+        this.classList.remove('column-proect-light-red');
+        this.children[0].nextElementSibling.classList.add('display-block');
+        blue(button2);
+        document.getElementById('first').children[1].setAttribute('right', 2);
+        init();
         }
+        return; 
+    }
     }
 
-    // проверяем отвечены ли вопросы о проекте
+    // проверяем отвечены ли вопросы о проекте и запускаем опрос
 
     if ((left_qw == 2 && right_qw != 2) || (right_qw == 2 && left_qw != 2 )){
         document.getElementById('first').children[1].children[1].children[0].classList.add('opacity07');
@@ -50,7 +55,6 @@ function init() {
         document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
         }
         opros();
-        
     }
 }
 
@@ -82,7 +86,6 @@ function opros() {
     }
 }
 
-
 // функция отработки нажатия на вопрос
 function question(point) {
     var start_elem = document.getElementById('first');
@@ -109,7 +112,14 @@ function question(point) {
     if (row == 1) {pos=pos+1};
     if (row == 1 && pos == 4) {
         show();
-        document.getElementById('first').children[1].scrollIntoView(true);
+        window.setTimeout(function(){
+        window.scrollTo(0,0);
+        }, 12000);
+        window.setTimeout(function(){
+        document.getElementById('first').children[1].children[1].classList.remove('column2-image1');
+        document.getElementById('first').children[1].children[1].classList.add('column2-image1-aim');
+        document.getElementById('first').children[0].innerHTML = 'Рекомендательный сервис выбора жилья';
+        }, 13000);
         return false;}
     blue(start_elem.children[2]);
     window.setTimeout(function(){

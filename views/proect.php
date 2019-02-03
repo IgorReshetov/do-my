@@ -3,7 +3,7 @@ require_once 'views/templates/header.php';
 ?>
 
 <div class="wrapper block-proect" id="first">
-    <h1 class="proect-h1">Рекомендательный сервис выбора жилья</h1>
+    <h1 class="proect-h1">Для чего и кто делает проект?</h1>
     <div class="row-proect" left="<?=$proect_left[0]?>" right="<?=$proect_right[0]?>" id="top">
         <div class="column1-proect column-proect column-proect-light-red">
             <div class="column-proect-text <?=($proect_left[0] == 1)?'display-block':''?>">Зачем нужен сервис?</div> 

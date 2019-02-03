@@ -1,5 +1,11 @@
 .icon-menu {
-  background: url("/do-my/views/images/icon/pytak.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/logo.svg") center center/contain no-repeat;
+  -webkit-transition: 0.01s;
+  transition: 0.01s;
+}
+
+.icon-menu:hover {
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
 }
 
 .icon-user {
@@ -12,6 +18,10 @@
 
 .start-main-block div:nth-child(1) > .start-main-block-icon {
   background: url("/do-my/views/images/icon/keyhole.svg") center center/cover no-repeat;
+}
+
+.start-main-block div:nth-child(1) > .start-main-block-icon:hover {
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
 }
 
 @-webkit-keyframes city {
@@ -44,43 +54,43 @@
 
 @-webkit-keyframes castle {
   0% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   20% {
-    background: url("/do-my/views/images/icon/castle2.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
   }
   40% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   60% {
-    background: url("/do-my/views/images/icon/castle3.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle3.svg") center center/contain no-repeat;
   }
   80% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   100% {
-    background: url("/do-my/views/images/icon/castle4.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle4.svg") center center/contain no-repeat;
   }
 }
 
 @keyframes castle {
   0% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   20% {
-    background: url("/do-my/views/images/icon/castle2.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
   }
   40% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   60% {
-    background: url("/do-my/views/images/icon/castle3.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle3.svg") center center/contain no-repeat;
   }
   80% {
-    background: url("/do-my/views/images/icon/castle.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
   }
   100% {
-    background: url("/do-my/views/images/icon/castle4.svg") center center/cover no-repeat;
+    background: url("/do-my/views/images/icon/castle4.svg") center center/contain no-repeat;
   }
 }
 
@@ -129,6 +139,30 @@
   background: url("/do-my/views/images/icon/keyhole.svg") center center/cover no-repeat;
 }
 
+@-webkit-keyframes aim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes aim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.column2-image1-aim {
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
+  -webkit-animation: aim 5s 1;
+          animation: aim 5s 1;
+}
+
 .column2-image2 {
   background: url("/do-my/views/images/icon/IgorR.jpg") center center/cover no-repeat;
 }
@@ -138,7 +172,7 @@
 }
 
 .column2-image4 {
-  background: url("/do-my/views/images/icon/Stas_Sap.png") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Stas_Sap.jpg") center center/cover no-repeat;
 }
 
 .column2-image5 {
@@ -146,10 +180,10 @@
 }
 
 .column2-image6 {
-  background: url("/do-my/views/images/icon/Tany_Lyb.png") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Tany_Lyb.jpg") center center/cover no-repeat;
 }
 
 .column2-image7 {
-  background: url("/do-my/views/images/icon/Vlad_Pal.png") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Vlad_Pal.jpg") center center/cover no-repeat;
 }
 /*# sourceMappingURL=image.css.map */
