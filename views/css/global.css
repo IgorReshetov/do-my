@@ -78,7 +78,8 @@ a.menu-proect:hover {
 }
 
 .menu-proect {
-  margin-left: 0px;
+  margin-left: 5px;
+  width: 80px;
   font-weight: 700;
 }
 
@@ -98,7 +99,7 @@ a.menu-proect:hover {
 }
 
 .icon-menu {
-  padding: 25px;
+  padding: 20px;
   margin: 5px;
   margin-left: 30px;
   -webkit-transition: 1s;
@@ -134,7 +135,7 @@ a.menu-proect:hover {
 }
 
 .user-menu-reg, .user-menu-auth {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .hiden-menu {
@@ -163,9 +164,17 @@ a.menu-proect:hover {
   color: red;
 }
 
+.centr-fox {
+  width: 160px;
+}
+
 .fox {
   justify-items: center;
-  padding: 25px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  margin-right: 0px;
+  margin-left: auto;
 }
 
 @media (max-width: 570px) {
@@ -190,7 +199,8 @@ a.menu-proect:hover {
     margin-left: 0px;
   }
   .fox {
-    margin: 5px;
+    margin: auto;
+    margin-top: 5px;
   }
 }
 /*# sourceMappingURL=global.css.map */

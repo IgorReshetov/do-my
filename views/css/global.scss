@@ -76,9 +76,9 @@ width: 100px;
 font-weight: 500;
 }
 .menu-proect {
-margin-left: 0px;
+margin-left: 5px;
 // font-size: 16px;
-// width: 106px;
+width: 80px;
 // padding-top: 10px;
 font-weight: 700;
 }
@@ -99,7 +99,7 @@ font-weight: 700;
 }
 
 .icon-menu {
-    padding: 25px;
+    padding: 20px;
     margin: 5px;
     margin-left: 30px;
     transition: 1s;
@@ -125,7 +125,7 @@ font-weight: 700;
 }
 
 .user-menu-reg, .user-menu-auth {
-    margin-left: 15px;
+    margin-left: 10px;
     // font-size: 14px;
     // padding-top: 10px;
 }
@@ -146,11 +146,18 @@ font-weight: 700;
     color: red;
 }
 
+.centr-fox {
+    width: 160px;
+    // border: 2px solid #2b2b2b;
+}
+
 .fox {
     justify-items: center;
-    padding: 25px;
-    // margin: ;
-    // margin-right: px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    margin-right: 0px;
+    margin-left: auto;
 }
 
 
@@ -179,6 +186,7 @@ font-weight: 700;
         margin-left: 0px;
     }
     .fox {
-        margin: 5px;
+        margin: auto;
+        margin-top: 5px;
     }
 }

@@ -1,10 +1,9 @@
 .start-h1 {
-  width: 300px;
-  margin-top: 40px;
-  margin-left: 100px;
+  margin-top: 30px;
+  margin-left: 85px;
   font-size: 16px;
-  text-align: left;
   font-weight: 400;
+  z-index: 5;
 }
 
 .start-h2 {
@@ -62,6 +61,7 @@
   bottom: 0;
   margin: auto;
   height: 400px;
+  opacity: 1;
   z-index: -2;
 }
 
@@ -273,6 +273,13 @@ svg {
     font-size: 22px;
     font-weight: 600;
     width: 360px;
+  }
+}
+
+@media (max-width: 570px) {
+  .start-h1 {
+    margin: 0 auto;
+    z-index: 5;
   }
 }
 /*# sourceMappingURL=start.css.map */
