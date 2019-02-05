@@ -14,7 +14,26 @@
               <div class="wrapper-menu">
                     <div class="menu-block-first">
                         <a href="index.php" class="icon-menu"></a>
-                        <a href="index.php" class="menu-start">Думай</a>
+                        <?php
+                            switch ($page) {
+                                case 'project':
+                                echo ('
+                                <a href="index.php" class="menu-start">Думай</a>
+                                ');
+                                break;
+                                case 'privacy':
+                                echo ('
+                                <a href="index.php" class="menu-start">Думай</a>
+                                ');
+                                break;
+                                default:
+                                echo ('
+                                <div class="menu-start">Думай</div>
+                                ');
+                                break;      
+                            }
+                        ?>
+                        
                     </div>
                     <div class="fox"></div> 
                     <div class="user-menu">

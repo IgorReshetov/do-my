@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3.1500001"
+   height="3.1500001"
+   viewBox="0 0 3.1500001 3.1500001"
+   version="1.1"
+   id="svg44"
+   sodipodi:docname="aim.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata48">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Group 2</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview46"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="83.058823"
+     inkscape:cx="1.4384975"
+     inkscape:cy="1.292707"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg44" />
+  <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title30">Group 2</title>
+  <desc
+     id="desc32">Created with Sketch.</desc>
+  <circle
+     style="fill:#ffffff;stroke:#fff22a;stroke-width:0.27762097;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path151"
+     cx="1.575"
+     cy="1.575"
+     r="1.4361895" />
+  <defs
+     id="defs34" />
+  <circle
+     style="fill:#ffffff;stroke:#0000ff;stroke-width:0.28639048;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path137"
+     cx="1.5802758"
+     cy="1.5817592"
+     r="0.90680474" />
+  <circle
+     style="fill:#ffffff;stroke:#ff0000;stroke-width:0.25482386;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path133"
+     cx="1.5850251"
+     cy="1.5770142"
+     r="0.39758807" />
+</svg>
