@@ -17,7 +17,7 @@ h2 {
 }
 
 body {
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 0px;
 }
 
@@ -67,19 +67,19 @@ body {
   color: red;
 }
 
+.menu-proect:hover {
+  color: red;
+}
+
 .menu-start {
   margin-left: 10px;
-  font-size: 26px;
   width: 100px;
-  height: 35px;
   font-weight: 500;
 }
 
 .menu-proect {
   margin-left: 0px;
-  font-size: 18px;
-  width: 106px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .footer-block {
@@ -98,7 +98,7 @@ body {
 }
 
 .icon-menu {
-  padding: 40px;
+  padding: 25px;
   margin: 5px;
   margin-left: 30px;
   -webkit-transition: 1s;
@@ -134,8 +134,7 @@ body {
 }
 
 .user-menu-reg, .user-menu-auth {
-  margin-left: 5px;
-  font-size: 14px;
+  margin-left: 15px;
 }
 
 .hiden-menu {
@@ -166,7 +165,7 @@ body {
 
 .fox {
   justify-items: center;
-  padding: 30px;
+  padding: 25px;
 }
 
 @media (max-width: 570px) {

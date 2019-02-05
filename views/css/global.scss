@@ -19,7 +19,7 @@ h2 {
 
 body {
     // background: white;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 0px;     
 }
 
@@ -65,19 +65,22 @@ html {
     color: red;
 }
 
+.menu-proect:hover {
+    color: red;
+}
+
 .menu-start {
 margin-left: 10px;
-font-size: 26px;
+// font-size: 20px;
 width: 100px;
-height: 35px;
 font-weight: 500;
 }
 .menu-proect {
 margin-left: 0px;
-font-size: 18px;
-width: 106px;
+// font-size: 16px;
+// width: 106px;
 // padding-top: 10px;
-font-weight: 500;
+font-weight: 700;
 }
 
 .footer-block{
@@ -96,7 +99,7 @@ font-weight: 500;
 }
 
 .icon-menu {
-    padding: 40px;
+    padding: 25px;
     margin: 5px;
     margin-left: 30px;
     transition: 1s;
@@ -122,8 +125,8 @@ font-weight: 500;
 }
 
 .user-menu-reg, .user-menu-auth {
-    margin-left: 5px;
-    font-size: 14px;
+    margin-left: 15px;
+    // font-size: 14px;
     // padding-top: 10px;
 }
 
@@ -145,7 +148,7 @@ font-weight: 500;
 
 .fox {
     justify-items: center;
-    padding: 30px;
+    padding: 25px;
     // margin: ;
     // margin-right: px;
 }
