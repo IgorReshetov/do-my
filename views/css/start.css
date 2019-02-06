@@ -3,7 +3,6 @@
   margin-left: 85px;
   font-size: 16px;
   font-weight: 400;
-  z-index: 5;
 }
 
 .start-h2 {
@@ -11,10 +10,19 @@
   position: relative;
   width: 360px;
   margin-top: 100px;
-  margin-left: 260px;
+  margin-left: 25%;
   font-size: 22px;
   font-weight: 600;
   text-align: left;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.start-h2:hover {
+  padding: 2px;
+  -webkit-box-shadow: 0 0 10px rgba(228, 16, 16, 0.513);
+          box-shadow: 0 0 10px rgba(228, 16, 16, 0.513);
+  cursor: pointer;
 }
 
 .start-h2-ozenka {
@@ -50,7 +58,6 @@
 }
 
 .start-linia {
-  border: 2px solid;
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,8 +125,8 @@ svg {
   width: 150px;
   font-size: 16px;
   position: relative;
-  left: 250px;
-  bottom: -300px;
+  left: 220px;
+  bottom: -400px;
 }
 
 .start-qustions-flex-appendix-1 {
@@ -278,8 +285,120 @@ svg {
 
 @media (max-width: 570px) {
   .start-h1 {
-    margin: 0 auto;
-    z-index: 5;
+    margin-top: 30px;
+    margin-left: 0px;
+  }
+  .house {
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: -100px;
+    z-index: -1;
+  }
+  .start-planeta-img {
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    bottom: -90px;
+    right: -80px;
+    z-index: -1;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+  }
+  .start-h2 {
+    display: block;
+    position: relative;
+    width: 50%;
+    margin-top: 100px;
+    margin-left: 46%;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .start-ozenka {
+    -webkit-animation: rocket 2s ease forwards;
+            animation: rocket 2s ease forwards;
+    display: none;
+    text-align: left;
+    width: 170px;
+    position: absolute;
+    top: 500px;
+    right: -100px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .start-qustions-1 {
+    display: none;
+    width: 140px;
+    font-size: 12px;
+    position: relative;
+    left: 55%;
+    bottom: -220px;
+  }
+  .start-qustions-flex-appendix-1 {
+    position: absolute;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/icon/qustion1.svg") center center/contain no-repeat;
+  }
+  @-webkit-keyframes rocket {
+    0% {
+    }
+    10% {
+    }
+    20% {
+    }
+    30% {
+    }
+    40% {
+    }
+    50% {
+    }
+    60% {
+    }
+    70% {
+    }
+    80% {
+    }
+    90% {
+    }
+    100% {
+      -webkit-transform: translate3d(-115px, -320px, 0);
+              transform: translate3d(-115px, -320px, 0);
+      font-size: 16px;
+      font-weight: 600;
+      width: 50%;
+    }
+  }
+  @keyframes rocket {
+    0% {
+    }
+    10% {
+    }
+    20% {
+    }
+    30% {
+    }
+    40% {
+    }
+    50% {
+    }
+    60% {
+    }
+    70% {
+    }
+    80% {
+    }
+    90% {
+    }
+    100% {
+      -webkit-transform: translate3d(-115px, -320px, 0);
+              transform: translate3d(-115px, -320px, 0);
+      font-size: 16px;
+      font-weight: 600;
+      width: 50%;
+    }
   }
 }
 /*# sourceMappingURL=start.css.map */
