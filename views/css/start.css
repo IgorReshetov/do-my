@@ -5,13 +5,17 @@
   font-weight: 400;
 }
 
-.start-h2 {
-  display: block;
+.start-h2-conteiner {
   position: relative;
   width: 360px;
   margin-top: 100px;
-  margin-left: 25%;
-  font-size: 22px;
+  margin-left: 20%;
+}
+
+.start-h2 {
+  display: block;
+  width: 360px;
+  font-size: 20px;
   font-weight: 600;
   text-align: left;
   -webkit-transition: 0.1s;
@@ -28,29 +32,29 @@
 .start-h2-ozenka {
   position: absolute;
   padding: 10px;
-  bottom: 0;
-  right: -30px;
+  bottom: -5px;
+  right: -10%;
   background: url("../images/icon/krug.svg") center center/contain no-repeat;
 }
 
 .start-ozenka {
-  -webkit-animation: rocket 2s ease forwards;
-          animation: rocket 2s ease forwards;
+  -webkit-animation: rocket 1s ease forwards;
+          animation: rocket 1s ease forwards;
   display: none;
   text-align: left;
-  width: 170px;
+  width: 360px;
   position: absolute;
-  top: 500px;
-  right: -100px;
-  font-size: 16px;
-  font-weight: 400;
+  top: 300px;
+  right: -755px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .start-planeta-img {
   width: 200px;
   height: 200px;
   position: absolute;
-  bottom: -90px;
+  bottom: -20px;
   right: -80px;
   z-index: -1;
   background-color: #d8d8d8;
@@ -76,7 +80,7 @@
   width: 400px;
   height: 400px;
   position: absolute;
-  top: 0;
+  top: -20%;
   left: -180px;
   z-index: -1;
 }
@@ -125,8 +129,8 @@ svg {
   width: 150px;
   font-size: 16px;
   position: relative;
-  left: 220px;
-  bottom: -400px;
+  left: 160px;
+  bottom: -290px;
 }
 
 .start-qustions-flex-appendix-1 {
@@ -245,9 +249,9 @@ svg {
   90% {
   }
   100% {
-    -webkit-transform: translate3d(-755px, -280px, 0);
-            transform: translate3d(-755px, -280px, 0);
-    font-size: 22px;
+    -webkit-transform: translate3d(-755px, -300px, 0);
+            transform: translate3d(-755px, -300px, 0);
+    font-size: 20px;
     font-weight: 600;
     width: 360px;
   }
@@ -275,9 +279,9 @@ svg {
   90% {
   }
   100% {
-    -webkit-transform: translate3d(-755px, -280px, 0);
-            transform: translate3d(-755px, -280px, 0);
-    font-size: 22px;
+    -webkit-transform: translate3d(-755px, -300px, 0);
+            transform: translate3d(-755px, -300px, 0);
+    font-size: 20px;
     font-weight: 600;
     width: 360px;
   }
@@ -291,49 +295,59 @@ svg {
   .house {
     width: 80%;
     position: absolute;
-    top: 0;
-    left: -100px;
+    top: -20%;
+    left: -120px;
     z-index: -1;
   }
   .start-planeta-img {
     width: 180px;
     height: 180px;
     position: absolute;
-    bottom: -90px;
+    bottom: -20px;
     right: -80px;
     z-index: -1;
     background-color: #d8d8d8;
     border-radius: 50%;
   }
-  .start-h2 {
-    display: block;
+  .start-h2-conteiner {
     position: relative;
     width: 50%;
     margin-top: 100px;
-    margin-left: 46%;
-    font-size: 16px;
+    margin-left: 48%;
+  }
+  .start-h2 {
+    display: block;
+    width: 100%;
+    font-size: 14px;
     font-weight: 600;
     text-align: left;
   }
   .start-ozenka {
-    -webkit-animation: rocket 2s ease forwards;
-            animation: rocket 2s ease forwards;
+    -webkit-animation: rocket 1s ease forwards;
+            animation: rocket 1s ease forwards;
     display: none;
     text-align: left;
-    width: 170px;
+    width: 100%;
     position: absolute;
-    top: 500px;
+    top: 400px;
     right: -100px;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .start-h2-ozenka {
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    right: -5%;
+    background: url("../images/icon/krug.svg") center center/contain no-repeat;
   }
   .start-qustions-1 {
     display: none;
     width: 140px;
     font-size: 12px;
     position: relative;
-    left: 55%;
-    bottom: -220px;
+    left: 30%;
+    bottom: -120px;
   }
   .start-qustions-flex-appendix-1 {
     position: absolute;
@@ -364,11 +378,10 @@ svg {
     90% {
     }
     100% {
-      -webkit-transform: translate3d(-115px, -320px, 0);
-              transform: translate3d(-115px, -320px, 0);
+      -webkit-transform: translate3d(-100px, -400px, 0);
+              transform: translate3d(-100px, -400px, 0);
       font-size: 16px;
       font-weight: 600;
-      width: 50%;
     }
   }
   @keyframes rocket {
@@ -393,11 +406,10 @@ svg {
     90% {
     }
     100% {
-      -webkit-transform: translate3d(-115px, -320px, 0);
-              transform: translate3d(-115px, -320px, 0);
+      -webkit-transform: translate3d(-100px, -400px, 0);
+              transform: translate3d(-100px, -400px, 0);
       font-size: 16px;
       font-weight: 600;
-      width: 50%;
     }
   }
 }

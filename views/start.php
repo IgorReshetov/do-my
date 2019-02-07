@@ -4,12 +4,15 @@ require_once 'views/templates/header.php';
 ?>
 
     <div class="wrapper">
-        <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1> <!--ИСПP-->
-         <!--ИСПP-->
-        <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры
-            <div class="start-h2-ozenka">7.8</div>
-        </h2>
-        <div class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</div>
+        <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1> 
+      
+        <div class="start-h2-conteiner">
+            <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры
+                <div class="start-h2-ozenka">7.8</div>
+            </h2>
+            <h2 class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</h2>
+        </div>
+
         <div class="start-qustions-1">
             <div class="start-qustions-flex-appendix-1"></div>
             Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    

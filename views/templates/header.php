@@ -39,23 +39,23 @@
                     <div class="user-menu">
                         <div class="icon-user"></div>
                         <?php
-                            switch ($page) {
-                                case 'project':
-                                echo ('
-                                <div class="menu-proect"><b>О проекте</b></div>
-                                ');
-                                break;
-                                case 'privacy':
-                                echo ('
-                                <div class="menu-proect"><b>Политика конфиденциальности</b></div>
-                                ');
-                                break;
-                                default:
-                                echo ('
-                                <a href="index.php?page=project" class="menu-proect">О проекте</a>
-                                ');
-                                break;      
-                            }
+                            // switch ($page) {
+                            //     case 'project':
+                            //     echo ('
+                            //     <div class="menu-proect"><b>О проекте</b></div>
+                            //     ');
+                            //     break;
+                            //     case 'privacy':
+                            //     echo ('
+                            //     <div class="menu-proect"><b>Политика конфиденциальности</b></div>
+                            //     ');
+                            //     break;
+                            //     default:
+                            //     echo ('
+                            //     <a href="index.php?page=project" class="menu-proect">О проекте</a>
+                            //     ');
+                            //     break;      
+                            // }
                         ?>
                         <div class="user-menu-reg">Зарегистрироваться</div>
                         <div class="user-menu-auth">Войти</div>

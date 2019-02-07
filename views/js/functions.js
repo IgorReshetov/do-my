@@ -4,7 +4,7 @@ function onclick_flowQuestion(e){
     if (objClass == "start-h2") {
         document.getElementsByClassName("start-h2")[0].style.display = "none";
         document.getElementsByClassName("start-ozenka")[0].style.display = "block";
-        setTimeout(function () {document.querySelector(".start-qustions-1").style.display="block"},2000);
+        setTimeout(function () {document.querySelector(".start-qustions-1").style.display="block"},1000);
     }
     console.log (objClass);
    

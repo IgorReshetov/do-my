@@ -6,13 +6,25 @@
     font-weight: 400;
 }
 
-.start-h2 {
-    display: block;
+.start-h2-conteiner {
+    // border: 2px solid;
     position: relative;
     width: 360px;
     margin-top: 100px;
-    margin-left: 25%;
-    font-size: 22px;
+    // margin-right: 0%;
+    margin-left: 20%;
+    // font-size: 20px;
+    // font-weight: 600;
+   
+}
+
+.start-h2 {
+    display: block;
+    // position: relative;
+    width: 360px;
+    // margin-top: 100px;
+    // margin-left: 25%;
+    font-size: 20px;
     font-weight: 600;
     text-align: left;
     transition: 0.1s;
@@ -27,30 +39,30 @@
 .start-h2-ozenka {
     position: absolute;
     padding: 10px;
-    bottom: 0;
-    right: -30px;
+    bottom: -5px;
+    right: -10%;
     background: url('../images/icon/krug.svg') center center / contain no-repeat; 
 }
 
 
 
 .start-ozenka {
-    animation: rocket 2s ease forwards;
+    animation: rocket 1s ease forwards;
     display: none;
     text-align: left;
-    width: 170px;
+    width: 360px;
     position: absolute;
-    top: 500px;
-    right: -100px;
-    font-size: 16px;
-    font-weight: 400;
+    top: 300px;
+    right: -755px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .start-planeta-img {
     width: 200px;
     height: 200px;
     position: absolute;
-    bottom: -90px;
+    bottom: -20px;
     right: -80px;
     z-index: -1;
     background-color: #d8d8d8;
@@ -76,7 +88,7 @@
     width: 400px;
     height: 400px;
     position: absolute;
-    top: 0;
+    top: -20%;
     left: -180px;
     z-index: -1;
               
@@ -124,8 +136,8 @@ svg {
     // height: 90px;
     font-size: 16px;
     position: relative;
-    left: 220px;
-    bottom: -400px;
+    left: 160px;
+    bottom: -290px;
 }
 
 .start-qustions-flex-appendix-1 {
@@ -204,6 +216,8 @@ svg {
     font-weight: 600;
 }
 
+
+
 @keyframes rocket {
     0% {}
     10% {}
@@ -215,8 +229,8 @@ svg {
     70% {}
     80% {}
     90% {}
-    100% {  transform: translate3d(-755px,-280px,0); 
-            font-size: 22px;
+    100% {  transform: translate3d(-755px,-300px,0); 
+            font-size: 20px;
             font-weight: 600;
             width: 360px;   
         }
@@ -234,8 +248,8 @@ svg {
             width: 80%;
             // height: 100px;
             position: absolute;
-            top: 0;
-            left: -100px;
+            top: -20%;
+            left: -120px;
             z-index: -1;            
         }
 
@@ -243,34 +257,54 @@ svg {
             width: 180px;
             height: 180px;
             position: absolute;
-            bottom: -90px;
+            bottom: -20px;
             right: -80px;
             z-index: -1;
             background-color: #d8d8d8;
             border-radius: 50%;
         }
 
-        .start-h2 {
-            display: block;
+        .start-h2-conteiner {
+            // border: 2px solid;
             position: relative;
             width: 50%;
             margin-top: 100px;
-            margin-left: 46%;
-            font-size: 16px;
+            // margin-right: 0%;
+            margin-left: 48%;
+            // font-size: 20px;
+            // font-weight: 600;
+           
+        }
+
+        .start-h2 {
+            display: block;
+            // position: relative;
+            width: 100%;
+            // margin-top: 100px;
+            // margin-left: 46%;
+            font-size: 14px;
             font-weight: 600;
             text-align: left;
         }
 
         .start-ozenka {
-            animation: rocket 2s ease forwards;
+            animation: rocket 1s ease forwards;
             display: none;
             text-align: left;
-            width: 170px;
+            width: 100%;
             position: absolute;
-            top: 500px;
+            top: 400px;
             right: -100px;
-            font-size: 12px;
-            font-weight: 400;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .start-h2-ozenka {
+            position: absolute;
+            padding: 10px;
+            bottom: 0;
+            right: -5%;
+            background: url('../images/icon/krug.svg') center center / contain no-repeat; 
         }
 
         .start-qustions-1 {
@@ -279,8 +313,8 @@ svg {
             // height: 90px;
             font-size: 12px;
             position: relative;
-            left: 55%;
-            bottom: -220px;
+            left: 30%;
+            bottom: -120px;
         }
         
         .start-qustions-flex-appendix-1 {
@@ -302,10 +336,10 @@ svg {
             70% {}
             80% {}
             90% {}
-            100% {  transform: translate3d(-115px,-320px,0); 
+            100% {  transform: translate3d(-100px,-400px,0); 
                     font-size: 16px;
                     font-weight: 600;
-                    width: 50%;   
+                    // width: %;   
                 }
         }
 }
