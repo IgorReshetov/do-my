@@ -1,0 +1,195 @@
+.icon-menu {
+  background: url("/do-my/views/images/icon/logo.svg") center center/contain no-repeat;
+  -webkit-transition: 0.01s;
+  transition: 0.01s;
+}
+
+.icon-menu:hover {
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
+}
+
+.icon-user {
+  background: url("/do-my/views/images/icon/user.svg") center center/cover no-repeat;
+}
+
+.icon-user:hover {
+  background: url("/do-my/views/images/icon/user_hover.svg") center center/cover no-repeat;
+}
+
+.start-main-block div:nth-child(1) > .start-main-block-icon {
+  background: url("/do-my/views/images/icon/keyhole.svg") center center/cover no-repeat;
+}
+
+.start-main-block div:nth-child(1) > .start-main-block-icon:hover {
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
+}
+
+@-webkit-keyframes city {
+  50% {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes city {
+  50% {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.start-main-block div:nth-child(2) > .start-main-block-icon {
+  background: url("/do-my/views/images/icon/city.svg") center center/cover no-repeat;
+  -webkit-animation: city 5s infinite;
+          animation: city 5s infinite;
+}
+
+@-webkit-keyframes castle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes castle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon {
+  background: url("/do-my/views/images/icon/castle.svg") center center/contain no-repeat;
+  position: relative;
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon::after {
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 0px;
+  left: 0x;
+  background: url("/do-my/views/images/icon/castle2.svg") center center/contain no-repeat;
+  -webkit-animation: castle 5s infinite;
+          animation: castle 5s infinite;
+}
+
+.start-main-block div:nth-child(4) > .start-main-block-icon,
+.start-main-block div:nth-child(5) > .start-main-block-icon,
+.start-main-block div:nth-child(6) > .start-main-block-icon,
+.start-main-block div:nth-child(7) > .start-main-block-icon {
+  background: url("/do-my/views/images/icon/question_ring.svg") center center/cover no-repeat;
+}
+
+@-webkit-keyframes fox_sleep {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fox_sleep {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fox {
+  background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+  position: relative;
+}
+
+.fox::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 17px;
+  top: 0px;
+  left: 14px;
+  background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
+  -webkit-animation: fox_sleep 10s infinite;
+          animation: fox_sleep 10s infinite;
+}
+
+.column2-image1 {
+  background: url("/do-my/views/images/icon/keyhole.svg") center center/cover no-repeat;
+}
+
+@-webkit-keyframes aim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes aim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.column2-image1-aim {
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
+  -webkit-animation: aim 5s 1;
+          animation: aim 5s 1;
+}
+
+.column2-image2 {
+  background: url("/do-my/views/images/icon/IgorR.jpg") center center/cover no-repeat;
+}
+
+.column2-image3 {
+  background: url("/do-my/views/images/icon/Minakov.png") center center/cover no-repeat;
+}
+
+.column2-image4 {
+  background: url("/do-my/views/images/icon/Stas_Sap.jpg") center center/cover no-repeat;
+}
+
+.column2-image5 {
+  background: url("/do-my/views/images/icon/YraReshetov.png") center center/cover no-repeat;
+}
+
+.column2-image6 {
+  background: url("/do-my/views/images/icon/Tany_Lyb.jpg") center center/cover no-repeat;
+}
+
+.column2-image7 {
+  background: url("/do-my/views/images/icon/Vlad_Pal.jpg") center center/cover no-repeat;
+}
+/*# sourceMappingURL=image.css.map */

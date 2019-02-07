@@ -1,0 +1,166 @@
+// МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
+@mixin url($url){
+//    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   $url: '/do-my/views/images/icon/'+$url;
+   background: url($url) center center / cover no-repeat;   
+}
+
+@mixin urlcont($url){
+    //    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+       $url: '/do-my/views/images/icon/'+$url;
+       background: url($url) center center / contain no-repeat;   
+    }
+
+
+//    Картинки хэдера и футера
+.icon-menu {
+    @include urlcont('logo.svg');
+    transition: 0.01s;
+}
+
+.icon-menu:hover {
+    @include url('aim.svg');
+}
+
+.icon-user {
+    @include url('user.svg');
+    
+}
+.icon-user:hover {
+    @include url('user_hover.svg');
+}
+
+// картирнки стартовой страницы
+.start-main-block div:nth-child(1) > .start-main-block-icon {
+    @include url('keyhole.svg');
+}
+
+.start-main-block div:nth-child(1) > .start-main-block-icon:hover {
+    @include url('aim.svg');
+}
+
+
+@keyframes city {
+    
+    50%{transform: scaleX(-1);
+
+    }
+
+    100% {transform: scaleX(+1);
+    }
+}
+
+.start-main-block div:nth-child(2) > .start-main-block-icon {
+    @include url('city.svg');
+    animation: city 5s infinite;
+}
+
+
+@keyframes castle {
+    0% {opacity: 1;
+
+    }
+    50% {opacity: 0;;
+    }
+    
+    100% {opacity: 1;
+    }
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon {
+    @include urlcont('castle.svg');
+    position: relative
+}
+
+.start-main-block div:nth-child(3) > .start-main-block-icon::after {
+    content: "";
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 0px;
+    left: 0x;
+    @include urlcont('castle2.svg');
+    animation: castle 5s infinite;
+}
+
+
+.start-main-block div:nth-child(4) > .start-main-block-icon,
+.start-main-block div:nth-child(5) > .start-main-block-icon,
+.start-main-block div:nth-child(6) > .start-main-block-icon,
+.start-main-block div:nth-child(7) > .start-main-block-icon,
+{
+    @include url('question_ring.svg');
+}
+
+// ЭТО НАЩ БОТ ЛИСЕНОК СПИТ
+
+@keyframes fox_sleep {
+    0% {opacity: 1;
+
+    }
+    50% {opacity: 0;;
+    }
+    
+    100% {opacity: 1;
+    }
+}
+
+.fox {
+    @include url('fox_ring.svg');
+    position: relative
+}
+
+.fox::after {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 17px;
+    top: 0px;
+    left: 14px;
+    @include urlcont('fox_ring_sleep.svg');
+    animation: fox_sleep 10s infinite;
+}
+
+// КАРТИНКИ СТРАНИЦЫ ПРОЕКТА
+
+.column2-image1 {
+    @include url('keyhole.svg');
+}
+
+@keyframes aim {
+    0% {opacity: 0;
+
+    }
+    
+    100% {opacity: 1;
+    }
+}
+
+.column2-image1-aim {
+    @include url('aim.svg');
+    animation: aim 5s 1;
+}
+
+.column2-image2 {
+    @include url('IgorR.jpg');
+}
+
+.column2-image3 {
+    @include url('Minakov.png');
+}
+
+.column2-image4 {
+    @include url('Stas_Sap.jpg');
+}
+
+.column2-image5 {
+    @include url('YraReshetov.png');
+}
+
+.column2-image6 {
+    @include url('Tany_Lyb.jpg');
+}
+
+.column2-image7 {
+    @include url('Vlad_Pal.jpg');
+}

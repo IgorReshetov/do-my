@@ -1,0 +1,154 @@
+
+* {
+    /* border: 0; */
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a {
+    text-decoration: none;
+    color: #2b2b2b
+}
+
+h2 {
+    font-weight: 300;
+}
+
+body {
+    background: white;
+    margin-top: 60px;
+    margin-bottom: 0px;     
+}
+
+html {
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+     
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+
+.lite-shadow {
+    box-shadow: 0 0 10px 4px rgb(235, 235, 235);
+}
+
+
+.footer{
+    padding-top: 150px;
+}
+
+.wrapper-menu {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-block{
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid #2b2b2b;
+    position: fixed;
+    top: 0px;
+    z-index: 50;
+}
+
+.menu-block-first {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.menu-block-first a:hover {
+    color: red;
+}
+
+.menu-start {
+margin-left: 15px;
+}
+.menu-proect {
+margin-left: 15px;
+}
+
+.footer-block{
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 2px solid #2b2b2b;
+}
+
+.footer-block-inside1, .footer-block-inside2{
+    margin: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.icon-menu {
+    padding: 20px;
+    margin: 5px;
+    margin-left: 30px;
+    transition: 1s;
+}
+
+.icon-user {
+    padding: 20px;
+    margin: 5px;
+    margin-right: 30px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.hiden-menu {
+    display: none;
+    display: flex;
+    flex-flow: column;
+}
+
+.hiden-menu-user {
+    display: none;
+    display: flex;
+    flex-flow: column;
+}
+
+.proect:hover {
+    color: red;
+}
+
+.fox {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    margin-right: 150px;
+}
+
+
+
+@media (max-width: 570px) {
+    .wrapper {
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .menu-start {
+        display: none;
+      }
+
+    .menu-proect {
+      display: none;
+    }
+
+    .footer-block-inside2 {
+        font-size: 15px;
+        margin-left: 0px;
+    }
+    .fox {
+        margin: 5px;
+    }
+}
