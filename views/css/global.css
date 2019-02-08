@@ -138,6 +138,11 @@ a.menu-proect:hover {
   margin-left: 10px;
 }
 
+.user-menu-reg:hover, .user-menu-auth:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .hiden-menu {
   display: none;
   display: -webkit-box;
@@ -173,7 +178,7 @@ a.menu-proect:hover {
   width: 40px;
   height: 40px;
   margin: 5px;
-  margin-right: 0px;
+  margin-right: auto;
   margin-left: auto;
 }
 
