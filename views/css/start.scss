@@ -62,7 +62,7 @@
     width: 200px;
     height: 200px;
     position: absolute;
-    bottom: -20px;
+    bottom: -12%;
     right: -80px;
     z-index: -1;
     background-color: #d8d8d8;
@@ -137,13 +137,23 @@ svg {
     position: relative;
 }
 
+.start-o-proecte {
+    display: block;
+    width: 350px;
+    // height: 90px;
+    font-size: 16px;
+    position: relative;
+    left: 55px;
+    bottom: -190px;
+}
+
 .start-qustions-1 {
     display: none;
     width: 150px;
     // height: 90px;
     font-size: 16px;
     position: relative;
-    left: 80px;
+    left: 55px;
     bottom: -210px;
 }
 
@@ -156,7 +166,7 @@ svg {
     background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
 }
 
-.start-qustions-1:hover {
+.start-qustions-1:hover, .start-o-proecte:hover {
     .start-qustions-flex-appendix-1 {
         display: block;
         // position: absolute;
@@ -258,7 +268,9 @@ svg {
 @media (max-width: 570px) {
         .start-h1 {
             margin-top: 30px;
-            margin-left: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
             font-size: 14px;
             font-weight: 500;
         }
@@ -273,11 +285,11 @@ svg {
         }
 
         .start-planeta-img {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             position: absolute;
-            bottom: -95px;
-            right: -80px;
+            bottom: -5%;
+            right: -60px;
             z-index: -1;
             background-color: #d8d8d8;
             border-radius: 50%;
@@ -310,7 +322,7 @@ svg {
             animation: rocket 0.4s ease forwards;
             display: none;
             text-align: left;
-            width: 100%;
+            width: 220px;
             position: absolute;
             top: 400px;
             right: -100px;
@@ -326,35 +338,27 @@ svg {
             background: url('../images/icon/krug.svg') center center / contain no-repeat; 
         }
 
-        .start-qustions-1 {
-            display: none;
-            width: 140px;
+        .start-o-proecte {
+            display: block;
+            width: 100px;
             // height: 90px;
             font-size: 12px;
             position: relative;
-            left: 10%;
-            bottom: -270px;
-        }
-        
-        .start-qustions-flex-appendix-1 {
-            display: none;
-            position: absolute;
-            left: -30px;
-            width: 20px;
-            height: 20px;
-            background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
+            left: 5%;
+            bottom: -220px;
         }
 
-        .start-qustions-1:hover {
-            .start-qustions-flex-appendix-1 {
-                display: block;
-                // position: absolute;
-                // left: -30px;
-                // width: 20px;
-                // height: 20px;
-                background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
-            }
+        .start-qustions-1 {
+            display: none;
+            width: 120px;
+            // height: 90px;
+            font-size: 12px;
+            position: relative;
+            left: 5%;
+            bottom: -250px;
         }
+        
+       
             @keyframes rocket {
                 0% {}
                 10% {}
@@ -372,7 +376,7 @@ svg {
                         // width: %;   
                     }
                 }
-};
+}
 
 @media (max-width: 650px) {
         
@@ -385,7 +389,31 @@ svg {
         margin-left: 57%;
         // font-size: 20px;
         // font-weight: 600;
-        }
+    }
+    .start-ozenka {
+        // margin-left: 57%;
+        margin-left: 5px;
+        max-width: 290px;
+        // animation: rocket 0.4s ease forwards;
+        // display: none;
+        // text-align: left;
+        // width: 360px;
+        // position: absolute;
+        // top: 300px;
+        // right: -755px;
+        // font-size: 20px;
+        // font-weight: 600;
+    }
+    .start-qustions-1 {
+        display: none;
+        width: 120px;
+        // height: 90px;
+        font-size: 12px;
+        position: relative;
+        left: 5%;
+        bottom: -250px;
+    }
+
 };
 
 @media (max-width: 400px) {
@@ -399,5 +427,24 @@ svg {
         margin-left: 48%;
         // font-size: 20px;
         // font-weight: 600;  
-        }   
+    }
+    .start-ozenka {
+       width: 102%;
+
+    } 
+    
+    .start-qustions-1 {
+        // display: none;
+        // width: 120px;
+        // // height: 90px;
+        // font-size: 12px;
+        // position: relative;
+        // left: 5%;
+        bottom: -235px;
+    }
+
+    .start-o-proecte {
+        bottom: -180px;
+    }
+           
 };

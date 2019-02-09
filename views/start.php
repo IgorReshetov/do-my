@@ -13,6 +13,11 @@ require_once 'views/templates/header.php';
             <h2 class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</h2>
             </div>
 
+            <div class="start-o-proecte">
+                <div class="start-qustions-flex-appendix-1"></div>
+                <a href="index.php?page=project">Информация о проекте</a>
+            </div> 
+
             <div class="start-qustions-1">
                 <div class="start-qustions-flex-appendix-1"></div>
                 Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    
