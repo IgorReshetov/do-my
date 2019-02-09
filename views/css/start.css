@@ -53,7 +53,7 @@
   width: 200px;
   height: 200px;
   position: absolute;
-  bottom: -12%;
+  bottom: -20%;
   right: -80px;
   z-index: -1;
   background-color: #d8d8d8;
@@ -134,7 +134,7 @@ svg {
   font-size: 16px;
   position: relative;
   left: 55px;
-  bottom: -190px;
+  bottom: -240px;
 }
 
 .start-qustions-1 {
@@ -326,7 +326,7 @@ svg {
     width: 150px;
     height: 150px;
     position: absolute;
-    bottom: -5%;
+    bottom: -15%;
     right: -60px;
     z-index: -1;
     background-color: #d8d8d8;
@@ -341,7 +341,7 @@ svg {
   .start-h2 {
     display: block;
     width: 100%;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     text-align: left;
   }
@@ -354,7 +354,7 @@ svg {
     position: absolute;
     top: 400px;
     right: -100px;
-    font-size: 10x;
+    font-size: 18px;
     font-weight: 600;
   }
   .start-h2-ozenka {
@@ -367,10 +367,10 @@ svg {
   .start-o-proecte {
     display: block;
     width: 100px;
-    font-size: 12px;
+    font-size: 15px;
     position: relative;
-    left: 5%;
-    bottom: -220px;
+    left: 15%;
+    bottom: -240px;
   }
   .start-qustions-1 {
     display: none;
@@ -404,7 +404,7 @@ svg {
     100% {
       -webkit-transform: translate3d(-100px, -400px, 0);
               transform: translate3d(-100px, -400px, 0);
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 600;
     }
   }
@@ -432,7 +432,7 @@ svg {
     100% {
       -webkit-transform: translate3d(-100px, -400px, 0);
               transform: translate3d(-100px, -400px, 0);
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 600;
     }
   }
@@ -452,7 +452,7 @@ svg {
   .start-qustions-1 {
     display: none;
     width: 120px;
-    font-size: 12px;
+    font-size: 15px;
     position: relative;
     left: 5%;
     bottom: -250px;
