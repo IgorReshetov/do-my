@@ -37,6 +37,8 @@ require_once 'views/templates/header.php';
         
     </div>
     
+    <script src="views/js/start.js"></script>   <!-- ДОБАВЛЯЕМ основной файл js -->
+    <script src="views/js/functions.js"></script>  <!-- Подключаем функции js -->
 
 <?php
 
