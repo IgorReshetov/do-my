@@ -23,6 +23,7 @@ require_once 'views/templates/header.php';
                 Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    
             </div>
         
+
         </div>
        
 

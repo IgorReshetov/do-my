@@ -1,4 +1,5 @@
 .start-h1 {
+
     margin-top: 30px;
     margin-left: 85px;
     font-size: 14px;
@@ -191,6 +192,7 @@ svg {
     width: 20px;
     height: 20px;
     background: url("../images/icon/qustion3.svg") center center / contain no-repeat;
+
 }
 
 .start-main-block {
@@ -215,6 +217,7 @@ svg {
     font-size: 20px;
     justify-content: space-between;
     border-bottom: 1px solid #2b2b2b;
+    margin-bottom: 5px;
 }
 
 .start-main-block-title {
@@ -227,13 +230,49 @@ svg {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 70px;
+    height: 60px;
+    cursor: pointer;
 }
 
+
+
+.start-main-block-row:hover {
+    box-shadow: 10px 0px 10px rgb(240, 240, 240);
+}
+
+.start-main-block-row:hover .start-main-block-h2 a{
+    color: red;
+}
+
+.start-main-block-row:hover .start-main-block-h2:not(a){
+    color: white;
+}
+
+.start-main-block-h2:after {
+    content: "Извините, раздел в разработке.";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+.start-main-block-row:hover .start-main-block-h2:not(#done):after {
+    display: block;
+    color: red;
+}
+
+
+
 .start-main-block-icon {
-    padding: 20px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 .start-main-block-h2 {
+    position: relative;
     color: rgb(26, 26, 26);
     font-size: 18px;
     margin: 15px;

@@ -6,6 +6,7 @@
     <title><?php echo "$admin_page_title" ?></title>
     <script src="views/js/start.js"></script>   <!-- ДОБАВЛЯЕМ основной файл js -->
     <script src="views/js/functions.js"></script>  <!-- Подключаем функции js -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="views/css/style.css">
 </head>
 <body>

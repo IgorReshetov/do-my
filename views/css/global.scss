@@ -23,9 +23,12 @@ body {
     margin-bottom: 0px;     
 }
 
-// html {
-//     // background-color: #ffffff;
-// }
+html {
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+     
+}
+
 
 .wrapper {
     max-width: 1200px;
@@ -34,10 +37,14 @@ body {
 }
 
 
+.lite-shadow {
+    box-shadow: 0 0 10px 4px rgb(235, 235, 235);
+}
+
+
 .footer{
     padding-top: 150px;
 }
-
 .wrapper-menu {
     max-width: 1200px;
     margin: 0 auto;
@@ -105,6 +112,7 @@ font-weight: 700;
     transition: 1s;
 }
 
+
 .icon-menu:hover {
     transform: rotate(90deg);
 }
@@ -115,6 +123,7 @@ font-weight: 700;
     align-items: center;
     margin-right: 5px;
 }
+
 .icon-user {
     padding: 20px;
     margin: 5px;
@@ -157,7 +166,9 @@ font-weight: 700;
 }
 
 .fox {
+
     justify-items: center;
+
     width: 40px;
     height: 40px;
     margin: 5px;
@@ -166,9 +177,10 @@ font-weight: 700;
 }
 
 
+
 @media (max-width: 570px) {
     .wrapper {
-        width: 300px;
+        width: 320px;
         margin: 0 auto;
     }
     .icon-user {
