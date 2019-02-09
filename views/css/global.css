@@ -17,20 +17,20 @@ h2 {
 }
 
 body {
-  background: white;
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 0px;
 }
+
 
 html {
   background-color: #ffffff;
   scroll-behavior: smooth;
 }
 
+
 .wrapper {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  background-color: #ffffff;
 }
 
 .lite-shadow {
@@ -43,7 +43,7 @@ html {
 }
 
 .wrapper-menu {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,21 +72,33 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 5px;
 }
 
 .menu-block-first a:hover {
   color: red;
 }
 
+a.menu-proect:hover {
+  color: red;
+}
+
 .menu-start {
-  margin-left: 15px;
+  margin-left: 10px;
+  width: 100px;
+  font-weight: 500;
 }
 
 .menu-proect {
-  margin-left: 15px;
+  margin-left: 5px;
+  width: 80px;
+  font-weight: 700;
 }
 
 .footer-block {
+  position: fixed;
+  bottom: 0;
+  display: block;
   width: 100%;
   background-color: #ffffff;
   border-top: 2px solid #2b2b2b;
@@ -106,6 +118,26 @@ html {
   transition: 1s;
 }
 
+
+.icon-menu:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.user-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 5px;
+}
+
+
 .icon-user {
   padding: 20px;
   margin: 5px;
@@ -113,6 +145,16 @@ html {
   cursor: pointer;
   -webkit-transition: 0.1s;
   transition: 0.1s;
+  display: none;
+}
+
+.user-menu-reg, .user-menu-auth {
+  margin-left: 10px;
+}
+
+.user-menu-reg:hover, .user-menu-auth:hover {
+  color: red;
+  cursor: pointer;
 }
 
 .hiden-menu {
@@ -141,17 +183,30 @@ html {
   color: red;
 }
 
+.centr-fox {
+  width: 160px;
+}
+
 .fox {
+
+  justify-items: center;
   width: 40px;
   height: 40px;
   margin: 5px;
-  margin-right: 150px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (max-width: 570px) {
   .wrapper {
     width: 320px;
     margin: 0 auto;
+  }
+  .icon-user {
+    display: block;
+  }
+  .user-menu-reg, .user-menu-auth {
+    display: none;
   }
   .menu-start {
     display: none;
@@ -161,10 +216,11 @@ html {
   }
   .footer-block-inside2 {
     font-size: 15px;
-    margin-left: 0px;
+    margin-left: 60px;
   }
   .fox {
-    margin: 5px;
+    margin: auto;
+    margin-top: 5px;
   }
 }
 /*# sourceMappingURL=global.css.map */

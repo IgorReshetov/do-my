@@ -18,8 +18,8 @@ h2 {
 }
 
 body {
-    background: white;
-    margin-top: 60px;
+    // background: white;
+    margin-top: 30px;
     margin-bottom: 0px;     
 }
 
@@ -29,10 +29,11 @@ html {
      
 }
 
+
 .wrapper {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    background-color: #ffffff;
+    // background-color: #ffffff;
 }
 
 
@@ -44,9 +45,8 @@ html {
 .footer{
     padding-top: 150px;
 }
-
 .wrapper-menu {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -65,20 +65,35 @@ html {
     display: flex;
     justify-content: left;
     align-items: center;
+    margin-left: 5px;
 }
 
 .menu-block-first a:hover {
     color: red;
 }
 
+a.menu-proect:hover {
+    color: red;
+}
+
 .menu-start {
-margin-left: 15px;
+margin-left: 10px;
+// font-size: 20px;
+width: 100px;
+font-weight: 500;
 }
 .menu-proect {
-margin-left: 15px;
+margin-left: 5px;
+// font-size: 16px;
+width: 80px;
+// padding-top: 10px;
+font-weight: 700;
 }
 
 .footer-block{
+    position: fixed;
+    bottom: 0;
+    display: block;
     width: 100%;
     background-color: #ffffff;
     border-top: 2px solid #2b2b2b;
@@ -97,12 +112,36 @@ margin-left: 15px;
     transition: 1s;
 }
 
+
+.icon-menu:hover {
+    transform: rotate(90deg);
+}
+
+.user-menu {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-right: 5px;
+}
+
 .icon-user {
     padding: 20px;
     margin: 5px;
     margin-right: 30px;
     cursor: pointer;
     transition: 0.1s;
+    display: none;          // Скрываем иконку для десктопа
+}
+
+.user-menu-reg, .user-menu-auth {
+    margin-left: 10px;
+    // font-size: 14px;
+    // padding-top: 10px;
+}
+
+.user-menu-reg:hover, .user-menu-auth:hover {
+    color: red;
+    cursor: pointer;
 }
 
 .hiden-menu {
@@ -121,11 +160,20 @@ margin-left: 15px;
     color: red;
 }
 
+.centr-fox {
+    width: 160px;
+    // border: 2px solid #2b2b2b;
+}
+
 .fox {
+
+    justify-items: center;
+
     width: 40px;
     height: 40px;
     margin: 5px;
-    margin-right: 150px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 
@@ -134,6 +182,12 @@ margin-left: 15px;
     .wrapper {
         width: 320px;
         margin: 0 auto;
+    }
+    .icon-user {
+        display: block;        //Добавляем иконку для мобил.версии
+    }
+    .user-menu-reg, .user-menu-auth {
+        display: none;
     }
 
     .menu-start {
@@ -146,9 +200,10 @@ margin-left: 15px;
 
     .footer-block-inside2 {
         font-size: 15px;
-        margin-left: 0px;
+        margin-left: 60px;
     }
     .fox {
-        margin: 5px;
+        margin: auto;
+        margin-top: 5px;
     }
 }

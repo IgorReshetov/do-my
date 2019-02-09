@@ -1,5 +1,6 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
+
 //    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
    $url: '/do-my/views/images/icon/'+$url;
    background: url($url) center center / cover no-repeat;   
@@ -164,3 +165,4 @@
 .column2-image7 {
     @include url('Vlad_Pal.jpg');
 }
+
