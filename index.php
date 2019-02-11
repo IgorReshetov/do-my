@@ -23,6 +23,6 @@ switch ($page) {
     require_once 'views/privacy.php';
     break;
     default:
-    require_once 'controllers/start.php';
+    require_once 'controllers/survey.php';
     break;
     }
