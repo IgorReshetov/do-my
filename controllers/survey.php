@@ -1,21 +1,15 @@
 <?php
-
 require_once 'models/Question.php';
 require_once 'models/Answer.php';
 
-// $question = new Question(2, 10, 5);
-
-// echo "Check getQuestion:";
-// echo '<pre>';
-// var_dump($question);
-
-$answer = new Answer(2, 8);
-
-echo "Check getAnswer:";
-echo '<pre>';
-var_dump($answer);
+// $question = new Question(1,2);
 
 
-// echo "Проверка базы: запрос всех вопросов";
-// echo '<pre>';
-// var_dump($questiones);
+$answer = new Answer(1, 1);
+
+
+// var_dump ($question);
+
+var_dump ($answer);
+
+require_once 'views/survey.php';
