@@ -3,10 +3,10 @@ require_once 'models/Question.php';
 require_once 'models/Answer.php';
 
 
-$question = new Question(1);
+$question = new Question(3);
 
 
-$answer = new Answer(1, $question->id_parent);
+$answer = new Answer(3, $question->id_parent);
 
 echo '<br>';
 echo '<br>';
