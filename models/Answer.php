@@ -12,6 +12,8 @@ class Answer
     public $scale_max;
     public $scale_step;
     public $show_index;
+    public $is_true;
+    public $is_true_comment;
 
     public function __construct($id_tree, $id_question)      //варианты ответов для вопроса
     {
@@ -34,6 +36,8 @@ class Answer
              $this->scale_max[] =           $answer_data['scale_max'];
              $this->scale_step[] =          $answer_data['scale_step'];
              $this->show_index[] =          $answer_data['show_index'];
+             $this->is_true[] =             $answer_data['is_true'];
+             $this->is_true_comment[] =     $answer_data['is_true_comment'];
         }
         $result->close();
         $mysqli->next_result();
