@@ -10,16 +10,18 @@ function init() {
 // Создаем обработчик для отправки запроса JSON
 
 function json_Q_A() {
-      
-    var url = "/do-my/controllers/handlers/get_question.php"; // Дабавил файл get_question.json для теста XHR
+    numStartQst++;  
+    var url = "/do-my/controllers/handlers/get_question.php?id_question=" + numStartQst; // Дабавил файл get_question.json для теста XHR
     var request = new XMLHttpRequest();
     request.open("GET", url);
+    request.setRequestHeader("Content-type", "application/json");
     request.onload = function() { 
         if (request.status == 200) { 
         update_Q_A(request.responseText);
-        }; console.log(request.responseText);
+        }; 
+        console.log(request.responseText);
     };
-    numStartQst++; 
+     
     var number_Q = JSON.stringify(numStartQst); //Передаем в строке следующий номер вопроса    ИЛИ(Выбираем ID элемента DOM, на который щелкнул user и парсим parseInt(str.match(/\d+/) ) // 
     console.log(number_Q);
     request.send(number_Q);
