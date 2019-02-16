@@ -1,0 +1,28 @@
+#Qst {
+    margin-top: 100px;
+    margin-left: 50px;
+    display: inline-block;
+    width: 38%;
+    // float: left;
+    border: 2px solid;
+}
+
+#Asw {
+    display: inline-block;
+    margin-left: 50px;
+    border: 2px solid;
+    width: 38%
+}
+
+#button {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 200px;
+    border: 2px solid;
+    background: gold;
+    text-align: center
+}
+
+#button:hover {
+    cursor: pointer;
+}

@@ -21,12 +21,10 @@ body {
   margin-bottom: 0px;
 }
 
-
 html {
   background-color: #ffffff;
   scroll-behavior: smooth;
 }
-
 
 .wrapper {
   max-width: 1200px;
@@ -118,7 +116,6 @@ a.menu-proect:hover {
   transition: 1s;
 }
 
-
 .icon-menu:hover {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -136,7 +133,6 @@ a.menu-proect:hover {
           align-items: center;
   margin-right: 5px;
 }
-
 
 .icon-user {
   padding: 20px;
@@ -188,7 +184,6 @@ a.menu-proect:hover {
 }
 
 .fox {
-
   justify-items: center;
   width: 40px;
   height: 40px;
