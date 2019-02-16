@@ -1,5 +1,5 @@
 window.onload = init;
-var numStartQst = 3; // Вводим глобальный счетчик вопросов
+var numStartQst = 1; // Вводим глобальный счетчик вопросов
 function init() {
     var button = document.getElementById('button');
     button.onclick = json_Q_A;
@@ -11,7 +11,7 @@ function init() {
 
 function json_Q_A() {
       
-    var url = "/do-my/controllers/handlers/get_question.json"; // Дабавил файл get_question.json для теста XHR
+    var url = "/do-my/controllers/handlers/get_question.php"; // Дабавил файл get_question.json для теста XHR
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.onload = function() { 

@@ -1,8 +1,10 @@
 <?php
 require_once 'models/Question.php';
 require_once 'models/Answer.php';
-$id_question = addslashes((((isset($_REQUEST['id_question'])) && $_REQUEST['id_question'] !== "")?$_REQUEST['id_question']:0));
 
+$postData = file_get_contents('php://input');
+
+$id_question = json_decode($postData, true);
 
 $question = new Question(1, $id_question);
 $answer = new Answer(1, $question->id_parent);
