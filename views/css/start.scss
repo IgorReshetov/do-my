@@ -3,27 +3,18 @@
     margin-top: 30px;
     margin-left: 85px;
     font-size: 14px;
-    // text-align: left;
     font-weight: 600;
 }
 
 .start-h2-conteiner {
-    // border: 2px solid;
     position: relative;
     max-width: 360px;
     margin-top: 100px;
-    // margin-right: 200px;
     margin-left: 230px;
-    // font-size: 20px;
-    // font-weight: 600;
-   
 }
 
 .start-h2 {
     display: block;
-    // position: relative;
-    // width: 360px;
-    // margin-top: 100px;
     margin-right: 0;
     font-size: 20px;
     font-weight: 600;
@@ -32,7 +23,6 @@
 }
 
 .start-h2:hover, .start-ozenka:hover {
-    // padding: 2px;
     box-shadow: 0 0 10px rgba(228, 16, 16, 0.513);
     cursor: pointer;
 }
@@ -44,8 +34,6 @@
     right: -10%;
     background: url('../images/icon/krug.svg') center center / contain no-repeat; 
 }
-
-
 
 .start-ozenka {
     animation: rocket 0.4s ease forwards;
@@ -71,7 +59,6 @@
 }
 
 .start-linia, .start-linia-2 {
-    // border: 2px solid;
     position: fixed;
     display: flex;
     left: 5%;
@@ -81,13 +68,11 @@
     margin: auto;
     height: 400px;
     opacity: 1;
-    // height: 50px;
     z-index: -2;
 }
 
 .start-linia-2 {
     display: block;
-    // border: 2px solid;
     z-index: -1;
 }
 
@@ -98,8 +83,7 @@
     position: absolute;
     top: -20%;
     left: -180px;
-    z-index: -1;
-              
+    z-index: -1;          
 }
 
 svg {
@@ -118,7 +102,6 @@ svg {
     z-index: -2;
 }
 
-
 .start-qustions-flex {
     position: absolute;
     max-width: 1200px;
@@ -127,7 +110,6 @@ svg {
     left: 15%;
     display: flex;
     justify-content: space-between;
-
 }
 
 .start-qustions-flex>div {
@@ -141,7 +123,6 @@ svg {
 .start-o-proecte {
     display: block;
     width: 350px;
-    // height: 90px;
     font-size: 16px;
     position: relative;
     left: 55px;
@@ -151,7 +132,6 @@ svg {
 .start-qustions-1 {
     display: none;
     width: 150px;
-    // height: 90px;
     font-size: 16px;
     position: relative;
     left: 55px;
@@ -170,10 +150,6 @@ svg {
 .start-qustions-1:hover, .start-o-proecte:hover {
     .start-qustions-flex-appendix-1 {
         display: block;
-        // position: absolute;
-        // left: -30px;
-        // width: 20px;
-        // height: 20px;
         background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
     }
 };
@@ -192,7 +168,6 @@ svg {
     width: 20px;
     height: 20px;
     background: url("../images/icon/qustion3.svg") center center / contain no-repeat;
-
 }
 
 .start-main-block {
@@ -235,8 +210,6 @@ svg {
     cursor: pointer;
 }
 
-
-
 .start-main-block-row:hover {
     box-shadow: 10px 0px 10px rgb(240, 240, 240);
 }
@@ -262,8 +235,6 @@ svg {
     color: red;
 }
 
-
-
 .start-main-block-icon {
     width: 50px;
     height: 50px;
@@ -284,19 +255,8 @@ svg {
     font-weight: 600;
 }
 
-
-
 @keyframes rocket {
     0% {}
-    10% {}
-    20% {}
-    30% {}
-    40% {}
-    50% {}
-    60% {}
-    70% {}
-    80% {}
-    90% {}
     100% {  transform: translate3d(-755px,-300px,0); 
             font-size: 20px;
             font-weight: 600;
@@ -316,7 +276,6 @@ svg {
 
         .house {
             width: 80%;
-            // height: 100px;
             position: absolute;
             top: -10%;
             left: -120px;
@@ -335,23 +294,15 @@ svg {
         }
 
         .start-h2-conteiner {
-            // border: 2px solid;
             position: relative;
             width: 50%;
             top: 10%;
-            // margin-right: 0%;
             margin-left: 57%;
-            // font-size: 20px;
-            // font-weight: 600;
-           
         }
 
         .start-h2 {
             display: block;
-            // position: relative;
             width: 100%;
-            // margin-top: 100px;
-            // margin-left: 46%;
             font-size: 18px;
             font-weight: 600;
             text-align: left;
@@ -380,7 +331,6 @@ svg {
         .start-o-proecte {
             display: block;
             width: 100px;
-            // height: 90px;
             font-size: 15px;
             position: relative;
             left: 15%;
@@ -390,7 +340,6 @@ svg {
         .start-qustions-1 {
             display: none;
             width: 120px;
-            // height: 90px;
             font-size: 12px;
             position: relative;
             left: 5%;
@@ -400,15 +349,6 @@ svg {
        
             @keyframes rocket {
                 0% {}
-                10% {}
-                20% {}
-                30% {}
-                40% {}
-                50% {}
-                60% {}
-                70% {}
-                80% {}
-                90% {}
                 100% {  transform: translate3d(-100px,-400px,0); 
                         font-size: 18px;
                         font-weight: 600;
@@ -420,33 +360,18 @@ svg {
 @media (max-width: 650px) {
         
     .start-h2-conteiner {
-        // border: 2px solid;
         position: relative;
         max-width: 300px;
         margin-top: 100px;
-        // margin-right: 200px;
         margin-left: 57%;
-        // font-size: 20px;
-        // font-weight: 600;
     }
     .start-ozenka {
-        // margin-left: 57%;
         margin-left: 5px;
         max-width: 290px;
-        // animation: rocket 0.4s ease forwards;
-        // display: none;
-        // text-align: left;
-        // width: 360px;
-        // position: absolute;
-        // top: 300px;
-        // right: -755px;
-        // font-size: 20px;
-        // font-weight: 600;
     }
     .start-qustions-1 {
         display: none;
         width: 120px;
-        // height: 90px;
         font-size: 15px;
         position: relative;
         left: 5%;
@@ -458,27 +383,17 @@ svg {
 @media (max-width: 400px) {
 
     .start-h2-conteiner {
-        // border: 2px solid;
         position: relative;
         width: 50%;
         margin-top: 100px;
-        // margin-right: 0%;
-        margin-left: 48%;
-        // font-size: 20px;
-        // font-weight: 600;  
+        margin-left: 48%; 
     }
+
     .start-ozenka {
        width: 102%;
-
     } 
     
     .start-qustions-1 {
-        // display: none;
-        // width: 120px;
-        // // height: 90px;
-        // font-size: 12px;
-        // position: relative;
-        // left: 5%;
         bottom: -235px;
     }
 
