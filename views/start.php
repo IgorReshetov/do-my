@@ -8,7 +8,7 @@ require_once 'views/templates/header.php';
         <div class="start-linia-2">
             <div class="start-h2-conteiner">
                 <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры
-                <div class="start-h2-ozenka">7.8</div>
+                    <div class="start-h2-ozenka">7.8</div>
                 </h2>
                 <h2 class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</h2>
             </div>
@@ -22,12 +22,9 @@ require_once 'views/templates/header.php';
                 <div class="start-qustions-flex-appendix-1"></div>
                 Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    
             </div>
-        
-
         </div>
        
-
-         <div class="start-linia">
+        <div class="start-linia">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 700" preserveAspectRatio="none">
                 <path width="100%"  height="500px" fill="none" stroke="#FF3535"  stroke-width="5" d="M20,300 Q100,700, 380,670" />
             </svg>
