@@ -43,8 +43,8 @@ function update_Q_A (messages) {
     div.setAttribute("class", "start-Answer");
     var answer_all ='';
     div_Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
-    messages.answer.answer.forEach(function(answer) {
-    answer_all = answer_all + answer + '<br>';
+    messages.answer.answer.forEach(function(i) {
+    answer_all += i + '<br>';
     });
 
     div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
