@@ -7,8 +7,7 @@ function init() {
     // console.log((numStartQst));
 }
 
-// Создаем обработчик для отправки запроса JSON
-
+// Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>>
 function json_Q_A() {
     var data = {
         numStartQst:numStartQst,
