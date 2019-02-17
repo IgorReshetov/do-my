@@ -10,6 +10,12 @@ require_once 'views/templates/header.php';
         
 </div>
 
+<!-- пример foreach php -->
+<?php 
+// foreach ($collections as $collection) {
+// echo '<option value="'.$collection->id.'">'.$collection->title.'</option>';
+// };
+?>
 
 
 <script src="views/js/survey.js"></script>
