@@ -10,6 +10,7 @@ table {
     border: thin solid black;
     caption-side: bottom;
     border-collapse: collapse;
+    opacity: 0;
 }
 
 td, th {
@@ -21,9 +22,22 @@ td, th {
 //     margin-top: 50px;
 // }
 
+#Q {
+    background: lightskyblue;
+}
+
+
+
 .prev_next {
     margin-top: 10px;
+    
 }
+
+#prev:hover, #next:hover {
+    background: rgb(195, 229, 250);
+    cursor: pointer;
+}
+
 
 .left {
     text-align: left;

@@ -6,23 +6,23 @@ require_once 'views/templates/header.php';
 <div class="main">
     <table class="opros">
         <tr>
-            <th colspan="2" class="Q"><?=$question->question?></th>
+            <th colspan="2" id="Q"></th>
         </tr>
         <tr>
             <td class="right">1</td>
-            <td class="left">Вариант ответа 1</td>
+            <td id="A0" class="left">Вариант ответа 1</td>
         </tr>
         <tr>
             <td class="right">2</td>
-            <td class="left">Вариант ответа 2</td>
+            <td id="A1" class="left">Вариант ответа 2</td>
         </tr>
         <tr>
             <td class="right">3</td>
-            <td class="left">Вариант ответа 3</td>
+            <td id="A2" class="left">Вариант ответа 3</td>
         </tr>
         <tr>
             <td class="right">4</td>
-            <td class="left">Вариант ответа 4</td>
+            <td id="A3" class="left">Вариант ответа 4</td>
         </tr>
     </table>
 

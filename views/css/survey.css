@@ -10,6 +10,7 @@ table {
   border: thin solid black;
   caption-side: bottom;
   border-collapse: collapse;
+  opacity: 0;
 }
 
 td, th {
@@ -17,8 +18,17 @@ td, th {
   padding: 5px;
 }
 
+#Q {
+  background: lightskyblue;
+}
+
 .prev_next {
   margin-top: 10px;
+}
+
+#prev:hover, #next:hover {
+  background: #c3e5fa;
+  cursor: pointer;
 }
 
 .left {
