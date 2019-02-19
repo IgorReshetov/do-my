@@ -105,16 +105,20 @@ function update_Q_A (messages) {
     var A2 = document.getElementById("A2");
     var A3 = document.getElementById("A3");
     var arr = [A0,A1,A2,A3]
-    console.log(arr);
-    var div = document.createElement("div");
-    div.setAttribute("class", "start-Answer");
-    var answer_all ='';
+    // console.log(arr);
+    // var div = document.createElement("div");
+    // div.setAttribute("class", "start-Answer");
+    // var answer_all ='';
     Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
+    for (var i=0; i<arr.length; i++) {
+        arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
+    }
     messages.answer.answer.forEach(function(item,i) {
-    return arr[i].innerHTML = item; 
+    return eval('A'+ i).innerHTML = item;
+    
     // answer_all += i + '<br>';
     });
-
+    // return eval ('A' + i) - запускаем код через строку
     // div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
 }
 

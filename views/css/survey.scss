@@ -16,6 +16,10 @@ table {
 td, th {
     border: thin solid black;
     padding: 5px;
+   }
+
+td {
+    font-size: 80%;
 }
 
 // .opros {
@@ -45,6 +49,7 @@ td, th {
 
 .right {
     text-align: right;
+    width: 20px;
 }
 
 #button {

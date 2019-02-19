@@ -18,6 +18,10 @@ td, th {
   padding: 5px;
 }
 
+td {
+  font-size: 80%;
+}
+
 #Q {
   background: lightskyblue;
 }
@@ -37,6 +41,7 @@ td, th {
 
 .right {
   text-align: right;
+  width: 20px;
 }
 
 #button {
