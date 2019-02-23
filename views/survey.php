@@ -9,20 +9,34 @@ require_once 'views/templates/header.php';
             <th colspan="2" id="Q"></th>
         </tr>
         <tr>
-            <td class="right">1</td>
+            <td class="right">
+                <input type="radio" name="radio" value="0">
+            </td>
             <td id="A0" class="left">Вариант ответа 1</td>
         </tr>
         <tr>
-            <td class="right">2</td>
+            <td class="right">
+                <input type="radio" name="radio" value="1">
+            </td>
             <td id="A1" class="left">Вариант ответа 2</td>
         </tr>
         <tr>
-            <td class="right">3</td>
+            <td class="right">
+                <input type="radio" name="radio" value="2">
+            </td>
             <td id="A2" class="left">Вариант ответа 3</td>
         </tr>
         <tr>
-            <td class="right">4</td>
+            <td class="right">
+                <input type="radio" name="radio" value="3">
+            </td>
             <td id="A3" class="left">Вариант ответа 4</td>
+        </tr>
+        <tr>
+            <td class="right">
+                <input type="radio" name="radio" value="4">
+            </td>
+            <td id="A4" class="left">Вариант ответа 4</td>
         </tr>
     </table>
 

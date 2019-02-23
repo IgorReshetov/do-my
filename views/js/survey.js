@@ -34,7 +34,7 @@ function json_Q_A() {
         }
     
     var messages = JSON.parse(xhr.responseText);
-      
+    console.log(messages);   
     update_Q_A(messages);
     }
 
@@ -92,7 +92,7 @@ function startOpros() {
         }
     
     var messages = JSON.parse(xhr.responseText);
-      
+    console.log(messages);  
     update_Q_A(messages);
     }
     return false;
@@ -104,7 +104,8 @@ function update_Q_A (messages) {
     var A1 = document.getElementById("A1");
     var A2 = document.getElementById("A2");
     var A3 = document.getElementById("A3");
-    var arr = [A0,A1,A2,A3]
+    var A4 = document.getElementById("A4");
+    var arr = [A0,A1,A2,A3,A4]
     // console.log(arr);
     // var div = document.createElement("div");
     // div.setAttribute("class", "start-Answer");
@@ -118,6 +119,13 @@ function update_Q_A (messages) {
     
     // answer_all += i + '<br>';
     });
+    
+    for (var i=0; i<arr.length; i++) {
+       if (arr[i].innerHTML == '') {
+            eval('A'+ i).parentElement.style.display = 'none';
+       } else {eval('A'+ i).parentElement.style.display = 'table-row'};                                                        // Обнуляем предыдущие ответы
+    }
+    
     // return eval ('A' + i) - запускаем код через строку
     // div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
 }
