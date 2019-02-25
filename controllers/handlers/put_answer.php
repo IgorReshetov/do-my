@@ -16,7 +16,7 @@ $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
 $answer_is_true = $answer->is_true[$id_answer-1];
 $answer_is_true_comment = $answer->is_true_comment[$id_answer-1];
-$time_answer = now();
+$time_answer = time();
 
 $retry = 0;
 foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяем на наличие ранее отвеченного вопроса и если ответ есть - перезаписываем
