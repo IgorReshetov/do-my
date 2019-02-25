@@ -24,7 +24,7 @@ function json_Q_A() {
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'controllers/handlers/get_question.php', true);
+    xhr.open('POST', 'index.php?page=get_question', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
@@ -51,7 +51,7 @@ function json_Q_A_prev() {
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'controllers/handlers/get_question.php', true);
+    xhr.open('POST', 'index.php?page=get_question', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
@@ -82,7 +82,7 @@ function startOpros() {
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'controllers/handlers/get_question.php', true);
+    xhr.open('POST', 'index.php?page=get_question', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
