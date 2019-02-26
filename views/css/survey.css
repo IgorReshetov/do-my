@@ -56,4 +56,93 @@ td {
 #button:hover {
   cursor: pointer;
 }
+
+.slider-box-survey-arround {
+  height: 20px;
+  width: 440px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.slider-box-survey {
+  border: thin solid black;
+  height: 20px;
+  width: 400px;
+  overflow: hidden;
+}
+
+.slider-box-survey-before {
+  height: 15px;
+  width: 15px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  right: 30px;
+  top: 0;
+  cursor: pointer;
+}
+
+.slider-box-survey-before:hover {
+  border-color: red;
+}
+
+.slider-box-survey-before:active + div + div > div {
+  margin-left: -1200px;
+}
+
+.slider-box-survey-after {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  height: 15px;
+  width: 15px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+  left: 430px;
+  top: 0;
+  cursor: pointer;
+}
+
+.slider-box-survey-after:hover {
+  border-color: red;
+}
+
+.slider-box-survey-after:active + div > div {
+  margin-left: 1200px;
+}
+
+.slider-survey {
+  width: 1200px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-transition: 10s all;
+  transition: 10s all;
+}
+
+.step-survey {
+  width: 10px;
+  height: 10px;
+  border: 2px solid black;
+  border-radius: 100%;
+}
 /*# sourceMappingURL=survey.css.map */

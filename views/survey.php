@@ -4,6 +4,26 @@ require_once 'views/templates/header.php';
 ?>
 
 <div class="main">
+    <div class="slider-box-survey-arround">
+        <div class="slider-box-survey-before"></div>
+        <div class="slider-box-survey-after"></div>
+        <div class="slider-box-survey">
+            <div class="slider-survey">
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+                <div class="step-survey"></div>
+            </div>
+        </div>
+    </div>
     <table class="opros">
         <tr>
             <th colspan="2" id="Q"></th>
