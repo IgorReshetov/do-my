@@ -18,7 +18,7 @@ if( !isset($_SESSION['bot']) ) { // ПРОВЕРЯЕМ IP АДРЕС ПО СТО
     if ($result == false) {$_SESSION['bot'] = 0;}
     else {$_SESSION['bot'] = 2;}
 }
-$_SESSION['time_start'] = now();
+$_SESSION['time_start'] = time();
 
 if (DEV_MODE == true) {
     $admin_page_title = 'Думай-тест';   
