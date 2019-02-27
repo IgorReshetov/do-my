@@ -56,14 +56,14 @@ require_once 'views/templates/header.php';
             <td class="right">
                 <input type="radio" name="radio" value="4">
             </td>
-            <td id="A4" class="left">Вариант ответа 4</td>
+            <td id="A4" class="left">Вариант ответа 5</td>
         </tr>
     </table>
 
     <table class="prev_next">
         <tr>
             <td id="prev">Предыдущий вопрос</td>
-            <td id="next">Следующий вопрос</td>
+            <td id="next">ОТВЕТИТЬ</td>
         </tr>
     </table>
 

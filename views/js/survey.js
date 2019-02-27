@@ -1,12 +1,13 @@
 window.onload = init;
+
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
+
 function init() {
     var button = document.getElementById('button');
     button.onclick = startOpros;
     
     var next = document.getElementById('next');
     var prev = document.getElementById('prev');
-
 
     next.onclick = json_Q_A;
     prev.onclick = json_Q_A_prev;
@@ -16,15 +17,29 @@ function init() {
 
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>>
 function json_Q_A() {
-    numStartQst++;
+    var inputs = document.querySelectorAll("input");
+    var numAnsw, numQst;
+    
+    for (var i=0; i<inputs.length; i++) {
+        if (inputs[i].checked===true) { 
+            numAnsw = inputs[i].getAttribute('value');
+            numQst = inputs[i].getAttribute('name').substring(1);
+        };  
+    };
+    console.log(numQst);
+
+    // numStartQst++;
     var data = {
-        numStartQst:numStartQst,
+        id_question: numQst,
+        id_answer: numAnsw,
+        sign_bot: 1              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
     };
 
     var data = JSON.stringify(data);
+    console.log(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'index.php?page=get_question', true);
+    xhr.open('POST', 'index.php?page=get_answer.php', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
@@ -35,7 +50,7 @@ function json_Q_A() {
     
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);   
-    update_Q_A(messages);
+    update_afterClientAnswer(messages);
     }
 
     return false;
@@ -73,11 +88,12 @@ function startOpros() {
     var tables = document.querySelectorAll("table");
     for (var i = 0; i < tables.length; i++) {
         tables[i].style.opacity = "1";
-    }
+    };
     document.getElementById("button").style.display="none";
+    numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     var data = {
         numStartQst:numStartQst,
-    }
+    };
 
     var data = JSON.stringify(data);
 
@@ -99,6 +115,14 @@ function startOpros() {
 }
 
 function update_Q_A (messages) {
+    var inputs = document.querySelectorAll("input");
+    for (var i=0; i<inputs.length; i++) {
+        inputs[i].checked = false;
+        inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
+        inputs[i].setAttribute('value', messages.answer.id_answer[i]);
+    };
+    console.log(inputs);
+
     var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
     var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
     var A1 = document.getElementById("A1");
@@ -129,6 +153,12 @@ function update_Q_A (messages) {
     // return eval ('A' + i) - запускаем код через строку
     // div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
 }
+
+function update_afterClientAnswer(messages) {
+    // TODO - написать код
+
+}
+
 
 
 // window.onload = init;
