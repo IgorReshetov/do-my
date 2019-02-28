@@ -29,8 +29,8 @@ if (DEV_MODE == true) {
 // ГЛАВНЫЙ КОНТРОЛЛЕР
 $page = addslashes(((isset($_GET['page'])) && $_GET['page'] !== "")?$_GET['page']:false);
 
-if ($_SESSION['bot'] == 1) {$page = "check_bot";}
-if ($_SESSION['bot'] == 2) {$page = "die_bot";}
+if ($_SESSION['bot'] == 1 && DEV_MODE != true) {$page = "check_bot";}
+if ($_SESSION['bot'] == 2 && DEV_MODE != true) {$page = "die_bot";}
 
 switch ($page) {
     case "project":

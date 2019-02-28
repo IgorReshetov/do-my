@@ -22,17 +22,18 @@ function json_Q_A() {
     
     for (var i=0; i<inputs.length; i++) {
         if (inputs[i].checked===true) { 
-            numAnsw = inputs[i].getAttribute('value');
-            numQst = inputs[i].getAttribute('name').substring(1);
+            numAnsw = parseInt(inputs[i].getAttribute('value'));
+            numQst = parseInt(inputs[i].getAttribute('name').substring(1));
         };  
     };
+    console.log(numAnsw);
     console.log(numQst);
 
     // numStartQst++;
-    // в дату не пишутся номер вопроса и номер ответа, поставил цифры для проверки - все работает.
+    
     var data = {
-        id_question: 1,
-        id_answer: 2,
+        id_question: numQst,
+        id_answer: numAnsw,
         sign_bot: 0              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
     };
 
