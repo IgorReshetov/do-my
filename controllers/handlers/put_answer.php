@@ -29,7 +29,6 @@ foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяе�
     }
 }
 
-
 (($i == "") ? $i = 0 : $i = $i);
 $_SESSION['user_answer'][$i]['id_question'] = $id_question;
 $_SESSION['user_answer'][$i]['id_answer'] = $id_answer;

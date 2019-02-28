@@ -29,17 +29,18 @@ function json_Q_A() {
     console.log(numQst);
 
     // numStartQst++;
+    // в дату не пишутся номер вопроса и номер ответа, поставил цифры для проверки - все работает.
     var data = {
-        id_question: numQst,
-        id_answer: numAnsw,
-        sign_bot: 1              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
+        id_question: 1,
+        id_answer: 2,
+        sign_bot: 0              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
     };
 
     var data = JSON.stringify(data);
     console.log(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'index.php?page=get_answer.php', true);
+    xhr.open('POST', 'index.php?page=put_answer', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
@@ -48,6 +49,8 @@ function json_Q_A() {
             return;
         }
     
+    console.log(xhr.responseText);
+
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);   
     update_afterClientAnswer(messages);
