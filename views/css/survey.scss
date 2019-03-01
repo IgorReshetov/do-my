@@ -11,12 +11,13 @@ table {
     caption-side: bottom;
     border-collapse: collapse;
     opacity: 0;
+    transition: 0.5s;
 }
 
 td, th {
     border: thin solid black;
     padding: 5px;
-   }
+}
 
 td {
     font-size: 80%;
@@ -30,11 +31,18 @@ td {
     background: lightskyblue;
 }
 
+#next {
+    display: none;
+    opacity: 0;
+    text-align: center;
+    background: gold;
+    transition: 0.5s;
+}
+
 table.prev_next {
     border-collapse: separate;
     border-spacing: 70px 0;
     border: none;
-    
 }
 
 .prev_next {
@@ -70,6 +78,41 @@ table.prev_next {
     cursor: pointer;
 }
 
+#result {
+    display: none;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: thin solid black;
+    background: white;
+    opacity: 1;
+    transition: 0.5s;
+    z-index: 99;
+}
+
+#forward {
+    border: thin solid black;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
+#why {
+    border: thin solid black;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    right: 25px;
+}
+#img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
 
 // #Qst {
 //     margin-top: 100px;

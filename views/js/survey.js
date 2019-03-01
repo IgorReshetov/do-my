@@ -9,10 +9,19 @@ function init() {
     var next = document.getElementById('next');
     var prev = document.getElementById('prev');
 
+    var inputs = document.querySelectorAll("input");
+    inputs.forEach(function (item) {
+        item.onclick = next_ready;
+    });
+    
     next.onclick = json_Q_A;
     prev.onclick = json_Q_A_prev;
 
+}
 
+function next_ready() {
+    next.style.display = 'block';
+    next.style.opacity = '1';
 }
 
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>>
@@ -26,8 +35,8 @@ function json_Q_A() {
             numQst = parseInt(inputs[i].getAttribute('name').substring(1));
         };  
     };
-    console.log(numAnsw);
-    console.log(numQst);
+    // console.log(numAnsw);
+    // console.log(numQst);
 
     // numStartQst++;
     
@@ -38,7 +47,7 @@ function json_Q_A() {
     };
 
     var data = JSON.stringify(data);
-    console.log(data);
+    // console.log(data);
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'index.php?page=put_answer', true);
@@ -52,9 +61,9 @@ function json_Q_A() {
     
     console.log(xhr.responseText);
 
-    var messages = JSON.parse(xhr.responseText);
-    console.log(messages);   
-    update_afterClientAnswer(messages);
+    var otvet = JSON.parse(xhr.responseText);
+    console.log(otvet);   
+    update_afterClientAnswer(otvet);
     }
 
     return false;
@@ -142,6 +151,7 @@ function update_Q_A (messages) {
     for (var i=0; i<arr.length; i++) {
         arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
     }
+    
     messages.answer.answer.forEach(function(item,i) {
     return eval('A'+ i).innerHTML = item;
     
@@ -158,10 +168,28 @@ function update_Q_A (messages) {
     // div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
 }
 
-function update_afterClientAnswer(messages) {
-    // TODO - написать код
+function update_afterClientAnswer(otvet) {
+    var invalid = document.getElementById("result");
+    if (otvet.answer_is_true = null) {
+        invalid.style.display = "block";
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -62,13 +62,19 @@ require_once 'views/templates/header.php';
 
     <table class="prev_next">
         <tr>
-            <td id="prev">Предыдущий вопрос</td>
-            <td id="next">ОТВЕТИТЬ</td>
+            <td id="prev" style="display:none">Предыдущий вопрос</td>
+            <td id="next" >ОТВЕТИТЬ</td>
         </tr>
     </table>
 
     <div id='button'>Начать опрос</div>
 
+    <div id="result">
+        <div id="why">Описание ldfjsldfjk sdlfjsldfj sldfjlsdkjf sldkfjlsdkjf sdlfkjlsdkjf</div>
+        <img id="img" src="views/images/icon/elephant.png" alt="">
+        <div id="forward">Продолжить</div>
+    </div> 
+   
     <!-- 'это будущий блок проверки на бота. сюда помещаем ловушки кнопки и чекбоксы, разбросанные незаметно для пользователя по всему экрану -->
     <div class="hello"></div> 
 

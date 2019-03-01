@@ -11,6 +11,8 @@ table {
   caption-side: bottom;
   border-collapse: collapse;
   opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 td, th {
@@ -24,6 +26,15 @@ td {
 
 #Q {
   background: lightskyblue;
+}
+
+#next {
+  display: none;
+  opacity: 0;
+  text-align: center;
+  background: gold;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 table.prev_next {
@@ -61,6 +72,46 @@ table.prev_next {
 
 #button:hover {
   cursor: pointer;
+}
+
+#result {
+  display: none;
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  border: thin solid black;
+  background: white;
+  opacity: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 99;
+}
+
+#forward {
+  border: thin solid black;
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+#why {
+  border: thin solid black;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+}
+
+#img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
 }
 
 .slider-box-survey-arround {
