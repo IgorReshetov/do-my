@@ -132,11 +132,30 @@ function startOpros() {
 }
 
 function update_Q_A (messages) {
+    var answShuffle = [];
+    
+    messages.answer.id_answer.forEach(function(item,i) {
+        var ans = [];
+        ans.push(item);
+        ans.push(messages.answer.answer[i]);
+        // ans[item] = messages.answer.answer[i];
+        answShuffle.push(ans);
+    });
+
+    answShuffle = answShuffle.shuffle();
+    var idShuffle = [], answerShuffle=[];
+    answShuffle.forEach(function(item, i){
+        idShuffle.push(item[0]);
+        answerShuffle.push(item[1])
+    });
+       console.log(idShuffle);  
+       console.log(answerShuffle);
+   
     var inputs = document.querySelectorAll("input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
-        inputs[i].setAttribute('value', messages.answer.id_answer[i]);
+        inputs[i].setAttribute('value', idShuffle[i] ); //messages.answer.id_answer[i]
     };
     console.log(inputs);
 
@@ -156,8 +175,8 @@ function update_Q_A (messages) {
         arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
     }
     
-    messages.answer.answer.forEach(function(item,i) {
-    return eval('A'+ i).innerHTML = item;
+    answerShuffle.forEach(function(item,i) {         // messages.answer.answer
+    return eval('A'+ i).innerHTML = item;   //.Object.keys(answShuffle[i])[0]);
     
     // answer_all += i + '<br>';
     });
@@ -224,7 +243,15 @@ function update_afterClientFoward() {
 
 }
 
-
+Array.prototype.shuffle = function() {
+    for (var i = this.length - 1; i > 0; i--) {
+        var num = Math.floor(Math.random() * (i + 1));
+        var d = this[num];
+        this[num] = this[i];
+        this[i] = d;
+    }
+    return this;
+}
 
 
 
