@@ -70,8 +70,11 @@ require_once 'views/templates/header.php';
     <div id='button'>Начать опрос</div>
 
     <div id="result">
-        <div id="why">Описание ldfjsldfjk sdlfjsldfj sldfjlsdkjf sldkfjlsdkjf sdlfkjlsdkjf</div>
-        <img id="img" src="views/images/icon/elephant.png" alt="">
+        <img id="image_true" src="views/images/icon/elephant.png" alt="">
+        <img id="image_false" src="views/images/icon/Vlad_Pal.jpg" alt="">  
+        <div id="true">Вы знаете правильный ответ. Поздравляем.</div>
+        <div id="false">Кажется вы ошиблись. Попробуйте снова.</div>
+        <div id="why"></div>
         <div id="forward">Продолжить</div>
     </div> 
    
@@ -80,20 +83,7 @@ require_once 'views/templates/header.php';
 
 </div>
 
-<!-- <div class="wrapper">
-    <div id="Qst">?=$question->question?></div>
-    <div id="Asw">1-3 месяца</div>
-    <div id='button'>Следующий вопрос</div>
-        
-</div> -->
-
-<!-- пример foreach php -->
-<?php 
-// foreach ($collections as $collection) {
-// echo '<option value="'.$collection->id.'">'.$collection->title.'</option>';
-// };
-?>
-
+<div id="dark"></div>
 
 <script src="views/js/survey.js"></script>
 <?php

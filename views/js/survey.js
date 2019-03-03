@@ -10,12 +10,16 @@ function init() {
     var prev = document.getElementById('prev');
 
     var inputs = document.querySelectorAll("input");
+
+    var forward = document.getElementById("forward");
+
     inputs.forEach(function (item) {
         item.onclick = next_ready;
     });
     
     next.onclick = json_Q_A;
-    prev.onclick = json_Q_A_prev;
+    
+    forward.onclick = update_afterClientFoward;
 
 }
 
@@ -69,8 +73,8 @@ function json_Q_A() {
     return false;
 }
 
-function json_Q_A_prev() {
-    numStartQst--;
+function json_Q_A_next() {
+    numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
     var data = {
         numStartQst:numStartQst,
@@ -169,16 +173,56 @@ function update_Q_A (messages) {
 }
 
 function update_afterClientAnswer(otvet) {
-    var invalid = document.getElementById("result");
-    if (otvet.answer_is_true = null) {
-        invalid.style.display = "block";
+    var result = document.getElementById("result");
+    var dark = document.getElementById("dark");
+    var otvet_true = document.getElementById("true");
+    var otvet_false = document.getElementById("false");
+    var image_true = document.getElementById("image_true");
+    var image_false = document.getElementById("image_false");
+    var why = document.getElementById("why");
+
+    result.style.display = "block";
+    dark.style.display = "block";
+    console.log(otvet.answer_is_true);
+    if (otvet.answer_is_true == 1) {
+        image_true.style.display = "block";
+        otvet_true.style.display = "block";
+        why.style.display = "block";
+        why.innerHTML = otvet.answer_is_true_comment;
     }
+    else {
+        image_false.style.display = "block";
+        otvet_false.style.display = "block";
+    }
+
+    
+    init();
 
 }
 
+function update_afterClientFoward() {
+    var result = document.getElementById("result");
+    var dark = document.getElementById("dark");
+    var otvet_true = document.getElementById("true");
+    var otvet_false = document.getElementById("false");
+    var image_true = document.getElementById("image_true");
+    var image_false = document.getElementById("image_false");
+    var why = document.getElementById("why");
 
+    result.style.display = "none";
+    dark.style.display = "none";
+    otvet_true.style.display = "none";
+    otvet_false.style.display = "none";
+    image_true.style.display = "none";
+    image_false.style.display = "none";
+    why.style.display = "none";
+    why.innerHTML = '';
+    
+    json_Q_A_next();
 
+    init();
 
+}
 
 
 
