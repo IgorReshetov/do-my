@@ -47,7 +47,7 @@ function json_Q_A() {
     };
 
     var data = JSON.stringify(data);
-    // console.log(data);
+    console.log(data);
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'index.php?page=put_answer', true);

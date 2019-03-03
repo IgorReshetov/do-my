@@ -52,6 +52,7 @@ switch ($page) {
     require_once 'controllers/die_bot.php';
     break;
     default:
+    // require_once 'controllers/handlers/get_answer.php';
     require_once 'controllers/survey.php';
     break;
     }

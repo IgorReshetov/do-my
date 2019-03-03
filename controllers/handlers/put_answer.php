@@ -4,6 +4,7 @@ require_once 'models/Answer.php';
 
 if( !isset($_SESSION['user_answer']) ) {
     $_SESSION['user_answer']= array();
+    $i = count($_SESSION['user_answer']);
 } 
 
 $postData = file_get_contents('php://input');
@@ -14,8 +15,12 @@ $id_question = $data['id_question'];
 $answer = new Answer(1, $id_question);
 $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
-$answer_is_true = $answer->is_true[$id_answer-1];
-$answer_is_true_comment = $answer->is_true_comment[$id_answer-1];
+foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
+    if ($id_answer == $id_answer_check) {$id_answer = $key;}
+}
+
+$answer_is_true = $answer->is_true[$id_answer];
+$answer_is_true_comment = $answer->is_true_comment[$id_answer];
 $time_answer = time();
 
 $retry = 0;
@@ -33,6 +38,7 @@ foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяе�
 $_SESSION['user_answer'][$i]['id_question'] = $id_question;
 $_SESSION['user_answer'][$i]['id_answer'] = $id_answer;
 $_SESSION['user_answer'][$i]['answer_is_true'] = $answer_is_true;
+$_SESSION['user_answer'][$i]['answer_is_true_comment'] = $answer_is_true_comment;
 $_SESSION['user_answer'][$i]['time_answer'] = $time_answer;
 
 $data = array();
