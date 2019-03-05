@@ -3,11 +3,13 @@ window.onload = init;
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
 
 function init() {
+    zapros_Cookies();   // Запрашиваем Куки с сервера
+
     var button = document.getElementById('button');
     button.onclick = startOpros;
     
     var next = document.getElementById('next');
-    var prev = document.getElementById('prev');
+    // var prev = document.getElementById('prev');
 
     var inputs = document.querySelectorAll("input");
 
@@ -22,6 +24,28 @@ function init() {
     forward.onclick = update_afterClientFoward;
 
 }
+
+function zapros_Cookies(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'index.php?page=get_answer', true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) {
+            return;
+        }
+
+    console.log(xhr.responseText);
+
+    var Cookies = JSON.parse(xhr.responseText);
+    console.log(Cookies);   
+    // update_div_stepSurvey(Cookies);            // Вызвать функцию меняющую блок с кружками
+    // }
+    }
+    return false;
+}
+
 
 function next_ready() {
     next.style.display = 'block';
@@ -51,7 +75,7 @@ function json_Q_A() {
     };
 
     var data = JSON.stringify(data);
-    console.log(data);
+    // console.log(data);
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'index.php?page=put_answer', true);
@@ -66,7 +90,7 @@ function json_Q_A() {
     console.log(xhr.responseText);
 
     var otvet = JSON.parse(xhr.responseText);
-    console.log(otvet);   
+    // console.log(otvet);   
     update_afterClientAnswer(otvet);
     }
 
@@ -102,12 +126,13 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
+    // var numStartQst = 0;
     var tables = document.querySelectorAll("table");
     for (var i = 0; i < tables.length; i++) {
         tables[i].style.opacity = "1";
     };
     document.getElementById("button").style.display="none";
-    numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
+    // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     var data = {
         numStartQst:numStartQst,
     };
@@ -125,7 +150,7 @@ function startOpros() {
         }
     
     var messages = JSON.parse(xhr.responseText);
-    console.log(messages);  
+    // console.log(messages);  
     update_Q_A(messages);
     }
     return false;
@@ -142,14 +167,14 @@ function update_Q_A (messages) {
         answShuffle.push(ans);
     });
 
-    answShuffle = answShuffle.shuffle();
+    answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
     var idShuffle = [], answerShuffle=[];
     answShuffle.forEach(function(item, i){
         idShuffle.push(item[0]);
         answerShuffle.push(item[1])
     });
-       console.log(idShuffle);  
-       console.log(answerShuffle);
+    //    console.log(idShuffle);  
+    //    console.log(answerShuffle);
    
     var inputs = document.querySelectorAll("input");
     for (var i=0; i<inputs.length; i++) {
@@ -157,11 +182,11 @@ function update_Q_A (messages) {
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
         inputs[i].setAttribute('value', idShuffle[i] ); //messages.answer.id_answer[i]
     };
-    console.log(inputs);
+    // console.log(inputs);
 
     var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
     var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
-    var A1 = document.getElementById("A1");
+    var A1 = document.getElementById("A1");     
     var A2 = document.getElementById("A2");
     var A3 = document.getElementById("A3");
     var A4 = document.getElementById("A4");
@@ -186,7 +211,7 @@ function update_Q_A (messages) {
             eval('A'+ i).parentElement.style.display = 'none';
        } else {eval('A'+ i).parentElement.style.display = 'table-row'};                                                        // Обнуляем предыдущие ответы
     }
-    
+    // console.log(document.cookie);
     // return eval ('A' + i) - запускаем код через строку
     // div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
 }
