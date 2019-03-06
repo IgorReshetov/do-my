@@ -42,6 +42,9 @@ switch ($page) {
     case "get_question":
     require_once 'controllers/handlers/get_question.php';
     break;
+    case "get_answer":
+    require_once 'controllers/handlers/get_answer.php';
+    break;
     case "put_answer":
     require_once 'controllers/handlers/put_answer.php';
     break;
