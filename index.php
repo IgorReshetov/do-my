@@ -12,6 +12,10 @@ session_start();
 
 $check = $_SERVER['REMOTE_ADDR'];
 
+if( !isset($_SESSION['user_answer']) ) {
+    $_SESSION['user_answer']= array();
+} 
+
 if( !isset($_SESSION['bot']) ) { // ПРОВЕРЯЕМ IP АДРЕС ПО СТОП ЛИСТУ и ПО УМОЛЧАНИЮ УСТАНАВЛИВАЕТСЯ ОТСУТСТВИЕ УГРОЗУ ОПАСНОСТИ БОТА
     $query = "SELECT * FROM stop_list WHERE ip = $check";
     $result = $mysqli->query($query);

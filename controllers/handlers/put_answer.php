@@ -1,12 +1,6 @@
 <?php
 require_once 'models/Answer.php';
 
-
-if( !isset($_SESSION['user_answer']) ) {
-    $_SESSION['user_answer']= array();
-    $i = count($_SESSION['user_answer']);
-} 
-
 $postData = file_get_contents('php://input');
 
 $data = json_decode($postData, true);
@@ -24,6 +18,7 @@ $answer_is_true_comment = $answer->is_true_comment[$id_answer];
 $time_answer = time();
 
 $retry = 0;
+$i = count($_SESSION['user_answer']);
 foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяем на наличие ранее отвеченного вопроса и если ответ есть - перезаписываем
     if ($user_answer['id_question'] == $id_question) {
         $i = $key;
