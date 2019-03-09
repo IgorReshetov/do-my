@@ -54,6 +54,7 @@ table.prev_next {
 
 .left {
   text-align: left;
+  cursor: context-menu;
 }
 
 .right {
@@ -188,6 +189,7 @@ table.prev_next {
   display: none;
   width: 10px;
   height: 10px;
+  border: 1px solid black;
   border-radius: 100%;
 }
 

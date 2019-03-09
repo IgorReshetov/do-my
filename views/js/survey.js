@@ -25,6 +25,15 @@ function init() {
 
     var forward = document.getElementById("forward");
 
+    var answer_tr = document.querySelectorAll(".left");
+
+    answer_tr.forEach(function(item, i) {
+        item.onclick = function() {
+            inputs[i].checked = true;
+            next_ready();
+        };
+    });
+
     inputs.forEach(function (item) {
         item.onclick = next_ready;
     });
@@ -42,35 +51,61 @@ function zapros_Cookies(){      //  Синхронный запрос
     xhr.send();
 
     console.log(xhr.responseText);
-
+``
     cookies = JSON.parse(xhr.responseText);
     console.log(cookies);
-    if (cookies) {
+    if (cookies.user_answer.length > 0) {
         countQst = 0;
-        // numStartQst = cookies.user_answer[(cookies.user_answer.length - 1)];
+        numStartQst = cookies.user_answer.length;
+        console.log(numStartQst);
+        for (var i =0; i<cookies.questions_count.length; i++) {
+            countQst += parseInt(cookies.questions_count[i].questions_count);
+        }
+    } else {
+        numStartQst = 0;
+        countQst = 0;
         console.log(numStartQst);
         for (var i =0; i<cookies.questions_count.length; i++) {
             countQst += parseInt(cookies.questions_count[i].questions_count);
         }
     }
+
     return cookies;
 }
 
 function fill_circle() {
     var level = document.querySelectorAll(".step-level")
     var circles = document.querySelectorAll(".step-survey")
+    var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
+    var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
+    
     console.log(cookies.user_answer);
     // level[0].innerHTML="rerrererer";
     if (numStartQst==0) level[0].innerHTML="1/"+countQst;
-    else level[0].innerHTML = (cookies.user_answer[0].id_answer);
+    else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
     
     // level[0].innerHTML = 10;}
     // else 
 
     console.log(circles);
     for (var i=0; i<countQst; i++) {
-        circles[i].style.background = 'grey';
+        // circles[i].style. = 'grey';
         circles[i].style.display = 'inline';
+        if (i<numQstLevel_1)
+            circles[i].style.border = '1px solid yellow';
+            else if (i>=numQstLevel_1 && i<numQstLevel_1 + numQstLevel_2)
+            circles[i].style.border = '1px solid blue';
+            else if (i>=numQstLevel_1 + numQstLevel_2)
+            circles[i].style.border = '1px solid red';  
+    }
+    for (var i=0; i<cookies.user_answer.length; i++) {
+        if (cookies.user_answer[i].answer_is_true == '1' && i<numQstLevel_1 )
+            circles[i].style.background = 'yellow';
+            else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 && i<numQstLevel_1 + numQstLevel_2)
+            circles[i].style.background = 'blue';
+            else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 + numQstLevel_2)
+            circles[i].style.background = 'red';
+        else circles[i].style.background = 'grey';
     }
 }
 
@@ -94,7 +129,7 @@ function json_Q_A() {
     // console.log(numAnsw);
     // console.log(numQst);
 
-    // numStartQst++;
+    numStartQst++;
     
     var data = {
         id_question: numQst,
@@ -121,34 +156,35 @@ function json_Q_A() {
     // console.log(otvet);   
     update_afterClientAnswer(otvet);
     }
-
+    
     return false;
 }
 
 function json_Q_A_next() {
-    numStartQst++;
+    // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
     var data = {
-        numStartQst:numStartQst,
+        numStartQst:numStartQst
     };
 
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'index.php?page=get_question', true);
+    xhr.open('POST', 'index.php?page=get_question', false);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) {
-            return;
-        }
+    // xhr.onreadystatechange = function() {
+    //     if (xhr.readyState != 4) {
+    //         return;
+    //     }
     
     
     var messages = JSON.parse(xhr.responseText);
-      
+    
+    // numStartQst++;
     update_Q_A(messages);
-    }
+    // }
 
     return false;
 }
@@ -196,7 +232,7 @@ function update_Q_A (messages) {
     });
 
     answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
-    var idShuffle = [], answerShuffle=[];
+    var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива***
     answShuffle.forEach(function(item, i){
         idShuffle.push(item[0]);
         answerShuffle.push(item[1])
@@ -208,8 +244,8 @@ function update_Q_A (messages) {
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
-        inputs[i].setAttribute('value', idShuffle[i] ); //messages.answer.id_answer[i]
-    };
+        inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
+           };
     // console.log(inputs);
 
     var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
@@ -219,7 +255,8 @@ function update_Q_A (messages) {
     var A3 = document.getElementById("A3");
     var A4 = document.getElementById("A4");
     var arr = [A0,A1,A2,A3,A4]
-    // console.log(arr);
+
+       // console.log(arr);
     // var div = document.createElement("div");
     // div.setAttribute("class", "start-Answer");
     // var answer_all ='';
@@ -228,10 +265,9 @@ function update_Q_A (messages) {
         arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
     }
     
-    answerShuffle.forEach(function(item,i) {         // messages.answer.answer
-    return eval('A'+ i).innerHTML = item;   //.Object.keys(answShuffle[i])[0]);
+    answerShuffle.forEach(function(item,i) {         
+    return eval('A'+ i).innerHTML = item;   
     
-    // answer_all += i + '<br>';
     });
     
     for (var i=0; i<arr.length; i++) {
@@ -268,7 +304,7 @@ function update_afterClientAnswer(otvet) {
     }
 
     
-    init();
+    // init();
 
 }
 
@@ -295,6 +331,7 @@ function update_afterClientFoward() {
     init();
 
 }
+
 
 Array.prototype.shuffle = function() {
     for (var i = this.length - 1; i > 0; i--) {
