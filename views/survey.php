@@ -4,23 +4,32 @@ require_once 'views/templates/header.php';
 ?>
 
 <div class="main">
-    <div class="slider-box-survey-arround">
-        <div class="slider-box-survey-before"></div>
-        <div class="slider-box-survey-after"></div>
-        <div class="slider-box-survey">
-            <div class="slider-survey">
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
-                <div class="step-survey"></div>
+    <div class='slider-box-main'>
+        <div class="slider-box-level">
+            <div class="slider-level">
+                <div class="step-level">1/6</div>
+                <!-- <div class="step-level"></div>
+                <div class="step-level"></div>     -->
+            </div>
+        </div>
+        <div class="slider-box-survey-arround">       
+            <div class="slider-box-survey-before"></div>
+            <div class="slider-box-survey-after"></div>
+            <div class="slider-box-survey">
+                <div class="slider-survey">
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                    <div class="step-survey"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -98,11 +98,54 @@ table.prev_next {
 
 
 // слайдер
-.slider-box-survey-arround {
-    height: 20px;
-    width: 440px;
+
+.slider-box-main{
+    max-width: 50%;
+    min-width: 250px;
     margin: auto;
     margin-top: 100px;
+    // border: 2px solid red;
+}
+
+.slider-box-level {
+    // display: block;
+    height: 45px;
+    max-width: 50%;
+    // min-width: 250px;
+    margin-left: 15px;
+    // margin-top: 100px;
+    // margin-bottom: 0px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+}
+
+.slider-level {
+    width: 120px;
+    height: 35px;
+    // border: thin solid black;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-around;
+}
+
+.step-level{
+    display: block;
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 210%;
+}
+
+.slider-box-survey-arround {
+    height: 20px;
+    // width: 440px;
+    max-width: 100%;
+    min-width: 250px;
+    margin: auto;
+    margin-top: 2px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -110,9 +153,9 @@ table.prev_next {
 }
 
 .slider-box-survey {
-    border: thin solid black;
+    // border: thin solid black;
     height: 20px;
-    width: 400px;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -156,7 +199,7 @@ table.prev_next {
 }
     
 .slider-survey {
-    width: 1200px;
+    width: 120px;
     height: 20px;
     display: flex;
     align-items: center;
@@ -165,9 +208,10 @@ table.prev_next {
 }
 
 .step-survey{
+    display: none;
     width: 10px;
     height: 10px;
-    border: 2px solid black;
+    // border: 2px solid black;
     border-radius: 100%;
 }
 

@@ -1,10 +1,20 @@
 window.onload = init;
 
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
+var levelQst = 1; // Вводим глобальный уровень вопросов
+var countQst;     // Общее число вопросов
+var cookies;
+
 
 function init() {
-    zapros_Cookies();   // Запрашиваем Куки с сервера
+    
+    zapros_Cookies();           // Делаем синхронный запрос
+    
+    fill_circle ();
 
+    console.log(countQst);   
+    console.log(cookies.user_answer); 
+    // switch ()
     var button = document.getElementById('button');
     button.onclick = startOpros;
     
@@ -25,34 +35,52 @@ function init() {
 
 }
 
-function zapros_Cookies(){
+function zapros_Cookies(){      //  Синхронный запрос
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'index.php?page=get_answer', true);
+    xhr.open('POST', 'index.php?page=get_answer', false);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send();
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) {
-            return;
-        }
-
     console.log(xhr.responseText);
 
-    var Cookies = JSON.parse(xhr.responseText);
-    console.log(Cookies);   
-    // update_div_stepSurvey(Cookies);            // Вызвать функцию меняющую блок с кружками
-    // }
+    cookies = JSON.parse(xhr.responseText);
+    console.log(cookies);
+    if (cookies) {
+        countQst = 0;
+        // numStartQst = cookies.user_answer[(cookies.user_answer.length - 1)];
+        console.log(numStartQst);
+        for (var i =0; i<cookies.questions_count.length; i++) {
+            countQst += parseInt(cookies.questions_count[i].questions_count);
+        }
     }
-    return false;
+    return cookies;
 }
 
+function fill_circle() {
+    var level = document.querySelectorAll(".step-level")
+    var circles = document.querySelectorAll(".step-survey")
+    console.log(cookies.user_answer);
+    // level[0].innerHTML="rerrererer";
+    if (numStartQst==0) level[0].innerHTML="1/"+countQst;
+    else level[0].innerHTML = (cookies.user_answer[0].id_answer);
+    
+    // level[0].innerHTML = 10;}
+    // else 
 
+    console.log(circles);
+    for (var i=0; i<countQst; i++) {
+        circles[i].style.background = 'grey';
+        circles[i].style.display = 'inline';
+    }
+}
+
+// Появление кнопки ОТВЕТИТЬ
 function next_ready() {
     next.style.display = 'block';
     next.style.opacity = '1';
 }
 
-// Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>>
+// Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
 function json_Q_A() {
     var inputs = document.querySelectorAll("input");
     var numAnsw, numQst;
@@ -87,7 +115,7 @@ function json_Q_A() {
             return;
         }
     
-    console.log(xhr.responseText);
+    // console.log(xhr.responseText);
 
     var otvet = JSON.parse(xhr.responseText);
     // console.log(otvet);   
