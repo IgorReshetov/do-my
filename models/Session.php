@@ -14,9 +14,14 @@ class Session
 
         $check = $mysqli->real_escape_string($_SERVER['REMOTE_ADDR']);
 
+               
+        if( !isset($_SESSION['level_access']) ) {
+            $_SESSION['level_access']= 1;
+        }
+
         if( !isset($_SESSION['user_answer']) ) {
             $_SESSION['user_answer']= array();
-        } 
+        }
 
         if( !isset($_SESSION['bot']) ) { // ПРОВЕРЯЕМ IP АДРЕС ПО СТОП ЛИСТУ и ПО УМОЛЧАНИЮ УСТАНАВЛИВАЕТСЯ ОТСУТСТВИЕ УГРОЗУ ОПАСНОСТИ БОТА
             $query = "SELECT * FROM stop_list WHERE ip = $check";
@@ -25,6 +30,7 @@ class Session
             else {$_SESSION['bot'] = 2;}
         }
         $_SESSION['time_start'] = time();
-
+        $_SESSION['ip_user'] = $check;
+        
     }
 }

@@ -7,7 +7,7 @@ define('DB_PASS', '');
 define('DB_NAME', 'db_domy');
 
 // Время хранения куки и сессии
-define('COOKIE_LIFE', 86400);
+define('COOKIE_LIFE', 8640000);
 define('SESSION_LIFE', 86400);
 
 //КОНСТАНТЫ
