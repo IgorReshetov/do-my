@@ -150,7 +150,7 @@ function json_Q_A() {
             return;
         }
     
-    // console.log(xhr.responseText);
+    console.log(xhr.responseText);
 
     var otvet = JSON.parse(xhr.responseText);
     // console.log(otvet);   

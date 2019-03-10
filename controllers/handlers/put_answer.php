@@ -56,41 +56,44 @@ if ($sign_bot == 1) {$_SESSION['bot'] = 1;}
 // определяем доступ к уровням и текущую позицию по уровню, если вопрос последний на 1 уровне и правильных ответов больше 90% - идет запись ответов в базу под сессией пользователя.
 $last_session_id = $_COOKIE ['PHPSESSID'];
 $ip_user = $_SESSION['ip_user'];
+
 $user = new User ($last_session_id);
+
 $count_1 = Question:: getQuestionsCount (1, 1);
 $count_2 = Question:: getQuestionsCount (1, 2);
 $count_3 = Question:: getQuestionsCount (1, 3);
 $count_question = count($_SESSION['user_answer']);
 $count_true = 0;
-if ($count_question == $count_1){
-    for ($i = 0; $i <= $count_1-1; $i++) {
-        if ($_SESSION['user_answer'][$i]['answer_is_true'] = 1) {$count_true++;}
+if ($count_question == $count_1['questions_count']){
+    for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
+        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true => 0.9 * $count_1) {$_SESSION['level_access'] = 2;}
+    if ($count_true >= 0.9 * $count_1['questions_count']) {$_SESSION['level_access'] = 2;}
 }
-if ($count_question == $count_2){
-    for ($i = $count_1; $i <= $count_2-1; $i++) {
-        if ($_SESSION['user_answer'][$i]['answer_is_true'] = 1) {$count_true++;}
+
+if ($count_question == $count_2['questions_count']){
+    for ($i = $count_1; $i <= $count_2['questions_count']-1; $i++) {
+        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true => 0.9 * $count_2) {$_SESSION['level_access'] = 3;}
+    if ($count_true >= 0.9 * $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
 }
-if ($count_question == $count_3){
-    for ($i = $count_2; $i <= $count_3-1; $i++) {
-        if ($_SESSION['user_answer'][$i]['answer_is_true'] = 1) {$count_true++;}
+if ($count_question == $count_3['questions_count']){
+    for ($i = $count_2; $i <= $count_3['questions_count']-1; $i++) {
+        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true => 0.9 * $count_3) {$_SESSION['level_access'] = 4;}
+    if ($count_true >= 0.9 * $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
 }
 
 $level_access = $_SESSION['level_access'];
 
-if ($level_access => 2){
-    if ($count_question == $count_1){
-        if (!$user) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
+if ($level_access >= 2){
+    if ($count_question == $count_1['questions_count']){
+        if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
         foreach ($_SESSION['user_answer'] as $key => $user_answer) {
             User::putUserAnswer($user->id_user, $user_answer['id_question'], $user_answer['id_answer']);
         }
     } else {
-        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count-1]['id_question'], $_SESSION['user_answer'][$count-1]['id_answer']);
+        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count_question-1]['id_question'], $_SESSION['user_answer'][$count_question-1]['id_answer']);
     }
 }
 
