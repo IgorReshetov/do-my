@@ -22,10 +22,7 @@ class User
         $query = "SELECT ID_USER as id_user, LAST_SESSION_ID as last_session_id, IP_USER as ip_user FROM usr_login WHERE last_session_id LIKE '$last_session_id'";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
-        
-        // var_dump ($last_session_id);
-        // var_dump ($result);
-              
+                          
         if ($result->num_rows > 0) {
         
             $user_data = $result->fetch_assoc();
@@ -50,11 +47,12 @@ class User
         $user = new self($last_session_id);
 
         if($user->id_user == NULL) {
-
+           
             $query = "INSERT INTO usr_login (LAST_SESSION_ID, IP_USER)
-                    VALUES ($last_session_id, $ip_user)"; 
+                    VALUES ('$last_session_id', '$ip_user')"; 
             $mysqli->multi_query($query);
             $result = $mysqli->store_result();
+            
             return true;
 
         } else {
@@ -86,6 +84,7 @@ class User
     }
 
 }
+
 
 // $last_session_id = $_COOKIE ['PHPSESSID'];
 // $user = new User ($last_session_id);

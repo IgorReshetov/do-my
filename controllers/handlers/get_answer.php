@@ -15,7 +15,8 @@ while ($count ['questions_count'] > 0){
 $data = 
 [
 'user_answer' => $_SESSION['user_answer'],
-'questions_count' => $questions_count
+'questions_count' => $questions_count,
+'level_access' => $_SESSION['level_access']
 ];
 
 
