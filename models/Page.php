@@ -38,6 +38,9 @@ class Page
             case "die_bot":
             require_once 'controllers/die_bot.php';
             break;
+            case "error":
+            require_once 'views/error.php';
+            break;
             default:
             // require_once 'models/User.php';
             require_once 'controllers/survey.php';

@@ -11,10 +11,17 @@ $id_question = $data['numStartQst'];
 
 
 $question = new Question(1, $id_question);
+if ($question->id_level > $_SESSION['level_access'])
+{
+$question = 'нет доступа к следующему уровню';
+$answer = false;
+} else {
+
 $answer = new Answer(1, $question->id_parent);
 
 $answer->is_true[] = [];
 $answer->is_true_comment[] = [];
+}
 
 $data = array();
 $data =
@@ -24,4 +31,5 @@ $data =
 ];
 
 echo json_encode($data);
+
 die;
