@@ -1,16 +1,57 @@
 window.onload = init;
 
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
-var levelQst = 1; // Вводим глобальный уровень вопросов
+
+// Создаем метод по заполнению правильных и неправильных ответов по уровням
+Object.prototype.cookie_level = function() {
+    switch (cookies.level_access) {
+        case 1:
+            for (var i=0; i<cookies.user_answer.length; i++) {
+                if (cookies.user_answer[i].answer_is_true == "1") levelQst_1.hit += 1;
+                else levelQst_1.miss += 1;
+            };
+        break;
+        case 2:
+
+        break;
+
+        case 3:
+
+        break;
+    }
+}
+
+// Создаем метод по проверке правильных ответов для перехода на след.уровень
+Object.prototype.next_level = function(){
+    if ((this.hit/(this.hit+this.miss))*100 >= 50) this.next_lev = true;
+} 
+var levelQst_1 = {hit:1, miss:2, next_lev:false}; // Вводим глобальные уровни вопросов попал/промах
+var levelQst_2 = {hit:5, miss:0, next_lev:false};
+var levelQst_3 = {hit:1, miss:0, next_lev:false};
+var resultQst = {hit: function() {return (levelQst_1.hit + levelQst_2.hit + levelQst_3.hit);}, miss: function() {return (levelQst_1.miss+levelQst_2.miss+levelQst_3.miss);}};
+
 var countQst;     // Общее число вопросов
 var cookies;
 
 
 function init() {
-    
+    console.log (resultQst.hit());
+    console.log (levelQst_1.hit);
+    levelQst_1.next_level();
+
+    console.log (levelQst_1.next_lev);
+
     zapros_Cookies();           // Делаем синхронный запрос
     
-    fill_circle ();
+    Object.cookie_level();
+    console.log (levelQst_1.hit);
+    console.log (levelQst_1.miss);
+    console.log (resultQst.hit());
+    console.log (cookies.level_access);
+    fill_circle();
+
+
+
 
     console.log(countQst);   
     console.log(cookies.user_answer); 
@@ -51,24 +92,29 @@ function zapros_Cookies(){      //  Синхронный запрос
     xhr.send();
 
     console.log(xhr.responseText);
-``
+
     cookies = JSON.parse(xhr.responseText);
     console.log(cookies);
-    if (cookies.user_answer.length > 0) {
-        countQst = 0;
-        numStartQst = cookies.user_answer.length;
-        console.log(numStartQst);
-        for (var i =0; i<cookies.questions_count.length; i++) {
+    numStartQst = 0;
+    countQst = 0;
+    for (var i =0; i<cookies.questions_count.length; i++) {
             countQst += parseInt(cookies.questions_count[i].questions_count);
-        }
-    } else {
-        numStartQst = 0;
-        countQst = 0;
-        console.log(numStartQst);
-        for (var i =0; i<cookies.questions_count.length; i++) {
-            countQst += parseInt(cookies.questions_count[i].questions_count);
-        }
     }
+
+    if (cookies.user_answer.length > 0) {
+        // countQst = 0;
+        numStartQst = cookies.user_answer.length;
+
+        console.log(numStartQst);
+    }  
+    // } else {
+        
+    //     // countQst = 0;
+    //     console.log(numStartQst);
+    //     // for (var i =0; i<cookies.questions_count.length; i++) {
+    //     //     countQst += parseInt(cookies.questions_count[i].questions_count);
+    //     // }
+    // }
 
     return cookies;
 }
@@ -326,6 +372,8 @@ function update_afterClientFoward() {
     why.style.display = "none";
     why.innerHTML = '';
     
+
+
     json_Q_A_next();
 
     init();
