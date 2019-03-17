@@ -79,7 +79,7 @@ require_once 'views/templates/header.php';
     <div id='button'>Начать опрос</div>
 
     <div id="result">
-        <img id="image_true" src="views/images/icon/elephant.png" alt="">
+        <img id="image_true" src="views/images/survey/elephant.png" alt="">
         <img id="image_false" src="views/images/icon/Vlad_Pal.jpg" alt="">  
         <div id="true">Вы знаете правильный ответ. Поздравляем.</div>
         <div id="false">Кажется вы ошиблись. Попробуйте снова.</div>

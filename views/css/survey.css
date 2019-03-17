@@ -76,6 +76,7 @@ table.prev_next {
 }
 
 .slider-box-main {
+  display: none;
   max-width: 50%;
   min-width: 250px;
   margin: auto;
