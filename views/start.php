@@ -4,7 +4,7 @@ require_once 'views/templates/header.php';
 ?>
 
     <div class="wrapper">
-        <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1> 
+        <!-- <h1 class = "start-h1">Сервис рекомендаций в выборе жилья</h1>  -->
         <div class="start-linia-2">
             <div class="start-h2-conteiner">
                 <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры

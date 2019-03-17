@@ -1,6 +1,5 @@
 @charset "UTF-8";
 .start-h1 {
-
   margin-top: 30px;
   margin-left: 85px;
   font-size: 14px;
@@ -62,7 +61,7 @@
   border-radius: 50%;
 }
 
-.start-linia, .start-linia-2 {
+.start-linia {
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,7 +78,7 @@
 
 .start-linia-2 {
   display: block;
-  z-index: -1;
+  margin: 50px;
 }
 
 .house {
@@ -285,24 +284,6 @@ svg {
 @-webkit-keyframes rocket {
   0% {
   }
-  10% {
-  }
-  20% {
-  }
-  30% {
-  }
-  40% {
-  }
-  50% {
-  }
-  60% {
-  }
-  70% {
-  }
-  80% {
-  }
-  90% {
-  }
   100% {
     -webkit-transform: translate3d(-755px, -300px, 0);
             transform: translate3d(-755px, -300px, 0);
@@ -314,24 +295,6 @@ svg {
 
 @keyframes rocket {
   0% {
-  }
-  10% {
-  }
-  20% {
-  }
-  30% {
-  }
-  40% {
-  }
-  50% {
-  }
-  60% {
-  }
-  70% {
-  }
-  80% {
-  }
-  90% {
   }
   100% {
     -webkit-transform: translate3d(-755px, -300px, 0);
@@ -419,24 +382,6 @@ svg {
   @-webkit-keyframes rocket {
     0% {
     }
-    10% {
-    }
-    20% {
-    }
-    30% {
-    }
-    40% {
-    }
-    50% {
-    }
-    60% {
-    }
-    70% {
-    }
-    80% {
-    }
-    90% {
-    }
     100% {
       -webkit-transform: translate3d(-100px, -400px, 0);
               transform: translate3d(-100px, -400px, 0);
@@ -446,24 +391,6 @@ svg {
   }
   @keyframes rocket {
     0% {
-    }
-    10% {
-    }
-    20% {
-    }
-    30% {
-    }
-    40% {
-    }
-    50% {
-    }
-    60% {
-    }
-    70% {
-    }
-    80% {
-    }
-    90% {
     }
     100% {
       -webkit-transform: translate3d(-100px, -400px, 0);

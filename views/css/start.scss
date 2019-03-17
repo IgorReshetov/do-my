@@ -58,7 +58,7 @@
     border-radius: 50%;
 }
 
-.start-linia, .start-linia-2 {
+.start-linia {
     position: fixed;
     display: flex;
     left: 5%;
@@ -73,7 +73,7 @@
 
 .start-linia-2 {
     display: block;
-    z-index: -1;
+    margin: 50px;
 }
 
 

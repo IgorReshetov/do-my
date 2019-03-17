@@ -19,7 +19,7 @@ h2 {
 
 body {
     // background: white;
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 0px;     
 }
 
@@ -55,7 +55,7 @@ html {
 .menu-block{
     width: 100%;
     background-color: #ffffff;
-    border-bottom: 2px solid #2b2b2b;
+    // border-bottom: 2px solid #2b2b2b;
     position: fixed;
     top: 0px;
     z-index: 50;
@@ -79,9 +79,15 @@ a.menu-proect:hover {
 .menu-start {
 margin-left: 10px;
 // font-size: 20px;
-width: 100px;
+width: 300px;
 font-weight: 500;
 }
+
+.menu-start-block2 {
+font-size: 15px;
+font-weight: 200;
+}
+
 .menu-proect {
 margin-left: 5px;
 // font-size: 16px;
@@ -91,8 +97,8 @@ font-weight: 700;
 }
 
 .footer-block{
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
     display: block;
     width: 100%;
     background-color: #ffffff;
@@ -161,8 +167,9 @@ font-weight: 700;
 }
 
 .centr-fox {
-    width: 160px;
-    // border: 2px solid #2b2b2b;
+    width: 165px;
+    display: flex;
+    justify-content: right;
 }
 
 .fox {
@@ -172,8 +179,6 @@ font-weight: 700;
     width: 40px;
     height: 40px;
     margin: 5px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 

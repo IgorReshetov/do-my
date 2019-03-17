@@ -4,7 +4,7 @@ defined('INDEX') OR die('Прямой доступ к странице запр�
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'domy');
+define('DB_NAME', 'db_domy');
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
