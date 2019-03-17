@@ -19,7 +19,6 @@
                                 echo ('
                                 <a href="index.php" class="menu-start">
                                 <div class="menu-start-block1">Думай</div>
-                                <div class="menu-start-block2">Рекомендательный сервис выбора жилья</div>
                                 </a>
                                 ');
                                 break;
@@ -27,7 +26,6 @@
                                 echo ('
                                 <a href="index.php" class="menu-start">
                                 <div class="menu-start-block1">Думай</div>
-                                <div class="menu-start-block2">Рекомендательный сервис выбора жилья</div>
                                 </a>
                                 ');
                                 break;
@@ -35,7 +33,6 @@
                                 echo ('
                                 <div class="menu-start">
                                 <div class="menu-start-block1">Думай</div>
-                                <div class="menu-start-block2">Рекомендательный сервис выбора жилья</div>
                                 </div>
                                 ');
                                 break;      
