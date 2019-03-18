@@ -83,7 +83,7 @@ require_once 'views/templates/header.php';
         <img id="image_false" src="views/images/icon/Vlad_Pal.jpg" alt="">  
         <div id="true">Вы знаете правильный ответ. Поздравляем.</div>
         <div id="false">Кажется вы ошиблись. Попробуйте снова.</div>
-        <div id="why">1111</div>
+        <div id="why"></div>
         <div id="forward">Продолжить</div>
     </div> 
    

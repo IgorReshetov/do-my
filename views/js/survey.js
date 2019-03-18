@@ -352,7 +352,10 @@ function update_Q_A (messages) {
 }
 
 function update_afterClientAnswer(otvet) {
-    
+    // levelQst_1.check = false;
+    // levelQst_2.check = false;
+    // levelQst_3.check = false;
+
     var result = document.getElementById("result");
     var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
@@ -377,6 +380,10 @@ function update_afterClientAnswer(otvet) {
         case countQst_lev3 :
             if (otvet.answer_is_true) levelQst_3.hit++; 
             else levelQst_3.miss++;
+            otvet_true.innerHTML = 'Вы знаете правильный ответ. Поздравляем';
+        break;
+        default:
+        
         break;
     }
 
@@ -393,10 +400,11 @@ function update_afterClientAnswer(otvet) {
     } else {
         image_false.src = "views/images/survey/" + arr_lose[Math.floor(Math.random()*4)] + ".png";
         image_false.style.display = "block";
+        otvet_false.innerHTML =  'Кажется вы ошиблись. Попробуйте снова';
         otvet_false.style.display = "block";
     }
     console.log(numStartQst);
-    console.log(parseInt(cookies.questions_count[0].questions_count));
+   
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
     //     if (otvet.answer_is_true) levelQst_1.hit++;
     //     else levelQst_1.miss++;
@@ -422,6 +430,7 @@ function valid_level_1() {
     var image_false = document.getElementById("image_false");
     var why = document.getElementById("why");
 
+    
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
@@ -430,9 +439,11 @@ function valid_level_1() {
         levelQst_1.next_level();
         if (!(levelQst_1.next_lev)) {
             why.style.display = "none"; 
+            image_true.style.display = "none";
+            otvet_true.style.display = 'none';
             image_false.src = "views/images/survey/" + arr_lev_lose[Math.floor(Math.random()*2)] + ".png";
             image_false.style.display = "block";
-            otvet_false.innerHTML = "<strong>Вы завершили первую часть опроса, набрав менее 80% правильных ответов, вы можете испытать удачу еще раз пройдя опрос повторно</strong>";
+            otvet_false.innerHTML = "<strong>Вы завершили первую часть опроса, набрав менее 100% правильных ответов, вы можете испытать удачу еще раз пройдя опрос повторно</strong>";
             otvet_false.style.display = "block"; 
             why.innerHTML = "<hr>Результаты первого уровня</hr> </br>" +
             "Правильных ответов: "  + levelQst_1.hit + "</br>" + 
@@ -473,6 +484,8 @@ function valid_level_2() {
         levelQst_2.next_level();
         if (!(levelQst_2.next_lev)) {
             why.style.display = "none"; 
+            image_true.style.display = "none";
+            otvet_true.style.display = "none"; 
             image_false.src = "views/images/survey/" + arr_lev_lose[Math.floor(Math.random()*2)] + ".png";
             image_false.style.display = "block";
             otvet_false.innerHTML = "<strong>Вы завершили вторую часть опроса, набрав менее 100% правильных ответов, вы можете испытать удачу еще раз пройдя опрос повторно</strong>";
@@ -516,6 +529,8 @@ function valid_level_3() {
         levelQst_3.next_level();
         if (!(levelQst_3.next_lev)) {
             why.style.display = "none"; 
+            image_true.style.display = "none";
+            otvet_true.style.display = 'none';
             image_false.src = "views/images/survey/" + arr_lev_lose[Math.floor(Math.random()*2)] + ".png";
             image_false.style.display = "block";
             otvet_false.innerHTML = "<strong>Вы завершили третью часть опроса, набрав менее 100% правильных ответов, вы можете испытать удачу еще раз пройдя опрос повторно</strong>";
