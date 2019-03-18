@@ -38,6 +38,11 @@ $_SESSION['user_answer'][$i]['answer_is_true'] = $answer_is_true;
 $_SESSION['user_answer'][$i]['answer_is_true_comment'] = $answer_is_true_comment;
 $_SESSION['user_answer'][$i]['time_answer'] = $time_answer;
 
+$activ_question = $i+1;
+
+$last_level = $_SESSION['level_access'];
+$reset = 0;
+
 $data = array();
 
 // проверка на бота по времени ответов на вопросы и в случае провала проверки  записываем признак бота в сессию
@@ -68,20 +73,23 @@ if ($count_question == $count_1['questions_count']){
     for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true >= 0.9 * $count_1['questions_count']) {$_SESSION['level_access'] = 2;}
+    if ($count_true = $count_1['questions_count']) {$_SESSION['level_access'] = 2;} 
+    else {$activ_question = $count_1['questions_count'];}
 }
 
 if ($count_question == $count_1['questions_count']+$count_2['questions_count']){
     for ($i = $count_1['questions_count']; $i <= $count_1['questions_count'] + $count_2['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true >= 0.9 * $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
+    if ($count_true = $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
+    else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
 if ($count_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
     for ($i = $count_1['questions_count']+$count_2['questions_count']; $i <= $count_1['questions_count']+$count_2['questions_count']+ $count_3['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true >= 0.9 * $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
+    if ($count_true = $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
+    else {$activ_question = $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count'];}
 }
 
 $level_access = $_SESSION['level_access'];
@@ -96,6 +104,15 @@ if ($level_access >= 2){
         User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count_question-1]['id_question'], $_SESSION['user_answer'][$count_question-1]['id_answer']);
     }
 }
+
+//  проверяем и записываем с сессию следующую текущую позицию пользователя
+
+while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {
+    $activ_question = $activ_question+1;
+}
+
+
+$_SESSION['active_question'] = $activ_question;
 
 
 //  отправляем ответ на фронт об истинности вопроса и комментарии к нему
