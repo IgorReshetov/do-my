@@ -119,7 +119,8 @@ $_SESSION['active_question'] = $activ_question;
 $data =
 [
 'answer_is_true' => $answer_is_true ,
-'answer_is_true_comment' => $answer_is_true_comment
+'answer_is_true_comment' => $answer_is_true_comment,
+'active_question' => $_SESSION['active_question']
 ];
  
 echo json_encode($data);
