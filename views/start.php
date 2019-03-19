@@ -7,9 +7,11 @@ require_once 'views/templates/header.php';
         <h1 class = "start-h1">Рекомендации по жилью</h1> 
         <div class="start-linia-2">
             <div class="start-h2-conteiner">
+                <div class="start-h2-upor"></div>
                 <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры
                     <div class="start-h2-ozenka">7.8</div>
                 </h2>
+                <div class="start-h2-upor"></div>
                 <h2 class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</h2>
             </div>
 

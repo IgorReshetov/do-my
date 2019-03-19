@@ -27,6 +27,7 @@ html {
 }
 
 .wrapper {
+  background-color: burlywood;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -41,6 +42,7 @@ html {
 }
 
 .wrapper-menu {
+  background-color: chocolate;
   max-width: 1200px;
   margin: 0 auto;
   display: -webkit-box;
@@ -214,10 +216,6 @@ a.menu-proect:hover {
   .footer-block-inside2 {
     font-size: 15px;
     margin-left: 60px;
-  }
-  .fox {
-    margin: auto;
-    margin-top: 5px;
   }
 }
 /*# sourceMappingURL=global.css.map */

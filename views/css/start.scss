@@ -8,19 +8,24 @@
 
 .start-h2-conteiner {
     display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    
+    justify-content: space-around;
+    margin-top: 230px;
 }
 
 .start-h2 {
+    background-color: aqua;
     display: block;
     margin-right: 0;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 400;
     text-align: left;
-    max-width: 360px;
+    min-width: 400px;
     transition: 0.1s;
+}
+
+.start-h2-upor {
+    background: #d8d8d8;
+    width: 300px;
 }
 
 .start-h2:hover, .start-ozenka:hover {
@@ -138,8 +143,8 @@ svg {
     width: 350px;
     font-size: 16px;
     margin-left: 50px;
-    margin-top: 150px;
-    margin-bottom: 150px; 
+    margin-top: 200px;
+    margin-bottom: 200px; 
     position: relative;
 }
 
