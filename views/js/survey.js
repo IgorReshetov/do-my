@@ -72,8 +72,8 @@ function init() {
     
     Object.cookie_level();
     fill_circle();
-    console.log(countQst);   
-    console.log(cookies.user_answer); 
+    
+    console.log(cookies); 
     
     var status_Game = document.getElementsByClassName('slider-box-main');
     if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
@@ -115,7 +115,6 @@ function zapros_Cookies(){      //  Синхронный запрос
     xhr.send();
 
     cookies = JSON.parse(xhr.responseText);
-    console.log(cookies);
     numStartQst = 0;
     countQst = 0;
     for (var i =0; i<cookies.questions_count.length; i++) {
@@ -220,9 +219,7 @@ function json_Q_A() {
             return;
         }
     
-    console.log(xhr.responseText);
-
-    var otvet = JSON.parse(xhr.responseText);
+        var otvet = JSON.parse(xhr.responseText);
     // console.log(otvet);   
     update_afterClientAnswer(otvet);
     }
@@ -390,7 +387,6 @@ function update_afterClientAnswer(otvet) {
 
     result.style.display = "block";
     dark.style.display = "block";
-    console.log(otvet.answer_is_true);
     if (otvet.answer_is_true == 1) {
         image_true.src = "views/images/survey/" + arr_win[Math.floor(Math.random()*3)] + ".png";
         image_true.style.display = "block";
@@ -403,7 +399,7 @@ function update_afterClientAnswer(otvet) {
         otvet_false.innerHTML =  'Кажется вы ошиблись. Попробуйте снова';
         otvet_false.style.display = "block";
     }
-    console.log(numStartQst);
+   
    
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
     //     if (otvet.answer_is_true) levelQst_1.hit++;
@@ -590,10 +586,9 @@ function update_afterClientFoward() {
 
                 init();
             } else if (levelQst_1.check==true && levelQst_1.next_lev == false) {
-                numStartQst = 0;
-                console.log(document.cookie);
-
-                eraseCookie("PHPSESSID");
+                numStartQst = cookies.active_question;
+                
+                // eraseCookie("PHPSESSID");
 
                 result.style.display = "none";
                 dark.style.display = "none";
@@ -603,10 +598,6 @@ function update_afterClientFoward() {
                 image_false.style.display = "none";
                 why.style.display = "none";
                 why.innerHTML = '';
-                
-                // for (var i=0; i<countQst; i++) {
-                //     circles[i].style.background = 'white';
-                // }
 
                 json_Q_A_next();
 
@@ -631,7 +622,6 @@ function update_afterClientFoward() {
             init();
         } else if (levelQst_2.check==true && levelQst_2.next_lev == false) {
             numStartQst = 0;
-            console.log(document.cookie);
 
             eraseCookie("PHPSESSID");
 
@@ -644,13 +634,6 @@ function update_afterClientFoward() {
             why.style.display = "none";
             why.innerHTML = '';
             
-
-            
-            
-            // for (var i=0; i<countQst; i++) {
-            //     circles[i].style.background = 'white';
-            // }
-
             json_Q_A_next();
 
             init();
@@ -676,7 +659,7 @@ function update_afterClientFoward() {
             init();
         } else if (levelQst_3.check==true && levelQst_3.next_lev == false) {
             numStartQst = 0;
-            console.log(document.cookie);
+            
 
             eraseCookie("PHPSESSID");
 
