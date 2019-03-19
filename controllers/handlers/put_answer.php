@@ -73,23 +73,23 @@ if ($count_question == $count_1['questions_count']){
     for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true = $count_1['questions_count']) {$_SESSION['level_access'] = 2;} 
-    else {$activ_question = $count_1['questions_count'];}
+    if ($count_true == $count_1['questions_count']) {$_SESSION['level_access'] = 2;} 
+    else {$activ_question = 0;}
 }
 
 if ($count_question == $count_1['questions_count']+$count_2['questions_count']){
     for ($i = $count_1['questions_count']; $i <= $count_1['questions_count'] + $count_2['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true = $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
-    else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
+    if ($count_true == $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
+    else {$activ_question = $count_1['questions_count'];}
 }
 if ($count_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
     for ($i = $count_1['questions_count']+$count_2['questions_count']; $i <= $count_1['questions_count']+$count_2['questions_count']+ $count_3['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
-    if ($count_true = $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
-    else {$activ_question = $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count'];}
+    if ($count_true == $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
+    else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
 
 $level_access = $_SESSION['level_access'];

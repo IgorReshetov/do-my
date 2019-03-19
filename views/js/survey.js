@@ -218,9 +218,9 @@ function json_Q_A() {
         if (xhr.readyState != 4) {
             return;
         }
-    
+        console.log(xhr.responseText); 
         var otvet = JSON.parse(xhr.responseText);
-    // console.log(otvet);   
+       
     update_afterClientAnswer(otvet);
     }
     
