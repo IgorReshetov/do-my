@@ -9,59 +9,42 @@
 .start-h2-conteiner {
     display: flex;
     justify-content: space-around;
-    margin-top: 230px;
+    margin-top: 200px;
 }
 
 .start-h2 {
-    background-color: aqua;
     display: block;
     margin-right: 0;
-    font-size: 25px;
-    font-weight: 400;
-    text-align: left;
     min-width: 400px;
-    transition: 0.1s;
-}
-
-.start-h2-upor {
-    background: #d8d8d8;
-    width: 300px;
-}
-
-.start-h2:hover, .start-ozenka:hover {
-    box-shadow: 0 0 10px rgba(228, 16, 16, 0.513);
+    width: 400px;
+    position: relative;
     cursor: pointer;
 }
 
-.start-h2-ozenka {
-    position: absolute;
-    padding: 10px;
-    bottom: -5px;
-    right: -10%;
-    background: url('../images/icon/krug.svg') center center / contain no-repeat; 
+.start-h2-menu {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: left;
 }
 
-.start-ozenka {
-    animation: rocket 0.4s ease forwards;
-    display: none;
-    text-align: left;
-    width: 360px;
-    position: absolute;
-    top: 300px;
-    right: -755px;
-    font-size: 20px;
-    font-weight: 600;
+.start-h2-upor-l {
+    min-width: 320px;
+}
+
+.start-h2-upor-r {
+    width: 320px;
 }
 
 .start-planeta-img {
     width: 200px;
     height: 200px;
     position: absolute;
-    bottom: -20%;
+    bottom: -23%;
     right: -80px;
     z-index: -1;
-    background-color: #d8d8d8;
+    background-color: #e0e0e0;
     border-radius: 50%;
+    border: 15px solid red;
 }
 
 .start-linia {
@@ -77,7 +60,7 @@
     z-index: -2;
 }
 
-.start-linia-2 {
+.start-block {
     display: flex;
     flex-direction: column;
     
@@ -86,7 +69,7 @@
 .start-linia-wite {
     position: fixed;
     background-color: white;
-    top: 580px;
+    top: 800px;
     left: 0;
     right: 0;
     margin: auto;
@@ -101,7 +84,14 @@
     position: absolute;
     top: -20%;
     left: -180px;
-    z-index: -1;          
+    z-index: -1;
+    border-radius: 50%;
+    border: 15px solid yellow;
+    background: url("../images/icon/house.svg") center center / cover no-repeat;          
+}
+
+.house:hover {
+    border: 15px solid red;
 }
 
 svg {
@@ -138,159 +128,59 @@ svg {
     position: relative;
 }
 
-.start-o-proecte {
+.start-smallcoteiner {
     display: block;
     width: 350px;
     font-size: 16px;
-    margin-left: 50px;
-    margin-top: 200px;
-    margin-bottom: 200px; 
+    margin-left: 150px;
+    margin-top: 260px;
+    margin-bottom: 100px; 
     position: relative;
 }
 
-.start-qustions-1 {
-    display: none;
-    width: 150px;
-    font-size: 16px;
-    position: relative;
-    left: 55px;
-    bottom: -210px;
-}
 
 .start-qustions-flex-appendix-1 {
     display:none;
     position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
+    left: -40px;
+    width: 30px;
+    height: 30px;
     background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
 }
 
-.start-qustions-1:hover, .start-o-proecte:hover {
+.start-o-proecte:hover {
     .start-qustions-flex-appendix-1 {
         display: block;
-        background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
     }
-};
+}
 
 .start-qustions-flex-appendix-2 {
+    display:none;
     position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
+    top: 10px;
+    right: -60px;
+    width: 50px;
+    height: 50px;
     background: url("../images/icon/qustion2.svg") center center / contain no-repeat;
 }
 
-.start-qustions-flex-appendix-3 {
-    position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
-    background: url("../images/icon/qustion3.svg") center center / contain no-repeat;
+.start-h2:hover {
+    .start-qustions-flex-appendix-2 {
+            display: block;
+    }
 }
 
-.start-main-block {
-    max-width: 700px;
-    min-height: 350px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    margin-right: auto;
-    margin-left: auto;
-    left: 0;
-    right: 0;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: white;
-}
 
-.start-main-block-row-title{
-    display: flex;
-    align-items: center;
-    height: 50px;
-    font-size: 20px;
-    justify-content: space-between;
-    border-bottom: 1px solid #2b2b2b;
-    margin-bottom: 5px;
-}
 
-.start-main-block-title {
-    color: blue;
-    font-size: 20px;
-    margin: 10px;
-}
-
-.start-main-block-row {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 70px;
-    height: 60px;
-    cursor: pointer;
-}
-
-.start-main-block-row:hover {
-    box-shadow: 10px 0px 10px rgb(240, 240, 240);
-}
-
-.start-main-block-row:hover .start-main-block-h2 a{
-    color: red;
-}
-
-.start-main-block-row:hover .start-main-block-h2:not(a){
-    color: white;
-}
-
-.start-main-block-h2:after {
-    content: "Извините, раздел в разработке.";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: none;
-}
-
-.start-main-block-row:hover .start-main-block-h2:not(#done):after {
-    display: block;
-    color: red;
-}
-
-.start-main-block-icon {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    min-height: 50px;
-}
-
-.start-main-block-h2 {
-    position: relative;
-    color: rgb(26, 26, 26);
-    font-size: 18px;
-    margin: 15px;
-}
-
-.start-main-block div:nth-child(1),
-.start-main-block div:nth-child(2) > h2,
-.start-main-block div:nth-child(3) > h2 {
-    font-weight: 600;
-}
-
-@keyframes rocket {
-    0% {}
-    100% {  transform: translate3d(-755px,-300px,0); 
-            font-size: 20px;
-            font-weight: 600;
-            width: 360px;   
-        }
-}
-
-@media (max-width: 570px) {
+@media (max-width: 800px) {
         .start-h1 {
             font-size: 16px;
             font-weight: 500;
         }
 
         .house {
-            width: 80%;
+            width: 200px;
+            height: 200px;
             position: absolute;
             top: -10%;
             left: -120px;
@@ -298,120 +188,46 @@ svg {
         }
 
         .start-planeta-img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             position: absolute;
-            bottom: -15%;
+            bottom: -12%;
             right: -60px;
             z-index: -1;
-            background-color: #d8d8d8;
-            border-radius: 50%;
         }
-
-        .start-h2-conteiner {
-            position: relative;
-            width: 50%;
-            top: 10%;
-            margin-left: 57%;
-        }
-
         .start-h2 {
-            display: block;
-            width: 100%;
-            font-size: 18px;
-            font-weight: 600;
+            min-width: 200px;
+            width: 200px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .start-h2-menu {
+            font-size: 20px;
+            font-weight: 400;
             text-align: left;
         }
-
-        .start-ozenka {
-            animation: rocket 0.4s ease forwards;
-            display: none;
-            text-align: left;
-            width: 220px;
-            position: absolute;
-            top: 400px;
-            right: -100px;
-            font-size: 18px;
-            font-weight: 600;
+        
+        .start-h2-upor-l {
+            min-width: 100px;
         }
-
-        .start-h2-ozenka {
-            position: absolute;
-            padding: 10px;
-            bottom: -50%;
-            right: 0;
-            background: url('../images/icon/krug.svg') center center / contain no-repeat; 
-        }
-
-        .start-o-proecte {
-            display: block;
+        
+        .start-h2-upor-r {
             width: 100px;
-            font-size: 15px;
-            position: relative;
         }
 
-        .start-qustions-1 {
-            display: none;
-            width: 120px;
-            font-size: 12px;
-            position: relative;
-            left: 5%;
-            bottom: -250px;
+        .start-qustions-flex-appendix-2 {
+            top: 5px;
+            right: -30px;
+            width: 35px;
+            height: 35px;
+            background: url("../images/icon/qustion2.svg") center center / contain no-repeat;
         }
-        
-       
-            @keyframes rocket {
-                0% {}
-                100% {  transform: translate3d(-100px,-400px,0); 
-                        font-size: 18px;
-                        font-weight: 600;
-                        // width: %;   
-                    }
-                }
+
+        .start-smallcoteiner {
+            margin-left: 50px;
+            width: 200px;
+            margin-bottom: 50px;
+        }
+               
 }
-
-@media (max-width: 650px) {
-        
-    .start-h2-conteiner {
-        position: relative;
-        max-width: 300px;
-        margin-top: 100px;
-        margin-left: 57%;
-    }
-    .start-ozenka {
-        margin-left: 5px;
-        max-width: 290px;
-    }
-    .start-qustions-1 {
-        display: none;
-        width: 120px;
-        font-size: 15px;
-        position: relative;
-        left: 5%;
-        bottom: -250px;
-    }
-
-};
-
-@media (max-width: 400px) {
-
-    .start-h2-conteiner {
-        position: relative;
-        width: 50%;
-        margin-top: 100px;
-        margin-left: 48%; 
-    }
-
-    .start-ozenka {
-       width: 102%;
-    } 
-    
-    .start-qustions-1 {
-        bottom: -235px;
-    }
-
-    .start-o-proecte {
-        // bottom: -180px;
-    }
-           
-};

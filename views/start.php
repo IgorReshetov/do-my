@@ -5,33 +5,30 @@ require_once 'views/templates/header.php';
 
     <div class="wrapper">
         <h1 class = "start-h1">Рекомендации по жилью</h1> 
-        <div class="start-linia-2">
+        <div class="start-block">
             <div class="start-h2-conteiner">
-                <div class="start-h2-upor"></div>
-                <h2 class ="start-h2">Вот какую оценку заслуживает ваш выбор квартиры
-                    <div class="start-h2-ozenka">7.8</div>
-                </h2>
-                <div class="start-h2-upor"></div>
-                <h2 class="start-ozenka">Эта игра покажет, где вам лучше жить, а где нет</h2>
+                <div class="start-h2-upor-l"></div>
+                <div class="start-h2">
+                    <h2 class="start-h2-menu">Эта игра покажет, где вам лучше жить</h2>
+                    <div class="start-qustions-flex-appendix-2"></div>
+                </div>
+                <div class="start-h2-upor-r"></div>
             </div>
 
-            <div class="start-o-proecte">
-                <div class="start-qustions-flex-appendix-1"></div>
-                <a href="index.php?page=project" class= 'start-qustions-2'>Хотите узнать секрет как работает наш сервис?</a>
-            </div> 
-
-            <div class="start-qustions-1">
-                <div class="start-qustions-flex-appendix-1"></div>
-                Спорим, вы не до конца знаете, что для вас важно при выборе квартиры?    
+            <div class="start-smallcoteiner">
+                <div class="start-o-proecte">
+                    <div class="start-qustions-flex-appendix-1"></div>
+                    <a href="index.php?page=project" class= 'start-qustions-2'>Хотите узнать секрет, как работает наш сервис?</a>
+                </div> 
             </div>
         </div>
        
         <div class="start-linia">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 700" preserveAspectRatio="none">
-                <path width="100%"  height="500px" fill="none" stroke="#FF3535"  stroke-width="5" d="M20,300 Q100,700, 380,670" />
+                <path width="100%"  height="500px" fill="none" stroke="#0000ff"  stroke-width="10" d="M20,300 Q100,700, 380,670" />
             </svg>
             <div class="start-planeta-img"></div>
-            <img class = "house" src="views/images/icon/house.svg" alt="multistory building">
+            <div class = "house"></div>
         </div>
         <div class="start-linia-wite">
         </div>

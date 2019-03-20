@@ -27,7 +27,6 @@ html {
 }
 
 .wrapper {
-  background-color: burlywood;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -42,7 +41,6 @@ html {
 }
 
 .wrapper-menu {
-  background-color: chocolate;
   max-width: 1200px;
   margin: 0 auto;
   display: -webkit-box;
@@ -110,6 +108,7 @@ a.menu-proect:hover {
   margin: 5px;
   margin-left: 30px;
   margin-right: 30px;
+  font-weight: 350;
 }
 
 .icon-menu {
@@ -146,6 +145,10 @@ a.menu-proect:hover {
 
 .user-menu-reg, .user-menu-auth {
   margin-left: 10px;
+}
+
+.user-menu-reg, .user-menu-auth {
+  font-weight: 350;
 }
 
 .user-menu-reg:hover, .user-menu-auth:hover {
@@ -216,6 +219,11 @@ a.menu-proect:hover {
   .footer-block-inside2 {
     font-size: 15px;
     margin-left: 60px;
+  }
+  .centr-fox {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 /*# sourceMappingURL=global.css.map */
