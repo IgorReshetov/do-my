@@ -41,16 +41,16 @@ $time_answer = time();
 $retry = 0;
 $i = count($_SESSION['user_answer']);
 foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяем на наличие ранее отвеченного вопроса и если ответ есть - перезаписываем
+
     if ($user_answer['id_question'] == $id_question) {
         $i = $key;
         $retry = 1;
     }
-    else {
-    $i = count($_SESSION['user_answer']);
-    }
+
 }
 
 (($i == "") ? $i = 0 : $i = $i);
+
 $_SESSION['user_answer'][$i]['id_question'] = $id_question;
 $_SESSION['user_answer'][$i]['id_answer'] = $data['id_answer'];
 $_SESSION['user_answer'][$i]['answer_is_true'] = $answer_is_true;
@@ -117,11 +117,11 @@ if ($level_access >= 2){
     if ($count_question == $count_1['questions_count']){
         if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
         foreach ($_SESSION['user_answer'] as $key => $user_answer) {
-            $string = implode(", ", $user_answer['id_answer']);
+            if (is_array($user_answer['id_answer'])) {$string = implode(", ", $user_answer['id_answer']);} else {$string = $user_answer['id_answer'];}
             User::putUserAnswer($user->id_user, $user_answer['id_question'], $string);
         }
     } else {
-        $string = implode(", ", $_SESSION['user_answer'][$count_question-1]['id_answer']);
+        if (is_array($_SESSION['user_answer'][$count_question-1]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$count_question-1]['id_answer']);} else {$string = $_SESSION['user_answer'][$count_question-1]['id_answer'];}
         User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count_question-1]['id_question'], $string);
     }
 }
