@@ -1,9 +1,12 @@
 window.onload = init;
 
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
+var check_arr = [];
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
 Object.prototype.cookie_level = function() {
+    check_arr = [cookies.active_question];
+
      levelQst_1 = {hit:0, miss:0, next_lev:false, check:false}; // Вводим глобальные уровни вопросов попал/промах
      levelQst_2 = {hit:0, miss:0, next_lev:false, check:false};
      levelQst_3 = {hit:0, miss:0, next_lev:false, check:false};
@@ -74,7 +77,8 @@ function init() {
     fill_circle();
     
     console.log(cookies); 
-    
+    console.log(check_arr);
+
     var status_Game = document.getElementsByClassName('slider-box-main');
     if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
     status_Game[0].style.display = "block";
@@ -121,11 +125,12 @@ function zapros_Cookies(){      //  Синхронный запрос
             countQst += parseInt(cookies.questions_count[i].questions_count);
     }
 
-    if (cookies.user_answer.length > 0) {
-        // countQst = 0;
-        numStartQst = cookies.user_answer.length;
 
-    }  
+    // if (cookies.user_answer.length > 0) {
+    //     // countQst = 0;
+    numStartQst = cookies.active_question;
+
+    // }  
     // } else {
         
     //     // countQst = 0;
@@ -198,7 +203,7 @@ function json_Q_A() {
     // console.log(numAnsw);
     // console.log(numQst);
 
-    numStartQst++;
+    // numStartQst++;
     
     var data = {
         id_question: numQst,
@@ -364,6 +369,12 @@ function update_afterClientAnswer(otvet) {
     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
+
+    numStartQst = otvet.active_question;
+    check_arr.push(otvet.active_question);
+    console.log(check_arr);
+    
+    if ()
 
     switch (numStartQst) {
         case countQst_lev1 :
