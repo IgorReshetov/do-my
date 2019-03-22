@@ -374,8 +374,6 @@ function update_afterClientAnswer(otvet) {
     check_arr.push(otvet.active_question);
     console.log(check_arr);
     
-    if ()
-
     switch (numStartQst) {
         case countQst_lev1 :
             if (otvet.answer_is_true) levelQst_1.hit++; 
