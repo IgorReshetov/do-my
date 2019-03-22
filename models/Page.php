@@ -42,7 +42,7 @@ class Page
             require_once 'views/error.php';
             break;
             default:
-            // require_once 'models/User.php';
+            // require_once 'models/Answer.php';
             require_once 'controllers/survey.php';
             break;
             }

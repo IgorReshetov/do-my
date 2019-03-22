@@ -43,3 +43,8 @@ class Answer
         $mysqli->next_result();
     }
 }
+
+// $tets = New Answer (1,3);
+
+// echo '<pre>';
+// var_dump($tets);
