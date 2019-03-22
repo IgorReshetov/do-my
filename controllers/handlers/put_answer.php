@@ -11,12 +11,31 @@ $id_question = $data['id_question'];
 $answer = new Answer(1, $id_question);
 $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
-foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
-    if ($id_answer == $id_answer_check) {$id_answer = $key;}
+$id_answer_sample = array();
+$comment = '';
+
+// функция проверки многомерных и одномерных овтетов
+if (is_array($id_answer)) {
+    foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
+        if ($answer->is_true[$key] == 1) {$id_answer_sample[] = $id_answer_check; $comment = $comment.$answer->is_true_comment[$key];}
+    }
+    $result = array_intersect($id_answer, $id_answer_sample);
+    if (count($id_answer) == count($result)){
+        $answer_is_true = 1;
+        $answer_is_true_comment = $comment;
+    }else {
+        $answer_is_true = NULL;
+        $answer_is_true_comment =  NULL;
+    }
+}else{
+    foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
+        if ($id_answer == $id_answer_check) {$id_answer = $key;}
+    }
+    $answer_is_true = $answer->is_true[$id_answer];
+    $answer_is_true_comment = $answer->is_true_comment[$id_answer];
 }
 
-$answer_is_true = $answer->is_true[$id_answer];
-$answer_is_true_comment = $answer->is_true_comment[$id_answer];
+
 $time_answer = time();
 
 $retry = 0;
@@ -58,7 +77,7 @@ else {
 if ($sign_bot == 1) {$_SESSION['bot'] = 1;}
 
 
-// определяем доступ к уровням и текущую позицию по уровню, если вопрос последний на 1 уровне и правильных ответов больше 90% - идет запись ответов в базу под сессией пользователя.
+// определяем доступ к уровням и текущую позицию по уровню, если вопрос последний на 1 уровне и правильных ответов 100% - идет запись ответов в базу под сессией пользователя.
 $last_session_id = $_COOKIE ['PHPSESSID'];
 $ip_user = $_SESSION['ip_user'];
 
@@ -98,10 +117,12 @@ if ($level_access >= 2){
     if ($count_question == $count_1['questions_count']){
         if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
         foreach ($_SESSION['user_answer'] as $key => $user_answer) {
-            User::putUserAnswer($user->id_user, $user_answer['id_question'], $user_answer['id_answer']);
+            $string = implode(", ", $user_answer['id_answer']);
+            User::putUserAnswer($user->id_user, $user_answer['id_question'], $string);
         }
     } else {
-        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count_question-1]['id_question'], $_SESSION['user_answer'][$count_question-1]['id_answer']);
+        $string = implode(", ", $_SESSION['user_answer'][$count_question-1]['id_answer']);
+        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count_question-1]['id_question'], $string);
     }
 }
 
