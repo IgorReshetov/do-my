@@ -3,7 +3,8 @@
 require_once 'views/templates/header.php';
 ?>
 
-<div class="main">
+<div class="wrapper main">
+    <h1 class="title">Эта игра подскажет, где вам лучше жить </h1>
     <div class='slider-box-main'>
         <div class="slider-box-level">
             <div class="slider-level">
@@ -76,7 +77,7 @@ require_once 'views/templates/header.php';
         </tr>
     </table>
 
-    <div id='button'>Начать опрос</div>
+    <div id='button'></div>
 
     <div id="result">
         <img id="image_true" src="views/images/survey/elephant.png" alt="">

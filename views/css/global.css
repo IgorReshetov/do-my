@@ -194,7 +194,6 @@ a.menu-proect:hover {
 
 @media (max-width: 570px) {
   .wrapper {
-    width: 320px;
     margin: 0 auto;
   }
   .icon-user {

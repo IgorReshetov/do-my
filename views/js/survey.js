@@ -264,11 +264,14 @@ function json_Q_A_next() {
 function startOpros() {
     var status_Game = document.getElementsByClassName('slider-box-main');
     status_Game[0].style.display = "block";
+    var opros = document.getElementsByClassName('opros');
+    opros[0].style.display = "block";
     var tables = document.querySelectorAll("table");
     for (var i = 0; i < tables.length; i++) {
         tables[i].style.opacity = "1";
     };
     document.getElementById("button").style.display="none";
+    document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     var data = {
         numStartQst:numStartQst,
