@@ -58,6 +58,7 @@ $_SESSION['user_answer'][$i]['answer_is_true_comment'] = $answer_is_true_comment
 $_SESSION['user_answer'][$i]['time_answer'] = $time_answer;
 
 $activ_question = $i+1;
+$last_question = $i;
 
 $last_level = $_SESSION['level_access'];
 $reset = 0;
@@ -77,7 +78,7 @@ else {
 if ($sign_bot == 1) {$_SESSION['bot'] = 1;}
 
 
-// определяем доступ к уровням и текущую позицию по уровню, если вопрос последний на 1 уровне и правильных ответов 100% - идет запись ответов в базу под сессией пользователя.
+// определяем доступ к уровням и текущую позицию по уровню, если вопрос последний на 1 уровне и правильных ответов 100% - идет запись ответов в базу начиная со второго уровня под сессией пользователя.
 $last_session_id = $_COOKIE ['PHPSESSID'];
 $ip_user = $_SESSION['ip_user'];
 
@@ -116,13 +117,13 @@ $level_access = $_SESSION['level_access'];
 if ($level_access >= 2){
     if ($count_question == $count_1['questions_count']){
         if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
-        foreach ($_SESSION['user_answer'] as $key => $user_answer) {
-            if (is_array($user_answer['id_answer'])) {$string = implode(", ", $user_answer['id_answer']);} else {$string = $user_answer['id_answer'];}
-            User::putUserAnswer($user->id_user, $user_answer['id_question'], $string);
-        }
+        // foreach ($_SESSION['user_answer'] as $key => $user_answer) {
+        //     if (is_array($user_answer['id_answer'])) {$string = implode(", ", $user_answer['id_answer']);} else {$string = $user_answer['id_answer'];}
+        //     User::putUserAnswer($user->id_user, $user_answer['id_question'], $string);
+        // }
     } else {
-        if (is_array($_SESSION['user_answer'][$count_question-1]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$count_question-1]['id_answer']);} else {$string = $_SESSION['user_answer'][$count_question-1]['id_answer'];}
-        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$count_question-1]['id_question'], $string);
+        if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
+        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$last_question]['id_question'], $string);
     }
 }
 
