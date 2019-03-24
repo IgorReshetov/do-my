@@ -1,6 +1,7 @@
 .main {
     max-width: 1200px;
     margin: 50px auto;
+    overflow: hidden;
 }
 
 table {
@@ -23,9 +24,10 @@ td {
     font-size: 80%;
 }
 
-// .opros {
-//     margin-top: 50px;
-// }
+.opros {
+    display: none;
+
+}
 
 #Q {
     background: lightskyblue;
@@ -66,36 +68,62 @@ table.prev_next {
     width: 20px;
 }
 
+.title {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 400px;
+    text-align: center;
+    font-size: 20px; 
+}
+
 #button {
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 100px;
+    margin-bottom: 200px;
     width: 250px;
-    border: 2px solid;
-    background: gold;
-    text-align: center
-}
-
-#button:hover {
+    height: 250px;
+    background: yellow;
+    box-shadow: 0 0 20px rgb(187, 187, 187);
+    border-radius: 100%;
+    position: relative;
     cursor: pointer;
 }
+#button:before {
+    content: "Начать игру";
+    position: absolute;
+    height: 50px;
+    width: 350px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2;
+    // z-index: 99;
+    left: -62px;
+    top: 85px;
+    border: 15px solid yellow;
+    font-size: 25px; 
+    transition: 1s all;
+}
+
+#button:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    height: 600px;
+    width: 900px;
+    border-radius: 50%;
+    left: 0px;
+    top: 0px;
+    border-left: 20px solid white;
+    border-top: 20px solid yellow;
+    border-right: 20px solid white;
+    transform: rotate(-10deg);
+}
 
 
-
-// #Qst {
-//     margin-top: 100px;
-//     margin-left: 50px;
-//     display: inline-block;
-//     width: 38%;
-//     // float: left;
-//     border: 2px solid;
-// }
-
-// #Asw {
-//     display: inline-block;
-//     margin-left: 50px;
-//     border: 2px solid;
-//     width: 38%
-// }
+#button:hover:before {
+    transform: rotate(33deg);
+}
 
 
 // слайдер
@@ -106,29 +134,17 @@ table.prev_next {
     min-width: 250px;
     margin: auto;
     margin-top: 100px;
-    // border: 2px solid red;
 }
 
 .slider-box-level {
-    // display: block;
     height: 45px;
     max-width: 50%;
-    // min-width: 250px;
     margin-left: 15px;
-    // margin-top: 100px;
-    // margin-bottom: 0px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: space-between;
 }
 
 .slider-level {
     width: 120px;
     height: 35px;
-    // border: thin solid black;
-    // display: flex;
-    // align-items: center;
-    // justify-content: space-around;
 }
 
 .step-level{
@@ -143,7 +159,6 @@ table.prev_next {
 
 .slider-box-survey-arround {
     height: 20px;
-    // width: 440px;
     max-width: 100%;
     min-width: 250px;
     margin: auto;
@@ -155,7 +170,6 @@ table.prev_next {
 }
 
 .slider-box-survey {
-    // border: thin solid black;
     height: 20px;
     width: 100%;
     overflow: hidden;
@@ -254,8 +268,6 @@ table.prev_next {
     cursor: pointer;
 }
 
-// #why {
-// }
 
 #true, #false {
     display: none;
@@ -265,4 +277,60 @@ table.prev_next {
     display: none;
     height: 200px;
     width: 200px;
+}
+
+@media (max-width: 570px) {
+   
+
+    .title {
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 200px;
+        text-align: center;
+        font-size: 18px; 
+    }
+
+    #button {
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-bottom: 200px;
+        width: 170px;
+        height: 170px;
+        background: yellow;
+        box-shadow: 0 0 20px rgb(187, 187, 187);
+        border-radius: 100%;
+        position: relative;
+        cursor: pointer;
+    }
+    #button:before {
+        content: "Начать игру";
+        position: absolute;
+        height: 35px;
+        width: 240px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.5;
+        // z-index: 99;
+        left: -50px;
+        top: 55px;
+        border: 15px solid yellow;
+        font-size: 25px; 
+    }
+    
+    #button:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        height: 600px;
+        width: 900px;
+        border-radius: 50%;
+        left: 0px;
+        top: -85px;
+        border-left: 20px solid white;
+        border-top: 20px solid yellow;
+        border-right: 20px solid white;
+        transform: rotate(-5deg);
+    }
+
 }
