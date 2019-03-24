@@ -1,16 +1,21 @@
 window.onload = init;
 
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
-var check_arr = [];
+var check_arr = [0];
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
 Object.prototype.cookie_level = function() {
     check_arr = [cookies.active_question];
+     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
+     var countQst_lev2 = parseInt(cookies.questions_count[1].questions_count);
+     var countQst_lev3 = parseInt(cookies.questions_count[2].questions_count);
 
-     levelQst_1 = {hit:0, miss:0, next_lev:false, check:false}; // Вводим глобальные уровни вопросов попал/промах
-     levelQst_2 = {hit:0, miss:0, next_lev:false, check:false};
-     levelQst_3 = {hit:0, miss:0, next_lev:false, check:false};
-    switch (cookies.level_access) {
+     levelQst_1 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev1,  check:false}; // Вводим глобальные уровни вопросов попал/промах
+     levelQst_2 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev2,  check:false};
+     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false};
+
+    
+     switch (cookies.level_access) {
         case 1:
             for (var i=0; i<cookies.user_answer.length; i++) {
                 if (cookies.user_answer[i].answer_is_true == "1") levelQst_1.hit += 1;
@@ -49,25 +54,35 @@ Object.prototype.cookie_level = function() {
 }
 
 // Создаем метод по проверке правильных ответов для перехода на след.уровень при 80% правильных ответов
-Object.prototype.next_level = function(){
-    if ((this.hit/(this.hit+this.miss))*100 >= 100) {this.next_lev = true;
+// _________________ Первый вариант______________________________
+// Object.prototype.next_level = function(){
+//     if ((this.hit/(this.hit+this.miss))*100 >= 100) {this.next_lev = true;
+//     return true;
+//     } else return false;
+// } 
+
+Object.prototype.next_level = function(){                   // Для завершения уровня нужно набрать 100%
+    if (this.hit == this.countQst) {this.next_lev = true;
     return true;
     } else return false;
 } 
 
-var levelQst_1 = {hit:0, miss:0, next_lev:false, missQst:[], check:false}; // Вводим глобальные уровни вопросов попал/промах и подсчет итогов
-var levelQst_2 = {hit:0, miss:0, next_lev:false, missQst:[], check:false};
-var levelQst_3 = {hit:0, miss:0, next_lev:false, missQst:[], check:false};
+var levelQst_1 = {hit:0, miss:0, next_lev:false, countQst:0, check:false}; // Вводим глобальные уровни вопросов попал/промах и подсчет итогов
+var levelQst_2 = {hit:0, miss:0, next_lev:false, countQst:0, check:false};
+var levelQst_3 = {hit:0, miss:0, next_lev:false, countQst:0, check:false};
 var resultQst = {hit: function() {return (levelQst_1.hit + levelQst_2.hit + levelQst_3.hit);}, miss: function() {return (levelQst_1.miss+levelQst_2.miss+levelQst_3.miss);}};
 
 var countQst;     // Общее число вопросов
 var cookies;      // Репозитарий для куков
 
+//_____________________________РЕПОЗИТАРИЙ ДЛЯ КАРТИНОК______________________________________________
 var arr_win = ['Dolphin', 'elephant', 'gorilla'];
 var arr_lose = ['Hippopotamus', 'lion', 'Turtle', 'Panda'];
 var arr_lev_win = ['ice cream', 'owl'];
 var arr_lev_lose = ['home', 'Butterfly'];
-var game_win = 'Firefox-icon';
+var game_win = 'Firefox-icon'; 
+
+//_______________________________НАЧАЛО ДЕЙСТВИЯ КОДА_________________________________________________
 
 function init() {
     
@@ -78,6 +93,10 @@ function init() {
     
     console.log(cookies); 
     console.log(check_arr);
+    console.log(levelQst_3.check);
+    console.log(levelQst_3.check);
+  
+  
 
     var status_Game = document.getElementsByClassName('slider-box-main');
     if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
@@ -233,6 +252,7 @@ function json_Q_A() {
 }
 
 function json_Q_A_next() {
+    
     // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
     var data = {
@@ -369,23 +389,42 @@ function update_afterClientAnswer(otvet) {
     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
-
+    
+    console.log(check_arr);
     numStartQst = otvet.active_question;
     check_arr.push(otvet.active_question);
     console.log(check_arr);
     
+    if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (levelQst_1.countQst - 1))) {
+        if (otvet.answer_is_true) levelQst_1.hit++; 
+            else levelQst_1.miss++;
+    } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) {
+        if (otvet.answer_is_true) levelQst_2.hit++; 
+            else levelQst_2.miss++;
+    } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) {
+        if (otvet.answer_is_true) levelQst_3.hit++; 
+            else levelQst_3.miss++;
+    }
+        
+
     switch (numStartQst) {
         case countQst_lev1 :
-            if (otvet.answer_is_true) levelQst_1.hit++; 
-            else levelQst_1.miss++;
+            // if (otvet.answer_is_true) {
+                levelQst_1.hit++; 
+                levelQst_1.miss=0;
+            // } else levelQst_1.miss++;
         break;
         case countQst_lev2 :
-            if (otvet.answer_is_true) levelQst_2.hit++; 
-            else levelQst_2.miss++;
+            // if (otvet.answer_is_true) levelQst_2.hit++; 
+            levelQst_2.hit++; 
+            levelQst_2.miss=0;
+            // else levelQst_2.miss++;
         break;
         case countQst_lev3 :
-            if (otvet.answer_is_true) levelQst_3.hit++; 
-            else levelQst_3.miss++;
+            // if (otvet.answer_is_true) levelQst_3.hit++;
+            levelQst_3.hit++; 
+            levelQst_3.miss=0;
+            // else levelQst_3.miss++;
             otvet_true.innerHTML = 'Вы знаете правильный ответ. Поздравляем';
         break;
         default:
@@ -399,9 +438,10 @@ function update_afterClientAnswer(otvet) {
     if (otvet.answer_is_true == 1) {
         image_true.src = "views/images/survey/" + arr_win[Math.floor(Math.random()*3)] + ".png";
         image_true.style.display = "block";
+        otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем.";
         otvet_true.style.display = "block";
-        why.style.display = "block";
         why.innerHTML = otvet.answer_is_true_comment;
+        why.style.display = "block";
     } else {
         image_false.src = "views/images/survey/" + arr_lose[Math.floor(Math.random()*4)] + ".png";
         image_false.style.display = "block";
@@ -518,8 +558,8 @@ function valid_level_2() {
 }
 
 function valid_level_3() {
-    var result = document.getElementById("result");
-    var dark = document.getElementById("dark");
+    // var result = document.getElementById("result");
+    // var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
     var otvet_false = document.getElementById("false");
     var image_true = document.getElementById("image_true");
@@ -532,6 +572,8 @@ function valid_level_3() {
         // console.log(!(levelQst_1.next_level()));
         levelQst_3.check = true;
         levelQst_3.next_level();
+        console.log(levelQst_3.check);
+        console.log(levelQst_3.next_lev);
         if (!(levelQst_3.next_lev)) {
             why.style.display = "none"; 
             image_true.style.display = "none";
@@ -579,6 +621,7 @@ function update_afterClientFoward() {
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
 
     switch (numStartQst) {
+        
         case countQst_lev1 :
             if (!levelQst_1.check) valid_level_1();
             else if (levelQst_1.check==true && levelQst_1.next_lev == true) {
@@ -594,24 +637,25 @@ function update_afterClientFoward() {
                 json_Q_A_next();
 
                 init();
-            } else if (levelQst_1.check==true && levelQst_1.next_lev == false) {
-                numStartQst = cookies.active_question;
+            } 
+            // else if (levelQst_1.check==true && levelQst_1.next_lev == false) {
+            //     numStartQst = cookies.active_question;
                 
-                // eraseCookie("PHPSESSID");
+            //     // eraseCookie("PHPSESSID");
 
-                result.style.display = "none";
-                dark.style.display = "none";
-                otvet_true.style.display = "none";
-                otvet_false.style.display = "none";
-                image_true.style.display = "none";
-                image_false.style.display = "none";
-                why.style.display = "none";
-                why.innerHTML = '';
+            //     result.style.display = "none";
+            //     dark.style.display = "none";
+            //     otvet_true.style.display = "none";
+            //     otvet_false.style.display = "none";
+            //     image_true.style.display = "none";
+            //     image_false.style.display = "none";
+            //     why.style.display = "none";
+            //     why.innerHTML = '';
 
-                json_Q_A_next();
+            //     json_Q_A_next();
 
-                init();
-            }
+            //     init();
+            // }
         break;
 
         case countQst_lev2 :
@@ -629,24 +673,25 @@ function update_afterClientFoward() {
             json_Q_A_next();
 
             init();
-        } else if (levelQst_2.check==true && levelQst_2.next_lev == false) {
-            numStartQst = 0;
+        } 
+        // else if (levelQst_2.check==true && levelQst_2.next_lev == false) {
+        //     // numStartQst = 0;
 
-            eraseCookie("PHPSESSID");
+        //     // eraseCookie("PHPSESSID");
 
-            result.style.display = "none";
-            dark.style.display = "none";
-            otvet_true.style.display = "none";
-            otvet_false.style.display = "none";
-            image_true.style.display = "none";
-            image_false.style.display = "none";
-            why.style.display = "none";
-            why.innerHTML = '';
+        //     result.style.display = "none";
+        //     dark.style.display = "none";
+        //     otvet_true.style.display = "none";
+        //     otvet_false.style.display = "none";
+        //     image_true.style.display = "none";
+        //     image_false.style.display = "none";
+        //     why.style.display = "none";
+        //     why.innerHTML = '';
             
-            json_Q_A_next();
+        //     json_Q_A_next();
 
-            init();
-        }
+        //     init();
+        // }
         break;
 
         case countQst_lev3 :
@@ -666,84 +711,111 @@ function update_afterClientFoward() {
             circles[countQst-1].style.background = 'red';
 
             init();
-        } else if (levelQst_3.check==true && levelQst_3.next_lev == false) {
-            numStartQst = 0;
+        } 
+        // else if (levelQst_3.check==true && levelQst_3.next_lev == false) {
+        //     // numStartQst = 0;
             
 
-            eraseCookie("PHPSESSID");
+        //     // eraseCookie("PHPSESSID");
 
-            result.style.display = "none";
-            dark.style.display = "none";
-            otvet_true.style.display = "none";
-            otvet_false.style.display = "none";
-            image_true.style.display = "none";
-            image_false.style.display = "none";
-            why.style.display = "none";
-            why.innerHTML = '';
-            
-            // for (var i=0; i<countQst; i++) {
-            //     circles[i].style.background = 'white';
-            // }
+        //     result.style.display = "none";
+        //     dark.style.display = "none";
+        //     otvet_true.style.display = "none";
+        //     otvet_false.style.display = "none";
+        //     image_true.style.display = "none";
+        //     image_false.style.display = "none";
+        //     why.style.display = "none";
+        //     why.innerHTML = '';
+        //     /*
+        //     // for (var i=0; i<countQst; i++) {
+        //     //     circles[i].style.background = 'white';
+        //     // }
 
-            // json_Q_A_next();
-            var circles = document.querySelectorAll(".step-survey");
-            circles[countQst-1].style.background = 'grey';
+        //     // json_Q_A_next(); */
+        //     var circles = document.querySelectorAll(".step-survey");
+        //     circles[countQst-1].style.background = 'grey';
             
-            init();
-        }
+        //     init();
+        // }
         break;
 
         default :
-            var result = document.getElementById("result");
-            var dark = document.getElementById("dark");
-            var otvet_true = document.getElementById("true");
-            var otvet_false = document.getElementById("false");
-            var image_true = document.getElementById("image_true");
-            var image_false = document.getElementById("image_false");
-            var why = document.getElementById("why");
+          
+            if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (levelQst_1.countQst - 1))) ||
+            ((check_arr[1] == check_arr[0]) && (levelQst_1.hit == (levelQst_1.countQst - 1)))) {
+                // if ((cookies.user_answer.length == countQst_lev1) || (cookies.user_answer.length == (countQst_lev1 - 1))) {
+                if (!levelQst_1.check) valid_level_1();
+                else if (levelQst_1.check==true) { // && levelQst_1.next_lev == true
+                    result.style.display = "none";
+                    dark.style.display = "none";
+                    otvet_true.style.display = "none";
+                    otvet_false.style.display = "none";
+                    image_true.style.display = "none";
+                    image_false.style.display = "none";
+                    why.style.display = "none";
+                    why.innerHTML = '';
+                    
+                    json_Q_A_next();
+        
+                    init();
+                } 
+                // }
+            } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
+            ((check_arr[1] == check_arr[0]) && (levelQst_2.hit == (levelQst_2.countQst - 1)))) {
+                if (!levelQst_2.check) valid_level_2();
+                else if (levelQst_2.check==true) { // && levelQst_2.next_lev == true
+                result.style.display = "none";
+                dark.style.display = "none";
+                otvet_true.style.display = "none";
+                otvet_false.style.display = "none";
+                image_true.style.display = "none";
+                image_false.style.display = "none";
+                why.style.display = "none";
+                why.innerHTML = '';
+                
+                json_Q_A_next();
 
-            result.style.display = "none";
-            dark.style.display = "none";
-            otvet_true.style.display = "none";
-            otvet_false.style.display = "none";
-            image_true.style.display = "none";
-            image_false.style.display = "none";
-            why.style.display = "none";
-            why.innerHTML = '';
+                init();
+                } 
+            } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
+            ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))) {
+                if (!levelQst_3.check) valid_level_3();
+                else if (levelQst_3.check==true) { // && levelQst_3.next_lev == true
+                result.style.display = "none";
+                dark.style.display = "none";
+                otvet_true.style.display = "none";
+                otvet_false.style.display = "none";
+                image_true.style.display = "none";
+                image_false.style.display = "none";
+                why.style.display = "none";
+                why.innerHTML = '';
+                
+                json_Q_A_next();
 
-            json_Q_A_next();
+                init();
+                } 
 
-            init();
+            } else {    
+                result.style.display = "none";
+                dark.style.display = "none";
+                otvet_true.style.display = "none";
+                otvet_false.style.display = "none";
+                image_true.style.display = "none";
+                image_false.style.display = "none";
+                why.style.display = "none";
+                why.innerHTML = '';
 
+                json_Q_A_next();
+
+                init();
+            }
         break;
     }
-    
-    // var result = document.getElementById("result");
-    // var dark = document.getElementById("dark");
-    // var otvet_true = document.getElementById("true");
-    // var otvet_false = document.getElementById("false");
-    // var image_true = document.getElementById("image_true");
-    // var image_false = document.getElementById("image_false");
-    // var why = document.getElementById("why");
-
-    // result.style.display = "none";
-    // dark.style.display = "none";
-    // otvet_true.style.display = "none";
-    // otvet_false.style.display = "none";
-    // image_true.style.display = "none";
-    // image_false.style.display = "none";
-    // why.style.display = "none";
-    // why.innerHTML = '';
-    
-
-
-    // json_Q_A_next();
-
-    // init();
-
+   
+    console.log(levelQst_3.check)
 }
 
-
+// _______________________________________Функция перетасовки_________________________________________
 Array.prototype.shuffle = function() {
     for (var i = this.length - 1; i > 0; i--) {
         var num = Math.floor(Math.random() * (i + 1));
@@ -754,7 +826,7 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
-
+//__________________________________ ФУНКЦИИ ДЛЯ РАБОТЫ С COOKIES____________________________________________
 function createCookie(name,value,days) {
     if (days) {
         var date = new Date();
