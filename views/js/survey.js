@@ -92,10 +92,7 @@ function init() {
     fill_circle();
     
     console.log(cookies); 
-    console.log(check_arr);
-    console.log(levelQst_3.check);
-    console.log(levelQst_3.check);
-  
+
   
 
     var status_Game = document.getElementsByClassName('slider-box-main');
@@ -397,7 +394,8 @@ function update_afterClientAnswer(otvet) {
     numStartQst = otvet.active_question;
     check_arr.push(otvet.active_question);
     console.log(check_arr);
-    
+    console.log(countQst_lev3);
+
     if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (levelQst_1.countQst - 1))) {
         if (otvet.answer_is_true) levelQst_1.hit++; 
             else levelQst_1.miss++;
@@ -408,7 +406,8 @@ function update_afterClientAnswer(otvet) {
         if (otvet.answer_is_true) levelQst_3.hit++; 
             else levelQst_3.miss++;
     }
-        
+    console.log(levelQst_3.hit);   
+    console.log(levelQst_3.miss);   
 
     switch (numStartQst) {
         case countQst_lev1 :
@@ -623,6 +622,8 @@ function update_afterClientFoward() {
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
 
+    console.log((((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
+    ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))));
     switch (numStartQst) {
         
         case countQst_lev1 :
@@ -662,8 +663,26 @@ function update_afterClientFoward() {
         break;
 
         case countQst_lev2 :
-        if (!levelQst_2.check) valid_level_2();
-        else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
+        if (cookies.user_answer.length <= countQst_lev2) {
+            if (!levelQst_2.check) valid_level_2();
+            else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
+                result.style.display = "none";
+                dark.style.display = "none";
+                otvet_true.style.display = "none";
+                otvet_false.style.display = "none";
+                image_true.style.display = "none";
+                image_false.style.display = "none";
+                why.style.display = "none";
+                why.innerHTML = '';
+
+                json_Q_A_next();
+
+                init();
+            } 
+        }  else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
+        ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))) {
+            if (!levelQst_3.check) valid_level_3();
+            else if (levelQst_3.check==true) { // && levelQst_3.next_lev == true
             result.style.display = "none";
             dark.style.display = "none";
             otvet_true.style.display = "none";
@@ -676,7 +695,9 @@ function update_afterClientFoward() {
             json_Q_A_next();
 
             init();
-        } 
+            } 
+
+        }
         // else if (levelQst_2.check==true && levelQst_2.next_lev == false) {
         //     // numStartQst = 0;
 
