@@ -5,34 +5,47 @@ require_once 'views/templates/header.php';
 
 <div class="wrapper main">
     <h1 class="title">Эта игра подскажет, где вам лучше жить </h1>
-    <div class='slider-box-main'>
-        <div class="slider-box-level">
-            <div class="slider-level">
-                <div class="step-level">1/6</div>
-                <!-- <div class="step-level"></div>
-                <div class="step-level"></div>     -->
+    <div class="board">
+        <div class="board-left">
+            <div class="result1">
+                <div>Easy done</div>
+            </div>
+            <div class="result2">
+                <div>Medium done</div>
             </div>
         </div>
-        <div class="slider-box-survey-arround">       
-            <div class="slider-box-survey-before"></div>
-            <div class="slider-box-survey-after"></div>
-            <div class="slider-box-survey">
-                <div class="slider-survey">
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
-                    <div class="step-survey"></div>
+        <div class='slider-box-main'>
+            <div class="slider-box-level">
+                <div class="slider-level">
+                    <div class="step-level">1/6</div>
+                </div>
+                <div class="slider-level-fovard">
+                    <div class="step-level2">2</div>
+                    <div class="step-level3">2</div>
+                </div>
+            </div>
+            <div class="slider-box-survey-arround">       
+                <div class="slider-box-survey-before"></div>
+                <div class="slider-box-survey-after"></div>
+                <div class="slider-box-survey">
+                    <div class="slider-survey">
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                        <div class="step-survey"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="board-right"></div>
     </div>
     <table class="opros">
         <tr>
@@ -77,7 +90,7 @@ require_once 'views/templates/header.php';
         </tr>
     </table>
 
-    <div id='button'></div>
+    <div id='button' class = 'button <?=$play?>'></div>
 
     <div id="result">
         <img id="image_true" src="views/images/survey/elephant.png" alt="">

@@ -9,7 +9,6 @@ table {
   min-width: 250px;
   max-width: 50%;
   margin: auto auto;
-  border: thin solid black;
   caption-side: bottom;
   border-collapse: collapse;
   opacity: 0;
@@ -18,8 +17,7 @@ table {
 }
 
 td, th {
-  border: thin solid black;
-  padding: 5px;
+  padding: 10px;
 }
 
 td {
@@ -31,7 +29,7 @@ td {
 }
 
 #Q {
-  background: lightskyblue;
+  border-bottom: thin solid black;
 }
 
 #next {
@@ -77,7 +75,7 @@ table.prev_next {
   font-size: 20px;
 }
 
-#button {
+.button {
   margin: 0 auto;
   margin-top: 100px;
   margin-bottom: 200px;
@@ -91,8 +89,8 @@ table.prev_next {
   cursor: pointer;
 }
 
-#button:before {
-  content: "Начать игру";
+.button:before {
+  content: "";
   position: absolute;
   height: 50px;
   width: 350px;
@@ -107,7 +105,7 @@ table.prev_next {
   transition: 1s all;
 }
 
-#button:after {
+.button:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -123,38 +121,273 @@ table.prev_next {
           transform: rotate(-10deg);
 }
 
+.play1:before {
+  content: "Начать игру";
+}
+
+.play2:before {
+  content: "Продолжить игру";
+  font-size: 23px;
+}
+
+.play3:before {
+  content: "Повторить игру";
+  font-size: 23px;
+}
+
 #button:hover:before {
   -webkit-transform: rotate(33deg);
           transform: rotate(33deg);
 }
 
-.slider-box-main {
+.board {
   display: none;
-  max-width: 50%;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.board-left {
+  width: 200px;
+  height: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.result1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: yellow;
+  -webkit-box-shadow: 0 0 10px #bbbbbb;
+          box-shadow: 0 0 10px #bbbbbb;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 10px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.result1:hover, .result2:hover {
+  color: red;
+}
+
+.result2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: blue;
+  -webkit-box-shadow: 0 0 10px #2c2c2c;
+          box-shadow: 0 0 10px #2c2c2c;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  margin-right: 10px;
+}
+
+.board-right {
+  width: 200px;
+  height: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.slider-box-main {
+  display: block;
+  max-width: 600px;
   min-width: 250px;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .slider-box-level {
-  height: 45px;
-  max-width: 50%;
-  margin-left: 15px;
+  height: 54px;
+  max-width: 100%;
+  margin-left: 13px;
+  margin-right: 13px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .slider-level {
-  width: 120px;
-  height: 35px;
+  width: 54px;
+  height: 54px;
+}
+
+.slider-level-fovard {
+  width: 100px;
+  height: 54px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .step-level {
   display: block;
-  width: 35px;
-  height: 35px;
-  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  border: 2px solid yellow;
+  -webkit-box-shadow: 0 0 20px #bbbbbb;
+          box-shadow: 0 0 20px #bbbbbb;
   border-radius: 100%;
   text-align: center;
-  line-height: 210%;
+  line-height: 261%;
+  font-size: 20px;
+  position: relative;
+  -webkit-transition: 2s all;
+  transition: 2s all;
+}
+
+.step-level:before {
+  content: 'Easy';
+  font-size: 16px;
+  top: -44px;
+  right: 8px;
+  color: #636363;
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: 2s all;
+  transition: 2s all;
+}
+
+.step-level:hover:before {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.step-level:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.step-level2 {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid blue;
+  -webkit-box-shadow: 0 0 20px #bbbbbb;
+          box-shadow: 0 0 20px #bbbbbb;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 218%;
+  font-size: 20px;
+  position: relative;
+  -webkit-transition: 2s all;
+  transition: 2s all;
+}
+
+.step-level2:before {
+  content: 'Medium';
+  font-size: 12px;
+  top: -35px;
+  right: -2px;
+  color: #636363;
+  position: absolute;
+}
+
+@-webkit-keyframes step-level {
+  0% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes step-level {
+  0% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+.step-level2:hover:before {
+  -webkit-animation: step-level 3s infinite;
+          animation: step-level 3s infinite;
+}
+
+.step-level3 {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid red;
+  -webkit-box-shadow: 0 0 20px #bbbbbb;
+          box-shadow: 0 0 20px #bbbbbb;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 218%;
+  font-size: 20px;
+  position: relative;
+}
+
+.step-level3:before {
+  content: 'Hard';
+  font-size: 12px;
+  top: -35px;
+  right: 7px;
+  color: #636363;
+  position: absolute;
+}
+
+.step-level3:hover:before {
+  -webkit-animation: step-level 3s infinite;
+          animation: step-level 3s infinite;
 }
 
 .slider-box-survey-arround {
@@ -163,7 +396,6 @@ table.prev_next {
   min-width: 250px;
   margin: auto;
   margin-top: 2px;
-  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -176,19 +408,20 @@ table.prev_next {
 }
 
 .slider-box-survey {
-  height: 20px;
-  width: 100%;
+  height: 35px;
+  width: 500px;
   overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .slider-box-survey-before {
   height: 15px;
-  width: 15px;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
+  min-width: 15px;
+  border-bottom: 1px solid #636363;
+  border-left: 1px solid #636363;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  right: 30px;
   top: 0;
   cursor: pointer;
 }
@@ -198,7 +431,7 @@ table.prev_next {
 }
 
 .slider-box-survey-before:active + div + div > div {
-  margin-left: -1200px;
+  margin-left: -2700px;
 }
 
 .slider-box-survey-after {
@@ -206,12 +439,11 @@ table.prev_next {
       -ms-flex-order: 3;
           order: 3;
   height: 15px;
-  width: 15px;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
+  min-width: 15px;
+  border-bottom: 1px solid #636363;
+  border-left: 1px solid #636363;
   -webkit-transform: rotate(225deg);
           transform: rotate(225deg);
-  left: 430px;
   top: 0;
   cursor: pointer;
 }
@@ -221,30 +453,40 @@ table.prev_next {
 }
 
 .slider-box-survey-after:active + div > div {
-  margin-left: 1200px;
+  margin-left: 2700px;
 }
 
 .slider-survey {
-  width: 120px;
-  height: 20px;
+  width: 2200px;
+  height: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-transition: 10s all;
   transition: 10s all;
+  margin-left: 5px;
 }
 
 .step-survey {
   display: none;
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
+  width: 15px;
+  height: 15px;
+  border: 3px solid black;
   border-radius: 100%;
+  margin-right: 30px;
+  -webkit-box-shadow: 0 0 5px #bbbbbb;
+          box-shadow: 0 0 5px #bbbbbb;
+}
+
+.step-survey:hover {
+  -webkit-box-shadow: 0 0 10px #868686;
+          box-shadow: 0 0 10px #868686;
 }
 
 #dark {
@@ -294,43 +536,29 @@ table.prev_next {
 
 @media (max-width: 570px) {
   .title {
-    margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
     width: 200px;
-    text-align: center;
     font-size: 18px;
   }
-  #button {
-    margin: 0 auto;
+  .button {
     margin-top: 50px;
     margin-bottom: 200px;
     width: 170px;
     height: 170px;
-    background: yellow;
     -webkit-box-shadow: 0 0 20px #bbbbbb;
             box-shadow: 0 0 20px #bbbbbb;
-    border-radius: 100%;
-    position: relative;
-    cursor: pointer;
   }
-  #button:before {
-    content: "Начать игру";
-    position: absolute;
+  .button:before {
     height: 35px;
     width: 240px;
-    border-radius: 50%;
-    text-align: center;
     line-height: 1.5;
     left: -50px;
     top: 55px;
     border: 15px solid yellow;
     font-size: 25px;
   }
-  #button:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
+  .button:after {
     height: 600px;
     width: 900px;
     border-radius: 50%;
@@ -341,6 +569,20 @@ table.prev_next {
     border-right: 20px solid white;
     -webkit-transform: rotate(-5deg);
             transform: rotate(-5deg);
+  }
+  .play2:before {
+    content: "Продолжить игру";
+    font-size: 20px;
+  }
+  .play3:before {
+    content: "Повторить игру";
+    font-size: 20px;
+  }
+  .result1 {
+    display: none;
+  }
+  .result2 {
+    display: none;
   }
 }
 /*# sourceMappingURL=survey.css.map */

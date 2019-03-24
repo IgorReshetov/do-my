@@ -282,8 +282,8 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
-    var status_Game = document.getElementsByClassName('slider-box-main');
-    status_Game[0].style.display = "block";
+    var status_Game = document.getElementsByClassName('board');
+    status_Game[0].style.display = "flex";
     var opros = document.getElementsByClassName('opros');
     opros[0].style.display = "block";
     var tables = document.querySelectorAll("table");
