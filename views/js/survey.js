@@ -209,15 +209,23 @@ function json_Q_A() {
     next.style.display = 'none';
     var inputs = document.querySelectorAll("input");
     var numAnsw, numQst;
-    
+    if(inputs[0].type == 'checkbox') numAnsw = [];
     for (var i=0; i<inputs.length; i++) {
-        if (inputs[i].checked===true) { 
-            numAnsw = parseInt(inputs[i].getAttribute('value'));
-            numQst = parseInt(inputs[i].getAttribute('name').substring(1));
-        };  
+       if (inputs[i].checked===true) {
+            switch (inputs[i].type) {
+            case 'radio':
+                numAnsw = parseInt(inputs[i].getAttribute('value'));
+                numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+            break;
+            case 'checkbox':
+                numAnsw.push(parseInt(inputs[i].getAttribute('value')));
+                numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+            break;
+            };
+        }
     };
-    // console.log(numAnsw);
-    // console.log(numQst);
+    console.log(numAnsw);
+    console.log(numQst);
 
     // numStartQst++;
     
@@ -239,9 +247,9 @@ function json_Q_A() {
         if (xhr.readyState != 4) {
             return;
         }
-        console.log(xhr.responseText); 
+        // console.log(xhr.responseText); 
         var otvet = JSON.parse(xhr.responseText);
-       
+        console.log(otvet);
     update_afterClientAnswer(otvet);
     }
     
@@ -325,7 +333,7 @@ function update_Q_A (messages) {
     });
 
     answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
-    var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива***
+    var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня
     answShuffle.forEach(function(item, i){
         idShuffle.push(item[0]);
         answerShuffle.push(item[1])
@@ -336,6 +344,8 @@ function update_Q_A (messages) {
     var inputs = document.querySelectorAll("input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
+        if (messages.question.is_multi_answer == '1') inputs[i].setAttribute('type', 'checkbox'); // Установка чекбоксов или радиокнопок;
+        else inputs[i].setAttribute('type', 'radio');
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
         inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
            };
@@ -390,11 +400,11 @@ function update_afterClientAnswer(otvet) {
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
     
-    console.log(check_arr);
+    // console.log(check_arr);
     numStartQst = otvet.active_question;
     check_arr.push(otvet.active_question);
-    console.log(check_arr);
-    console.log(countQst_lev3);
+    // console.log(check_arr);
+    // console.log(countQst_lev3);
 
     if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (levelQst_1.countQst - 1))) {
         if (otvet.answer_is_true) levelQst_1.hit++; 
@@ -406,8 +416,8 @@ function update_afterClientAnswer(otvet) {
         if (otvet.answer_is_true) levelQst_3.hit++; 
             else levelQst_3.miss++;
     }
-    console.log(levelQst_3.hit);   
-    console.log(levelQst_3.miss);   
+    // console.log(levelQst_3.hit);   
+    // console.log(levelQst_3.miss);   
 
     switch (numStartQst) {
         case countQst_lev1 :
@@ -574,8 +584,8 @@ function valid_level_3() {
         // console.log(!(levelQst_1.next_level()));
         levelQst_3.check = true;
         levelQst_3.next_level();
-        console.log(levelQst_3.check);
-        console.log(levelQst_3.next_lev);
+        // console.log(levelQst_3.check);
+        // console.log(levelQst_3.next_lev);
         if (!(levelQst_3.next_lev)) {
             why.style.display = "none"; 
             image_true.style.display = "none";
@@ -591,7 +601,7 @@ function valid_level_3() {
             
         } else {
             why.style.display = "none";
-            image_true.src = "views/images/survey/" + arr_lev_win[Math.floor(Math.random()*2)] + ".png";
+            image_true.src = "views/images/survey/" + game_win + ".png";
             image_true.style.display = "block";
             otvet_true.innerHTML = "<strong>ПОЗДРАВЛЯЕМ! Вы успешно ответили на все вопросы, для продолжения опроса нажмите кнопку продолжить</strong>";
             otvet_true.style.display = "block";
@@ -622,8 +632,8 @@ function update_afterClientFoward() {
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
 
-    console.log((((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
-    ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))));
+    // console.log((((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
+    // ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))));
     switch (numStartQst) {
         
         case countQst_lev1 :
@@ -836,7 +846,7 @@ function update_afterClientFoward() {
         break;
     }
    
-    console.log(levelQst_3.check)
+    // console.log(levelQst_3.check)
 }
 
 // _______________________________________Функция перетасовки_________________________________________
