@@ -20,7 +20,8 @@ if (is_array($id_answer)) {
         if ($answer->is_true[$key] == 1) {$id_answer_sample[] = $id_answer_check; $comment = $comment.$answer->is_true_comment[$key];}
     }
     $result = array_intersect($id_answer, $id_answer_sample);
-    if (count($id_answer) == count($result)){
+    // var_dump ($result);
+    if (count($id_answer) == count($result) && count($id_answer_sample) == count($result)){
         $answer_is_true = 1;
         $answer_is_true_comment = $comment;
     }else {
@@ -123,7 +124,7 @@ if ($level_access >= 2){
         // }
     } else {
         if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
-        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$last_question]['id_question'], $string);
+        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
     }
 }
 
