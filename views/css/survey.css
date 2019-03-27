@@ -248,6 +248,7 @@ table.prev_next {
 .slider-level {
   width: 54px;
   height: 54px;
+  opacity: 0;
 }
 
 .slider-level-fovard {
