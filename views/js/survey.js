@@ -290,7 +290,7 @@ function startOpros() {
     var status_Game = document.getElementsByClassName('board');
     status_Game[0].style.display = "flex";
     var opros = document.getElementsByClassName('opros');
-    opros[0].style.display = "block";
+    opros[0].style.display = "flex";
     var tables = document.querySelectorAll("table");
     for (var i = 0; i < tables.length; i++) {
         tables[i].style.opacity = "1";
@@ -344,11 +344,17 @@ function update_Q_A (messages) {
     var inputs = document.querySelectorAll("input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
-        if (messages.question.is_multi_answer == '1') inputs[i].setAttribute('type', 'checkbox'); // Установка чекбоксов или радиокнопок;
-        else inputs[i].setAttribute('type', 'radio');
+        if (messages.question.is_multi_answer == '1'){ 
+        inputs[i].setAttribute('type', 'checkbox');
+        inputs[i].nextElementSibling.classList.remove ('radio');  
+        inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
+        }else {inputs[i].setAttribute('type', 'radio');
+        inputs[i].nextElementSibling.classList.add ('radio');  
+        inputs[i].nextElementSibling.classList.remove ('checkbox');
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
         inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
-           };
+        }
+        };
     // console.log(inputs);
 
     var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера

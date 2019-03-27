@@ -5,8 +5,8 @@
 }
 
 table {
-    min-width: 250px;
-    max-width: 50%;
+    min-width: 330px;
+    width: 50%;
     margin: auto auto;
     // border: thin solid black;
     caption-side: bottom;
@@ -15,14 +15,85 @@ table {
     transition: 0.5s;
 }
 
-td, th {
-    // border: thin solid black;
+tbody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+tr {
+    display: flex;
+    width: 100%;
+}
+
+th {
+    width: 100%;
     padding: 10px;
+    text-align: left;
+    font-size: 20px;
 }
 
 td {
-    font-size: 80%;
+    font-size: 100%;
+    padding: 10px;
 }
+
+// прорисовка чекбокса
+
+
+input[type=checkbox] {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+.addpsev {
+    // display: none;
+    position: absolute;
+}
+
+.addpsev:before {
+    content: "";
+    position: absolute;
+}
+
+.addpsev:after {
+    content: "";
+    position: absolute;
+    
+}
+
+
+.checkbox::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 24%;
+    left: 0px;
+    top: -23px;
+    position: absolute;
+}
+
+.checkbox::after {
+    content: "";
+    width: 18px;
+    height: 13px;
+    border-bottom: 2px solid blue;
+    border-left: 2px solid blue;
+    left: 0px;
+    top: -30px;
+    position: absolute;
+    transform: rotate(-45deg);
+    display: none;
+}
+
+[type=checkbox]:checked + .checkbox::after {
+    display: block;
+}
+
 
 .opros {
     display: none;
@@ -65,6 +136,8 @@ table.prev_next {
 }
 
 .right {
+    // display: flex;
+    // align-items: center;
     text-align: right;
     width: 20px;
 }

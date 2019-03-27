@@ -48,39 +48,46 @@ require_once 'views/templates/header.php';
         <div class="board-right"></div>
     </div>
     <table class="opros">
+        <tbody>
         <tr>
             <th colspan="2" id="Q"></th>
         </tr>
         <tr>
             <td class="right">
                 <input type="radio" name="radio" value="0">
+                <div class="addpsev"></div>
             </td>
             <td id="A0" class="left">Вариант ответа 1</td>
         </tr>
         <tr>
             <td class="right">
                 <input type="radio" name="radio" value="1">
+                <div class="addpsev"></div>
             </td>
             <td id="A1" class="left">Вариант ответа 2</td>
         </tr>
         <tr>
             <td class="right">
                 <input type="radio" name="radio" value="2">
+                <div class="addpsev"></div>
             </td>
             <td id="A2" class="left">Вариант ответа 3</td>
         </tr>
         <tr>
             <td class="right">
                 <input type="radio" name="radio" value="3">
+                <div class="addpsev"></div>
             </td>
             <td id="A3" class="left">Вариант ответа 4</td>
         </tr>
         <tr>
             <td class="right">
                 <input type="radio" name="radio" value="4">
+                <div class="addpsev"></div>
             </td>
             <td id="A4" class="left">Вариант ответа 5</td>
         </tr>
+        </tbody>
     </table>
 
     <table class="prev_next">
