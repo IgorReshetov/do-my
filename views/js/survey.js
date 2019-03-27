@@ -91,8 +91,9 @@ function init() {
     Object.cookie_level();
     fill_circle();
     
-    console.log(cookies); 
-
+    console.log(cookies);
+   
+    
   
 
     var status_Game = document.getElementsByClassName('slider-box-main');
@@ -164,13 +165,17 @@ function fill_circle() {
     var circles = document.querySelectorAll(".step-survey");
     var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
     var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
+    console.log(C('slider-level')[0]);
+    console.log(level[0].style);
+   
 
     for (var i=0; i<countQst; i++) {
         circles[i].style.background = 'white';
     }
     // level[0].innerHTML="rerrererer";
-    if (numStartQst==0) level[0].innerHTML="1/"+countQst;
-    else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
+    if (numStartQst==0) {
+        level[0].innerHTML="1/"+countQst;
+    } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
     else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
     
     // level[0].innerHTML = 10;}
@@ -287,6 +292,9 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
+    handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
+    handle_step = setInterval(anime_step_up,100);
+
     var status_Game = document.getElementsByClassName('board');
     status_Game[0].style.display = "flex";
     var opros = document.getElementsByClassName('opros');
@@ -853,6 +861,43 @@ function update_afterClientFoward() {
     }
    
     // console.log(levelQst_3.check)
+}
+// ______________________________________Функции анимации элементов ДОМ________________________________________
+var num_opacity=0;
+function anime_level() {
+    num_opacity += 0.02;
+    if (num_opacity >= 1) clearInterval(handle);
+    S(C('slider-level')[0]).opacity = num_opacity;
+    
+}
+var num_step =15
+function anime_step_up() {
+    num_step += 1;
+    if (num_step == 30) clearInterval(handle_step);
+    S(C('step-survey')[0]).width = num_step + 'px';
+    S(C('step-survey')[0]).height = num_step + 'px';
+}
+
+
+
+//_______________________________________Функции для работы со стилями элементов DOM_________________
+function O(obj) {       
+    if (typeof obj == 'object') return obj;                 // выбираем елемент по ссылке или по ID = ''
+    else return document.getElementById(obj)
+}
+
+function S(obj) {
+    return O(obj).style                                     // выбираем стиль элемента
+}
+
+function C(name) {
+    var elements = document.getElementsByTagName('*');   // выбираем по классу коллекцию элементов и делаем массив
+    var objects = [];
+    for (var i=0; i<elements.length; i++) {
+        if (elements[i].className == name)
+        objects.push(elements[i]) 
+    }
+    return objects
 }
 
 // _______________________________________Функция перетасовки_________________________________________
