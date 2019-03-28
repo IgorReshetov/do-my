@@ -114,7 +114,8 @@ function init() {
 
     answer_tr.forEach(function(item, i) {
         item.onclick = function() {
-            inputs[i].checked = true;
+            if (inputs[i].checked == true) inputs[i].checked = false;
+            else inputs[i].checked = true;
             next_ready();
         };
     });
@@ -341,7 +342,7 @@ function update_Q_A (messages) {
     });
 
     answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
-    var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня
+    var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
     answShuffle.forEach(function(item, i){
         idShuffle.push(item[0]);
         answerShuffle.push(item[1])
@@ -359,10 +360,11 @@ function update_Q_A (messages) {
         }else {inputs[i].setAttribute('type', 'radio');
         inputs[i].nextElementSibling.classList.add ('radio');  
         inputs[i].nextElementSibling.classList.remove ('checkbox');
+        }
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
         inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
-        }
-        };
+        
+    };
     // console.log(inputs);
 
     var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
@@ -806,6 +808,11 @@ function update_afterClientFoward() {
                     json_Q_A_next();
         
                     init();
+
+                    if (otvet.user_answer.answer_is_true == 1)  handle_hit = setInterval(anime_step_fillHit,100);
+                    else handle_miss = setInterval(anime_step_fillMiss,100);
+
+                    setTimeout(setInterval(handle_down = anime_step_down, 100),2000);
                 } 
                 // }
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
@@ -863,21 +870,47 @@ function update_afterClientFoward() {
     // console.log(levelQst_3.check)
 }
 // ______________________________________Функции анимации элементов ДОМ________________________________________
-var num_opacity=0;
+var num_opacity=0;          // Анимация Круга со счетом вопросов при старте
 function anime_level() {
     num_opacity += 0.02;
     if (num_opacity >= 1) clearInterval(handle);
     S(C('slider-level')[0]).opacity = num_opacity;
     
 }
-var num_step =15
-function anime_step_up() {
+var num_step =15               // Анимация маленького круга степ-сурвей при старте
+function anime_step_up(numStartQst) {
     num_step += 1;
-    if (num_step == 30) clearInterval(handle_step);
+    if (num_step == 20) clearInterval(handle_step);
     S(C('step-survey')[0]).width = num_step + 'px';
     S(C('step-survey')[0]).height = num_step + 'px';
+  }
+
+function anime_step_down(numStartQst) {         // Анимация уменьшения круга степ-сурвей после ответа
+    num_step -= 0.5;
+    if (num_step == 15) clearInterval(handle_down);
+    S(C('step-survey')[numStartQst-1]).width = num_step + 'px';
+    S(C('step-survey')[numStartQst-1]).height = num_step + 'px';
 }
 
+var step_alpha = 0;                               // закрашивание при промахе
+function anime_step_fillMiss(numStartQst) {
+    step_alpha += 0.1;
+    if (num_step == 1) clearInterval(handle_miss);
+    S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(128,128,128," + step_alpha + ")"
+}
+
+function anime_step_fillHit(numStartQst) {          // закрашивание при попадании
+    step_alpha += 0.1;
+    if (num_step == 1) clearInterval(handle_hit);
+    S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(255,255,0," + step_alpha + ")"
+}
+
+var margin_left = 5;                                // смещение слайдера после ответа
+function anime_move_left() {
+    margin_left -= 1;
+    if (margin_left == -45) clearInterval(handle_move);
+    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+}
 
 
 //_______________________________________Функции для работы со стилями элементов DOM_________________
