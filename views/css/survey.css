@@ -47,54 +47,109 @@ td {
 }
 
 input[type=checkbox] {
-  opacity: 0;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  z-index: 5;
+  display: none;
 }
 
-.addpsev {
-  position: absolute;
+input[type=radio] {
+  display: none;
 }
 
-.addpsev:before {
-  content: "";
-  position: absolute;
-}
-
-.addpsev:after {
-  content: "";
-  position: absolute;
-}
-
-.checkbox::before {
-  content: "";
+.checkbox {
   width: 16px;
   height: 16px;
   border: 1px solid #666666;
   border-radius: 24%;
   left: 0px;
-  top: -23px;
-  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  -webkit-box-shadow: 0 0 4px #bbbbbb;
+          box-shadow: 0 0 4px #bbbbbb;
+  position: relative;
 }
 
-.checkbox::after {
+.checkbox:after {
   content: "";
   width: 18px;
   height: 13px;
   border-bottom: 2px solid blue;
   border-left: 2px solid blue;
   left: 0px;
-  top: -30px;
+  top: -7px;
   position: absolute;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  display: none;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  opacity: 0;
 }
 
-[type=checkbox]:checked + .checkbox::after {
-  display: block;
+.level1:after {
+  border-color: yellow;
+  border-color: yellow;
+}
+
+.level2:after {
+  border-color: blue;
+  border-color: blue;
+}
+
+.level2:after {
+  border-color: red;
+  border-color: red;
+}
+
+[type=checkbox]:checked ~ .checkbox::after {
+  opacity: 1;
+}
+
+.radio {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #666666;
+  border-radius: 100%;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  -webkit-box-shadow: 0 0 4px #bbbbbb;
+          box-shadow: 0 0 4px #bbbbbb;
+  position: relative;
+}
+
+.radio:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-radius: 100%;
+  background-color: blue;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  position: absolute;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.level1:before {
+  background-color: yellow;
+}
+
+.level2:before {
+  background-color: blue;
+}
+
+.level3:before {
+  background-color: red;
+}
+
+[type=radio]:checked ~ .radio:before {
+  width: 14px;
+  height: 14px;
 }
 
 .opros {
@@ -135,7 +190,7 @@ table.prev_next {
 }
 
 .right {
-  text-align: right;
+  text-align: center;
   width: 20px;
 }
 
