@@ -74,6 +74,7 @@ var resultQst = {hit: function() {return (levelQst_1.hit + levelQst_2.hit + leve
 
 var countQst;     // Общее число вопросов
 var cookies;      // Репозитарий для куков
+var otvet;        // Создаем ответ при получении AJAX запроса
 
 //_____________________________РЕПОЗИТАРИЙ ДЛЯ КАРТИНОК______________________________________________
 var arr_win = ['Dolphin', 'elephant', 'gorilla'];
@@ -89,12 +90,10 @@ function init() {
     zapros_Cookies();           // Делаем синхронный запрос
     
     Object.cookie_level();
+    
     fill_circle();
     
     console.log(cookies);
-   
-    
-  
 
     var status_Game = document.getElementsByClassName('slider-box-main');
     if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
@@ -254,7 +253,7 @@ function json_Q_A() {
             return;
         }
         console.log(xhr.responseText); 
-        var otvet = JSON.parse(xhr.responseText);
+        otvet = JSON.parse(xhr.responseText);
         console.log(otvet);
     update_afterClientAnswer(otvet);
     }
@@ -294,7 +293,7 @@ function json_Q_A_next() {
 
 function startOpros() {
     handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
-    handle_step = setInterval(anime_step_up,100);
+    handle_step = setInterval(anime_step_up,100,numStartQst);
 
     var status_Game = document.getElementsByClassName('board');
     status_Game[0].style.display = "flex";
@@ -808,11 +807,6 @@ function update_afterClientFoward() {
                     json_Q_A_next();
         
                     init();
-
-                    if (otvet.user_answer.answer_is_true == 1)  handle_hit = setInterval(anime_step_fillHit,100);
-                    else handle_miss = setInterval(anime_step_fillMiss,100);
-
-                    setTimeout(setInterval(handle_down = anime_step_down, 100),2000);
                 } 
                 // }
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
@@ -862,7 +856,27 @@ function update_afterClientFoward() {
 
                 json_Q_A_next();
 
-                init();
+                zapros_Cookies();           // Делаем синхронный запрос
+    
+                Object.cookie_level();
+                var level = document.querySelectorAll(".step-level");
+                if (numStartQst==0) {
+                    level[0].innerHTML="1/"+countQst;
+                } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
+                else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+
+                // init();
+                console.log(otvet);
+
+                if (otvet.answer_is_true == 1)  {handle_hit = setInterval(anime_step_fillHit,100, numStartQst);}
+                else handle_miss = setInterval(anime_step_fillMiss, 100, numStartQst);
+
+                setTimeout("handle_down = setInterval(anime_step_down, 100, numStartQst)", 1000);
+
+                setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 3000);
+
             }
         break;
     }
@@ -877,41 +891,50 @@ function anime_level() {
     S(C('slider-level')[0]).opacity = num_opacity;
     
 }
-var num_step =15               // Анимация маленького круга степ-сурвей при старте
+var num_step =15, num_margin_right = 30;              // Анимация UP маленького круга степ-сурвей перед ответом
 function anime_step_up(numStartQst) {
     num_step += 1;
+    num_margin_right -= 1;
     if (num_step == 20) clearInterval(handle_step);
-    S(C('step-survey')[0]).width = num_step + 'px';
-    S(C('step-survey')[0]).height = num_step + 'px';
+    S(C('step-survey')[numStartQst]).marginRight = num_margin_right + 'px';
+    S(C('step-survey')[numStartQst]).width = num_step + 'px';
+    S(C('step-survey')[numStartQst]).height = num_step + 'px';
   }
 
-function anime_step_down(numStartQst) {         // Анимация уменьшения круга степ-сурвей после ответа
-    num_step -= 0.5;
+function anime_step_down(numStartQst) {         // Анимация DOWN круга степ-сурвей после ответа
+    num_step -= 1;
+    num_margin_right += 1;
     if (num_step == 15) clearInterval(handle_down);
-    S(C('step-survey')[numStartQst-1]).width = num_step + 'px';
-    S(C('step-survey')[numStartQst-1]).height = num_step + 'px';
+    S(C('step-survey')[(numStartQst-1)]).marginRight = num_margin_right + 'px';
+    S(C('step-survey')[(numStartQst-1)]).width = num_step + 'px';
+    S(C('step-survey')[(numStartQst-1)]).height = num_step + 'px';
 }
 
 var step_alpha = 0;                               // закрашивание при промахе
 function anime_step_fillMiss(numStartQst) {
     step_alpha += 0.1;
-    if (num_step == 1) clearInterval(handle_miss);
+    if (step_alpha == 1) clearInterval(handle_miss);
     S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(128,128,128," + step_alpha + ")"
 }
 
 function anime_step_fillHit(numStartQst) {          // закрашивание при попадании
     step_alpha += 0.1;
-    if (num_step == 1) clearInterval(handle_hit);
+    if (step_alpha == 1) clearInterval(handle_hit);
     S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(255,255,0," + step_alpha + ")"
 }
 
-var margin_left = 5;                                // смещение слайдера после ответа
-function anime_move_left() {
-    margin_left -= 1;
-    if (margin_left == -45) clearInterval(handle_move);
+var margin_left = 5;                                // смещение слайдера после ответа (первый круг)
+function anime_move_left(numStartQst) {
+    margin_left -= 5;
+    if (margin_left == -45 || margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
     S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
 }
 
+function anime_move_rigth(numStartQst) {         // смещение слайдера после ответа (второй круг)
+    margin_left += 5;
+    if ((numStartQst==0 && margin_left == 5) || (numStartQst==1 && margin_left == -45) || (numStartQst==2 && margin_left == -90) ) clearInterval(handle_move_right);
+    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+}
 
 //_______________________________________Функции для работы со стилями элементов DOM_________________
 function O(obj) {       

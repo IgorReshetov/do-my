@@ -505,9 +505,9 @@ table.prev_next {
     border-color: red;
 }
 
-.slider-box-survey-before:active + div + div > div {
-    margin-left: -2700px;
-}
+// .slider-box-survey-before:active + div + div > div {
+//     margin-left: -2700px;
+// }
 
 .slider-box-survey-after {
     order: 3;
@@ -524,9 +524,9 @@ table.prev_next {
     border-color: red;
 }
 
-.slider-box-survey-after:active + div > div {
-    margin-left: 2700px;
-}
+// .slider-box-survey-after:active + div > div {
+//     margin-left: 2700px;
+// }
     
 .slider-survey {
     width: 2200px;
@@ -534,7 +534,7 @@ table.prev_next {
     display: flex;
     align-items: center;
     justify-content: start;
-    transition: 10s all;
+    // transition: 10s all;
     margin-left: 5px;
 }
 

@@ -559,10 +559,6 @@ table.prev_next {
   border-color: red;
 }
 
-.slider-box-survey-before:active + div + div > div {
-  margin-left: -2700px;
-}
-
 .slider-box-survey-after {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
@@ -581,10 +577,6 @@ table.prev_next {
   border-color: red;
 }
 
-.slider-box-survey-after:active + div > div {
-  margin-left: 2700px;
-}
-
 .slider-survey {
   width: 2200px;
   height: 35px;
@@ -597,8 +589,6 @@ table.prev_next {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  -webkit-transition: 10s all;
-  transition: 10s all;
   margin-left: 5px;
 }
 
