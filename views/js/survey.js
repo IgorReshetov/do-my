@@ -373,7 +373,9 @@ function update_Q_A (messages) {
     var A2 = document.getElementById("A2");
     var A3 = document.getElementById("A3");
     var A4 = document.getElementById("A4");
-    var arr = [A0,A1,A2,A3,A4]
+    var A5 = document.getElementById("A5");
+    var A6 = document.getElementById("A6");
+    var arr = [A0,A1,A2,A3,A4,A5,A6]
 
        // console.log(arr);
     // var div = document.createElement("div");
@@ -392,7 +394,7 @@ function update_Q_A (messages) {
     for (var i=0; i<arr.length; i++) {
        if (arr[i].innerHTML == '') {
             eval('A'+ i).parentElement.style.display = 'none';
-       } else {eval('A'+ i).parentElement.style.display = 'table-row'};                                                        // Обнуляем предыдущие ответы
+       } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
     }
     // console.log(document.cookie);
     // return eval ('A' + i) - запускаем код через строку

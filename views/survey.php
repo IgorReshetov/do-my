@@ -49,53 +49,71 @@ require_once 'views/templates/header.php';
     </div>
     <table class="opros">
         <tbody>
-        <tr>
+        <tr class = "first">
             <th colspan="2" id="Q"></th>
         </tr>
         <tr>
-            <td class="right">
-                <label>
-                <input type="radio" name="radio" value="0">
-                <div class="addpsev"></div>
-                </label>
-            </td>
             <td id="A0" class="left">Вариант ответа 1</td>
-        </tr>
-        <tr>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
                 <div class="addpsev"></div>
                 </label>
             </td>
+        </tr>
+        <tr>
             <td id="A1" class="left">Вариант ответа 2</td>
-        </tr>
-        <tr>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
                 <div class="addpsev"></div>
                 </label>
             </td>
+        </tr>
+        <tr>
             <td id="A2" class="left">Вариант ответа 3</td>
-        </tr>
-        <tr>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
                 <div class="addpsev"></div>
                 </label>
             </td>
+        </tr>
+        <tr>
             <td id="A3" class="left">Вариант ответа 4</td>
-        </tr>
-        <tr>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
                 <div class="addpsev"></div>
                 </label>
             </td>
+        </tr>
+        <tr>
             <td id="A4" class="left">Вариант ответа 5</td>
+            <td class="right">
+                <label>
+                <input type="radio" name="radio" value="0">
+                <div class="addpsev"></div>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td id="A5" class="left">Вариант ответа 6</td>
+            <td class="right">
+                <label>
+                <input type="radio" name="radio" value="0">
+                <div class="addpsev"></div>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td id="A6" class="left">Вариант ответа 7</td>
+            <td class="right">
+                <label>
+                <input type="radio" name="radio" value="0">
+                <div class="addpsev"></div>
+                </label>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -26,6 +26,18 @@ tr {
     width: 100%;
 }
 
+.left, .addpsev {
+    cursor: pointer;
+}
+
+.addpsev:hover {
+    transform: scale(1.2,1.2);
+}
+
+.left:hover ~td .addpsev  {
+    transform: scale(1.2,1.2);    
+}
+
 th {
     width: 100%;
     padding: 10px;
@@ -36,6 +48,7 @@ th {
 td {
     font-size: 100%;
     padding: 10px;
+    
 }
 
 // прорисовка чекбокса
@@ -48,20 +61,6 @@ input[type=checkbox] {
 input[type=radio] {
     display: none;
 }
-
-// .addpsev {
-//     position: relative;
-// }
-
-// .addpsev:before {
-//     content: "";
-//     position: absolute;
-// }
-
-// .addpsev:after {
-//     content: "";
-//     position: absolute;
-// }
 
 
 .checkbox {
@@ -112,9 +111,9 @@ input[type=radio] {
 }
 
 .radio {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgb(102, 102, 102);
+    width: 15px;
+    height: 15px;
+    border: 1px solid rgb(102, 102, 102);
     border-radius: 100%;
     left: 0px;
     top: 0px;
@@ -131,10 +130,10 @@ input[type=radio] {
     height: 0px;
     border-radius: 100%;
     background-color: blue;
-    left: 0px;
+    left: -1px;
     top: 0px;
     bottom: 0px;
-    right: 0px;
+    right: -1px;
     margin: auto;
     position: absolute;
     transition: 0.5s all;
@@ -153,8 +152,8 @@ input[type=radio] {
 }
 
 [type=radio]:checked ~ .radio:before {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
 }
 
 
@@ -164,8 +163,13 @@ input[type=radio] {
 }
 
 #Q {
-    border-bottom: thin solid black;
+    position: relative;
+    border-bottom: 1px solid black;
     // background: lightskyblue;
+}
+
+#Q:hover {
+    box-shadow: 0 1px 0 black;
 }
 
 #next {
@@ -195,14 +199,14 @@ table.prev_next {
 
 .left {
     text-align: left;
-    cursor: context-menu
 }
 
 .right {
-    // display: flex;
-    // align-items: center;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
+    order: -1;
 }
 
 .title {
@@ -398,11 +402,11 @@ table.prev_next {
 }
 
 .step-level:hover:before {
-    transform: rotate(360deg);
+    animation: step-level 3s infinite;
 }
 
 .step-level:hover {
-    transform: rotate(360deg);
+    transform: rotate(30deg);
 }
 
 
@@ -443,6 +447,11 @@ table.prev_next {
 
 .step-level2:hover:before {
     animation: step-level 3s infinite;
+
+}
+
+.step-level2:hover {
+    transform: rotate(-30deg);
 }
 
 .step-level3{
@@ -456,6 +465,7 @@ table.prev_next {
     line-height: 218%;
     font-size: 20px;
     position: relative;
+    transition: 2s all;
 }
 
 .step-level3:before {
@@ -469,6 +479,10 @@ table.prev_next {
 
 .step-level3:hover:before {
     animation: step-level 3s infinite;
+}
+
+.step-level3:hover {
+    transform: rotate(-30deg);
 }
 
 
