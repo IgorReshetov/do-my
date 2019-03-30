@@ -34,6 +34,16 @@ tr {
   width: 100%;
 }
 
+#tr-answer {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .left, .addpsev {
   cursor: pointer;
 }
@@ -180,18 +190,20 @@ input[type=radio] {
           box-shadow: 0 1px 0 black;
 }
 
-#next {
+.next {
+  width: 120px;
+  padding: 13px;
   display: none;
   opacity: 0;
   text-align: center;
-  background: gold;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  border: 1px solid yellow;
+  -webkit-box-shadow: 0 0 4px #bbbbbb;
+          box-shadow: 0 0 4px #bbbbbb;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
 table.prev_next {
-  border-collapse: separate;
-  border-spacing: 70px 0;
   border: none;
 }
 
@@ -199,9 +211,8 @@ table.prev_next {
   margin-top: 10px;
 }
 
-#prev:hover, #next:hover {
-  background: #c3e5fa;
-  cursor: pointer;
+.next:hover {
+  border-width: 2px;
 }
 
 .left {
@@ -657,8 +668,8 @@ table.prev_next {
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: dimgray;
-  opacity: 0.7;
+  background-color: white;
+  opacity: 0.8;
   display: none;
 }
 
@@ -666,7 +677,8 @@ table.prev_next {
   background-color: white;
   font-weight: 300;
   padding: 20px;
-  border: 2px solid #363636;
+  -webkit-box-shadow: 0 0 10px #868686;
+          box-shadow: 0 0 10px #868686;
   width: 600px;
   height: 450px;
   position: fixed;
@@ -679,6 +691,25 @@ table.prev_next {
   z-index: 999;
   font-size: 20px;
   display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.result-image, .result-info, .result-why, .result-forwad {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #forward {
@@ -689,7 +720,7 @@ table.prev_next {
   display: none;
 }
 
-#image_true, #image_false {
+#image {
   display: none;
   height: 200px;
   width: 200px;

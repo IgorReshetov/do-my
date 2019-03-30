@@ -108,4 +108,30 @@
 }
 
 // картинки страницы опроса
+.result-tru-question {
+    @include urlcont('true_question.svg');
+}
 
+.result-false-question {
+    @include urlcont('false_question.svg');
+}
+
+.result-loss-level {
+    @include urlcont('loss_level.svg');
+}
+
+.result-pass-level1 {
+    @include urlcont('pass_level1.svg');
+}
+
+.result-pass-level2 {
+    @include urlcont('pass_level2.svg');
+}
+
+.result-pass-level3 {
+    @include urlcont('pass_level3.svg');
+}
+
+.result-victory {
+    @include urlcont('victory.svg');
+}

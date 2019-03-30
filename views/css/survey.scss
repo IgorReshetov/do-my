@@ -26,6 +26,12 @@ tr {
     width: 100%;
 }
 
+#tr-answer {
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+}
+
 .left, .addpsev {
     cursor: pointer;
 }
@@ -172,17 +178,19 @@ input[type=radio] {
     box-shadow: 0 1px 0 black;
 }
 
-#next {
+.next {
+    width: 120px;
+    padding: 13px;
     display: none;
     opacity: 0;
     text-align: center;
-    background: gold;
-    transition: 0.5s;
+    border: 1px solid yellow;
+    box-shadow: 0 0 4px rgb(187, 187, 187);
+    border-radius: 5%;
+    cursor: pointer;
 }
 
 table.prev_next {
-    border-collapse: separate;
-    border-spacing: 70px 0;
     border: none;
 }
 
@@ -191,9 +199,8 @@ table.prev_next {
     
 }
 
-#prev:hover, #next:hover {
-    background: rgb(195, 229, 250);
-    cursor: pointer;
+.next:hover {
+    border-width: 2px;   
 }
 
 
@@ -577,8 +584,8 @@ table.prev_next {
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: dimgray;
-    opacity: 0.7;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8;
     display: none;
 }
 
@@ -586,7 +593,7 @@ table.prev_next {
     background-color: rgb(255, 255, 255);
     font-weight: 300;
     padding: 20px;
-    border: 2px solid rgb(54, 54, 54);
+    box-shadow: 0 0 10px rgb(134, 134, 134);
     width: 600px;
     height: 450px;
     position: fixed;
@@ -599,6 +606,14 @@ table.prev_next {
     z-index: 999;
     font-size: 20px;
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.result-image, .result-info, .result-why, .result-forwad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #forward {
@@ -610,7 +625,7 @@ table.prev_next {
     display: none;
 }
 
-#image_true, #image_false {
+#image{
     display: none;
     height: 200px;
     width: 200px;
