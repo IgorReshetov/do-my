@@ -32,6 +32,7 @@ tr {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 #tr-answer {
@@ -53,7 +54,7 @@ tr {
           transform: scale(1.2, 1.2);
 }
 
-.left:hover ~ td .addpsev {
+td:hover ~ td .addpsev {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
 }
@@ -67,7 +68,7 @@ th {
 
 td {
   font-size: 100%;
-  padding: 10px;
+  padding: 5px;
 }
 
 input[type=checkbox] {
@@ -203,16 +204,28 @@ input[type=radio] {
   cursor: pointer;
 }
 
+.next-level1 {
+  border-color: yellow;
+}
+
+.next-level2 {
+  border-color: blue;
+}
+
+.next-level2 {
+  border-color: red;
+}
+
+.next:hover {
+  border-width: 2px;
+}
+
 table.prev_next {
   border: none;
 }
 
 .prev_next {
   margin-top: 10px;
-}
-
-.next:hover {
-  border-width: 2px;
 }
 
 .left {
@@ -676,11 +689,11 @@ table.prev_next {
 #result {
   background-color: white;
   font-weight: 300;
-  padding: 20px;
+  padding: 40px;
   -webkit-box-shadow: 0 0 10px #868686;
           box-shadow: 0 0 10px #868686;
-  width: 600px;
-  height: 450px;
+  max-width: 600px;
+  max-height: 450px;
   position: fixed;
   border-radius: 25px;
   left: 0;
@@ -698,6 +711,9 @@ table.prev_next {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .result-image, .result-info, .result-why, .result-forwad {
@@ -710,14 +726,59 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
 
-#forward {
+.result-forwad {
+  height: 54px;
+}
+
+.result-why {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#why-title {
+  font-style: italic;
+}
+
+.forward {
+  width: 150px;
+  padding: 13px;
+  text-align: center;
+  border: 1px solid yellow;
+  -webkit-box-shadow: 0 0 4px #bbbbbb;
+          box-shadow: 0 0 4px #bbbbbb;
+  border-radius: 5%;
   cursor: pointer;
+}
+
+.forward-level1 {
+  border-color: yellow;
+}
+
+.forward-level2 {
+  border-color: blue;
+}
+
+.forward-level2 {
+  border-color: red;
+}
+
+.forward:hover {
+  border-width: 2px;
 }
 
 #true, #false {
   display: none;
+  font-size: 23px;
 }
 
 #image {

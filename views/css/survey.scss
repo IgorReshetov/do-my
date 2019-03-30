@@ -24,6 +24,7 @@ tbody {
 tr {
     display: flex;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 #tr-answer {
@@ -40,7 +41,7 @@ tr {
     transform: scale(1.2,1.2);
 }
 
-.left:hover ~td .addpsev  {
+td:hover ~td .addpsev  {
     transform: scale(1.2,1.2);    
 }
 
@@ -53,7 +54,7 @@ th {
 
 td {
     font-size: 100%;
-    padding: 10px;
+    padding: 5px;
     
 }
 
@@ -190,6 +191,22 @@ input[type=radio] {
     cursor: pointer;
 }
 
+.next-level1 {
+    border-color: yellow;
+}
+
+.next-level2 {
+    border-color:blue;
+}
+
+.next-level2 {
+    border-color:red;
+}
+
+.next:hover {
+    border-width: 2px;   
+}
+
 table.prev_next {
     border: none;
 }
@@ -198,11 +215,6 @@ table.prev_next {
     margin-top: 10px;
     
 }
-
-.next:hover {
-    border-width: 2px;   
-}
-
 
 .left {
     text-align: left;
@@ -592,10 +604,10 @@ table.prev_next {
 #result {
     background-color: rgb(255, 255, 255);
     font-weight: 300;
-    padding: 20px;
+    padding: 40px;
     box-shadow: 0 0 10px rgb(134, 134, 134);
-    width: 600px;
-    height: 450px;
+    max-width: 600px;
+    max-height: 450px;
     position: fixed;
     border-radius: 25px;
     left: 0;
@@ -608,21 +620,62 @@ table.prev_next {
     display: none;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center
 }
 
 .result-image, .result-info, .result-why, .result-forwad {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
-#forward {
+.result-forwad {
+    height: 54px;
+}
+
+
+.result-why {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start
+}
+
+#why-title {
+    font-style: italic;
+}
+
+
+.forward  {
+    width: 150px;
+    padding: 13px;
+    text-align: center;
+    border: 1px solid yellow;
+    box-shadow: 0 0 4px rgb(187, 187, 187);
+    border-radius: 5%;
     cursor: pointer;
+}
+
+.forward-level1 {
+    border-color: yellow;
+}
+
+.forward-level2 {
+    border-color:blue;
+}
+
+.forward-level2 {
+    border-color:red;
+}
+
+.forward:hover {
+    border-width: 2px;   
 }
 
 
 #true, #false {
     display: none;
+    font-size: 23px;
 }
 
 #image{

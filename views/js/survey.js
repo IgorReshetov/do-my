@@ -392,8 +392,8 @@ function update_Q_A (messages) {
     
     for (var i=0; i<arr.length; i++) {
        if (arr[i].innerHTML == '') {
-            eval('A'+ i).parentElement.parentElement.style.display = 'none';
-       } else {eval('A'+ i).parentElement.parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
+            eval('A'+ i).parentElement.style.display = 'none';
+       } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
     }
     // console.log(document.cookie);
     // return eval ('A' + i) - запускаем код через строку
@@ -470,7 +470,7 @@ function update_afterClientAnswer(otvet) {
         image.style.display = "block";
         otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем.";
         otvet_true.style.display = "block";
-        why_title.innerHTML = "Пояснение";
+        why_title.innerHTML = "Пояснение:";
         why_title.style.display = "block";
         why.innerHTML = otvet.answer_is_true_comment;
         why.style.display = "block";
@@ -629,7 +629,7 @@ function valid_level_3() {
             why.style.display = "none";
             why_title.style.display = "none";
             image.classList = [];
-            image.classList.add('result-pass-level2');
+            image.classList.add('result-pass-level3');
             image.style.display = "block";
             otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Hard\".";
             otvet_true.style.display = "block";

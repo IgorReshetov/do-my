@@ -53,7 +53,7 @@ require_once 'views/templates/header.php';
             <th colspan="2" id="Q"></th>
         </tr>
         <tr>
-            <td> <div id="A0" class="left">Вариант ответа 1</div></td>
+            <td id="A0" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -62,7 +62,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A1" class="left">Вариант ответа 1</div></td>
+            <td id="A1" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -71,7 +71,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A2" class="left">Вариант ответа 1</div></td>
+            <td id="A2" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -80,7 +80,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A3" class="left">Вариант ответа 1</div></td>
+            <td id="A3" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -89,7 +89,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A4" class="left">Вариант ответа 1</div></td>
+            <td id="A4" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -98,7 +98,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A5" class="left">Вариант ответа 1</div></td>
+            <td id="A5" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label> 
                 <input type="radio" name="radio" value="0">
@@ -107,7 +107,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A6" class="left">Вариант ответа 1</div></td>
+            <td id="A6" class="left">Вариант ответа 1</td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -139,7 +139,7 @@ require_once 'views/templates/header.php';
             <div id="why"></div>
         </div>
         <div class="result-forwad">
-            <div id="forward">ПРОДОЛЖИТЬ</div>
+            <div id="forward" class="forward" >ПРОДОЛЖИТЬ</div>
         </div>
     </div> 
    
