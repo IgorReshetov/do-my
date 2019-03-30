@@ -113,9 +113,17 @@ function init() {
 
     answer_tr.forEach(function(item, i) {
         item.onclick = function() {
-            if (inputs[i].checked == true) inputs[i].checked = false;
-            else inputs[i].checked = true;
-            next_ready();
+            switch (inputs[i].type) {
+                case 'radio':
+                    inputs[i].checked = true;
+                    next_ready();
+                break;
+                case 'checkbox':
+                    if (inputs[i].checked == true) inputs[i].checked = false;
+                    else inputs[i].checked = true;
+                    next_ready();
+                break 
+            }
         };
     });
 
@@ -205,8 +213,18 @@ function fill_circle() {
 
 // Появление кнопки ОТВЕТИТЬ
 function next_ready() {
+    var inputs = document.querySelectorAll("input");
+    var check_ready = false;
+    for (var i=0; i<inputs.length; i++) {
+        if (inputs[i].checked == true) check_ready = true;
+    }
+    if (check_ready == true) {
     next.style.display = 'block';
     next.style.opacity = '1';
+    } else {
+    next.style.display = 'none';
+    next.style.opacity = '0';
+    }
 }
 
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
@@ -404,7 +422,10 @@ function update_afterClientAnswer(otvet) {
     // levelQst_1.check = false;
     // levelQst_2.check = false;
     // levelQst_3.check = false;
-
+    var inputs = document.querySelectorAll("input");
+    for (var i=0; i<inputs.length; i++) {
+        inputs[i].checked = false;
+    }
     var result = document.getElementById("result");
     var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
