@@ -475,7 +475,7 @@ function update_afterClientAnswer(otvet) {
             levelQst_3.hit++; 
             levelQst_3.miss=0;
             // else levelQst_3.miss++;
-            otvet_true.innerHTML = 'Вы знаете правильный ответ. Поздравляем';
+            otvet_true.innerHTML = 'Вы знаете правильный ответ. Поздравляем!';
         break;
         default:
         
@@ -489,7 +489,7 @@ function update_afterClientAnswer(otvet) {
         image.classList = [];
         image.classList.add('result-tru-question');
         image.style.display = "block";
-        otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем.";
+        otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
         otvet_true.style.display = "block";
         why_title.innerHTML = "Пояснение:";
         why_title.style.display = "block";
