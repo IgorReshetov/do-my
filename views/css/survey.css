@@ -46,6 +46,12 @@ tr {
           align-items: center;
 }
 
+.first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .left, .addpsev {
   cursor: pointer;
 }
