@@ -53,7 +53,7 @@ require_once 'views/templates/header.php';
             <th colspan="2" id="Q"></th>
         </tr>
         <tr>
-            <td> <div id="A0" class="left">Вариант ответа 1</div></td>
+            <td id="A0" class="left"></td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -62,7 +62,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A1" class="left">Вариант ответа 1</div></td>
+            <td id="A1" class="left"></td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -71,7 +71,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A2" class="left">Вариант ответа 1</div></td>
+            <td id="A2" class="left"></td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -80,7 +80,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A3" class="left">Вариант ответа 1</div></td>
+            <td id="A3" class="left"></td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -89,7 +89,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A4" class="left">Вариант ответа 1</div></td>
+            <td id="A4" class="left"></td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -98,7 +98,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A5" class="left">Вариант ответа 1</div></td>
+            <td id="A5" class="left"></td>
             <td class="right">
                 <label> 
                 <input type="radio" name="radio" value="0">
@@ -107,7 +107,7 @@ require_once 'views/templates/header.php';
             </td>
         </tr>
         <tr>
-            <td> <div id="A6" class="left">Вариант ответа 1</div></td>
+            <td id="A6" class="left"></td>
             <td class="right">
                 <label>
                 <input type="radio" name="radio" value="0">
@@ -127,22 +127,26 @@ require_once 'views/templates/header.php';
     <div id='button' class = 'button <?=$play?>'></div>
 
     <div id="result">
-        <div class="result-image">
-            <div id="image"></div>
+        <div id="result-left"></div>
+        <div id="result-center">
+            <div class="result-image">
+                <div id="image"></div>
+            </div>
+            <div class="result-info">
+                <div id="true">Вы знаете правильный ответ. Поздравляем!</div>
+                <div id="false">Вы ошиблись. Вопрос ждет вашего возвращения.</div>
+            </div>
+            <div class="result-why">
+                <div id="why-title">Пояснение:</div>
+                <div id="why"></div>
+            </div>
+            <div class="result-forwad">
+                <div id="forward" class="forward" >ПРОДОЛЖИТЬ</div>
+            </div>
         </div>
-        <div class="result-info">
-            <div id="true">Вы знаете правильный ответ. Поздравляем!</div>
-            <div id="false">Вы ошиблись. Вопрос ждет вашего возвращения.</div>
-        </div>
-        <div class="result-why">
-            <div id="why-title">Пояснение:</div>
-            <div id="why"></div>
-        </div>
-        <div class="result-forwad">
-            <div id="forward">ПРОДОЛЖИТЬ</div>
-        </div>
-    </div> 
-   
+        <div id="result-right"></div>
+    </div>
+       
     <!-- 'это будущий блок проверки на бота. сюда помещаем ловушки кнопки и чекбоксы, разбросанные незаметно для пользователя по всему экрану -->
     <div class="hello"></div> 
 

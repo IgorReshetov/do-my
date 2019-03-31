@@ -121,15 +121,15 @@
 }
 
 .result-pass-level1 {
-    @include urlcont('pass_level1.svg');
+    @include urlcont('pass_level_1.svg');
 }
 
 .result-pass-level2 {
-    @include urlcont('pass_level2.svg');
+    @include urlcont('pass_level_2.svg');
 }
 
 .result-pass-level3 {
-    @include urlcont('pass_level3.svg');
+    @include urlcont('pass_level_3.svg');
 }
 
 .result-victory {
