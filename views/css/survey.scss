@@ -91,7 +91,7 @@ input[type=radio] {
 
 .checkbox:after {
     content: "";
-    width: 18px;
+    width: 16px;
     height: 13px;
     border-bottom: 2px solid blue;
     border-left: 2px solid blue;
@@ -171,7 +171,10 @@ input[type=radio] {
 
 .opros {
     display: none;
+}
 
+.prev_next {
+    display: none;
 }
 
 #Q {
@@ -214,11 +217,6 @@ input[type=radio] {
 
 table.prev_next {
     border: none;
-}
-
-.prev_next {
-    margin-top: 10px;
-    
 }
 
 .left {
@@ -608,12 +606,11 @@ table.prev_next {
 
 #result {
     background-color: rgb(255, 255, 255);
-    max-height: 450px;
-    position: fixed;
+    // height: 450px;
+    position: absolute;
     left: 0;
     right: 0;
-    top: 0;
-    bottom: 0;
+    top: 100px;
     margin: auto;
     z-index: 999;
     display: none;
@@ -653,7 +650,7 @@ table.prev_next {
 }
 
 .result-forwad {
-    height: 54px;
+    min-height: 54px;
     margin-bottom: 0px;
 }
 
@@ -669,7 +666,9 @@ table.prev_next {
 }
 
 #why {
-    font-size: 16px;
+    font-size: 15px;
+    text-align: justify;
+
 }
 
 
@@ -724,7 +723,7 @@ table.prev_next {
     }
 
     .button {
-        margin-top: 50px;
+        margin-top: 100px;
         margin-bottom: 200px;
         width: 170px;
         height: 170px;
@@ -770,5 +769,18 @@ table.prev_next {
     .result2 {
         display: none;
     }
+
+    .result-image {
+        height: 150px;
+    }
+
+    .main {   
+        margin: 0px;  
+    }
+
+    .slider-box-main, .board-left, .board-right {
+        margin-bottom: 20px;
+    }
+
 
 }

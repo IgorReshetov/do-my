@@ -5,7 +5,7 @@ require_once 'models/Answer.php';
 $count = Question:: getQuestionsCount (1, 1)['questions_count']+Question:: getQuestionsCount (1, 2)['questions_count']+Question:: getQuestionsCount (1, 3)['questions_count'];
 $active_question = $_SESSION['active_question'];
 
-if ($active_question == 0) {
+if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {
     $play = 'play1';
 } else {
     if ($active_question < $count) {$play = 'play2';}
