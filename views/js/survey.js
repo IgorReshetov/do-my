@@ -670,6 +670,7 @@ function update_afterClientFoward() {
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
     
+    console.log(cookies);
     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
@@ -690,9 +691,54 @@ function update_afterClientFoward() {
                 why_title.style.display = "none";
                 why.innerHTML = '';
                 
-                json_Q_A_next();
+                var miss_answ;                          //*** Находим последний неправильный ответ перед переходом на следующий уровень
+                for (var i=0; i<countQst_lev1; i++){
+                    console.log(cookies.user_answer[i].answer_is_true);
+                    // if (cookies.user_answer[i].answer_is_true == null) {
+                    //     miss_answ = i;
+                    //     break;
+                    // } else miss_answ = countQst_lev1-1;
+                }
+                console.log(miss_answ);         
 
-                init();
+                json_Q_A_next();
+                
+                if (cookies.user_answer.length < countQst_lev1 && otvet.answer_is_true == 1) {
+                    step_alpha = 0;
+                    handle_hit = setInterval(anime_step_fillHit,25, numStartQst);}
+                else if (cookies.user_answer.length < countQst_lev1 && otvet.answer_is_true == 0) {
+                    step_alpha = 0;
+                    handle_miss = setInterval(anime_step_fillMiss, 25, numStartQst);
+                } else if (cookies.user_answer.length ==countQst_lev1) {                //*** Меняем цвет с серого на желтый
+                    // S(C('step-survey')[miss_answ]).backgroundColor = "rgba(128,128,128,1)";
+                    handle_hit_2 = setInterval(anime_step_fillHit_2,25, miss_answ);
+                }
+
+
+                zapros_Cookies();           // Делаем синхронный запрос
+    
+                Object.cookie_level();
+                var level = document.querySelectorAll(".step-level");
+                if (numStartQst==0) {
+                    level[0].innerHTML="1/"+countQst;
+                } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
+                else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+
+                // init();
+                console.log(otvet);
+                // step_alpha = 0;
+                
+                // if(cookies.user_answer.length ==3 && otvet.answer_is_true == 0) {
+                // S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(128,128,128,1)";
+                // handle_hit_2 = setInterval(anime_step_fillHit_2, 25, (numStartQst-1));}
+               
+
+                setTimeout("handle_down = setInterval(anime_step_down, 100, numStartQst)", 1000);
+
+                setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 3000);
+
             } 
             // else if (levelQst_1.check==true && levelQst_1.next_lev == false) {
             //     numStartQst = cookies.active_question;
@@ -832,8 +878,29 @@ function update_afterClientFoward() {
                     why.innerHTML = '';
                     
                     json_Q_A_next();
-        
-                    init();
+
+                    // init();
+                    zapros_Cookies();           // Делаем синхронный запрос
+    
+                    Object.cookie_level();
+                    var level = document.querySelectorAll(".step-level");
+                    if (numStartQst==0) {
+                        level[0].innerHTML="1/"+countQst;
+                    } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
+                    else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+
+                    step_alpha = 0;
+                    
+                    if (cookies.user_answer.length <countQst_lev1 && otvet.answer_is_true == 1)  {handle_hit = setInterval(anime_step_fillHit,25, numStartQst);}
+                    else if (cookies.user_answer.length <countQst_lev1 && otvet.answer_is_true == 0) handle_miss = setInterval(anime_step_fillMiss, 25, numStartQst);
+                    
+
+                    setTimeout("handle_down = setInterval(anime_step_down, 100, 3)", 1500);
+    
+                    setTimeout("handle_move_right = setInterval(anime_move_right, 20, numStartQst)", 2000);
+                    
+                    setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 3000);
+                    // init();
                 } 
                 // }
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
@@ -894,9 +961,18 @@ function update_afterClientFoward() {
 
                 // init();
                 console.log(otvet);
-
-                if (otvet.answer_is_true == 1)  {handle_hit = setInterval(anime_step_fillHit,100, numStartQst);}
-                else handle_miss = setInterval(anime_step_fillMiss, 100, numStartQst);
+                // step_alpha = 0;
+                
+                // if(cookies.user_answer.length ==3 && otvet.answer_is_true == 0) {
+                // S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(128,128,128,1)";
+                // handle_hit_2 = setInterval(anime_step_fillHit_2, 25, (numStartQst-1));}
+                if (cookies.user_answer.length <countQst_lev1 && otvet.answer_is_true == 1) {
+                    step_alpha = 0;
+                    handle_hit = setInterval(anime_step_fillHit,25, numStartQst);}
+                else if (cookies.user_answer.length <countQst_lev1 && otvet.answer_is_true == null) {
+                    step_alpha = 0;
+                    handle_miss = setInterval(anime_step_fillMiss, 25, numStartQst);
+                }
 
                 setTimeout("handle_down = setInterval(anime_step_down, 100, numStartQst)", 1000);
 
@@ -939,25 +1015,32 @@ function anime_step_down(numStartQst) {         // Анимация DOWN кру�
 
 var step_alpha = 0;                               // закрашивание при промахе
 function anime_step_fillMiss(numStartQst) {
-    step_alpha += 0.1;
+    step_alpha += 0.025;
     if (step_alpha == 1) clearInterval(handle_miss);
     S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(128,128,128," + step_alpha + ")"
 }
 
 function anime_step_fillHit(numStartQst) {          // закрашивание при попадании
-    step_alpha += 0.1;
+    step_alpha += 0.025;
     if (step_alpha == 1) clearInterval(handle_hit);
     S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(255,255,0," + step_alpha + ")"
+}
+var r = 128, g = 128, b = 128;
+function anime_step_fillHit_2(numStartQst) {          // закрашивание при смене промаха на попадание
+    r += 5; g += 5; b -= 5 
+    if (r == 255) clearInterval(handle_hit_2);
+    S(C('step-survey')[numStartQst-1]).backgroundColor = "rgba(" + r + "," + g + "," + b + ",1)";
 }
 
 var margin_left = 5;                                // смещение слайдера после ответа (первый круг)
 function anime_move_left(numStartQst) {
     margin_left -= 5;
+    // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
     if (margin_left == -45 || margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
     S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
 }
 
-function anime_move_rigth(numStartQst) {         // смещение слайдера после ответа (второй круг)
+function anime_move_right(numStartQst) {         // смещение слайдера после ответа (второй круг)
     margin_left += 5;
     if ((numStartQst==0 && margin_left == 5) || (numStartQst==1 && margin_left == -45) || (numStartQst==2 && margin_left == -90) ) clearInterval(handle_move_right);
     S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
