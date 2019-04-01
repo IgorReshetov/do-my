@@ -88,7 +88,7 @@ var game_win = 'Firefox-icon';
 //_______________________________НАЧАЛО ДЕЙСТВИЯ КОДА_________________________________________________
 
 function init() {
-    
+    resize_step(); document.body.onresize = resize_step;
     zapros_Cookies();           // Делаем синхронный запрос
     
     Object.cookie_level();
@@ -317,8 +317,9 @@ function startOpros() {
     handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
     if (prevQst==numStartQst && cookies.user_answer.length > 0) {
         handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
-        setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",2000);
-    } else handle_step = setInterval(anime_step_up,100,numStartQst);
+        // setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",2000);
+     } 
+     // else handle_step = setInterval(anime_step_up,100,numStartQst);
 
     var status_Game = document.getElementsByClassName('board');
     status_Game[0].style.display = "flex";
@@ -1066,10 +1067,6 @@ function update_afterClientFoward() {
                
                 console.log(otvet);
               
-              
-
-
-               
             }
         break;
     }
@@ -1077,6 +1074,11 @@ function update_afterClientFoward() {
     // console.log(levelQst_3.check)
 }
 // ______________________________________Функции анимации элементов ДОМ________________________________________
+function resize_step() {
+    if (document.body.clientWidth > 570) size_step = 45;
+    else size_step = 25;
+}
+
 var num_opacity=0;          // Анимация Круга со счетом вопросов при старте
 function anime_level() {
     num_opacity += 0.02;
@@ -1122,11 +1124,11 @@ function anime_step_fillHit_2(numStartQst) {          // закрашивани�
     S(C('step-survey')[numStartQst]).backgroundColor = "rgba(" + r + "," + g + "," + b + ",1)";
 }
 // ___________________________________________________________________________________________
-var margin_left = 5; var last_margin = 5;                               // смещение слайдера после ответа (первый круг)
+var margin_left = 5; var last_margin = 5; var size_step = 45;                              // смещение слайдера после ответа (первый круг)
 function anime_move_left_start(y) {
     margin_left -= 5;
     // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-    if (margin_left == 5 + y*(-45)){ 
+    if (margin_left == 5 + y*(-size_step)){ 
     clearInterval(handle_move_left_start);
     last_margin = margin_left;
     }
@@ -1137,14 +1139,14 @@ function anime_move_left_start(y) {
 function anime_move_left_right(y,x) {           // y - предыдущий вопрос, x - следующий вопрос
     if (x>y) {
         margin_left -= 5;
-        if (margin_left == last_margin + (y*45 - x*45)) {
+        if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
             last_margin = margin_left;
         }    
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x<y) {
         margin_left += 5;
-        if (margin_left == last_margin + (y*45 - x*45)) {
+        if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
             last_margin = margin_left;
         }
