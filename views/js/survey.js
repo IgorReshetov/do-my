@@ -324,6 +324,8 @@ function startOpros() {
     status_Game[0].style.display = "flex";
     var opros = document.getElementsByClassName('opros');
     opros[0].style.display = "flex";
+    var next = document.getElementsByClassName('prev_next');
+    next[0].style.display = "flex";
     var tables = document.querySelectorAll("table");
     for (var i = 0; i < tables.length; i++) {
         tables[i].style.opacity = "1";
@@ -498,7 +500,8 @@ function update_afterClientAnswer(otvet) {
         image.style.display = "block";
         otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
         otvet_true.style.display = "block";
-        why_title.innerHTML = "Пояснение:";
+        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
+        else {why_title.innerHTML = "Пояснение:";}
         why_title.style.display = "block";
         why.innerHTML = otvet.answer_is_true_comment;
         why.style.display = "block";
@@ -506,6 +509,8 @@ function update_afterClientAnswer(otvet) {
         image.classList = [];
         image.classList.add('result-false-question');
         image.style.display = "block";
+        why_title.style.display = "none";
+        why.style.display = "none";
         otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
         otvet_false.style.display = "block";
     }
@@ -543,6 +548,12 @@ function valid_level_1() {
         // console.log(!(levelQst_1.next_level()));
         levelQst_1.check = true;
         levelQst_1.next_level();
+        if (levelQst_1.miss == 1) { var text = "вопрос";}
+        else {
+            if (levelQst_1.miss == 2 || levelQst_1.miss == 3 || levelQst_1.miss == 4){
+                var text = "вопроса";
+            } else {var text = "вопросoв";}
+        }
         if (!(levelQst_1.next_lev)) {
             why.style.display = "none"; 
             why_title.style.display = "none";
@@ -550,13 +561,11 @@ function valid_level_1() {
             image.classList = [];
             image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "К сожелению вы не ответили на все вопросы уровня \"Easy\". Для прохождения уровня предлагаем вернуться к вопросам с ошибочными ответами";
+            otvet_false.innerHTML = "Вы не ответили на <strong>"+ levelQst_1.miss + "</strong> " + text +  " уровня \"Easy\".";
             otvet_false.style.display = "block"; 
-            why_title.innerHTML = "Результаты первого уровня";
-            why.innerHTML = "Правильных ответов: "  + levelQst_1.hit + "</br>" + 
-            "Неверных ответов: " + levelQst_1.miss;
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
             why.style.display = "block";
-            why_title.style.display = "block";
+            
 
             
         } else {
@@ -588,6 +597,12 @@ function valid_level_2() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
+        if (levelQst_2.miss == 1) { var text = "вопрос";}
+        else {
+            if (levelQst_2.miss == 2 || levelQst_2.miss == 3 || levelQst_2.miss == 4){
+                var text = "вопроса";
+            } else {var text = "вопросoв";}
+        }
         levelQst_2.check = true;
         levelQst_2.next_level();
         if (!(levelQst_2.next_lev)) {
@@ -597,13 +612,10 @@ function valid_level_2() {
             image.classList = [];
             image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "К сожелению вы не ответили на все вопросы уровня \"Medium\". Для прохождения уровня предлагаем вернуться к вопросам с ошибочными ответами";
+            otvet_false.innerHTML = "Вы не ответили на <strong>"+ levelQst_2.miss + "</strong> " + text +  " уровня \"Medium\".";
             otvet_false.style.display = "block"; 
-            why_title.innerHTML = "Результаты второго уровня:";
-            why.innerHTML = "Правильных ответов: "  + levelQst_1.hit + "</br>" + 
-            "Неверных ответов: " + levelQst_1.miss;
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
             why.style.display = "block";
-            why_title.style.display = "block";
             
         } else {
             why.style.display = "none";
@@ -611,7 +623,7 @@ function valid_level_2() {
             image.classList = [];
             image.classList.add('result-pass-level2');
             image.style.display = "block";
-            otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Medium\"";
+            otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Medium\".";
             otvet_true.style.display = "block";
         }
     // } 
@@ -633,6 +645,12 @@ function valid_level_3() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
+        if (levelQst_3.miss == 1) { var text = "вопрос";}
+        else {
+            if (levelQst_3.miss == 2 || levelQst_3.miss == 3 || levelQst_3.miss == 4){
+                var text = "вопроса";
+            } else {var text = "вопросoв";}
+        }
         levelQst_3.check = true;
         levelQst_3.next_level();
         // console.log(levelQst_3.check);
@@ -644,13 +662,10 @@ function valid_level_3() {
             image.classList = [];
             image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "К сожелению вы не ответили на все вопросы уровня \"Hard\". Для прохождения уровня предлагаем вернуться к вопросам с ошибочными ответами";
+            otvet_false.innerHTML = "Вы не ответили на <strong>"+ levelQst_3.miss + "</strong> " + text + " уровня \"Hard\".";
             otvet_false.style.display = "block"; 
-            why_title.innerHTML = "Результаты третьего уровня";
-            why.innerHTML = "Правильных ответов: "  + levelQst_1.hit + "</br>" + 
-            "Неверных ответов: " + levelQst_1.miss;
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
             why.style.display = "block";
-            why_title.style.display = "block";
             
             
         } else {
