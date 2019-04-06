@@ -288,9 +288,10 @@ function json_Q_A_next() {
     // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
     var data = {
-        numStartQst:numStartQst
+        numStartQst:cookies.user_answer[cookies.active_question-1].id_question
     };
-
+    // console.log(data);
+    // console.log (cookies.user_answer[cookies.active_question-1].id_question);
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
@@ -305,7 +306,7 @@ function json_Q_A_next() {
     
     
     var messages = JSON.parse(xhr.responseText);
-    
+    console.log(messages);
     // numStartQst++;
     update_Q_A(messages);
     // }
@@ -697,6 +698,7 @@ function update_afterClientFoward() {
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
 
+    zapros_Cookies();           // Делаем синхронный запрос
     // console.log((((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
     // ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))));
     switch (numStartQst) {
