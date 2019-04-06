@@ -715,22 +715,22 @@ function update_afterClientFoward() {
                 
                 json_Q_A_next();
                 
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                    handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                    handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
+                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
+                handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
                 
 
 
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
                 zapros_Cookies();           // Делаем синхронный запрос
 
                 Object.cookie_level();
@@ -777,22 +777,22 @@ function update_afterClientFoward() {
 
                 json_Q_A_next();
 
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                    handle_hit_4 = setInterval(anime_step_fillHit_4, 50, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
+                    handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
+                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
+                handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
                 
 
 
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
                 zapros_Cookies();           // Делаем синхронный запрос
 
                 Object.cookie_level();
@@ -886,30 +886,32 @@ function update_afterClientFoward() {
             
             handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
 
-            // if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
-            // else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-            //     handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-            // else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-            // handle_down = setInterval(anime_step_down, 100, prevQst);
+            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
+            else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
+            else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-            // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+            handle_down = setInterval(anime_step_down, 100, prevQst);
+
+            handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
             
 
 
-            // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+            // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-            // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+            // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-            // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
-            zapros_Cookies();           // Делаем синхронный запрос
+            setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                    zapros_Cookies();           // Делаем синхронный запрос
     
-            Object.cookie_level();
-            var level = document.querySelectorAll(".step-level");
-            if (numStartQst==0) {
-                level[0].innerHTML="1/"+countQst;
-            } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
-            else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+                    Object.cookie_level();
+                    var level = document.querySelectorAll(".step-level");
+                    if (numStartQst==0) {
+                        level[0].innerHTML="1/"+countQst;
+                    } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
+                    else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
 
+                    step_alpha = 0;
             init();
         } 
         // else if (levelQst_3.check==true && levelQst_3.next_lev == false) {
@@ -959,22 +961,22 @@ function update_afterClientFoward() {
 
                     // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
 
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
                     else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                        handle_hit_2 = setInterval(anime_step_fillHit_2, 25, prevQst);
+                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-                    // handle_down = setInterval(anime_step_down, 100, prevQst);
+                    handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                    // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                    handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
                     
 
 
-                    // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                    // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                    // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                    // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                    // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                    setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
 
                     
                     zapros_Cookies();           // Делаем синхронный запрос
@@ -1006,22 +1008,22 @@ function update_afterClientFoward() {
                 
                 json_Q_A_next();
 
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                    handle_hit_4 = setInterval(anime_step_fillHit_4, 50, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
+                    handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
+                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
+                handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
                 
 
 
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
 
                 zapros_Cookies();           // Делаем синхронный запрос
 
@@ -1049,19 +1051,20 @@ function update_afterClientFoward() {
                 
                 json_Q_A_next();
 
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                    handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
+                    handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
+                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
 
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
                 zapros_Cookies();           // Делаем синхронный запрос
 
                 Object.cookie_level();
@@ -1085,37 +1088,23 @@ function update_afterClientFoward() {
                 why.innerHTML = '';
 
                 json_Q_A_next();
+                
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
+                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                    handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
+                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
 
-                if (otvet.active_question < countQst_lev1){
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                } else if (otvet.active_question >= countQst_lev1 && otvet.active_question < countQst_lev2) {
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_4 = setInterval(anime_step_fillHit_4, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                } else if (otvet.active_question >= countQst_lev2 && otvet.active_question < countQst_lev3){
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                }
+                handle_down = setInterval(anime_step_down, 100, prevQst);
 
-
-
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
                 
 
 
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
 
 
                 zapros_Cookies();           // Делаем синхронный запрос
@@ -1137,12 +1126,7 @@ function update_afterClientFoward() {
     // console.log(levelQst_3.check)
 }
 // ______________________________________Функции анимации элементов ДОМ________________________________________
-// function anime_after_otvet(prevQst, numStartQst) {
-//     var anime_down_end = false;
-//     var handle_down = setInterval(anime_step_down,100,prevQst);
-//     if
 
-// }
 
 var num_opacity=0;          // Анимация Круга со счетом вопросов при старте
 function anime_level() {
@@ -1151,7 +1135,7 @@ function anime_level() {
     S(C('slider-level')[0]).opacity = num_opacity;
     
 }
-var num_step =15, num_margin_right = 30;            // Анимация UP маленького круга степ-сурвей перед ответом
+var num_step =15, num_margin_right = 30;              // Анимация UP маленького круга степ-сурвей перед ответом
 function anime_step_up(numStartQst) {                            // x - текущий вопрос
     num_step += 1;
     num_margin_right -= 1;
@@ -1161,86 +1145,36 @@ function anime_step_up(numStartQst) {                            // x - теку
     S(C('step-survey')[numStartQst]).height = num_step + 'px';
   }
 
-function anime_step_down(prevQst, numStartQst) {         // Анимация DOWN круга степ-сурвей после ответа
+function anime_step_down(prevQst) {         // Анимация DOWN круга степ-сурвей после ответа
     num_step -= 1;                     // y - предыдущий вопрос
     num_margin_right += 1;
-    if (num_step == 15) {
-        clearInterval(handle_down);
-        handle_move_left_right = setInterval(anime_move_left_right,100, prevQst, numStartQst);
-    }
+    if (num_step == 15) clearInterval(handle_down);
     S(C('step-survey')[prevQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[prevQst]).width = num_step + 'px';
     S(C('step-survey')[prevQst]).height = num_step + 'px';
 }
 
 var step_alpha = 0;                               // закрашивание при промахе СЕРЫМ ФОНОМ
-function anime_step_fillMiss(prevQst, numStartQst) {
-    step_alpha += 0.05;
-    if (step_alpha >= 1) {
-        clearInterval(handle_miss);
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
-    }
+function anime_step_fillMiss(prevQst) {
+    step_alpha += 0.025;
+    if (step_alpha == 1) clearInterval(handle_miss);
     S(C('step-survey')[prevQst]).backgroundColor = "rgba(128,128,128," + step_alpha + ")"
 }
 
-function anime_step_fillHit(prevQst, numStartQst) {          // закрашивание при попадании Желтым цветом
-    step_alpha += 0.05;
-    if (step_alpha >= 1) {
-        clearInterval(handle_hit);
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
-    }
+function anime_step_fillHit(prevQst) {          // закрашивание при попадании ЦВЕТНЫМ ФОНОМ
+    step_alpha += 0.025;
+    if (step_alpha == 1) clearInterval(handle_hit);
     S(C('step-survey')[prevQst]).backgroundColor = "rgba(255,255,0," + step_alpha + ")"
 }
 var r = 0, g = 0, b = 0;
-function anime_step_fillHit_2(prevQst, numStartQst) {          // закрашивание при смене промаха на попадание (СЕРЫЙ - ЖЕЛТЫЙ)
+function anime_step_fillHit_2(prevQst) {          // закрашивание при смене промаха на попадание (СЕРЫЙ - ЦВЕТНОЙ)
     r +=5; g += 5; b -= 5; 
-    if (r >=255) {
+    if (r ==255) {
         clearInterval(handle_hit_2);
         S(C('step-survey')[prevQst]).backgroundColor = "rgb(255,255,0)";
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
         }
     S(C('step-survey')[prevQst]).backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
-
-function anime_step_fillHit_3(prevQst, numStartQst) {          // закрашивание при попадании СИНИМ цветом
-    step_alpha += 0.05;
-    if (step_alpha >= 1) {
-        clearInterval(handle_hit_3);
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
-    }
-    S(C('step-survey')[prevQst]).backgroundColor = "rgba(0,0,255," + step_alpha + ")"
-}
-
-function anime_step_fillHit_4(prevQst, numStartQst) {          // закрашивание при смене промаха на попадание (СЕРЫЙ - СИНИЙ)
-    r -=5; g -= 5; b += 5; 
-    if (r >=255) {
-        clearInterval(handle_hit_4);
-        S(C('step-survey')[prevQst]).backgroundColor = "rgb(0,0,255)";
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
-        }
-    S(C('step-survey')[prevQst]).backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-}
-
-function anime_step_fillHit_5(prevQst, numStartQst) {          // закрашивание при попадании КРАСНЫМ цветом
-    step_alpha += 0.05;
-    if (step_alpha >= 1) {
-        clearInterval(handle_hit_5);
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
-    }
-    S(C('step-survey')[prevQst]).backgroundColor = "rgba(255,0,0," + step_alpha + ")"
-}
-
-function anime_step_fillHit_6(prevQst, numStartQst) {          // закрашивание при смене промаха на попадание (СЕРЫЙ - КРАСНЫЙ)
-    r -=5; g -= 5; b += 5; 
-    if (r >=255) {
-        clearInterval(handle_hit_6);
-        S(C('step-survey')[prevQst]).backgroundColor = "rgb(255,0,0)";
-        handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
-        }
-    S(C('step-survey')[prevQst]).backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-}
-
-
 // ___________________________________________________________________________________________
 var margin_left = 5; var last_margin = 5; var size_step = 25;                              // смещение слайдера после ответа (первый круг)
 function resize_step() {
@@ -1267,7 +1201,6 @@ function anime_move_left_right(y,x) {           // y - предыдущий во
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
             last_margin = margin_left;
-            handle_step = setInterval(anime_step_up,100, numStartQst);
         }    
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x<y) {
@@ -1275,14 +1208,9 @@ function anime_move_left_right(y,x) {           // y - предыдущий во
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
             last_margin = margin_left;
-            handle_step = setInterval(anime_step_up,100, numStartQst);
         }
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
-    } else if (x==y) { 
-        clearInterval(handle_move_left_right);
-        last_margin = margin_left; 
-        handle_step = setInterval(anime_step_up,100, numStartQst);
-    }
+    } 
 }
 
 // var margin_left = 5;                                // смещение слайдера после ответа (первый круг)
