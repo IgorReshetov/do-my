@@ -287,8 +287,13 @@ function json_Q_A_next() {
     
     // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
+
+    var id_qvs = 0;
+    
+    if (cookies.active_question == 0) {id_qvs = 0} else {id_qvs = cookies.user_answer[cookies.active_question-1].id_question}
+
     var data = {
-        numStartQst:cookies.user_answer[cookies.active_question-1].id_question
+        numStartQst:id_qvs
     };
     // console.log(data);
     // console.log (cookies.user_answer[cookies.active_question-1].id_question);
@@ -335,8 +340,13 @@ function startOpros() {
     document.getElementById("button").style.display="none";
     document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
+    
+    var id_qvs = 0;
+    
+    if (cookies.active_question == 0) {id_qvs = 0} else {id_qvs = cookies.user_answer[cookies.active_question-1].id_question}
+    
     var data = {
-        numStartQst:numStartQst,
+        numStartQst:id_qvs
     };
 
     var data = JSON.stringify(data);
