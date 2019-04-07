@@ -105,17 +105,14 @@ input[type=radio] {
 
 .level1:after {
     border-color:  yellow;
-    border-color:  yellow;
-}
+ }
 
 .level2:after {
-    border-color:  blue;
     border-color:  blue;
 }
 
 .level3:after {
     border-color:  red;
-    border-color: red;
 }
 
 [type=checkbox]:checked ~ .checkbox::after {
@@ -207,7 +204,7 @@ input[type=radio] {
     border-color:blue;
 }
 
-.next-level2 {
+.next-level3 {
     border-color:red;
 }
 
@@ -698,7 +695,7 @@ table.prev_next {
     border-color:blue;
 }
 
-.forward-level2 {
+.forward-level3 {
     border-color:red;
 }
 
