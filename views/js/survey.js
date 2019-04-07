@@ -184,11 +184,29 @@ function fill_circle() {
     for (var i=0; i<countQst; i++) {
         circles[i].style.background = 'white';
     }
-    // level[0].innerHTML="rerrererer";
-    if (numStartQst==0) {
-        level[0].innerHTML="1/"+countQst;
-    } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
-    else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+    
+    if (numStartQst >= 0 && numStartQst<levelQst_1.countQst) {
+        level[0].innerHTML = numStartQst + 1 + "/" + levelQst_1.countQst;
+        level[0].style.borderColor = "yellow";
+
+    } else if (numStartQst>= levelQst_1.countQst && numStartQst < (levelQst_1.countQst + levelQst_2.countQst)) {
+        level[0].innerHTML = (numStartQst + 1)- levelQst_1.countQst + "/" + levelQst_2.countQst;
+        level[0].style.borderColor = "blue";
+        level[0].classList.add('step-level-js-M');
+    } else if (numStartQst>= (levelQst_1.countQst + levelQst_2.countQst) && numStartQst < countQst) {
+        level[0].innerHTML = (numStartQst + 1) - (levelQst_1.countQst + levelQst_2.countQst) + "/" + levelQst_3.countQst;
+        level[0].style.borderColor = "red";
+        level[0].classList.add('step-level-js-H');
+    } else if (numStartQst==countQst) { 
+        level[0].innerHTML = countQst + "/" + countQst;
+        level[0].style.borderColor = "red";
+    }
+      
+    
+    // if (numStartQst==0) {
+    //     level[0].innerHTML="1/"+levelQst_1.countQst;
+    // } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" + levelQst_3.countQst;
+    // else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
     
     // level[0].innerHTML = 10;}
     // else 
@@ -720,10 +738,12 @@ function update_afterClientFoward() {
                 json_Q_A_next();
                 if (anime_off) {anime_off = false;
                     if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
-                        ints.push(handle_hit);}
+                        ints.push(handle_hit);
+                        S(C('result1')[0]).display = 'flex';}
                     else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                         handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                        ints.push(handle_hit_2);}
+                        ints.push(handle_hit_2);
+                        S(C('result1')[0]).display = 'flex';}
                     else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
                         ints.push(handle_miss);}
                 } else {
@@ -735,6 +755,8 @@ function update_afterClientFoward() {
                     setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
                     anime_off = true;
                  }
+
+                 C('step-level')[0].classList.add('step-level-js-M');
                 // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                 // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -793,10 +815,12 @@ function update_afterClientFoward() {
                 json_Q_A_next();
                 if (anime_off) {anime_off=false;
                 if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
-                    ints.push(handle_hit_3);}
+                    ints.push(handle_hit_3);
+                    S(C('result2')[0]).display = 'flex';}
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                     handle_hit_4 = setInterval(anime_step_fillHit_4, 50, prevQst, numStartQst);
-                    ints.push(handle_hit_4);}
+                    ints.push(handle_hit_4);
+                    S(C('result2')[0]).display = 'flex';}
                 else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
                     ints.push(handle_miss);}
             } else {
@@ -808,6 +832,8 @@ function update_afterClientFoward() {
                 setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
                 anime_off = true;
              }
+
+             C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
                 // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                 // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -939,6 +965,8 @@ function update_afterClientFoward() {
                     handle_move_left_start = setInterval(anime_move_left_start,20, 0);
                     anime_off = true;
             }
+
+           
             // handle_down = setInterval(anime_step_down, 100, prevQst);
 
             // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -959,7 +987,7 @@ function update_afterClientFoward() {
             } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
             else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
 
-            init();
+            // init();
         } 
         // else if (levelQst_3.check==true && levelQst_3.next_lev == false) {
         //     // numStartQst = 0;
@@ -995,58 +1023,58 @@ function update_afterClientFoward() {
                 // if ((cookies.user_answer.length == countQst_lev1) || (cookies.user_answer.length == (countQst_lev1 - 1))) {
                 if (!levelQst_1.check) valid_level_1();
                 else if (levelQst_1.check==true) { // && levelQst_1.next_lev == true
-                    result.style.display = "none";
-                    dark.style.display = "none";
-                    otvet_true.style.display = "none";
-                    otvet_false.style.display = "none";
-                    image.style.display = "none";
-                    why.style.display = "none";
-                    why_title.style.display = "none";
-                    why.innerHTML = '';
-                    
+                        result.style.display = "none";
+                        dark.style.display = "none";
+                        otvet_true.style.display = "none";
+                        otvet_false.style.display = "none";
+                        image.style.display = "none";
+                        why.style.display = "none";
+                        why_title.style.display = "none";
+                        why.innerHTML = '';
+                        
                     json_Q_A_next();
 
-                    // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                if (anime_off) { anime_off=false;
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
-                        ints.push(handle_hit);}
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
-                        handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                        ints.push(handle_hit_2);}
-                    else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                        ints.push(handle_miss);}
+                        // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                    if (anime_off) { anime_off=false;
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
+                            ints.push(handle_hit);}
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                            handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
+                            ints.push(handle_hit_2);}
+                        else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                            ints.push(handle_miss);}
                     } else {
-                    for (var i=0; i<ints.length; i++)
-                    clearInterval( ints[i] );
-                    ints = [];
-                    fill_circle();
-                    handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
-                    setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
-                    anime_off = true;
-                }
-                    // handle_down = setInterval(anime_step_down, 100, prevQst);
+                        for (var i=0; i<ints.length; i++)
+                            clearInterval( ints[i] );
+                        ints = [];
+                        fill_circle();
+                        handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                        setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                        anime_off = true;
+                    }
+                        // handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                    // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                    
+                        // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                        
 
 
-                    // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
+                        // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
 
-                    // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
+                        // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                    // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                        // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
 
-                    
-                    zapros_Cookies();           // Делаем синхронный запрос
+                        
+                        zapros_Cookies();           // Делаем синхронный запрос
     
-                    Object.cookie_level();
-                    var level = document.querySelectorAll(".step-level");
-                    if (numStartQst==0) {
-                        level[0].innerHTML="1/"+countQst;
-                    } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
-                    else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+                        Object.cookie_level();
+                        var level = document.querySelectorAll(".step-level");
+                        if (numStartQst==0) {
+                            level[0].innerHTML="1/"+countQst;
+                        } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
+                        else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
 
-                    // step_alpha = 0;
+                        // step_alpha = 0;
                 } 
                 // }
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
@@ -1176,27 +1204,35 @@ function update_afterClientFoward() {
                     if (otvet.active_question < countQst_lev1){ anime_off = false;
                         if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
                             ints.push(handle_hit);}
-                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                             handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
+                            ints.push(handle_hit_2);}
                         else if (otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
                             ints.push(handle_miss);}
                     } else if (otvet.active_question >= countQst_lev1 && otvet.active_question < countQst_lev2) { anime_off = false;
-                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,100, prevQst, numStartQst);
-                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,100, prevQst, numStartQst);
+                            ints.push(handle_hit_3);}
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                             handle_hit_4 = setInterval(anime_step_fillHit_4, 100, prevQst, numStartQst);
-                        else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                            ints.push(handle_hit_4);}
+                        else if (otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                            ints.push(handle_miss);}
                     } else if (otvet.active_question >= countQst_lev2 && otvet.active_question < countQst_lev3){ anime_off = false;
-                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
-                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
+                            ints.push(handle_hit_5);}
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                             handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-                        else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                            ints.push(handle_hit_6);}
+                        else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                            ints.push(handle_miss);}
                     }
                 } else { 
                     for (var i=0; i<ints.length; i++)
-                    clearInterval( ints[i] );
+                        clearInterval( ints[i] );
                     ints = [];
                     margin_left = 5;
                     fill_circle();
+                    if (otvet.answer_is_true == '1') S(C('step-survey')[prevQst]).backgroundColor = 'yellow';
                     handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
                     setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
                     anime_off = true;
@@ -1232,8 +1268,25 @@ function update_afterClientFoward() {
             }
         break;
     }
-   
-    // console.log(levelQst_3.check)
+    var level = document.querySelectorAll(".step-level");
+    // var circles = document.querySelectorAll(".step-survey");
+    if (numStartQst >= 0 && numStartQst<levelQst_1.countQst) {
+        level[0].innerHTML = numStartQst + 1 + "/" + levelQst_1.countQst;
+        level[0].style.borderColor = "yellow";
+
+    } else if (numStartQst>= levelQst_1.countQst && numStartQst < (levelQst_1.countQst + levelQst_2.countQst)) {
+        level[0].innerHTML = (numStartQst + 1) - levelQst_1.countQst + "/" + levelQst_2.countQst;
+        level[0].style.borderColor = "blue";
+    } else if (numStartQst>= (levelQst_1.countQst + levelQst_2.countQst) && numStartQst < countQst) {
+        level[0].innerHTML = (numStartQst + 1) - (levelQst_1.countQst + levelQst_2.countQst) + "/" + levelQst_3.countQst;
+        level[0].style.borderColor = "red";
+    } else if (numStartQst==countQst) { 
+        level[0].innerHTML = countQst + "/" + countQst;
+        level[0].style.borderColor = "red";
+    }
+    console.log(levelQst_3.check)
+    console.log(levelQst_3.next_lev)
+    console.log(cookies);
 }
 // ______________________________________АНИМАЦИЯ элементов ДОМ________________________________________
 

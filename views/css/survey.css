@@ -119,16 +119,13 @@ input[type=radio] {
 
 .level1:after {
   border-color: yellow;
-  border-color: yellow;
 }
 
 .level2:after {
   border-color: blue;
-  border-color: blue;
 }
 
 .level3:after {
-  border-color: red;
   border-color: red;
 }
 
@@ -223,7 +220,7 @@ input[type=radio] {
   border-color: blue;
 }
 
-.next-level2 {
+.next-level3 {
   border-color: red;
 }
 
@@ -352,9 +349,7 @@ table.prev_next {
 }
 
 .result1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -378,9 +373,7 @@ table.prev_next {
 }
 
 .result2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -507,6 +500,82 @@ table.prev_next {
 }
 
 .step-level:hover {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.step-level-js-M {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid yellow;
+  -webkit-box-shadow: 0 0 20px #bbbbbb;
+          box-shadow: 0 0 20px #bbbbbb;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 261%;
+  font-size: 20px;
+  position: relative;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.step-level-js-M:before {
+  content: 'Medium';
+  font-size: 16px;
+  top: -44px;
+  right: 8px;
+  color: #636363;
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.step-level-js-M:hover:before {
+  -webkit-animation: step-level 1s infinite;
+          animation: step-level 1s infinite;
+}
+
+.step-level-js-M:hover {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.step-level-js-H {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid yellow;
+  -webkit-box-shadow: 0 0 20px #bbbbbb;
+          box-shadow: 0 0 20px #bbbbbb;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 261%;
+  font-size: 20px;
+  position: relative;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.step-level-js-H:before {
+  content: 'Hard';
+  font-size: 16px;
+  top: -44px;
+  right: 8px;
+  color: #636363;
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.step-level-js-H:hover:before {
+  -webkit-animation: step-level 1s infinite;
+          animation: step-level 1s infinite;
+}
+
+.step-level-js-H:hover {
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
 }
@@ -821,7 +890,7 @@ table.prev_next {
   border-color: blue;
 }
 
-.forward-level2 {
+.forward-level3 {
   border-color: red;
 }
 

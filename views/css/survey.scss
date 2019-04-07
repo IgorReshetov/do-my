@@ -319,7 +319,7 @@ table.prev_next {
 }
 
 .result1 {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 60px;
@@ -338,7 +338,7 @@ table.prev_next {
 }
 
 .result2 {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 60px;
@@ -425,7 +425,6 @@ table.prev_next {
     z-index: -1;
     transition: 0.5s all;
 }
-
 .step-level:hover:before {
     animation: step-level 1s infinite;
 }
@@ -433,7 +432,71 @@ table.prev_next {
 .step-level:hover {
     transform: rotate(30deg);
 }
+.step-level-js-M{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid yellow;
+    box-shadow: 0 0 20px rgb(187, 187, 187);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 261%;
+    font-size: 20px;
+    position: relative;
+    transition: 0.5s all;
 
+}
+.step-level-js-M:before {
+    content: 'Medium';
+    font-size: 16px;
+    top: -44px;
+    right: 8px;
+    color: rgb(99, 99, 99);
+    position: absolute;
+    z-index: -1;
+    transition: 0.5s all;
+}
+
+.step-level-js-M:hover:before {
+    animation: step-level 1s infinite;
+}
+
+.step-level-js-M:hover {
+    transform: rotate(30deg);
+}
+
+.step-level-js-H{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid yellow;
+    box-shadow: 0 0 20px rgb(187, 187, 187);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 261%;
+    font-size: 20px;
+    position: relative;
+    transition: 0.5s all;
+
+}
+.step-level-js-H:before {
+    content: 'Hard';
+    font-size: 16px;
+    top: -44px;
+    right: 8px;
+    color: rgb(99, 99, 99);
+    position: absolute;
+    z-index: -1;
+    transition: 0.5s all;
+}
+
+.step-level-js-H:hover:before {
+    animation: step-level 1s infinite;
+}
+
+.step-level-js-H:hover {
+    transform: rotate(30deg);
+}
 
 .step-level2{
     display: block;
