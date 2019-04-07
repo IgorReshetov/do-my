@@ -2,9 +2,7 @@
 
 class Question 
 {
-    public $id_answer_branch;
     public $question;
-    public $questiones;
     public $info;
     public $is_must_have_answer;
     public $is_multi_answer;
