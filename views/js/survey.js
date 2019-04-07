@@ -305,7 +305,7 @@ function json_Q_A_next() {
     
     
     var messages = JSON.parse(xhr.responseText);
-    
+    console.log(messages);
     // numStartQst++;
     update_Q_A(messages);
     // }
@@ -351,7 +351,7 @@ function startOpros() {
         }
     
     var messages = JSON.parse(xhr.responseText);
-    // console.log(messages);  
+    console.log(messages);  
     update_Q_A(messages);
     }
     return false;
@@ -714,12 +714,23 @@ function update_afterClientFoward() {
                 why.innerHTML = '';
                 
                 json_Q_A_next();
-                
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
-                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                    handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-
+                if (anime_off) {anime_off = false;
+                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
+                        ints.push(handle_hit);}
+                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                        handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
+                        ints.push(handle_hit_2);}
+                    else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                        ints.push(handle_miss);}
+                } else {
+                    for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                    ints = [];
+                    fill_circle();
+                    handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                    setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                    anime_off = true;
+                 }
                 // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                 // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -776,12 +787,23 @@ function update_afterClientFoward() {
                 why.innerHTML = '';
 
                 json_Q_A_next();
-
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
-                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                if (anime_off) {anime_off=false;
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
+                    ints.push(handle_hit_3);}
+                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                     handle_hit_4 = setInterval(anime_step_fillHit_4, 50, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
-
+                    ints.push(handle_hit_4);}
+                else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
+                    ints.push(handle_miss);}
+            } else {
+                for (var i=0; i<ints.length; i++)
+                clearInterval( ints[i] );
+                ints = [];
+                fill_circle();
+                handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                anime_off = true;
+             }
                 // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                 // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -818,15 +840,26 @@ function update_afterClientFoward() {
             why.innerHTML = '';
             
             json_Q_A_next();
+            if (anime_off) { anime_off=false;
+            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,25, prevQst, numStartQst);
+                ints.push(handle_hit_5);}
+                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                    handle_hit_6 = setInterval(anime_step_fillHit_6, 50, prevQst, numStartQst);
+                    ints.push(handle_hit_6);}
+                else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
+                    ints.push(handle_miss);}
+            } else {
+                for (var i=0; i<ints.length; i++)
+                clearInterval( ints[i] );
+                ints = [];
+                fill_circle();
+                handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                anime_off = true;
+             }
+                // handle_down = setInterval(anime_step_down, 100, prevQst);
 
-            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,25, prevQst);
-                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                    handle_hit_2 = setInterval(anime_step_fillHit_2, 50, prevQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst);
-
-                handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
                 
 
 
@@ -834,7 +867,7 @@ function update_afterClientFoward() {
 
                 // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
 
-                setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
             zapros_Cookies();           // Делаем синхронный запрос
 
             Object.cookie_level();
@@ -880,16 +913,28 @@ function update_afterClientFoward() {
             why_title.style.display = "none";
             why.innerHTML = '';
             
-            // json_Q_A_next();
-            var circles = document.querySelectorAll(".step-survey");
-            circles[countQst-1].style.background = 'red';
+            // // json_Q_A_next();
+            // var circles = document.querySelectorAll(".step-survey");
+            // circles[countQst-1].style.background = 'red';
             
-            handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
+            // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
 
-            // if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
-            // else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-            //     handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-            // else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+            if (anime_off) { anime_off=false;
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,25, prevQst, 0);
+                    ints.push(handle_hit_5);}
+                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                        handle_hit_6 = setInterval(anime_step_fillHit_6, 50, prevQst, 0);
+                        ints.push(handle_hit_6);}
+                else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, 0);
+                        ints.push(handle_miss);}
+            } else {
+                    for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                    ints = [];
+                    fill_circle();
+                    handle_move_left_start = setInterval(anime_move_left_start,20, 0);
+                    anime_off = true;
+            }
             // handle_down = setInterval(anime_step_down, 100, prevQst);
 
             // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -958,12 +1003,23 @@ function update_afterClientFoward() {
                     json_Q_A_next();
 
                     // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                if (anime_off) { anime_off=false;
+                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
+                        ints.push(handle_hit);}
+                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                         handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-
+                        ints.push(handle_hit_2);}
+                    else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                        ints.push(handle_miss);}
+                    } else {
+                    for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                    ints = [];
+                    fill_circle();
+                    handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                    setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                    anime_off = true;
+                }
                     // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                     // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -986,9 +1042,7 @@ function update_afterClientFoward() {
                     } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
                     else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
 
-                    step_alpha = 0;
-                    
-                    
+                    // step_alpha = 0;
                 } 
                 // }
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
@@ -1005,12 +1059,25 @@ function update_afterClientFoward() {
                     why.innerHTML = '';
                 
                 json_Q_A_next();
-
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
-                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                if (anime_off) { anime_off = false;
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,25, prevQst, numStartQst);
+                    ints.push(handle_hit_3);}
+                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                     handle_hit_4 = setInterval(anime_step_fillHit_4, 50, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
-
+                    ints.push(handle_hit_4);}
+                else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 25, prevQst, numStartQst);
+                    ints.push(handle_miss);}
+                } else {
+                    for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                    ints = [];
+                    
+                    fill_circle();
+                    handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                    setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                    anime_off = true;
+                }
+                
                 // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                 // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -1032,7 +1099,7 @@ function update_afterClientFoward() {
                 } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
                 else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
 
-                step_alpha = 0;
+                // step_alpha = 0;
                 } 
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
             ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))) {
@@ -1048,11 +1115,25 @@ function update_afterClientFoward() {
                     why.innerHTML = '';
                 
                 json_Q_A_next();
-
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
-                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+             if (anime_off) { anime_off=false;
+                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
+                    ints.push(handle_hit_5);}
+                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                     handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-                else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                    ints.push(handle_hit_6);}
+                else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                    ints.push(handle_miss);}
+                } else { 
+                    for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                    ints = [];
+                    
+                    fill_circle();
+                    handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                    setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                    anime_off = true;
+                }
+                
                 // handle_down = setInterval(anime_step_down, 100, prevQst);
 
                 // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -1071,7 +1152,7 @@ function update_afterClientFoward() {
                 } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" +countQst;
                 else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
 
-                step_alpha = 0;
+                // step_alpha = 0;
                 } 
 
             } else {    
@@ -1086,21 +1167,35 @@ function update_afterClientFoward() {
 
                 json_Q_A_next();
 
-                if (otvet.active_question < countQst_lev1){
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                } else if (otvet.active_question >= countQst_lev1 && otvet.active_question < countQst_lev2) {
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_4 = setInterval(anime_step_fillHit_4, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
-                } else if (otvet.active_question >= countQst_lev2 && otvet.active_question < countQst_lev3){
-                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
-                        handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
-                    else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                                    // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
+                if (anime_off) {
+                    if (otvet.active_question < countQst_lev1){ anime_off = false;
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,100, prevQst, numStartQst);
+                            ints.push(handle_hit);}
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                            handle_hit_2 = setInterval(anime_step_fillHit_2, 100, prevQst, numStartQst);
+                        else if (otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                            ints.push(handle_miss);}
+                    } else if (otvet.active_question >= countQst_lev1 && otvet.active_question < countQst_lev2) { anime_off = false;
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_3 = setInterval(anime_step_fillHit_3,100, prevQst, numStartQst);
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                            handle_hit_4 = setInterval(anime_step_fillHit_4, 100, prevQst, numStartQst);
+                        else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                    } else if (otvet.active_question >= countQst_lev2 && otvet.active_question < countQst_lev3){ anime_off = false;
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)")  handle_hit_5 = setInterval(anime_step_fillHit_5,100, prevQst, numStartQst);
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) 
+                            handle_hit_6 = setInterval(anime_step_fillHit_6, 100, prevQst, numStartQst);
+                        else if (otvet.answer_is_true == null) handle_miss = setInterval(anime_step_fillMiss, 100, prevQst, numStartQst);
+                    }
+                } else { 
+                    for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                    ints = [];
+                    margin_left = 5;
+                    fill_circle();
+                    handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+                    setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+                    anime_off = true;
                 }
 
 
@@ -1136,13 +1231,10 @@ function update_afterClientFoward() {
    
     // console.log(levelQst_3.check)
 }
-// ______________________________________Функции анимации элементов ДОМ________________________________________
-// function anime_after_otvet(prevQst, numStartQst) {
-//     var anime_down_end = false;
-//     var handle_down = setInterval(anime_step_down,100,prevQst);
-//     if
+// ______________________________________АНИМАЦИЯ элементов ДОМ________________________________________
 
-// }
+var anime_off = true; var ints = [];  // глобальная переменная для корректной работы анимации включаем в начале цикла анимации
+                        //  и выключаем по завершению работы
 
 var num_opacity=0;          // Анимация Круга со счетом вопросов при старте
 function anime_level() {
@@ -1155,7 +1247,10 @@ var num_step =15, num_margin_right = 30;            // Анимация UP ма�
 function anime_step_up(numStartQst) {                            // x - текущий вопрос
     num_step += 1;
     num_margin_right -= 1;
-    if (num_step == 20) clearInterval(handle_step);
+    if (num_step == 20) {
+        clearInterval(handle_step);
+        anime_off = true;
+    }
     S(C('step-survey')[numStartQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[numStartQst]).width = num_step + 'px';
     S(C('step-survey')[numStartQst]).height = num_step + 'px';
@@ -1167,6 +1262,7 @@ function anime_step_down(prevQst, numStartQst) {         // Анимация DOW
     if (num_step == 15) {
         clearInterval(handle_down);
         handle_move_left_right = setInterval(anime_move_left_right,100, prevQst, numStartQst);
+        ints.push(handle_move_left_right);
     }
     S(C('step-survey')[prevQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[prevQst]).width = num_step + 'px';
@@ -1179,6 +1275,7 @@ function anime_step_fillMiss(prevQst, numStartQst) {
     if (step_alpha >= 1) {
         clearInterval(handle_miss);
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
     }
     S(C('step-survey')[prevQst]).backgroundColor = "rgba(128,128,128," + step_alpha + ")"
 }
@@ -1188,6 +1285,7 @@ function anime_step_fillHit(prevQst, numStartQst) {          // закрашив
     if (step_alpha >= 1) {
         clearInterval(handle_hit);
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
     }
     S(C('step-survey')[prevQst]).backgroundColor = "rgba(255,255,0," + step_alpha + ")"
 }
@@ -1231,7 +1329,7 @@ function anime_step_fillHit_5(prevQst, numStartQst) {          // закраши
 }
 
 function anime_step_fillHit_6(prevQst, numStartQst) {          // закрашивание при смене промаха на попадание (СЕРЫЙ - КРАСНЫЙ)
-    r -=5; g -= 5; b += 5; 
+    r +=5; g -= 5; b -= 5; 
     if (r >=255) {
         clearInterval(handle_hit_6);
         S(C('step-survey')[prevQst]).backgroundColor = "rgb(255,0,0)";
@@ -1242,23 +1340,23 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
 
 
 // ___________________________________________________________________________________________
-var margin_left = 5; var last_margin = 5; var size_step = 25;                              // смещение слайдера после ответа (первый круг)
-function resize_step() {
+var margin_left = 5; var last_margin = 5; var size_step = 25; var start_margin_left = 5; var size_step_start = 25;                            
+function resize_step() {                            // изменение переменных в зависимости от размера экрана
     if (document.body.clientWidth > 570) 
-    size_step = 45; 
-    else size_step = 25;
+    size_step = size_step_start = 45; 
+    else size_step = size_step_start = 25;
 }
 
 
-function anime_move_left_start(y) {
-    margin_left -= 5;
+function anime_move_left_start(y) {                             // смещение слайдера после ответа (первый круг)
+    start_margin_left -= 5;
     // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-    if (margin_left == 5 + y*(-size_step)){ 
+    if (start_margin_left == 5 + y*(-size_step_start)){ 
     clearInterval(handle_move_left_start);
-    last_margin = margin_left;
+    margin_left = last_margin = start_margin_left;
     }
     // if (margin_left == -45 || margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+    S(C('slider-survey')[0]).marginLeft = start_margin_left + 'px';
 }
 
 function anime_move_left_right(y,x) {           // y - предыдущий вопрос, x - следующий вопрос
@@ -1266,38 +1364,26 @@ function anime_move_left_right(y,x) {           // y - предыдущий во
         margin_left -= 5;
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
-            last_margin = margin_left;
-            handle_step = setInterval(anime_step_up,100, numStartQst);
+            last_margin = start_margin_left = margin_left;
+            handle_step = setInterval(anime_step_up,100, x);
+            ints.push(handle_step);
         }    
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x<y) {
         margin_left += 5;
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
-            last_margin = margin_left;
-            handle_step = setInterval(anime_step_up,100, numStartQst);
+            last_margin = start_margin_left = margin_left;
+            handle_step = setInterval(anime_step_up,100, x);
         }
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x==y) { 
         clearInterval(handle_move_left_right);
-        last_margin = margin_left; 
-        handle_step = setInterval(anime_step_up,100, numStartQst);
+        last_margin = start_margin_left = margin_left; 
+        handle_step = setInterval(anime_step_up,100, x);
     }
 }
 
-// var margin_left = 5;                                // смещение слайдера после ответа (первый круг)
-// function anime_move_left(numStartQst) {
-//     margin_left -= 5;
-//     // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-//     if (margin_left == -45 || margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-//     S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
-// }
-// ____________________________________________________________________________________________________
-function anime_move_right(numStartQst) {         // смещение слайдера после ответа (второй круг)
-    margin_left += 5;
-    if ((numStartQst==0 && margin_left == 5) || (numStartQst==1 && margin_left == -45) || (numStartQst==2 && margin_left == -90) ) clearInterval(handle_move_right);
-    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
-}
 
 //_______________________________________Функции для работы со стилями элементов DOM_________________
 function O(obj) {       
