@@ -524,7 +524,7 @@ table.prev_next {
   content: 'Medium';
   font-size: 16px;
   top: -44px;
-  right: 8px;
+  right: -4px;
   color: #636363;
   position: absolute;
   z-index: -1;
