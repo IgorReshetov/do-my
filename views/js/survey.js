@@ -88,7 +88,13 @@ var game_win = 'Firefox-icon';
 //_______________________________НАЧАЛО ДЕЙСТВИЯ КОДА_________________________________________________
 
 function init() {
-    resize_step(); document.body.onresize = resize_step;
+    console.log(document.body.clientWidth);
+    resize_step(); 
+    document.body.onresize = function() {
+        window.location.reload();
+    }
+        
+
     zapros_Cookies();           // Делаем синхронный запрос
     
     Object.cookie_level();
@@ -336,7 +342,7 @@ function json_Q_A_next() {
 function startOpros() {
     // handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
     if (prevQst==numStartQst && cookies.user_answer.length > 0) {
-        handle_move_left_start = setInterval(anime_move_left_start,20, numStartQst);
+        handle_move_left_start = setInterval(anime_move_left_start,4, numStartQst);
         setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
      } 
     else handle_step = setInterval(anime_step_up,50,numStartQst);
@@ -1300,13 +1306,16 @@ function anime_level() {
     S(C('slider-level')[0]).opacity = num_opacity;
     
 }
-var num_step =15, num_margin_right = 30;            // Анимация UP маленького круга степ-сурвей перед ответом
+var num_step =15, num_margin_right = 30, 
+control_size_up = 20, control_size_down = 15; // Анимация UP маленького круга степ-сурвей перед ответом
+
 function anime_step_up(numStartQst) {                            // x - текущий вопрос
     num_step += 1;
     num_margin_right -= 1;
-    if (num_step == 20) {
+    if (num_step == control_size_up) {
         clearInterval(handle_step);
         anime_off = true;
+        ints=[];
     }
     S(C('step-survey')[numStartQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[numStartQst]).width = num_step + 'px';
@@ -1316,9 +1325,9 @@ function anime_step_up(numStartQst) {                            // x - теку
 function anime_step_down(prevQst, numStartQst) {         // Анимация DOWN круга степ-сурвей после ответа
     num_step -= 1;                     // y - предыдущий вопрос
     num_margin_right += 1;
-    if (num_step == 15) {
+    if (num_step == control_size_down) {
         clearInterval(handle_down);
-        handle_move_left_right = setInterval(anime_move_left_right,100, prevQst, numStartQst);
+        handle_move_left_right = setInterval(anime_move_left_right,20, prevQst, numStartQst);
         ints.push(handle_move_left_right);
     }
     S(C('step-survey')[prevQst]).marginRight = num_margin_right + 'px';
@@ -1353,6 +1362,7 @@ function anime_step_fillHit_2(prevQst, numStartQst) {          // закраши
         clearInterval(handle_hit_2);
         S(C('step-survey')[prevQst]).backgroundColor = "rgb(255,255,0)";
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
         }
     S(C('step-survey')[prevQst]).backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
@@ -1362,6 +1372,7 @@ function anime_step_fillHit_3(prevQst, numStartQst) {          // закраши
     if (step_alpha >= 1) {
         clearInterval(handle_hit_3);
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
     }
     S(C('step-survey')[prevQst]).backgroundColor = "rgba(0,0,255," + step_alpha + ")"
 }
@@ -1372,6 +1383,7 @@ function anime_step_fillHit_4(prevQst, numStartQst) {          // закраши
         clearInterval(handle_hit_4);
         S(C('step-survey')[prevQst]).backgroundColor = "rgb(0,0,255)";
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
         }
     S(C('step-survey')[prevQst]).backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
@@ -1381,6 +1393,7 @@ function anime_step_fillHit_5(prevQst, numStartQst) {          // закраши
     if (step_alpha >= 1) {
         clearInterval(handle_hit_5);
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
     }
     S(C('step-survey')[prevQst]).backgroundColor = "rgba(255,0,0," + step_alpha + ")"
 }
@@ -1391,24 +1404,33 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
         clearInterval(handle_hit_6);
         S(C('step-survey')[prevQst]).backgroundColor = "rgb(255,0,0)";
         handle_down = setInterval(anime_step_down,100, prevQst, numStartQst);
+        ints.push(handle_down);
         }
     S(C('step-survey')[prevQst]).backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 
 
 // ___________________________________________________________________________________________
-var margin_left = 5; var last_margin = 5; var size_step = 25; var start_margin_left = 5; var size_step_start = 25;                            
+var margin_left = 5; var last_margin = 5; var size_step = 27; var start_margin_left = 5; var size_step_start = 27;
+var const_margin = 5;                           
 function resize_step() {                            // изменение переменных в зависимости от размера экрана
-    if (document.body.clientWidth > 570) 
-    size_step = size_step_start = 45; 
-    else size_step = size_step_start = 25;
+    if (document.body.clientWidth > 570) {
+        size_step = size_step_start = 47;
+        num_step = 15; num_margin_right = 30;
+        control_size_up = 20; control_size_down = 15; 
+        start_margin_left = 5; last_margin = 5; const_margin = 5;
+    } else {size_step = size_step_start = 27;
+        num_step = 10; num_margin_right = 15;
+        control_size_up = 15; control_size_down = 10; 
+        start_margin_left = 2; last_margin = 2; const_margin = 2;
+    }
 }
 
 
 function anime_move_left_start(y) {                             // смещение слайдера после ответа (первый круг)
-    start_margin_left -= 5;
+    start_margin_left -= 1;
     // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-    if (start_margin_left == 5 + y*(-size_step_start)){ 
+    if (start_margin_left == const_margin + y*(-size_step_start)){ 
     clearInterval(handle_move_left_start);
     margin_left = last_margin = start_margin_left;
     }
@@ -1418,7 +1440,7 @@ function anime_move_left_start(y) {                             // смещен�
 
 function anime_move_left_right(y,x) {           // y - предыдущий вопрос, x - следующий вопрос
     if (x>y) {
-        margin_left -= 5;
+        margin_left -= 1;
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
             last_margin = start_margin_left = margin_left;
@@ -1427,17 +1449,19 @@ function anime_move_left_right(y,x) {           // y - предыдущий во
         }    
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x<y) {
-        margin_left += 5;
+        margin_left += 1;
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
             last_margin = start_margin_left = margin_left;
             handle_step = setInterval(anime_step_up,100, x);
+            ints.push(handle_step);
         }
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x==y) { 
         clearInterval(handle_move_left_right);
         last_margin = start_margin_left = margin_left; 
         handle_step = setInterval(anime_step_up,100, x);
+        ints.push(handle_step);
     }
 }
 
