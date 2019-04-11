@@ -700,7 +700,7 @@ table.prev_next {
 .slider-box-survey {
   height: 35px;
   max-width: 100%;
-  min-width: 150px;
+  min-width: 147px;
   overflow: hidden;
   margin-left: 10px;
   margin-right: 10px;
@@ -966,7 +966,7 @@ table.prev_next {
   .step-survey {
     width: 10px;
     height: 10px;
-    margin-right: 15px;
+    margin-right: 17px;
   }
   .step-level {
     width: 40px;
@@ -1015,6 +1015,9 @@ table.prev_next {
     font-size: 11px;
     top: -26px;
     right: 1px;
+  }
+  .step-level-js-M:before {
+    right: -4px;
   }
   .slider-level {
     width: 44px;
