@@ -91,9 +91,17 @@ function init() {
     console.log(document.body.clientWidth);
     resize_step(); 
     document.body.onresize = function() {
-        window.location.reload();
+        if (status_screen == 1 && document.body.clientWidth <= 570) {
+            window.location.reload();
+            status_screen = 0;
+            return false
+        } else if (status_screen == 0 && document.body.clientWidth > 570) {
+           window.location.reload();
+            status_screen = 1;
+            return false
+        }
     }
-        
+      
 
     zapros_Cookies();           // Делаем синхронный запрос
     
@@ -101,6 +109,13 @@ function init() {
     
     fill_circle();
     
+    if (cookies.level_access == 2) {
+        O('next').classList.add ('next-level2');
+        C('forward')[0].classList.add ('forward-level2');
+    } else if (cookies.level_access == 3) {
+         O('next').classList.add ('next-level3');
+         C('forward')[0].classList.add('forward-level3');
+    } 
     console.log(cookies);
     console.log(prevQst);
     console.log(numStartQst);
@@ -417,10 +432,15 @@ function update_Q_A (messages) {
             inputs[i].setAttribute('type', 'checkbox');
             inputs[i].nextElementSibling.classList.remove ('radio');  
             inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
-            
+            if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+            else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+            else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
         } else {inputs[i].setAttribute('type', 'radio');
             inputs[i].nextElementSibling.classList.add ('radio');  
             inputs[i].nextElementSibling.classList.remove ('checkbox');
+            if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+            else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+            else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
         }
         inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
         inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
@@ -463,6 +483,11 @@ function update_Q_A (messages) {
 }
 
 function update_afterClientAnswer(otvet) {
+    if (cookies.level_access == 2) {
+        O('forward').classList.add('forward-level2');
+    } else if (cookies.level_access == 3) {
+        O('forward').classList.add('forward-level3');
+    } 
     // levelQst_1.check = false;
     // levelQst_2.check = false;
     // levelQst_3.check = false;
@@ -719,6 +744,7 @@ function valid_level_3() {
 }
 
 function update_afterClientFoward() {
+  
     var result = document.getElementById("result");
     var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
@@ -1247,6 +1273,20 @@ function update_afterClientFoward() {
         level[0].innerHTML = countQst + "/" + countQst;
         level[0].style.borderColor = "red";
     }
+
+    var inputs = document.querySelectorAll("input");
+    for (var i=0; i<inputs.length; i++) {
+            if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+            else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+            else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+        }
+    
+    if (cookies.level_access == 2) {
+        O('next').classList.add ('next-level2');
+    } else if (cookies.level_access == 3) {
+         O('next').classList.add ('next-level3');
+    }          
+
     console.log(levelQst_1.countQst)
     console.log(numStartQst)
     // console.log(cookies);
@@ -1369,17 +1409,19 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
 
 // ___________________________________________________________________________________________
 var margin_left = 5; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
-var const_margin = 5;                           
+var const_margin = 5;   
+var status_screen = 1;
+
 function resize_step() {                            // изменение переменных в зависимости от размера экрана
     if (document.body.clientWidth > 570) {
         size_step = size_step_start = 47;
         num_step = 15; num_margin_right = 30;
         control_size_up = 20; control_size_down = 15; 
-        start_margin_left = 5; last_margin = 5; const_margin = 5;
+        start_margin_left = 5; last_margin = 5; const_margin = 5; status_screen=1;
     } else {size_step = size_step_start = 29;
         num_step = 10; num_margin_right = 17;
         control_size_up = 13; control_size_down = 10; 
-        start_margin_left = 2; last_margin = 2; const_margin = 2;
+        start_margin_left = 2; last_margin = 2; const_margin = 2; status_screen=0;
     }
 }
 
