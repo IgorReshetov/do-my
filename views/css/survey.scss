@@ -104,7 +104,7 @@ input[type=radio] {
 }
 
 .level1:after {
-    border-color:  yellow;
+    border-color:  rgb(200, 200, 0);
  }
 
 .level2:after {
@@ -149,7 +149,7 @@ input[type=radio] {
 }
 
 .level1:before {
-    background-color: yellow;
+    background-color: rgb(230, 230, 0);
 }
 
 .level2:before {
@@ -192,7 +192,7 @@ input[type=radio] {
     text-align: center;
     border: 1px solid yellow;
     box-shadow: 0 0 4px rgb(187, 187, 187);
-    border-radius: 5%;
+    border-radius: 7px;
     cursor: pointer;
 }
 
@@ -322,8 +322,8 @@ table.prev_next {
     display: none;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     background-color: yellow;
     box-shadow: 0 0 10px rgb(187, 187, 187);
     border-radius: 100%;
@@ -341,8 +341,8 @@ table.prev_next {
     display: none;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     background-color:blue;
     box-shadow: 0 0 10px rgb(44, 44, 44);;
     border-radius: 100%;
@@ -385,7 +385,6 @@ table.prev_next {
 }
 
 .slider-level {
-    width: 54px;
     height: 54px;
     display: flex;
     align-items: center;
@@ -397,7 +396,7 @@ table.prev_next {
     height: 54px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end
 }
 
 .step-level{
@@ -410,6 +409,7 @@ table.prev_next {
     text-align: center;
     line-height: 261%;
     font-size: 20px;
+    margin-left: 1px;
     position: relative;
     transition: 0.5s all;
 
@@ -510,6 +510,7 @@ table.prev_next {
     font-size: 20px;
     position: relative;
     transition: 0.5s all;
+    margin-right: 10px;
 }
 
 .step-level2:before {
@@ -575,7 +576,7 @@ table.prev_next {
 
 
 .slider-box-survey-arround {
-    height: 20px;
+    height: 35px;
     max-width: 100%;
     min-width: 150px;
     margin: auto;
@@ -646,11 +647,17 @@ table.prev_next {
     // position: relative;
     width: 15px;
     height: 15px;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 100%;
     margin-right: 30px;
     box-shadow: 0 0 5px rgb(187, 187, 187);
 }
+
+// .step-survey-focus {
+//     box-sizing: border-box;
+//     border-width: 2px;
+// }
+
 
 .step-survey:hover{
     box-shadow: 0 0 10px rgb(134, 134, 134);
@@ -746,7 +753,7 @@ table.prev_next {
     text-align: center;
     border: 1px solid yellow;
     box-shadow: 0 0 4px rgb(187, 187, 187);
-    border-radius: 5%;
+    border-radius: 7px;
     cursor: pointer;
 }
 
@@ -853,6 +860,7 @@ table.prev_next {
         height: 40px;
         line-height: 260%;
         font-size: 16px;
+        margin-left: 0px;
         transition: 0.25s all;
         box-shadow: 0 0 10px rgb(187, 187, 187);
     }
@@ -900,11 +908,15 @@ table.prev_next {
     .step-level-js-M:before {
         right: -4px;
     }
+
+    .step-level-js-H:before {
+        right: 7px;
+    }
     
 
-    .slider-level {
-        width: 44px;
-    }
+    // .slider-level {
+    //     width: 44px;
+    // }
     
     .slider-level-fovard {
         width: 70px;

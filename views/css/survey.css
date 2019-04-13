@@ -118,7 +118,7 @@ input[type=radio] {
 }
 
 .level1:after {
-  border-color: yellow;
+  border-color: #c8c800;
 }
 
 .level2:after {
@@ -165,7 +165,7 @@ input[type=radio] {
 }
 
 .level1:before {
-  background-color: yellow;
+  background-color: #e6e600;
 }
 
 .level2:before {
@@ -208,7 +208,7 @@ input[type=radio] {
   border: 1px solid yellow;
   -webkit-box-shadow: 0 0 4px #bbbbbb;
           box-shadow: 0 0 4px #bbbbbb;
-  border-radius: 5%;
+  border-radius: 7px;
   cursor: pointer;
 }
 
@@ -356,8 +356,8 @@ table.prev_next {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   background-color: yellow;
   -webkit-box-shadow: 0 0 10px #bbbbbb;
           box-shadow: 0 0 10px #bbbbbb;
@@ -380,8 +380,8 @@ table.prev_next {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   background-color: blue;
   -webkit-box-shadow: 0 0 10px #2c2c2c;
           box-shadow: 0 0 10px #2c2c2c;
@@ -439,7 +439,6 @@ table.prev_next {
 }
 
 .slider-level {
-  width: 54px;
   height: 54px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -461,9 +460,9 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .step-level {
@@ -477,6 +476,7 @@ table.prev_next {
   text-align: center;
   line-height: 261%;
   font-size: 20px;
+  margin-left: 1px;
   position: relative;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
@@ -594,6 +594,7 @@ table.prev_next {
   position: relative;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
+  margin-right: 10px;
 }
 
 .step-level2:before {
@@ -681,7 +682,7 @@ table.prev_next {
 }
 
 .slider-box-survey-arround {
-  height: 20px;
+  height: 35px;
   max-width: 100%;
   min-width: 150px;
   margin: auto;
@@ -758,7 +759,7 @@ table.prev_next {
   display: none;
   width: 15px;
   height: 15px;
-  border: 3px solid black;
+  border: 1px solid black;
   border-radius: 100%;
   margin-right: 30px;
   -webkit-box-shadow: 0 0 5px #bbbbbb;
@@ -878,7 +879,7 @@ table.prev_next {
   border: 1px solid yellow;
   -webkit-box-shadow: 0 0 4px #bbbbbb;
           box-shadow: 0 0 4px #bbbbbb;
-  border-radius: 5%;
+  border-radius: 7px;
   cursor: pointer;
 }
 
@@ -973,6 +974,7 @@ table.prev_next {
     height: 40px;
     line-height: 260%;
     font-size: 16px;
+    margin-left: 0px;
     -webkit-transition: 0.25s all;
     transition: 0.25s all;
     -webkit-box-shadow: 0 0 10px #bbbbbb;
@@ -1019,8 +1021,8 @@ table.prev_next {
   .step-level-js-M:before {
     right: -4px;
   }
-  .slider-level {
-    width: 44px;
+  .step-level-js-H:before {
+    right: 7px;
   }
   .slider-level-fovard {
     width: 70px;

@@ -87,21 +87,18 @@ var game_win = 'Firefox-icon';
 
 //_______________________________НАЧАЛО ДЕЙСТВИЯ КОДА_________________________________________________
 
+var mobile = 0;
+
 function init() {
-    console.log(document.body.clientWidth);
-    resize_step(); 
-    document.body.onresize = function() {
-        if (status_screen == 1 && document.body.clientWidth <= 570) {
-            window.location.reload();
-            status_screen = 0;
-            return false
-        } else if (status_screen == 0 && document.body.clientWidth > 570) {
-           window.location.reload();
-            status_screen = 1;
-            return false
+    var page_size = getPageSize();
+        if (page_size.page.width <= 570) {
+            mobile = 1;
+        } else { 
+            mobile = 0;
         }
-    }
-      
+    resize_step(); 
+    
+    document.body.onresize = check_size;       
 
     zapros_Cookies();           // Делаем синхронный запрос
     
@@ -162,6 +159,19 @@ function init() {
 
 }
 
+function check_size() {
+    var page_size = getPageSize();
+    if (mobile == 0 && page_size.page.width <= 570) {
+        mobile = 1;
+        window.location.reload();
+        return false
+    } else if (mobile == 1 && page_size.page.width > 570) {
+        window.location.reload();
+        mobile = 0;
+        return false
+    }
+}
+
 function zapros_Cookies(){      //  Синхронный запрос
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'index.php?page=get_answer', false);
@@ -217,15 +227,20 @@ function fill_circle() {
         level[0].style.borderColor = "blue";
         level[0].classList.add('step-level-js-M');
         S(C('result1')[0]).display = 'flex';
+        S(C('step-level2')[0]).display = 'none';
     } else if (numStartQst>= (levelQst_1.countQst + levelQst_2.countQst) && numStartQst < countQst) {
         level[0].innerHTML = (numStartQst + 1) - (levelQst_1.countQst + levelQst_2.countQst) + "/" + levelQst_3.countQst;
         level[0].style.borderColor = "red";
         level[0].classList.add('step-level-js-H');
         S(C('result1')[0]).display = 'flex';
         S(C('result2')[0]).display = 'flex';
+        S(C('step-level2')[0]).display = 'none';
+        S(C('step-level3')[0]).display = 'none';
     } else if (numStartQst==countQst) { 
-        level[0].innerHTML = countQst + "/" + countQst;
-        level[0].style.borderColor = "red";
+        level[0].innerHTML = "Done";
+        level[0].style.backgroundColor = "red";
+        level[0].style.color = "yellow";
+        if (mobile == 0) {level[0].style.fontSize = "19px";}else{level[0].style.fontSize = "16px";};
     }
       
     
@@ -777,11 +792,15 @@ function update_afterClientFoward() {
                 if (anime_off) {anime_off = false;
                     if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,20, prevQst, numStartQst);
                         ints.push(handle_hit);
-                        S(C('result1')[0]).display = 'flex';}
+                        S(C('result1')[0]).display = 'flex';
+                        S(C('step-level2')[0]).display = 'none';
+                    }
                     else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                         handle_hit_2 = setInterval(anime_step_fillHit_2, 20, prevQst, numStartQst);
                         ints.push(handle_hit_2);
-                        S(C('result1')[0]).display = 'flex';}
+                        S(C('result1')[0]).display = 'flex';
+                        S(C('step-level2')[0]).display = 'none';
+                    }
                     else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
                         ints.push(handle_miss);}
                 } else {
@@ -848,11 +867,17 @@ function update_afterClientFoward() {
                 if (anime_off) {anime_off=false;
                 if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
                     ints.push(handle_hit_3);
-                    S(C('result2')[0]).display = 'flex';}
+                    S(C('result2')[0]).display = 'flex';
+                    S(C('step-level3')[0]).display = 'none';
+                    S(C('step-level2')[0]).display = 'none';
+                }
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                     handle_hit_4 = setInterval(anime_step_fillHit_4, 20, prevQst, numStartQst);
                     ints.push(handle_hit_4);
-                    S(C('result2')[0]).display = 'flex';}
+                    S(C('result2')[0]).display = 'flex';
+                    S(C('step-level3')[0]).display = 'none';
+                    S(C('step-level2')[0]).display = 'none';
+                }
                 else if (otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
                     ints.push(handle_miss);}
             } else {
@@ -986,8 +1011,9 @@ function update_afterClientFoward() {
                     anime_off = true;
             }
 
-            S(C('result1')[0]).display = 'none';
-            S(C('result2')[0]).display = 'none';
+                  
+            // S(C('result1')[0]).display = 'none';
+            // S(C('result2')[0]).display = 'none';
             // handle_down = setInterval(anime_step_down, 100, prevQst);
 
             // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -1270,8 +1296,10 @@ function update_afterClientFoward() {
         level[0].innerHTML = (numStartQst + 1) - (levelQst_1.countQst + levelQst_2.countQst) + "/" + levelQst_3.countQst;
         level[0].style.borderColor = "red";
     } else if (numStartQst==countQst) { 
-        level[0].innerHTML = countQst + "/" + countQst;
-        level[0].style.borderColor = "red";
+        level[0].innerHTML = "Done";
+        level[0].style.backgroundColor = "red";
+        level[0].style.color = "yellow";
+        if (mobile == 0) {level[0].style.fontSize = "19px";}else{level[0].style.fontSize = "16px";};
     }
 
     var inputs = document.querySelectorAll("input");
@@ -1317,6 +1345,7 @@ function anime_step_up(numStartQst) {                            // x - теку
     S(C('step-survey')[numStartQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[numStartQst]).width = num_step + 'px';
     S(C('step-survey')[numStartQst]).height = num_step + 'px';
+
   }
 
 function anime_step_down(prevQst, numStartQst) {         // Анимация DOWN круга степ-сурвей после ответа
@@ -1330,6 +1359,7 @@ function anime_step_down(prevQst, numStartQst) {         // Анимация DOW
     S(C('step-survey')[prevQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[prevQst]).width = num_step + 'px';
     S(C('step-survey')[prevQst]).height = num_step + 'px';
+    
 }
 
 var step_alpha = 0;                               // закрашивание при промахе СЕРЫМ ФОНОМ
@@ -1412,8 +1442,9 @@ var margin_left = 5; var last_margin = 5; var size_step = 29; var start_margin_l
 var const_margin = 5;   
 var status_screen = 1;
 
-function resize_step() {                            // изменение переменных в зависимости от размера экрана
-    if (document.body.clientWidth > 570) {
+function resize_step() { 
+    // изменение переменных в зависимости от размера экрана
+    if (mobile == 0) {
         size_step = size_step_start = 47;
         num_step = 15; num_margin_right = 30;
         control_size_up = 20; control_size_down = 15; 
@@ -1523,7 +1554,51 @@ function eraseCookie(name) {
 }
 
 
+function  getPageSize(){
+    var xScroll, yScroll;
 
+    if (window.innerHeight && window.scrollMaxY) {
+        xScroll = document.body.scrollWidth;
+        yScroll = window.innerHeight + window.scrollMaxY;
+    } else if (document.body.scrollHeight > document.body.offsetHeight){ // all but Explorer Mac
+        xScroll = document.body.scrollWidth;
+        yScroll = document.body.scrollHeight;
+    } else if (document.documentElement && document.documentElement.scrollHeight > document.documentElement.offsetHeight){ // Explorer 6 strict mode
+        xScroll = document.documentElement.scrollWidth;
+        yScroll = document.documentElement.scrollHeight;
+    } else { // Explorer Mac...would also work in Mozilla and Safari
+        xScroll = document.body.offsetWidth;
+        yScroll = document.body.offsetHeight;
+    }
+
+    var windowWidth, windowHeight;
+    if (self.innerHeight) { // all except Explorer
+        windowWidth = self.innerWidth;
+        windowHeight = self.innerHeight;
+    } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
+        windowWidth = document.documentElement.clientWidth;
+        windowHeight = document.documentElement.clientHeight;
+    } else if (document.body) { // other Explorers
+        windowWidth = document.body.clientWidth;
+        windowHeight = document.body.clientHeight;
+    }
+
+    // for small pages with total height less then height of the viewport
+    if(yScroll < windowHeight){
+        pageHeight = windowHeight;
+    } else {
+        pageHeight = yScroll;
+    }
+
+    // for small pages with total width less then width of the viewport
+    if(xScroll < windowWidth){
+        pageWidth = windowWidth;
+    } else {
+        pageWidth = xScroll;
+    }
+
+    return {'page':{'width':pageWidth,'height':pageHeight},'window':{'width':windowWidth,'height':windowHeight}}
+}
 
 
 
