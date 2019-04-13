@@ -102,7 +102,7 @@ function init() {
 
     zapros_Cookies();           // Делаем синхронный запрос
     
-    Object.cookie_level();
+    cookie_level();
     
     fill_circle();
     
@@ -156,7 +156,20 @@ function init() {
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
+    // Делаем активными стрекли влево-вправо для просмотра слайдера
+    C('slider-box-survey-after')[0].onmousedown = function () {
+        handle_msr = setInterval(move_slider_right, 20);
+        console.log((C('slider-box-survey')[0]).offsetWidth);}
+    C('slider-box-survey-after')[0].onmouseup = function () {
+        clearInterval(handle_msr);}
+    C('slider-box-survey-before')[0].onmousedown = function () {
+        handle_msl = setInterval(move_slider_left, 20);}
+    C('slider-box-survey-before')[0].onmouseup = function () {
+        clearInterval(handle_msl);}
+    
+        console.log((C('slider-box-survey')[0]).offsetWidth);
 
+    // C('slider-box-survey-before')[0].onmousedown = move_slider_left;
 }
 
 function check_size() {
@@ -1312,7 +1325,7 @@ function update_afterClientFoward() {
     if (cookies.level_access == 2) {
         O('next').classList.add ('next-level2');
     } else if (cookies.level_access == 3) {
-         O('next').classList.add ('next-level3');
+        O('next').classList.add ('next-level3');
     }          
 
     console.log(levelQst_1.countQst)
@@ -1441,18 +1454,18 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
 var margin_left = 5; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
 var const_margin = 5;   
 var status_screen = 1;
-
+var size_circle = 12; // размер шарика
 function resize_step() { 
     // изменение переменных в зависимости от размера экрана
     if (mobile == 0) {
         size_step = size_step_start = 47;
         num_step = 15; num_margin_right = 30;
         control_size_up = 20; control_size_down = 15; 
-        start_margin_left = 5; last_margin = 5; const_margin = 5; status_screen=1;
+        start_margin_left = 5; last_margin = 5; const_margin = 5; status_screen=1; size_circle = 12;
     } else {size_step = size_step_start = 29;
         num_step = 10; num_margin_right = 17;
         control_size_up = 13; control_size_down = 10; 
-        start_margin_left = 2; last_margin = 2; const_margin = 2; status_screen=0;
+        start_margin_left = 2; last_margin = 2; const_margin = 2; status_screen=0; size_circle = 17;
     }
 }
 
@@ -1473,28 +1486,51 @@ function anime_move_left_right(y,x) {           // y - предыдущий во
         margin_left -= 1;
         if (margin_left == last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
-            last_margin = start_margin_left = margin_left;
+            last_margin = margin_left;      //last_margin = start_margin_left = margin_left; - было до правки
             handle_step = setInterval(anime_step_up,50, x);
             ints.push(handle_step);
         }    
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x<y) {
         margin_left += 1;
-        if (margin_left == last_margin + (y*size_step - x*size_step)) {
+        if (margin_left >= last_margin + (y*size_step - x*size_step)) {
             clearInterval(handle_move_left_right);
-            last_margin = start_margin_left = margin_left;
+            last_margin = margin_left; // last_margin = start_margin_left = margin_left; было до правки
             handle_step = setInterval(anime_step_up,50, x);
             ints.push(handle_step);
         }
         S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
     } else if (x==y) { 
-        clearInterval(handle_move_left_right);
-        last_margin = start_margin_left = margin_left; 
-        handle_step = setInterval(anime_step_up,50, x);
-        ints.push(handle_step);
+        if (last_margin < margin_left) {
+            margin_left -= 1;
+            if (margin_left == last_margin + (y*size_step - x*size_step)) {
+                clearInterval(handle_move_left_right);
+                last_margin = margin_left;      //last_margin = start_margin_left = margin_left; - было до правки
+                handle_step = setInterval(anime_step_up,50, x);
+                ints.push(handle_step);
+            }    
+            S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+        } else {clearInterval(handle_move_left_right);
+            last_margin = margin_left; // last_margin = start_margin_left = margin_left; было до правки
+            handle_step = setInterval(anime_step_up,50, x);
+            ints.push(handle_step);}
     }
 }
 
+function move_slider_right() {
+    if (margin_left >= start_margin_left) {
+        clearInterval(handle_msr);
+        return false;}
+    margin_left += 5;
+    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+}
+function move_slider_left() {
+    if (margin_left <= (C('slider-box-survey')[0]).offsetWidth -(start_margin_left + size_circle + (countQst-1)*size_step))  {
+        clearInterval(handle_msl);
+        return false;}
+    margin_left -= 5;
+    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+}
 
 //_______________________________________Функции для работы со стилями элементов DOM_________________
 function O(obj) {       
