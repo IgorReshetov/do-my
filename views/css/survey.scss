@@ -407,12 +407,17 @@ table.prev_next {
     box-shadow: 0 0 20px rgb(187, 187, 187);
     border-radius: 100%;
     text-align: center;
-    line-height: 261%;
-    font-size: 20px;
+    line-height: 280%;
+    font-size: 18px;
     margin-left: 1px;
     position: relative;
     transition: 0.5s all;
 
+}
+
+.step-level-finish {
+    line-height: 265%;
+    font-size: 19px;
 }
 
 .step-level:before {
@@ -440,8 +445,8 @@ table.prev_next {
     box-shadow: 0 0 20px rgb(187, 187, 187);
     border-radius: 100%;
     text-align: center;
-    line-height: 261%;
-    font-size: 20px;
+    line-height: 280%;
+    font-size: 18px;
     position: relative;
     transition: 0.5s all;
 
@@ -473,8 +478,8 @@ table.prev_next {
     box-shadow: 0 0 20px rgb(187, 187, 187);
     border-radius: 100%;
     text-align: center;
-    line-height: 261%;
-    font-size: 20px;
+    line-height: 280%;
+    font-size: 18px;
     position: relative;
     transition: 0.5s all;
 
@@ -520,6 +525,14 @@ table.prev_next {
     right: -2px;
     color: rgb(99, 99, 99);
     position: absolute;
+}
+
+.present {
+    display: none;
+    width: 40px;
+    height: 40px;
+    transition: 0.5s all;
+    margin-right: 10px;
 }
 
 @keyframes step-level {
@@ -633,7 +646,7 @@ table.prev_next {
 // }
     
 .slider-survey {
-    width: 2200px;
+    width: 3200px;
     height: 35px;
     display: flex;
     align-items: center;
@@ -788,6 +801,10 @@ table.prev_next {
 
 
 @media (max-width: 570px) {
+
+    th {
+        font-size: 18px;
+    }
    
     .title {
         margin-top: 50px;
@@ -858,13 +875,18 @@ table.prev_next {
     .step-level{
         width: 40px;
         height: 40px;
-        line-height: 260%;
-        font-size: 16px;
+        line-height: 269%;
+        font-size: 15px;
         margin-left: 0px;
         transition: 0.25s all;
         box-shadow: 0 0 10px rgb(187, 187, 187);
     }
     
+    .step-level-finish {
+        line-height: 247%;
+        font-size: 17px;
+    }
+
     .step-level:before {
         font-size: 14px;
         top: -37px;
@@ -882,6 +904,13 @@ table.prev_next {
         font-size: 16px;
         transition: 0.25s all;
         box-shadow: 0 0 10px rgb(187, 187, 187);
+    }
+
+    .present {
+        width: 40px;
+        height: 40px;
+        transition: 0.25s all;
+        margin-right: 10px;
     }
     
     .step-level2:before {

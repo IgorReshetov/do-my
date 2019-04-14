@@ -135,3 +135,11 @@
 .result-victory {
     @include urlcont('victory.svg');
 }
+
+.present {
+    @include urlcont('present.svg');
+}
+
+.present:hover {
+    @include urlcont('present_red.svg');
+}
