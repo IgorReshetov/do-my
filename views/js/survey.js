@@ -1451,7 +1451,7 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
 
 
 // ___________________________________________________________________________________________
-var margin_left = 5; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
+var margin_left = 0; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
 var const_margin = 5;   
 var status_screen = 1;
 var size_circle = 12; // размер шарика
@@ -1471,35 +1471,64 @@ function resize_step() {
 
 
 function anime_move_left_start(y) {                             // смещение слайдера после ответа (первый круг)
-    start_margin_left -= 1;
+    margin_left -= 2;
     // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-    if (start_margin_left == const_margin + y*(-size_step_start)){ 
+    if (margin_left <= const_margin + y*(-size_step_start)){   
     clearInterval(handle_move_left_start);
-    margin_left = last_margin = start_margin_left;
+    margin_left = const_margin + y*(-size_step_start);
+    last_margin = margin_left // margin_left = last_margin = start_margin_left;
     }
     // if (margin_left == -45 || margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
-    S(C('slider-survey')[0]).marginLeft = start_margin_left + 'px';
+    S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
 }
+
+var move_left=false, move_right=false;  // используем флаг в для перенаправления цикла
 
 function anime_move_left_right(y,x) {           // y - предыдущий вопрос, x - следующий вопрос
     if (x>y) {
-        margin_left -= 1;
-        if (margin_left == last_margin + (y*size_step - x*size_step)) {
-            clearInterval(handle_move_left_right);
-            last_margin = margin_left;      //last_margin = start_margin_left = margin_left; - было до правки
-            handle_step = setInterval(anime_step_up,50, x);
-            ints.push(handle_step);
-        }    
-        S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
-    } else if (x<y) {
-        margin_left += 1;
-        if (margin_left >= last_margin + (y*size_step - x*size_step)) {
-            clearInterval(handle_move_left_right);
-            last_margin = margin_left; // last_margin = start_margin_left = margin_left; было до правки
-            handle_step = setInterval(anime_step_up,50, x);
-            ints.push(handle_step);
+        if (last_margin > margin_left && move_right==false) {
+            margin_left += 1;
+            if (margin_left == last_margin + (y*size_step - x*size_step)) {
+                clearInterval(handle_move_left_right);
+                last_margin = margin_left;      //last_margin = start_margin_left = margin_left; - было до правки
+                handle_step = setInterval(anime_step_up,50, x);
+                ints.push(handle_step);
+            }    
+            S(C('slider-survey')[0]).marginLeft = margin_left + 'px';}
+        else {
+            move_right=true;
+            margin_left -=1;
+            if (margin_left == last_margin + (y*size_step - x*size_step)) {
+                clearInterval(handle_move_left_right);
+                last_margin = margin_left;      //last_margin = start_margin_left = margin_left; - было до правки
+                handle_step = setInterval(anime_step_up,50, x);
+                ints.push(handle_step);
+                move_right=false;
+            }    
+            S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
         }
-        S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+    } else if (x<y) {
+        if (last_margin < margin_left && move_left==false) {
+            margin_left -= 1;
+            if (margin_left == last_margin + (y*size_step - x*size_step)) {
+                clearInterval(handle_move_left_right);
+                last_margin = margin_left; // last_margin = start_margin_left = margin_left; было до правки
+                handle_step = setInterval(anime_step_up,50, x);
+                ints.push(handle_step);
+            }
+            S(C('slider-survey')[0]).marginLeft = margin_left + 'px';}
+        else  {
+            move_left=true;     // ставиим флаг
+            margin_left += 1;
+            if (margin_left == last_margin + (y*size_step - x*size_step)) {
+                clearInterval(handle_move_left_right);
+                last_margin = margin_left; // last_margin = start_margin_left = margin_left; было до правки
+                handle_step = setInterval(anime_step_up,50, x);
+                ints.push(handle_step);
+                move_left=false;    // убираем флаг
+            }
+            S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+        }
     } else if (x==y) { 
         if (last_margin < margin_left) {
             margin_left -= 1;
@@ -1510,7 +1539,16 @@ function anime_move_left_right(y,x) {           // y - предыдущий во
                 ints.push(handle_step);
             }    
             S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
-        } else {clearInterval(handle_move_left_right);
+        } else if (last_margin > margin_left) {
+            margin_left += 1;
+            if (margin_left == last_margin + (y*size_step - x*size_step)) {
+                clearInterval(handle_move_left_right);
+                last_margin = margin_left;      //last_margin = start_margin_left = margin_left; - было до правки
+                handle_step = setInterval(anime_step_up,50, x);
+                ints.push(handle_step);
+            }    
+            S(C('slider-survey')[0]).marginLeft = margin_left + 'px';
+          } else {clearInterval(handle_move_left_right);
             last_margin = margin_left; // last_margin = start_margin_left = margin_left; было до правки
             handle_step = setInterval(anime_step_up,50, x);
             ints.push(handle_step);}
