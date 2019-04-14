@@ -294,7 +294,7 @@ require_once 'views/templates/header.php';
                 </div>  
             </div>
             <div class="gift-get">
-                <!-- <input class="gift-get-mail" type="text" placeholder="Ввведите email"> -->
+                <div class="gift-get-mail">Ввведите email</div>
             </div>
             <div class="gift-button" >
                 <div class="gift-button-get" >ПОЛУЧИТЬ</div>
