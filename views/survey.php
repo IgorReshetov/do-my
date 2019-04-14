@@ -223,9 +223,92 @@ require_once 'views/templates/header.php';
         </div>
         <div id="result-right"></div>
     </div>
-       
+
+    <div class="gift">
+        <div class="gift-left"></div>
+        <div class="gift-center">
+            <div class="gift-heard">
+                <div class="gift-heard-text">
+                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш тест.</div>
+                </div>
+                <div class="gift-heard-present">
+                    <div class="gift-block-present"></div>
+                    <!-- <img src="views/images/icon/present.svg" alt="Подарок"> -->
+                </div>
+            </div>
+            <div class="gift-block1"></div>
+                <div class="gift-block1-head">Результаты прохождения теста:</div>
+                <div class="gift-block1-row">
+                    <div class="gift-block1-diagr">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        </svg>
+                    </div>
+                    <div class="gift-block1-diagr">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        </svg>
+                    </div>
+                    <div class="gift-block1-diagr">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        </svg>
+                    </div>
+                    <div class="gift-block1-diagr">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        </svg>
+                    </div>
+                    <div class="gift-block1-diagr">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        </svg>
+                    </div>
+                    <div class="gift-block1-diagr">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        </svg>
+                    </div>
+                </div>
+            <div class="gift-block2">
+                <div class="gift-block2-head">Мы подготовили для вас:</div>
+                <div class="gift-block2-text">
+                    <div class="gift-block-text-icon"></div>
+                    <div class="gift-block-text-text">полезную информацию по выбору жилья по результатам прохождения теста;</div>
+                </div>
+                <div class="gift-block2-text">
+                    <div class="gift-block-text-icon"></div>
+                    <div class="gift-block-text-text">предложения по участию в наших викторинах и получению скидок от затсройщиков.</div>
+                </div>  
+            </div>
+            <div class="gift-get">
+                <!-- <input class="gift-get-mail" type="text" placeholder="Ввведите email"> -->
+            </div>
+            <div class="gift-button" >
+                <div class="gift-button-get" >ПОЛУЧИТЬ</div>
+            </div>
+            
+        </div>
+        <div class="gift-right"></div>
+    </div>
+
+         
     <!-- 'это будущий блок проверки на бота. сюда помещаем ловушки кнопки и чекбоксы, разбросанные незаметно для пользователя по всему экрану -->
     <div class="hello"></div> 
+
+
 
 </div>
 

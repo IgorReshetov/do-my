@@ -143,3 +143,15 @@
 .present:hover {
     @include urlcont('present_red.svg');
 }
+
+.gift-block-present {
+    background-color: blue;
+    @include urlcont('present.svg');
+    width: 70px;
+    height: 70px;
+}
+
+.gift-block-present:hover {
+    background-color: blue;
+    @include urlcont('present_red.svg');
+}

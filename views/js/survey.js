@@ -1034,6 +1034,8 @@ function update_afterClientFoward() {
                   
             // S(C('result1')[0]).display = 'none';
             // S(C('result2')[0]).display = 'none';
+            
+
             // handle_down = setInterval(anime_step_down, 100, prevQst);
 
             // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -1320,6 +1322,15 @@ function update_afterClientFoward() {
         level[0].style.backgroundColor = "red";
         level[0].style.color = "yellow";
         level[0].classList.add('step-level-finish');
+        var opros = document.getElementsByClassName('opros');
+        opros[0].style.display = "none";
+        var prev = document.getElementsByClassName('prev_next');
+        prev[0].style.display = "none";
+        var present = document.getElementsByClassName('present');
+        present[0].style.display = "none";
+        var gift = document.getElementsByClassName('gift');
+        gift[0].style.display = "flex";
+
     }
 
     var inputs = document.querySelectorAll("input");
