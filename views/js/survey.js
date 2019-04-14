@@ -218,12 +218,16 @@ function zapros_Cookies(){      //  Синхронный запрос
 
 function fill_circle() {
     var level = document.querySelectorAll(".step-level");
+    var level2 = document.querySelectorAll(".step-level2");
+    var level3 = document.querySelectorAll(".step-level3");
     var circles = document.querySelectorAll(".step-survey");
     var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
     var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
     console.log(C('slider-level')[0]);
     console.log(level[0].style);
-   
+    
+    level2[0].innerHTML = levelQst_2.countQst;
+    level3[0].innerHTML = levelQst_3.countQst;
 
     for (var i=0; i<countQst; i++) {
         circles[i].style.background = 'white';

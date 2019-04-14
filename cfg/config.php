@@ -12,3 +12,4 @@ define('SESSION_LIFE', 86400);
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
+define('TREE', 2);
