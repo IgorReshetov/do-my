@@ -415,6 +415,11 @@ table.prev_next {
 
 }
 
+.step-level-finish {
+    line-height: 265%;
+    font-size: 19px;
+}
+
 .step-level:before {
     content: 'Easy';
     font-size: 16px;
@@ -520,6 +525,14 @@ table.prev_next {
     right: -2px;
     color: rgb(99, 99, 99);
     position: absolute;
+}
+
+.present {
+    display: none;
+    width: 40px;
+    height: 40px;
+    transition: 0.5s all;
+    margin-right: 10px;
 }
 
 @keyframes step-level {
@@ -869,6 +882,11 @@ table.prev_next {
         box-shadow: 0 0 10px rgb(187, 187, 187);
     }
     
+    .step-level-finish {
+        line-height: 247%;
+        font-size: 17px;
+    }
+
     .step-level:before {
         font-size: 14px;
         top: -37px;
@@ -886,6 +904,13 @@ table.prev_next {
         font-size: 16px;
         transition: 0.25s all;
         box-shadow: 0 0 10px rgb(187, 187, 187);
+    }
+
+    .present {
+        width: 40px;
+        height: 40px;
+        transition: 0.25s all;
+        margin-right: 10px;
     }
     
     .step-level2:before {

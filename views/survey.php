@@ -22,6 +22,7 @@ require_once 'views/templates/header.php';
                 <div class="slider-level-fovard">
                     <div class="step-level2">2</div>
                     <div class="step-level3">2</div>
+                    <div class="present"></div>
                 </div>
             </div>
             <div class="slider-box-survey-arround">       

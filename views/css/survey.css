@@ -482,6 +482,11 @@ table.prev_next {
   transition: 0.5s all;
 }
 
+.step-level-finish {
+  line-height: 265%;
+  font-size: 19px;
+}
+
 .step-level:before {
   content: 'Easy';
   font-size: 16px;
@@ -604,6 +609,15 @@ table.prev_next {
   right: -2px;
   color: #636363;
   position: absolute;
+}
+
+.present {
+  display: none;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  margin-right: 10px;
 }
 
 @-webkit-keyframes step-level {
@@ -983,6 +997,10 @@ table.prev_next {
     -webkit-box-shadow: 0 0 10px #bbbbbb;
             box-shadow: 0 0 10px #bbbbbb;
   }
+  .step-level-finish {
+    line-height: 247%;
+    font-size: 17px;
+  }
   .step-level:before {
     font-size: 14px;
     top: -37px;
@@ -1000,6 +1018,13 @@ table.prev_next {
     transition: 0.25s all;
     -webkit-box-shadow: 0 0 10px #bbbbbb;
             box-shadow: 0 0 10px #bbbbbb;
+  }
+  .present {
+    width: 40px;
+    height: 40px;
+    -webkit-transition: 0.25s all;
+    transition: 0.25s all;
+    margin-right: 10px;
   }
   .step-level2:before {
     font-size: 10px;
