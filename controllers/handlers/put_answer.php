@@ -59,6 +59,9 @@ $_SESSION['user_answer'][$i]['answer_is_true_comment'] = $answer_is_true_comment
 $_SESSION['user_answer'][$i]['time_answer'] = $time_answer;
 
 $activ_question = $i+1;
+
+// var_dump($activ_question);
+
 $last_question = $i;
 
 $last_level = $_SESSION['level_access'];
@@ -90,7 +93,12 @@ $count_2 = Question:: getQuestionsCount (TREE, 2);
 $count_3 = Question:: getQuestionsCount (TREE, 3);
 $count_question = count($_SESSION['user_answer']);
 $count_true = 0;
-if ($count_question == $count_1['questions_count']){
+
+while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {
+    $activ_question = $activ_question+1;
+}
+
+if ($activ_question == $count_1['questions_count']){
     for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
@@ -98,14 +106,14 @@ if ($count_question == $count_1['questions_count']){
     else {$activ_question = 0;}
 }
 
-if ($count_question == $count_1['questions_count']+$count_2['questions_count']){
+if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
     for ($i = $count_1['questions_count']; $i <= $count_1['questions_count'] + $count_2['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
     if ($count_true == $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
     else {$activ_question = $count_1['questions_count'];}
 }
-if ($count_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
+if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
     for ($i = $count_1['questions_count']+$count_2['questions_count']; $i <= $count_1['questions_count']+$count_2['questions_count']+ $count_3['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
@@ -129,11 +137,9 @@ if ($level_access >= 2){
 }
 
 //  проверяем и записываем с сессию следующую текущую позицию пользователя
-
 while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {
     $activ_question = $activ_question+1;
 }
-
 
 $_SESSION['active_question'] = $activ_question;
 
