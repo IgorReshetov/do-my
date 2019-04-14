@@ -257,7 +257,7 @@ function fill_circle() {
         level[0].innerHTML = "Done";
         level[0].style.backgroundColor = "red";
         level[0].style.color = "yellow";
-        if (mobile == 0) {level[0].style.fontSize = "19px";}else{level[0].style.fontSize = "16px";};
+        if (mobile == 0) {level[0].style.fontSize = "19px";level[0].style.lineHeight = "265%";}else{level[0].style.fontSize = "16px";};
     }
       
     
