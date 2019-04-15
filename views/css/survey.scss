@@ -439,6 +439,7 @@ table.prev_next {
 .step-level:hover {
     transform: rotate(30deg);
 }
+
 .step-level-js-M{
     display: block;
     width: 50px;
@@ -527,6 +528,7 @@ table.prev_next {
     right: -2px;
     color: rgb(99, 99, 99);
     position: absolute;
+    z-index: -1;
 }
 
 .present {
@@ -537,17 +539,6 @@ table.prev_next {
     margin-right: 10px;
 }
 
-@keyframes step-level {
-    0% {transform: scaleX(1);
-
-    }
-    
-    50% {transform: scaleX(-1);
-    }
-
-    100% {transform: scaleX(1);
-    }
-}
 
 .step-level2:hover:before {
     animation: step-level 1s infinite;
@@ -579,6 +570,7 @@ table.prev_next {
     right: 7px;
     color: rgb(99, 99, 99);
     position: absolute;
+    z-index: -1;
 }
 
 .step-level3:hover:before {
@@ -587,6 +579,18 @@ table.prev_next {
 
 .step-level3:hover {
     transform: rotate(-30deg);
+}
+
+@keyframes step-level {
+    0% {transform: scaleX(1);
+
+    }
+    
+    50% {transform: scaleX(-1);
+    }
+
+    100% {transform: scaleX(1);
+    }
 }
 
 

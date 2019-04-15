@@ -611,6 +611,7 @@ table.prev_next {
   right: -2px;
   color: #636363;
   position: absolute;
+  z-index: -1;
 }
 
 .present {
@@ -620,36 +621,6 @@ table.prev_next {
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
   margin-right: 10px;
-}
-
-@-webkit-keyframes step-level {
-  0% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-  50% {
-    -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
-  }
-  100% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-}
-
-@keyframes step-level {
-  0% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-  50% {
-    -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
-  }
-  100% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
 }
 
 .step-level2:hover:before {
@@ -685,6 +656,7 @@ table.prev_next {
   right: 7px;
   color: #636363;
   position: absolute;
+  z-index: -1;
 }
 
 .step-level3:hover:before {
@@ -695,6 +667,36 @@ table.prev_next {
 .step-level3:hover {
   -webkit-transform: rotate(-30deg);
           transform: rotate(-30deg);
+}
+
+@-webkit-keyframes step-level {
+  0% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes step-level {
+  0% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  50% {
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
 }
 
 .slider-box-survey-arround {
