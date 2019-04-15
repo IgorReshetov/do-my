@@ -172,6 +172,7 @@ input[type=radio] {
 
 .prev_next {
     display: none;
+    margin-bottom: 50px;
 }
 
 #Q {
@@ -193,7 +194,7 @@ input[type=radio] {
     border: 1px solid yellow;
     box-shadow: 0 0 4px rgb(187, 187, 187);
     border-radius: 7px;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     cursor: pointer;
 }
 
