@@ -158,7 +158,6 @@ function init() {
     forward.onclick = update_afterClientFoward;
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
     C('slider-box-survey-after')[0].onmousedown = function () {
-        clearInterval(handle_down);
         handle_msr = setInterval(move_slider_right, 20);
         console.log((C('slider-box-survey')[0]).offsetWidth);}
     C('slider-box-survey-after')[0].onmouseup = function () {
@@ -166,7 +165,6 @@ function init() {
       handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
     }
     C('slider-box-survey-before')[0].onmousedown = function () {
-        clearInterval(handle_down);
         handle_msl = setInterval(move_slider_left, 20);}
     C('slider-box-survey-before')[0].onmouseup = function () {
         clearInterval(handle_msl);
