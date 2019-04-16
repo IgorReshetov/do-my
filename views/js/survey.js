@@ -90,6 +90,8 @@ var game_win = 'Firefox-icon';
 var mobile = 0;
 
 function init() {
+    preloader();
+
     var page_size = getPageSize();
         if (page_size.page.width <= 570) {
             mobile = 1;

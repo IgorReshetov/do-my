@@ -3,6 +3,10 @@
 require_once 'views/templates/header.php';
 ?>
 
+<div id ='id-preloader' class="preloader">
+    <div class="loader"></div>
+</div>
+
 <div class="wrapper main">
     <h1 class="title">Эта игра подскажет, где вам лучше жить </h1>
     <div class="board">
@@ -315,6 +319,7 @@ require_once 'views/templates/header.php';
 <div id="dark"></div>
 
 <script src="views/js/survey.js"></script>
+<script src="views/js/preloader.js"></script>
 <?php
 
 require_once 'views/templates/footer.php';
