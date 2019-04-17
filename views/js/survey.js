@@ -194,6 +194,9 @@ function check_size() {
 
 function zapros_Cookies(){      //  Синхронный запрос
     var xhr = new XMLHttpRequest();
+
+    preloader_AJAX(xhr);
+
     xhr.open('POST', 'index.php?page=get_answer', false);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send();
@@ -350,6 +353,9 @@ function json_Q_A() {
     // console.log(data);
 
     var xhr = new XMLHttpRequest();
+
+    preloader_AJAX(xhr);
+
     xhr.open('POST', 'index.php?page=put_answer', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
@@ -380,6 +386,9 @@ function json_Q_A_next() {
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
+
+    preloader_AJAX(xhr);
+
     xhr.open('POST', 'index.php?page=get_question', false);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
@@ -429,6 +438,10 @@ function startOpros() {
     var data = JSON.stringify(data);
 
     var xhr = new XMLHttpRequest();
+
+    preloader_AJAX(xhr);
+
+
     xhr.open('POST', 'index.php?page=get_question', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
@@ -553,7 +566,7 @@ function update_afterClientAnswer(otvet) {
     // console.log(check_arr);
     // console.log(countQst_lev3);
 
-    if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (levelQst_1.countQst - 1))) {
+    if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev1 - 1))) {
         if (otvet.answer_is_true) levelQst_1.hit++; 
             else levelQst_1.miss++;
     } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) {
