@@ -129,7 +129,7 @@ function init() {
     var next = document.getElementById('next');
     // var prev = document.getElementById('prev');
 
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll(".right input");
 
     var forward = document.getElementById("forward");
 
@@ -151,9 +151,9 @@ function init() {
         };
     });
 
-    inputs.forEach(function (item) {
-        item.onclick = next_ready;
-    });
+    // inputs.forEach(function (item) {
+    //     item.onclick = next_ready;
+    // });
     
     next.onclick = json_Q_A;
     
@@ -304,7 +304,7 @@ function fill_circle() {
 
 // Появление кнопки ОТВЕТИТЬ
 function next_ready() {
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll(".right input");
     var check_ready = false;
     for (var i=0; i<inputs.length; i++) {
         if (inputs[i].checked == true) check_ready = true;
@@ -321,7 +321,7 @@ function next_ready() {
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
 function json_Q_A() {
     next.style.display = 'none';
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll(".right input");
     var numAnsw, numQst;
     if(inputs[0].type == 'checkbox') numAnsw = [];
     for (var i=0; i<inputs.length; i++) {
@@ -478,7 +478,7 @@ function update_Q_A (messages) {
     //    console.log(idShuffle);  
     //    console.log(answerShuffle);
    
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll(".right input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
         if (messages.question.is_multi_answer == '1'){ 
@@ -544,7 +544,7 @@ function update_afterClientAnswer(otvet) {
     // levelQst_1.check = false;
     // levelQst_2.check = false;
     // levelQst_3.check = false;
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll(".right input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
     }
@@ -1354,7 +1354,7 @@ function update_afterClientFoward() {
 
     }
 
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll(".right input");
     for (var i=0; i<inputs.length; i++) {
             if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
             else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
