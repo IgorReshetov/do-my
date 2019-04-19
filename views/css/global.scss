@@ -56,7 +56,7 @@ html {
 .menu-block{
     width: 100%;
     background-color: #ffffff;
-    border-bottom: 2px solid #2b2b2b;
+    // border-bottom: 2px solid #2b2b2b;
     position: fixed;
     top: 0px;
     z-index: 50;
@@ -83,6 +83,12 @@ margin-left: 10px;
 width: 100px;
 font-weight: 500;
 }
+
+.menu-start-block2 {
+font-size: 15px;
+font-weight: 200;
+}
+
 .menu-proect {
 margin-left: 5px;
 // font-size: 16px;
@@ -91,11 +97,13 @@ width: 80px;
 font-weight: 700;
 }
 
+
 .footer-block{
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
     display: block;
     width: 100%;
+    
     background-color: #ffffff;
     border-top: 2px solid #2b2b2b;
 }
@@ -104,12 +112,13 @@ font-weight: 700;
     margin: 5px;
     margin-left: 30px;
     margin-right: 30px;
+    font-weight: 350;
 }
 
 .icon-menu {
     padding: 20px;
-    margin: 5px;
-    margin-left: 30px;
+    // margin: 5px;
+    // margin-left: 30px;
     transition: 1s;
 }
 
@@ -127,8 +136,8 @@ font-weight: 700;
 
 .icon-user {
     padding: 20px;
-    margin: 5px;
-    margin-right: 30px;
+    // margin: 5px;
+    // margin-right: 30px;
     cursor: pointer;
     transition: 0.1s;
     display: none;          // Скрываем иконку для десктопа
@@ -138,6 +147,10 @@ font-weight: 700;
     margin-left: 10px;
     // font-size: 14px;
     // padding-top: 10px;
+}
+
+.user-menu-reg, .user-menu-auth{
+font-weight: 350;
 }
 
 .user-menu-reg:hover, .user-menu-auth:hover {
@@ -162,8 +175,9 @@ font-weight: 700;
 }
 
 .centr-fox {
-    width: 160px;
-    // border: 2px solid #2b2b2b;
+    width: 110px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .fox {
@@ -173,8 +187,6 @@ font-weight: 700;
     width: 40px;
     height: 40px;
     margin: 5px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 
@@ -203,9 +215,9 @@ font-weight: 700;
         font-size: 15px;
         margin-left: 60px;
     }
-    .fox {
-        margin: auto;
-        margin-top: 5px;
+
+    .centr-fox {
+        justify-content: center;
     }
 }
 

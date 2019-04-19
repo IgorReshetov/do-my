@@ -8,8 +8,10 @@ function onclick_flowQuestion(e){
         setTimeout(function () {document.querySelector(".start-qustions-1").style.display="block"},400);
     }
     console.log (objClass);
-   
 };
+
+
+
 
 
 

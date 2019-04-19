@@ -1,77 +1,53 @@
 .start-h1 {
 
-    margin-top: 30px;
-    margin-left: 85px;
-    font-size: 14px;
-    // text-align: left;
+    margin-top: 5px;
+    font-size: 20px;
     font-weight: 600;
+    text-align: center
 }
 
 .start-h2-conteiner {
-    // border: 2px solid;
-    position: relative;
-    max-width: 360px;
-    margin-top: 100px;
-    // margin-right: 200px;
-    margin-left: 230px;
-    // font-size: 20px;
-    // font-weight: 600;
-   
+    display: flex;
+    justify-content: space-around;
+    margin-top: 200px;
 }
 
 .start-h2 {
     display: block;
-    // position: relative;
-    // width: 360px;
-    // margin-top: 100px;
     margin-right: 0;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: left;
-    transition: 0.1s;
-}
-
-.start-h2:hover, .start-ozenka:hover {
-    // padding: 2px;
-    box-shadow: 0 0 10px rgba(228, 16, 16, 0.513);
+    min-width: 400px;
+    width: 400px;
+    position: relative;
     cursor: pointer;
 }
 
-.start-h2-ozenka {
-    position: absolute;
-    padding: 10px;
-    bottom: -5px;
-    right: -10%;
-    background: url('../images/icon/krug.svg') center center / contain no-repeat; 
+.start-h2-menu {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: left;
 }
 
+.start-h2-upor-l {
+    min-width: 320px;
+}
 
-
-.start-ozenka {
-    animation: rocket 0.4s ease forwards;
-    display: none;
-    text-align: left;
-    width: 360px;
-    position: absolute;
-    top: 300px;
-    right: -755px;
-    font-size: 20px;
-    font-weight: 600;
+.start-h2-upor-r {
+    width: 320px;
 }
 
 .start-planeta-img {
     width: 200px;
     height: 200px;
     position: absolute;
-    bottom: -20%;
+    bottom: -23%;
     right: -80px;
     z-index: -1;
-    background-color: #d8d8d8;
+    background-color: #e0e0e0;
     border-radius: 50%;
+    border: 15px solid red;
 }
 
-.start-linia, .start-linia-2 {
-    // border: 2px solid;
+.start-linia {
     position: fixed;
     display: flex;
     left: 5%;
@@ -81,13 +57,23 @@
     margin: auto;
     height: 400px;
     opacity: 1;
-    // height: 50px;
     z-index: -2;
 }
 
-.start-linia-2 {
-    display: block;
-    // border: 2px solid;
+.start-block {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.start-linia-wite {
+    position: fixed;
+    background-color: white;
+    top: 800px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 500px;
     z-index: -1;
 }
 
@@ -99,7 +85,13 @@
     top: -20%;
     left: -180px;
     z-index: -1;
-              
+    border-radius: 50%;
+    border: 15px solid yellow;
+    background: url("../images/icon/house.svg") center center / cover no-repeat;          
+}
+
+.house:hover {
+    border: 15px solid red;
 }
 
 svg {
@@ -118,7 +110,6 @@ svg {
     z-index: -2;
 }
 
-
 .start-qustions-flex {
     position: absolute;
     max-width: 1200px;
@@ -127,7 +118,6 @@ svg {
     left: 15%;
     display: flex;
     justify-content: space-between;
-
 }
 
 .start-qustions-flex>div {
@@ -138,185 +128,59 @@ svg {
     position: relative;
 }
 
-.start-o-proecte {
+.start-smallcoteiner {
     display: block;
     width: 350px;
-    // height: 90px;
     font-size: 16px;
+    margin-left: 150px;
+    margin-top: 260px;
+    margin-bottom: 100px; 
     position: relative;
-    left: 55px;
-    bottom: -240px;
 }
 
-.start-qustions-1 {
-    display: none;
-    width: 150px;
-    // height: 90px;
-    font-size: 16px;
-    position: relative;
-    left: 55px;
-    bottom: -210px;
-}
 
 .start-qustions-flex-appendix-1 {
     display:none;
     position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
+    left: -40px;
+    width: 30px;
+    height: 30px;
     background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
 }
 
-.start-qustions-1:hover, .start-o-proecte:hover {
+.start-o-proecte:hover {
     .start-qustions-flex-appendix-1 {
         display: block;
-        // position: absolute;
-        // left: -30px;
-        // width: 20px;
-        // height: 20px;
-        background: url("../images/icon/qustion1.svg") center center / contain no-repeat;
     }
-};
+}
 
 .start-qustions-flex-appendix-2 {
+    display:none;
     position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
+    top: 10px;
+    right: -60px;
+    width: 50px;
+    height: 50px;
     background: url("../images/icon/qustion2.svg") center center / contain no-repeat;
 }
 
-.start-qustions-flex-appendix-3 {
-    position: absolute;
-    left: -30px;
-    width: 20px;
-    height: 20px;
-    background: url("../images/icon/qustion3.svg") center center / contain no-repeat;
-
-}
-
-.start-main-block {
-    max-width: 700px;
-    min-height: 350px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    margin-right: auto;
-    margin-left: auto;
-    left: 0;
-    right: 0;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: white;
-}
-
-.start-main-block-row-title{
-    display: flex;
-    align-items: center;
-    height: 50px;
-    font-size: 20px;
-    justify-content: space-between;
-    border-bottom: 1px solid #2b2b2b;
-    margin-bottom: 5px;
-}
-
-.start-main-block-title {
-    color: blue;
-    font-size: 20px;
-    margin: 10px;
-}
-
-.start-main-block-row {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 70px;
-    height: 60px;
-    cursor: pointer;
+.start-h2:hover {
+    .start-qustions-flex-appendix-2 {
+            display: block;
+    }
 }
 
 
 
-.start-main-block-row:hover {
-    box-shadow: 10px 0px 10px rgb(240, 240, 240);
-}
-
-.start-main-block-row:hover .start-main-block-h2 a{
-    color: red;
-}
-
-.start-main-block-row:hover .start-main-block-h2:not(a){
-    color: white;
-}
-
-.start-main-block-h2:after {
-    content: "Извините, раздел в разработке.";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: none;
-}
-
-.start-main-block-row:hover .start-main-block-h2:not(#done):after {
-    display: block;
-    color: red;
-}
-
-
-
-.start-main-block-icon {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    min-height: 50px;
-}
-
-.start-main-block-h2 {
-    position: relative;
-    color: rgb(26, 26, 26);
-    font-size: 18px;
-    margin: 15px;
-}
-
-.start-main-block div:nth-child(1),
-.start-main-block div:nth-child(2) > h2,
-.start-main-block div:nth-child(3) > h2 {
-    font-weight: 600;
-}
-
-
-
-@keyframes rocket {
-    0% {}
-    10% {}
-    20% {}
-    30% {}
-    40% {}
-    50% {}
-    60% {}
-    70% {}
-    80% {}
-    90% {}
-    100% {  transform: translate3d(-755px,-300px,0); 
-            font-size: 20px;
-            font-weight: 600;
-            width: 360px;   
-        }
-}
-
-@media (max-width: 570px) {
+@media (max-width: 800px) {
         .start-h1 {
-            margin-top: 30px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
         }
 
         .house {
-            width: 80%;
-            // height: 100px;
+            width: 200px;
+            height: 200px;
             position: absolute;
             top: -10%;
             left: -120px;
@@ -324,166 +188,46 @@ svg {
         }
 
         .start-planeta-img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             position: absolute;
-            bottom: -15%;
+            bottom: -12%;
             right: -60px;
             z-index: -1;
-            background-color: #d8d8d8;
-            border-radius: 50%;
         }
-
-        .start-h2-conteiner {
-            // border: 2px solid;
-            position: relative;
-            width: 50%;
-            top: 10%;
-            // margin-right: 0%;
-            margin-left: 57%;
-            // font-size: 20px;
-            // font-weight: 600;
-           
-        }
-
         .start-h2 {
-            display: block;
-            // position: relative;
-            width: 100%;
-            // margin-top: 100px;
-            // margin-left: 46%;
-            font-size: 18px;
-            font-weight: 600;
+            min-width: 200px;
+            width: 200px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .start-h2-menu {
+            font-size: 20px;
+            font-weight: 400;
             text-align: left;
         }
-
-        .start-ozenka {
-            animation: rocket 0.4s ease forwards;
-            display: none;
-            text-align: left;
-            width: 220px;
-            position: absolute;
-            top: 400px;
-            right: -100px;
-            font-size: 18px;
-            font-weight: 600;
+        
+        .start-h2-upor-l {
+            min-width: 100px;
         }
-
-        .start-h2-ozenka {
-            position: absolute;
-            padding: 10px;
-            bottom: -50%;
-            right: 0;
-            background: url('../images/icon/krug.svg') center center / contain no-repeat; 
-        }
-
-        .start-o-proecte {
-            display: block;
+        
+        .start-h2-upor-r {
             width: 100px;
-            // height: 90px;
-            font-size: 15px;
-            position: relative;
-            left: 15%;
-            bottom: -240px;
         }
 
-        .start-qustions-1 {
-            display: none;
-            width: 120px;
-            // height: 90px;
-            font-size: 12px;
-            position: relative;
-            left: 5%;
-            bottom: -250px;
+        .start-qustions-flex-appendix-2 {
+            top: 5px;
+            right: -30px;
+            width: 35px;
+            height: 35px;
+            background: url("../images/icon/qustion2.svg") center center / contain no-repeat;
         }
-        
-       
-            @keyframes rocket {
-                0% {}
-                10% {}
-                20% {}
-                30% {}
-                40% {}
-                50% {}
-                60% {}
-                70% {}
-                80% {}
-                90% {}
-                100% {  transform: translate3d(-100px,-400px,0); 
-                        font-size: 18px;
-                        font-weight: 600;
-                        // width: %;   
-                    }
-                }
+
+        .start-smallcoteiner {
+            margin-left: 50px;
+            width: 200px;
+            margin-bottom: 50px;
+        }
+               
 }
-
-@media (max-width: 650px) {
-        
-    .start-h2-conteiner {
-        // border: 2px solid;
-        position: relative;
-        max-width: 300px;
-        margin-top: 100px;
-        // margin-right: 200px;
-        margin-left: 57%;
-        // font-size: 20px;
-        // font-weight: 600;
-    }
-    .start-ozenka {
-        // margin-left: 57%;
-        margin-left: 5px;
-        max-width: 290px;
-        // animation: rocket 0.4s ease forwards;
-        // display: none;
-        // text-align: left;
-        // width: 360px;
-        // position: absolute;
-        // top: 300px;
-        // right: -755px;
-        // font-size: 20px;
-        // font-weight: 600;
-    }
-    .start-qustions-1 {
-        display: none;
-        width: 120px;
-        // height: 90px;
-        font-size: 15px;
-        position: relative;
-        left: 5%;
-        bottom: -250px;
-    }
-
-};
-
-@media (max-width: 400px) {
-
-    .start-h2-conteiner {
-        // border: 2px solid;
-        position: relative;
-        width: 50%;
-        margin-top: 100px;
-        // margin-right: 0%;
-        margin-left: 48%;
-        // font-size: 20px;
-        // font-weight: 600;  
-    }
-    .start-ozenka {
-       width: 102%;
-
-    } 
-    
-    .start-qustions-1 {
-        // display: none;
-        // width: 120px;
-        // // height: 90px;
-        // font-size: 12px;
-        // position: relative;
-        // left: 5%;
-        bottom: -235px;
-    }
-
-    .start-o-proecte {
-        bottom: -180px;
-    }
-           
-};

@@ -17,17 +17,23 @@
                             switch ($page) {
                                 case 'project':
                                 echo ('
-                                <a href="index.php" class="menu-start">Думай</a>
+                                <a href="index.php" class="menu-start">
+                                <div class="menu-start-block1">Думай</div>
+                                </a>
                                 ');
                                 break;
                                 case 'privacy':
                                 echo ('
-                                <a href="index.php" class="menu-start">Думай</a>
+                                <a href="index.php" class="menu-start">
+                                <div class="menu-start-block1">Думай</div>
+                                </a>
                                 ');
                                 break;
                                 default:
                                 echo ('
-                                <div class="menu-start">Думай</div>
+                                <div class="menu-start">
+                                <div class="menu-start-block1">Думай</div>
+                                </div>
                                 ');
                                 break;      
                             }
