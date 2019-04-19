@@ -41,9 +41,13 @@ class Page
             case "error":
             require_once 'views/error.php';
             break;
+            case "survey":
+            require_once 'controllers/survey.php';
+            break;
+
             default:
             // require_once 'models/Answer.php';
-            require_once 'controllers/survey.php';
+            require_once 'controllers/start.php';
             break;
             }
     }

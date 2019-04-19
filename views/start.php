@@ -4,12 +4,12 @@ require_once 'views/templates/header.php';
 ?>
 
     <div class="wrapper">
-        <h1 class = "start-h1">Рекомендации по жилью</h1> 
+        <h1 class = "start-h1">Полезные квизы</h1> 
         <div class="start-block">
             <div class="start-h2-conteiner">
                 <div class="start-h2-upor-l"></div>
                 <div class="start-h2">
-                    <h2 class="start-h2-menu">Эта игра покажет, где вам лучше жить</h2>
+                    <a href="index.php?page=survey" class="start-h2-menu">Эта игра покажет, где вам лучше жить</a>
                     <div class="start-qustions-flex-appendix-2"></div>
                 </div>
                 <div class="start-h2-upor-r"></div>
