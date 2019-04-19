@@ -4,7 +4,12 @@ defined('INDEX') OR die('Прямой доступ к странице запр�
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'domy');
+define('DB_NAME', 'db_domy');
+
+// Время хранения куки и сессии
+define('COOKIE_LIFE', 8640000);
+define('SESSION_LIFE', 86400);
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
+define('TREE', 2);

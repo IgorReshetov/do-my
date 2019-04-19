@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="104px" viewBox="0 0 175 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Тест" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hard" transform="translate(-132.000000, -224.000000)">
+            <g id="Group" transform="translate(132.000000, 224.000000)">
+                <g id="person" transform="translate(129.000000, 0.000000)" fill="#9B9B9B" fill-rule="nonzero">
+                    <circle id="Oval" cx="7" cy="3" r="2"></circle>
+                    <path d="M14.7503552,16.01731 C11.8217752,12.3025293 12.0343189,12.5553174 11.9002572,12.4442743 L10.5474571,6.87346612 L14.4295799,1.5359825 C14.7414303,1.10725647 14.6510013,0.50369248 14.2276609,0.18792249 C13.8044151,-0.1278475 13.2084331,-0.0363636304 12.8965354,0.392410219 L8.97247996,5.78747177 C8.91675865,5.79875781 6.57882455,6.37434581 6.44150457,6.42819361 L1.63114967,1.46903142 C1.26277512,1.08917968 0.659946063,1.08372795 0.284866068,1.45688458 C-0.0902139267,1.83004121 -0.0955971723,2.4404916 0.272871819,2.82034334 L5.73851881,8.45508976 L6.45571822,11.4084454 L7.2503136,14.6804882 L6.80954857,16.2606293 L2.96321962,15.5711767 C2.34244641,15.4600857 1.74910886,15.879582 1.63917732,16.5088265 C1.52919856,17.1380232 1.94370846,17.7383353 2.56500111,17.8497132 C7.81248499,18.7903281 7.48509866,18.7393974 7.6289352,18.7393974 C8.13160756,18.7393974 8.58649181,18.4022031 8.72740063,17.8967703 C9.81788562,13.9871141 9.74988673,14.2577399 9.76594202,14.1103041 L10.2362677,13.9931875 C10.2839614,14.0636774 10.0883229,13.8124196 12.3736523,16.7113057 L9.50272965,20.088127 C9.09110025,20.5723746 9.14497993,21.3028587 9.62304991,21.7197726 C10.1009782,22.1364953 10.8223804,22.0823605 11.2341986,21.5979217 L14.7232501,17.4940595 C15.0818026,17.072459 15.0931357,16.4521094 14.7503552,16.01731 Z" id="Shape"></path>
+                </g>
+                <g id="Easy" transform="translate(0.000000, 73.000000)">
+                    <circle id="Oval-8" fill="#FFF98D" cx="14.5" cy="14.5" r="14.5"></circle>
+                    <text font-family="Roboto-Regular, Roboto" font-size="9" font-weight="normal" fill="#000000">
+                        <tspan x="5.54516602" y="17">Easy</tspan>
+                    </text>
+                </g>
+                <g id="Medium" transform="translate(44.000000, 55.000000)">
+                    <circle id="Oval-8" stroke="#3535FF" stroke-width="3" fill="#3535FF" cx="23.5" cy="23.5" r="23.5"></circle>
+                    <text font-family="Roboto-Regular, Roboto" font-size="9" font-weight="normal" fill="#000000">
+                        <tspan x="6.63256836" y="26">Medium</tspan>
+                    </text>
+                </g>
+                <g id="Hard" transform="translate(99.000000, 28.000000)">
+                    <circle id="Oval-8" stroke="#FF3535" stroke-width="3" fill="#FF3535" cx="37" cy="37" r="37"></circle>
+                    <text font-family="Roboto-Regular, Roboto" font-size="9" font-weight="normal" fill="#000000">
+                        <tspan x="27.3254395" y="39">Hard</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="67px" height="68px" viewBox="0 0 67 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Картинка</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Тест" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Правильный-ответ-(MV)" transform="translate(-174.000000, -235.000000)" stroke="#4CBC7E">
+            <g id="Картинка" transform="translate(177.000000, 238.000000)">
+                <ellipse id="Oval-6" stroke-width="5" cx="30.5" cy="31" rx="30.5" ry="31"></ellipse>
+                <path d="M17,39 C21.4756692,44.7777778 25.9558659,47.6666667 30.4405899,47.6666667 C34.925314,47.6666667 39.4130564,44.7777778 43.903817,39 L17,39 Z" id="Path-4" stroke-width="3"></path>
+                <path d="M35,21.4823348 C37.5006069,20.4941116 39.4333172,20 40.7981309,20 C42.1629446,20 44.0956549,20.4941116 46.5962618,21.4823348" id="Path-6" stroke-width="3"></path>
+                <path d="M15,21.4823348 C17.5006069,20.4941116 19.4333172,20 20.7981309,20 C22.1629446,20 24.0956549,20.4941116 26.5962618,21.4823348" id="Path-6" stroke-width="3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

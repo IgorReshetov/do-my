@@ -32,66 +32,7 @@
 }
 
 // картирнки стартовой страницы
-.start-main-block div:nth-child(1) > .start-main-block-icon {
-    @include url('keyhole.svg');
-}
 
-.start-main-block div:nth-child(1) > .start-main-block-icon:hover {
-    @include url('aim.svg');
-}
-
-
-@keyframes city {
-    
-    50%{transform: scaleX(-1);
-
-    }
-
-    100% {transform: scaleX(+1);
-    }
-}
-
-.start-main-block div:nth-child(2) > .start-main-block-icon {
-    @include url('city.svg');
-    animation: city 5s infinite;
-}
-
-
-@keyframes castle {
-    0% {opacity: 1;
-
-    }
-    50% {opacity: 0;;
-    }
-    
-    100% {opacity: 1;
-    }
-}
-
-.start-main-block div:nth-child(3) > .start-main-block-icon {
-    @include urlcont('castle.svg');
-    position: relative
-}
-
-.start-main-block div:nth-child(3) > .start-main-block-icon::after {
-    content: "";
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    top: 0px;
-    left: 0x;
-    @include urlcont('castle2.svg');
-    animation: castle 5s infinite;
-}
-
-
-.start-main-block div:nth-child(4) > .start-main-block-icon,
-.start-main-block div:nth-child(5) > .start-main-block-icon,
-.start-main-block div:nth-child(6) > .start-main-block-icon,
-.start-main-block div:nth-child(7) > .start-main-block-icon
-{
-    @include url('question_ring.svg');
-}
 
 // ЭТО НАЩ БОТ ЛИСЕНОК СПИТ
 
@@ -166,3 +107,51 @@
     @include url('Vlad_Pal.jpg');
 }
 
+// картинки страницы опроса
+.result-tru-question {
+    @include urlcont('true_question.svg');
+}
+
+.result-false-question {
+    @include urlcont('false_question.svg');
+}
+
+.result-loss-level {
+    @include urlcont('loss_level.svg');
+}
+
+.result-pass-level1 {
+    @include urlcont('pass_level_1.svg');
+}
+
+.result-pass-level2 {
+    @include urlcont('pass_level_2.svg');
+}
+
+.result-pass-level3 {
+    @include urlcont('pass_level_3.svg');
+}
+
+.result-victory {
+    @include urlcont('victory.svg');
+}
+
+.present {
+    @include urlcont('present.svg');
+}
+
+.present:hover {
+    @include urlcont('present_red.svg');
+}
+
+.gift-block-present {
+    background-color: blue;
+    @include urlcont('present.svg');
+    width: 70px;
+    height: 70px;
+}
+
+.gift-block-present:hover {
+    background-color: blue;
+    @include urlcont('present_red.svg');
+}
