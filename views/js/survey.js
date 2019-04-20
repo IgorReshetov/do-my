@@ -159,23 +159,50 @@ function init() {
     
     forward.onclick = update_afterClientFoward;
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
-    C('slider-box-survey-after')[0].onmousedown = function () {
-        handle_msr = setInterval(move_slider_right, 20);
-        console.log((C('slider-box-survey')[0]).offsetWidth);}
-    C('slider-box-survey-after')[0].onmouseup = function () {
-        clearInterval(handle_msr);
-      handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
-    }
-    C('slider-box-survey-before')[0].onmousedown = function () {
-        handle_msl = setInterval(move_slider_left, 20);}
-    C('slider-box-survey-before')[0].onmouseup = function () {
-        clearInterval(handle_msl);
+    if (mobile==0) {
+        C('slider-box-survey-after')[0].onmousedown = function () {
+            if (flag_slaider == 1) return;
+            handle_msr = setInterval(move_slider_right, 20);
+            console.log((C('slider-box-survey')[0]).offsetWidth);}
+        C('slider-box-survey-after')[0].onmouseup = function () {
+            if (flag_slaider == 1) return;
+            clearInterval(handle_msr);
         handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
-        // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
-    }
-    
-        
+        }
+        C('slider-box-survey-before')[0].onmousedown = function () {
+            if (flag_slaider == 1) return;
+            handle_msl = setInterval(move_slider_left, 20);}
+        C('slider-box-survey-before')[0].onmouseup = function () {
+            if (flag_slaider == 1) return;
+            clearInterval(handle_msl);
+            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
+        }
 
+    } else {
+        C('slider-box-survey-after')[0].addEventListener("touchstart", function () {
+            if (flag_slaider == 1) return;
+            handle_msr = setInterval(move_slider_right, 20);
+            console.log((C('slider-box-survey')[0]).offsetWidth);}, false);
+        C('slider-box-survey-after')[0].addEventListener("touchend", function () {
+            if (flag_slaider == 1) return;
+            clearInterval(handle_msr);
+        handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+        }, false);   
+        C('slider-box-survey-before')[0].addEventListener("touchstart", function () {
+            if (flag_slaider == 1) return;
+            handle_msl = setInterval(move_slider_left, 20);}, false);
+        C('slider-box-survey-before')[0].addEventListener("touchend", function () {
+            if (flag_slaider == 1) return;
+            clearInterval(handle_msl);
+            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
+        }, false);
+    }
+    // var el = document.getElementsByTagName("canvas")[0];
+    //     el.addEventListener("touchstart", handleStart, false);
+    //     el.addEventListener("touchend", handleEnd, false);
+    
     // C('slider-box-survey-before')[0].onmousedown = move_slider_left;
 }
 
@@ -1393,6 +1420,7 @@ function anime_step_up(numStartQst) {                            // x - теку
         clearInterval(handle_step);
         anime_off = true;
         ints=[];
+        flag_slaider=0;
     }
     S(C('step-survey')[numStartQst]).marginRight = num_margin_right + 'px';
     S(C('step-survey')[numStartQst]).width = num_step + 'px';
@@ -1400,7 +1428,10 @@ function anime_step_up(numStartQst) {                            // x - теку
 
   }
 
+var flag_slaider =0; // флаг для отслеживания дваижения движения слайдера на нажатую кнопку
+
 function anime_step_down(prevQst, numStartQst) {         // Анимация DOWN круга степ-сурвей после ответа
+    flag_slaider =1;
     num_step -= 1;                     // y - предыдущий вопрос
     num_margin_right += 1;
     if (num_step == control_size_down) {
