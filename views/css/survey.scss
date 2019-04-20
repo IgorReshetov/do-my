@@ -292,6 +292,11 @@ table.prev_next {
 }
 
 .play3:before {
+    content: "Получить подарок";
+    font-size: 23px;
+}
+
+.play4:before {
     content: "Повторить игру";
     font-size: 23px;
 }
@@ -389,6 +394,7 @@ table.prev_next {
     margin-left: 13px;
     margin-right: 13px;
     margin-bottom: 20px;
+    min-width: 175px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -660,7 +666,7 @@ table.prev_next {
 // }
     
 .slider-survey {
-    width: 3200px;
+    width: 4200px;
     height: 35px;
     display: flex;
     align-items: center;
@@ -1016,13 +1022,17 @@ margin-right: 30px;
         content: "Продолжить игру";
         font-size: 20px;
     }
-    
+
     .play3:before {
+        content: "Получить подарок";
+        font-size: 19px;
+    }
+
+    .play4:before {
         content: "Повторить игру";
         font-size: 20px;
     }
-
-    
+           
     .result-image {
         height: 150px;
     }

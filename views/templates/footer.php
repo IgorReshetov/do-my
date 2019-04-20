@@ -2,7 +2,7 @@
         <div class="footer-block">
             <div class="wrapper-menu">
                 <div class = "footer-block-inside1">
-                <a href="http://sber-up.ru" class = "footer-block-inside1-a">Участник аксклератора Sber#Up </a>
+                <a href="http://sber-up.ru" class = "footer-block-inside1-a">Участник акселератора Sber#Up </a>
                 </div>    
                 <div class = "footer-block-inside2">
                     <?php
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-block-end"></div>
+        
     </footer>
     </body>
 </html>

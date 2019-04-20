@@ -30,9 +30,7 @@ require_once 'views/templates/header.php';
             <div class="start-planeta-img"></div>
             <div class = "house"></div>
         </div>
-        <div class="start-linia-wite">
-        </div>
-
+        
         
     </div>
     
