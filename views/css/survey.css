@@ -323,6 +323,36 @@ table.prev_next {
   font-size: 23px;
 }
 
+@-webkit-keyframes puls_pl {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(33deg);
+            transform: rotate(33deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes puls_pl {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(33deg);
+            transform: rotate(33deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
 #button:hover:before {
   -webkit-transform: rotate(33deg);
           transform: rotate(33deg);
@@ -1164,6 +1194,10 @@ table.prev_next {
     top: 55px;
     border: 15px solid yellow;
     font-size: 25px;
+  }
+  #button:before {
+    -webkit-animation: puls_pl 3s infinite;
+            animation: puls_pl 3s infinite;
   }
   .button:after {
     height: 600px;

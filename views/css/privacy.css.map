@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACX,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "privacy.scss"
+    ],
+    "names": [],
+    "file": "privacy.css"
+}
