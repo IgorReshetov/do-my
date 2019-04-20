@@ -1,6 +1,7 @@
 window.onload = init;
 function init() {
-var timeLoadPage = new Date();
+preloader();
+// var timeLoadPage = new Date();
 
 document.onclick = onclick_flowQuestion;
 };

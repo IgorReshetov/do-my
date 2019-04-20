@@ -2,6 +2,9 @@
 
 require_once 'views/templates/header.php';
 ?>
+    <div id ='id-preloader' class="start-preloader">
+    <div class="loader"></div>
+    </div>
 
     <div class="wrapper">
         <h1 class = "start-h1">Полезные квизы и викторины</h1> 
@@ -38,7 +41,7 @@ require_once 'views/templates/header.php';
     
     <script src="views/js/start.js"></script>   <!-- ДОБАВЛЯЕМ основной файл js -->
     <script src="views/js/functions.js"></script>  <!-- Подключаем функции js -->
-
+    <script src="views/js/preloader.js"></script>   <!-- Подключаем загрузчик спиннер -->
 <?php
 
 require_once 'views/templates/footer.php';

@@ -151,9 +151,9 @@ function init() {
         };
     });
 
-    // inputs.forEach(function (item) {
-    //     item.onclick = next_ready;
-    // });
+    inputs.forEach(function (item) {
+        item.onclick = next_ready;
+    });
     
     next.onclick = json_Q_A;
     
@@ -567,13 +567,13 @@ function update_afterClientAnswer(otvet) {
     // console.log(countQst_lev3);
 
     if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev1 - 1))) {
-        if (otvet.answer_is_true) levelQst_1.hit++; 
-            else levelQst_1.miss++;
+        if (otvet.answer_is_true == 1) ++levelQst_1.hit; 
+            else ++levelQst_1.miss;
     } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) {
-        if (otvet.answer_is_true) levelQst_2.hit++; 
+        if (otvet.answer_is_true == 1) levelQst_2.hit++; 
             else levelQst_2.miss++;
     } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) {
-        if (otvet.answer_is_true) levelQst_3.hit++; 
+        if (otvet.answer_is_true == 1) levelQst_3.hit++; 
             else levelQst_3.miss++;
     }
     // console.log(levelQst_3.hit);   

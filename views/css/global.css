@@ -265,6 +265,20 @@ a.menu-proect:hover {
   visibility: visible;
 }
 
+.start-preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fffed4;
+  z-index: 1000;
+  -webkit-transition: 0s all;
+  transition: 0s all;
+  opacity: 1;
+  visibility: visible;
+}
+
 .load_end {
   opacity: 0;
   visibility: hidden;

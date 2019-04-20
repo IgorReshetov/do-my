@@ -14,7 +14,7 @@ function preloader_AJAX(xhr) {
         preloader.classList.remove('load_end');
         preloader.style.display = 'block';
     }    
-    xhr.upload.onload = function() {
+    xhr.upload.onloadend = function() {
         preloader();
     }
 }
