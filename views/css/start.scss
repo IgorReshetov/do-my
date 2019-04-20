@@ -134,8 +134,8 @@ svg {
     width: 350px;
     font-size: 16px;
     margin-left: 150px;
-    margin-top: 260px;
-    margin-bottom: 100px; 
+    margin-top: 200px;
+    margin-bottom: 150px; 
     position: relative;
 }
 
@@ -248,7 +248,54 @@ svg {
         .start-smallcoteiner {
             margin-left: 50px;
             width: 200px;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
                
+}
+
+@media (max-width: 350px) {
+    .start-h2-menu {
+        font-size: 16px;
+    }
+
+    .start-h2-conteiner {
+        margin-top: 160px;
+    }
+
+    .start-h2-upor-l {
+        min-width: 100px;
+    }
+
+    .start-qustions-flex-appendix-2 {
+        top: 5px;
+        right: -27px;
+    }
+
+    .start-smallcoteiner {
+    margin-top: 200px;
+    }
+
+    .start-qustions-2 {
+        font-size: 14px;
+    }
+}
+
+@media (min-height: 730px) {
+    .start-h2-conteiner {
+        margin-top: 260px;
+    }
+    .start-smallcoteiner {
+        margin-top: 250px;
+        margin-bottom: 150px;
+        }
+}
+
+@media (min-height: 950px) {
+    .start-h2-conteiner {
+        margin-top: 360px;
+    }
+    .start-smallcoteiner {
+        margin-top: 400px;
+        margin-bottom: 150px;
+        }
 }
