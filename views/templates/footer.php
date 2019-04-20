@@ -18,6 +18,7 @@
                 </div>
             </div>
         </div>
+        <div class="footer-block-end"></div>
     </footer>
     </body>
 </html>
