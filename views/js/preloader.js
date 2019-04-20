@@ -1,11 +1,11 @@
 function preloader() {
-    setTimeout( function (){
+    // setTimeout( function (){
         var preloader = document.getElementById('id-preloader');
         preloader.classList.add('load_end');
-    },1000); 
+    // },1000); 
     setTimeout( function (){
     var preloader = document.getElementById('id-preloader');
-    preloader.style.display = 'none';}, 1500);
+    preloader.style.display = 'none';}, 1000);
 }
 
 function preloader_AJAX(xhr) {
