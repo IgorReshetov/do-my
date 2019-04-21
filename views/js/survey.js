@@ -308,22 +308,15 @@ function fill_circle() {
         S(C('step-level3')[0]).display = 'none';
         S(C('present')[0]).display = 'flex';
     } else if (numStartQst==countQst) {
-        S(C('result1')[0]).display = 'flex';
-        S(C('result2')[0]).display = 'flex';
-        S(C('step-level2')[0]).display = 'none';
-        S(C('step-level3')[0]).display = 'none';
         level[0].innerHTML = "Done";
         level[0].style.backgroundColor = "red";
         level[0].style.color = "yellow";
         level[0].classList.add('step-level-finish');
-        var opros = document.getElementsByClassName('opros');
-        opros[0].style.display = "none";
-        var prev = document.getElementsByClassName('prev_next');
-        prev[0].style.display = "none";
-        var present = document.getElementsByClassName('present');
-        present[0].style.display = "none";
-        var gift = document.getElementsByClassName('gift');
-        gift[0].style.display = "flex";
+        S(C('result1')[0]).display = 'flex';
+        S(C('result2')[0]).display = 'flex';
+        S(C('step-level2')[0]).display = 'none';
+        S(C('step-level3')[0]).display = 'none';
+        S(C('present')[0]).display = 'flex';
     }
       
     
@@ -464,6 +457,15 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
+    if (countQst==numStartQst) {
+        document.getElementById("button").style.display="none";
+        document.getElementsByClassName('title')[0].style.display="none";
+        var gift = document.getElementsByClassName('gift');
+        gift[0].style.display = "flex";
+        var status_Game = document.getElementsByClassName('board');
+        status_Game[0].style.display = "flex";
+        return;
+    }
     // handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
     if (prevQst==numStartQst && cookies.user_answer.length > 0) {
         handle_move_left_start = setInterval(anime_move_left_start,4, numStartQst);
