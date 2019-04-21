@@ -207,19 +207,39 @@ function init() {
 
     //обраюотчики окна подарка
 
-    var check_privacy = document.getElementById("privacy");
-    console.log (check_privacy);
-    check_privacy.onclick = check_privacy; 
+    var privacy_label = document.getElementById("privacy");
+    privacy_label.onclick = check_privacy;
+
+    var gift_get = document.getElementById("gift-get");
+    gift_get.onclick = show_get;
+    gift_get.oninput = show_get;
+    
+}
+
+function show_get () {
+    
+    var check_privacy = document.getElementById("privacy-check");
+    var mail_input = document.getElementById("mail");
+    var button_get = document.getElementById("gift-button-get");
+    var mail = mail_input.value;
+    var result = mail.length;
+    var result1 = mail.indexOf("@");
+    var result2 = mail.indexOf(".");
+    // проверка правильности мэйла
+    if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2 && result2 > 5) {
+        
+        button_get.style.display = 'block';
+    }
+    else {button_get.style.display = 'none';}
 }
 
 function check_privacy() {
-    console.log ("сработка");
     var check_text = document.getElementById("check-text");
     var check_privacy = document.getElementById("privacy-check");
     if (check_privacy.checked) {
-        check_text.innerHTML = "Я ознакомился с политикой конфиденциальности";
+        check_text.innerHTML = "Ознакомлен(а) с политикой конфиденциальности";
     }
-    else {check_text.innerHTML = "И ознакомьтесь с политикой конфиденциальности";}
+    else {check_text.innerHTML = "Подтвердите oзнакомление с политикой конфиденциальности";}
 }
 
 function check_size() {

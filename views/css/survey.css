@@ -1063,6 +1063,10 @@ table.prev_next {
   margin-top: 10px;
 }
 
+.gift-block2-head {
+  margin-bottom: 10px;
+}
+
 .gift-block1-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1108,19 +1112,42 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
 
 .gift-block-text-icon {
-  width: 50px;
-  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
   margin-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gift-block-text-icon-yellow {
+  width: 10px;
+  height: 10px;
+  border: 4px solid blue;
+  border-radius: 100%;
+}
+
+.gift-block-text-icon-red {
+  width: 10px;
+  height: 10px;
+  border: 4px solid blue;
+  border-radius: 100%;
 }
 
 .gift-block-text-text {
   margin-right: 30px;
   font-size: 18px;
   text-align: start;
-  margin-bottom: 5px;
 }
 
 .gift-block3 {
@@ -1151,7 +1178,7 @@ table.prev_next {
 }
 
 .gift-get-mail {
-  width: 280px;
+  width: 260px;
   height: 30px;
   font-size: 18px;
   text-align: center;
@@ -1160,6 +1187,10 @@ table.prev_next {
 }
 
 .gift-get-mail:hover {
+  border-color: blue;
+}
+
+.gift-get-mail:focus {
   border-color: blue;
 }
 
@@ -1195,7 +1226,7 @@ table.prev_next {
           box-shadow: 0 0 4px #bbbbbb;
   position: relative;
   cursor: pointer;
-  margin-left: 40px;
+  margin-left: 45px;
 }
 
 .addpsev-privacy:hover {
@@ -1214,8 +1245,8 @@ table.prev_next {
   position: absolute;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  -webkit-transition: 1s all;
-  transition: 1s all;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
   opacity: 0;
 }
 
@@ -1226,7 +1257,7 @@ table.prev_next {
 .gift-get-check-right {
   color: #5a5a5a;
   font-size: 18px;
-  margin-left: 10px;
+  margin-left: 15px;
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
@@ -1254,6 +1285,7 @@ table.prev_next {
 }
 
 .gift-button-get {
+  display: none;
   width: 150px;
   padding: 13px;
   text-align: center;
@@ -1414,6 +1446,19 @@ table.prev_next {
   td:hover ~ td .addpsev {
     -webkit-transform: none;
             transform: none;
+  }
+  .gift-block-text-text {
+    font-size: 16px;
+  }
+  .gift-get-check-right {
+    color: #5a5a5a;
+    font-size: 16px;
+    margin-left: 10px;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-right: 20px;
+    cursor: pointer;
   }
 }
 

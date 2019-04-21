@@ -289,20 +289,24 @@ require_once 'views/templates/header.php';
             <div class="gift-block2">
                 <div class="gift-block2-head">Мы подготовили для вас:</div>
                 <div class="gift-block2-text">
-                    <div class="gift-block-text-icon"></div>
+                    <div class="gift-block-text-icon">
+                        <div class="gift-block-text-icon-yellow"></div>
+                    </div>
                     <div class="gift-block-text-text">полезную информацию по выбору жилья по результатам прохождения теста;</div>
                 </div>
                 <div class="gift-block2-text">
-                    <div class="gift-block-text-icon"></div>
+                    <div class="gift-block-text-icon">
+                        <div class="gift-block-text-icon-red"></div>
+                    </div>
                     <div class="gift-block-text-text">предложения по участию в наших викторинах и получению скидок от затсройщиков.</div>
                 </div>  
             </div>
             <div class="gift-block3">
                 <div class="gift-block3-head">Для получения подарка:</div>
-                <div class="gift-get">
-                    <input class="gift-get-mail" type="text" placeholder= "Ввведите email">
+                <div class="gift-get" id = "gift-get">
+                    <input class="gift-get-mail" id = "mail" name = "mail" type="text" placeholder= "Ввведите email">
                     <label class="gift-get-check" id = "privacy">
-                        <div class="gift-get-check-right" id = "check-text">И ознакомьтесь с политикой конфиденциальности</div>
+                        <div class="gift-get-check-right" id = "check-text">Подтвердите oзнакомление с политикой конфиденциальности</div>
                         <div class="gift-get-check-left">
                             <input type="checkbox" class = "check-privacy" id ="privacy-check" name ="privacy" value="0">
                             <div class="addpsev-privacy"></div>
@@ -310,7 +314,7 @@ require_once 'views/templates/header.php';
                     </label>
                 </div>
                 <div class="gift-button" >
-                    <div class="gift-button-get" >ПОЛУЧИТЬ</div>
+                    <div class="gift-button-get" id = "gift-button-get">ПОЛУЧИТЬ</div>
                 </div>
             </div>
             
