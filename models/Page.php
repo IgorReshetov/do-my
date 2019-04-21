@@ -32,6 +32,9 @@ class Page
             case "put_answer":
             require_once 'controllers/handlers/put_answer.php';
             break;
+            case "put_mail":
+            require_once 'controllers/handlers/put_mail.php';
+            break;
             case "check_bot":
             require_once 'controllers/check_bot.php';
             break;

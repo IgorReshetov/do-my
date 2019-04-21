@@ -8,7 +8,7 @@ require_once 'views/templates/header.php';
 </div>
 
 <div class="wrapper main">
-    <h1 class="title">Эта игра подскажет, где вам лучше жить </h1>
+    <h1 class="title">Пройдите квиз и получите подарок </h1>
     <div class="board">
         <div class="board-left">
             <div class="result1">
@@ -302,7 +302,7 @@ require_once 'views/templates/header.php';
                 </div>  
             </div>
             <div class="gift-block3">
-                <div class="gift-block3-head">Для получения подарка:</div>
+                <div class="gift-block3-head">Получите подарок на свой email:</div>
                 <div class="gift-get" id = "gift-get">
                     <input class="gift-get-mail" id = "mail" name = "mail" type="text" placeholder= "Ввведите email">
                     <label class="gift-get-check" id = "privacy">
