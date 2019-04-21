@@ -1055,7 +1055,7 @@ table.prev_next {
           flex-direction: column;
 }
 
-.gift-block1-head, .gift-block2-head {
+.gift-block1-head, .gift-block2-head, .gift-block3-head {
   height: 25px;
   text-align: center;
   font-size: 18px;
@@ -1099,7 +1099,6 @@ table.prev_next {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .gift-block2-text {
@@ -1124,6 +1123,17 @@ table.prev_next {
   margin-bottom: 5px;
 }
 
+.gift-block3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
 .gift-get {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1134,16 +1144,99 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .gift-get-mail {
-  width: 250px;
+  width: 280px;
   height: 30px;
   font-size: 18px;
   text-align: center;
-  margin-bottom: 30px;
-  border: 1px solid #b8b8b8;
-  line-height: 187%;
+  margin: 10px;
+  cursor: text;
+}
+
+.gift-get-mail:hover {
+  border-color: blue;
+}
+
+.gift-get-check {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 20 px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.check-privacy {
+  display: none;
+}
+
+.addpsev-privacy {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #666666;
+  border-radius: 24%;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  -webkit-box-shadow: 0 0 4px #bbbbbb;
+          box-shadow: 0 0 4px #bbbbbb;
+  position: relative;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.addpsev-privacy:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.addpsev-privacy:after {
+  content: "";
+  width: 18px;
+  height: 14px;
+  border-bottom: 2px solid blue;
+  border-left: 2px solid blue;
+  left: 1px;
+  top: -7px;
+  position: absolute;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  opacity: 0;
+}
+
+.check-privacy:checked ~ .addpsev-privacy::after {
+  opacity: 1;
+}
+
+.gift-get-check-right {
+  color: #5a5a5a;
+  font-size: 18px;
+  margin-left: 10px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.gift-get-check-right:hover ~ div .addpsev-privacy {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
 }
 
 .gift-button {
@@ -1156,7 +1249,8 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  height: 50px;
 }
 
 .gift-button-get {

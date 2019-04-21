@@ -297,11 +297,21 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-text">предложения по участию в наших викторинах и получению скидок от затсройщиков.</div>
                 </div>  
             </div>
-            <div class="gift-get">
-                <div class="gift-get-mail">Ввведите email</div>
-            </div>
-            <div class="gift-button" >
-                <div class="gift-button-get" >ПОЛУЧИТЬ</div>
+            <div class="gift-block3">
+                <div class="gift-block3-head">Для получения подарка:</div>
+                <div class="gift-get">
+                    <input class="gift-get-mail" type="text" placeholder= "Ввведите email">
+                    <label class="gift-get-check" id = "privacy">
+                        <div class="gift-get-check-right" id = "check-text">И ознакомьтесь с политикой конфиденциальности</div>
+                        <div class="gift-get-check-left">
+                            <input type="checkbox" class = "check-privacy" id ="privacy-check" name ="privacy" value="0">
+                            <div class="addpsev-privacy"></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="gift-button" >
+                    <div class="gift-button-get" >ПОЛУЧИТЬ</div>
+                </div>
             </div>
             
         </div>

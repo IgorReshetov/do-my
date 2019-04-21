@@ -204,6 +204,22 @@ function init() {
     //     el.addEventListener("touchend", handleEnd, false);
     
     // C('slider-box-survey-before')[0].onmousedown = move_slider_left;
+
+    //обраюотчики окна подарка
+
+    var check_privacy = document.getElementById("privacy");
+    console.log (check_privacy);
+    check_privacy.onclick = check_privacy; 
+}
+
+function check_privacy() {
+    console.log ("сработка");
+    var check_text = document.getElementById("check-text");
+    var check_privacy = document.getElementById("privacy-check");
+    if (check_privacy.checked) {
+        check_text.innerHTML = "Я ознакомился с политикой конфиденциальности";
+    }
+    else {check_text.innerHTML = "И ознакомьтесь с политикой конфиденциальности";}
 }
 
 function check_size() {

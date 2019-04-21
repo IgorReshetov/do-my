@@ -885,7 +885,7 @@ margin-right: 30px;
     flex-direction: column;
 }
 
-.gift-block1-head, .gift-block2-head {
+.gift-block1-head, .gift-block2-head, .gift-block3-head {
     height: 25px;
     text-align: center;
     font-size: 18px;
@@ -913,7 +913,6 @@ margin-right: 30px;
 .gift-block2 {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
 }
 
 .gift-block2-text {
@@ -934,27 +933,102 @@ margin-right: 30px;
     margin-bottom: 5px;
 }
 
+.gift-block3 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
 .gift-get {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .gift-get-mail {
-    width: 250px;
+    width: 280px;
     height: 30px;
     font-size: 18px;
     text-align: center;
-    margin-bottom: 30px;
-    border: 1px solid rgb(184, 184, 184);
-    line-height: 187%;
+    margin: 10px;
+    cursor: text;
+}
+
+.gift-get-mail:hover {
+    border-color: blue;
+}
+
+.gift-get-check {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 20 px;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-privacy {
+    display: none;
+}
+
+.addpsev-privacy {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(102, 102, 102);
+    border-radius: 24%;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: auto;
+    box-shadow: 0 0 4px rgb(187, 187, 187);
+    position: relative;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.addpsev-privacy:hover {
+    transform: scale(1.2,1.2);
+}
+
+.addpsev-privacy:after {
+    content: "";
+    width: 18px;
+    height: 14px;
+    border-bottom: 2px solid blue;
+    border-left: 2px solid blue;
+    left: 1px;
+    top: -7px;
+    position: absolute;
+    transform: rotate(-45deg);
+    transition: 1s all;
+    opacity: 0;
+}
+
+.check-privacy:checked ~ .addpsev-privacy::after {
+    opacity: 1;
+}
+
+
+.gift-get-check-right {
+    color: rgb(90, 90, 90);
+    font-size: 18px;
+    margin-left: 10px;
+    order: 1;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.gift-get-check-right:hover ~ div .addpsev-privacy {
+    transform: scale(1.2,1.2);
 }
 
 .gift-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    height: 50px;
 }
 
 .gift-button-get {
