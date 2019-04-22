@@ -40,7 +40,10 @@
                         ?>
                         
                     </div>
-                    <div class="centr-fox"> <div class="fox"></div> </div>
+                    <div class="centr-fox"> 
+                        <div class="fox"></div>
+                        <div class="fox-speak"></div>
+                    </div>
                     <div class="user-menu">
                         <div class="icon-user"></div>
                         <?php

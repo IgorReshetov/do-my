@@ -135,25 +135,49 @@ function init() {
 
     var answer_tr = document.querySelectorAll(".left");
 
-    answer_tr.forEach(function(item, i) {
-        item.onclick = function() {
-            switch (inputs[i].type) {
+    // Первая замена цикла foreach
+    for (var i = 0; i < answer_tr.length; i++) {
+        answer_tr[i].onclick =  function(e) {
+            var elem = e.target.nextElementSibling.children[0].children[0];
+            switch (elem.type) {
                 case 'radio':
-                    inputs[i].checked = true;
+                    elem.checked = true;
                     next_ready();
                 break;
                 case 'checkbox':
-                    if (inputs[i].checked == true) inputs[i].checked = false;
-                    else inputs[i].checked = true;
+                    if (elem.checked == true) elem.checked = false;
+                    else elem.checked = true;
                     next_ready();
                 break 
             }
-        };
-    });
+        }
+    }
+    
+    // answer_tr.forEach(function(item, i) {
+    //     item.onclick = function() {
+    //         switch (inputs[i].type) {
+    //             case 'radio':
+    //                 inputs[i].checked = true;
+    //                 next_ready();
+    //             break;
+    //             case 'checkbox':
+    //                 if (inputs[i].checked == true) inputs[i].checked = false;
+    //                 else inputs[i].checked = true;
+    //                 next_ready();
+    //             break 
+    //         }
+    //     };
+    // });
 
-    inputs.forEach(function (item) {
-        item.onclick = next_ready;
-    });
+
+    // Второй цикл foreach исправлен
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = next_ready;
+    }
+    
+    //     inputs.forEach(function (item) {
+    //     item.onclick = 
+    // });
     
     next.onclick = json_Q_A;
     
@@ -332,8 +356,8 @@ function fill_circle() {
         level[0].style.backgroundColor = "red";
         level[0].style.color = "yellow";
         level[0].classList.add('step-level-finish');
-        S(C('result1')[0]).display = 'flex';
-        S(C('result2')[0]).display = 'flex';
+        S(C('result1')[0]).display = 'none';
+        S(C('result2')[0]).display = 'none';
         S(C('step-level2')[0]).display = 'none';
         S(C('step-level3')[0]).display = 'none';
         S(C('present')[0]).display = 'flex';
@@ -482,8 +506,8 @@ function startOpros() {
         document.getElementsByClassName('title')[0].style.display="none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-        var status_Game = document.getElementsByClassName('board');
-        status_Game[0].style.display = "flex";
+        // var status_Game = document.getElementsByClassName('board');
+        // status_Game[0].style.display = "flex";
         return;
     }
     // handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
@@ -538,20 +562,35 @@ function startOpros() {
 function update_Q_A (messages) {
     var answShuffle = [];
     
-    messages.answer.id_answer.forEach(function(item,i) {
+    // 3 ЦИКЛ foreach переделан
+    for (var i = 0; i < messages.answer.id_answer.length; i++) {
         var ans = [];
-        ans.push(item);
+        ans.push(messages.answer.id_answer[i]);
         ans.push(messages.answer.answer[i]);
-        // ans[item] = messages.answer.answer[i];
         answShuffle.push(ans);
-    });
+    };
+
+    // messages.answer.id_answer.forEach(function(item,i) {
+    //     var ans = [];
+    //     ans.push(item);
+    //     ans.push(messages.answer.answer[i]);
+    //     // ans[item] = messages.answer.answer[i];
+    //     answShuffle.push(ans);
+    // });
 
     answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
     var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
-    answShuffle.forEach(function(item, i){
-        idShuffle.push(item[0]);
-        answerShuffle.push(item[1])
-    });
+   
+    // 4 Правка цикла for
+    for (var i = 0; i < answShuffle.length; i++) {
+        idShuffle.push(answShuffle[i][0]);
+        answerShuffle.push(answShuffle[i][1]);
+    }
+   
+    // answShuffle.forEach(function(item, i){
+    //     idShuffle.push(item[0]);
+    //     answerShuffle.push(item[1])
+    // });
     //    console.log(idShuffle);  
     //    console.log(answerShuffle);
    
@@ -588,28 +627,26 @@ function update_Q_A (messages) {
     var A6 = document.getElementById("A6");
     var arr = [A0,A1,A2,A3,A4,A5,A6]
 
-       // console.log(arr);
-    // var div = document.createElement("div");
-    // div.setAttribute("class", "start-Answer");
-    // var answer_all ='';
-    Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
+       Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
     for (var i=0; i<arr.length; i++) {
         arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
     }
     
-    answerShuffle.forEach(function(item,i) {         
-    return eval('A'+ i).innerHTML = item;   
-    
-    });
+    // 5 Правка Цикла foreach
+    for (var i = 0; i < answerShuffle.length; i++) {
+        eval('A'+ i).innerHTML = answerShuffle[i];
+    }
+
+    // answerShuffle.forEach(function(item,i) {         
+    // return eval('A'+ i).innerHTML = item;   
+    // });
     
     for (var i=0; i<arr.length; i++) {
        if (arr[i].innerHTML == '') {
             eval('A'+ i).parentElement.style.display = 'none';
        } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
     }
-    // console.log(document.cookie);
-    // return eval ('A' + i) - запускаем код через строку
-    // div_A.innerHTML = answer_all; // Обращаемся к свойству answer 1 элемента массива и заливаем в ДИВ с ответом
+  
 }
 
 function update_afterClientAnswer(otvet) {
@@ -618,9 +655,7 @@ function update_afterClientAnswer(otvet) {
     } else if (cookies.level_access == 3) {
         O('forward').classList.add('forward-level3');
     } 
-    // levelQst_1.check = false;
-    // levelQst_2.check = false;
-    // levelQst_3.check = false;
+ 
     var inputs = document.querySelectorAll(".right input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
@@ -637,11 +672,10 @@ function update_afterClientAnswer(otvet) {
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
     
-    // console.log(check_arr);
+ 
     numStartQst = otvet.active_question;
     check_arr.push(otvet.active_question);
-    // console.log(check_arr);
-    // console.log(countQst_lev3);
+
 
     if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev1 - 1))) {
         if (otvet.answer_is_true == 1) ++levelQst_1.hit; 
@@ -653,34 +687,26 @@ function update_afterClientAnswer(otvet) {
         if (otvet.answer_is_true == 1) levelQst_3.hit++; 
             else levelQst_3.miss++;
     }
-    // console.log(levelQst_3.hit);   
-    // console.log(levelQst_3.miss);   
+ 
 
     switch (numStartQst) {
         case countQst_lev1 :
-            // if (otvet.answer_is_true) {
-                levelQst_1.hit++; 
-                levelQst_1.miss=0;
-            // } else levelQst_1.miss++;
-        break;
+            levelQst_1.hit++; 
+            levelQst_1.miss=0;
+         break;
         case countQst_lev2 :
-            // if (otvet.answer_is_true) levelQst_2.hit++; 
             levelQst_2.hit++; 
             levelQst_2.miss=0;
-            // else levelQst_2.miss++;
         break;
         case countQst_lev3 :
-            // if (otvet.answer_is_true) levelQst_3.hit++;
             levelQst_3.hit++; 
             levelQst_3.miss=0;
-            // else levelQst_3.miss++;
             otvet_true.innerHTML = 'Вы знаете правильный ответ. Поздравляем!';
         break;
         default:
         
         break;
     }
-
 
     result.style.display = "flex";
     dark.style.display = "block";
@@ -929,40 +955,13 @@ function update_afterClientFoward() {
                  }
 
                  C('step-level')[0].classList.add('step-level-js-M');
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                
-
-
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+            
                 zapros_Cookies();           // Делаем синхронный запрос
 
                 Object.cookie_level();
              
             } 
-            // else if (levelQst_1.check==true && levelQst_1.next_lev == false) {
-            //     numStartQst = cookies.active_question;
-                
-            //     // eraseCookie("PHPSESSID");
-
-            //     result.style.display = "none";
-            //     dark.style.display = "none";
-            //     otvet_true.style.display = "none";
-            //     otvet_false.style.display = "none";
-            //     image_true.style.display = "none";
-            //     image_false.style.display = "none";
-            //     why.style.display = "none";
-            //     why.innerHTML = '';
-
-            //     json_Q_A_next();
-
-            //     init();
-            // }
+          
         break;
 
         case countQst_lev2 :
@@ -1008,17 +1007,7 @@ function update_afterClientFoward() {
              }
 
              C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                
-
-
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+  
                 zapros_Cookies();           // Делаем синхронный запрос
 
                 Object.cookie_level();
@@ -1055,17 +1044,7 @@ function update_afterClientFoward() {
                 setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                 anime_off = true;
              }
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                
-
-
-                // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+      
             zapros_Cookies();           // Делаем синхронный запрос
 
             Object.cookie_level();
@@ -1073,24 +1052,7 @@ function update_afterClientFoward() {
             } 
 
         }
-        // else if (levelQst_2.check==true && levelQst_2.next_lev == false) {
-        //     // numStartQst = 0;
-
-        //     // eraseCookie("PHPSESSID");
-
-        //     result.style.display = "none";
-        //     dark.style.display = "none";
-        //     otvet_true.style.display = "none";
-        //     otvet_false.style.display = "none";
-        //     image_true.style.display = "none";
-        //     image_false.style.display = "none";
-        //     why.style.display = "none";
-        //     why.innerHTML = '';
-            
-        //     json_Q_A_next();
-
-        //     init();
-        // }
+   
         break;
 
         case countQst_lev3 :
@@ -1128,52 +1090,13 @@ function update_afterClientFoward() {
                     anime_off = true;
             }
 
-                  
-            // S(C('result1')[0]).display = 'none';
-            // S(C('result2')[0]).display = 'none';
-            
-
-            // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-            // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-            
-
-
-            // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-            // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-            // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+     
             zapros_Cookies();           // Делаем синхронный запрос
     
             Object.cookie_level();
          
         } 
-        // else if (levelQst_3.check==true && levelQst_3.next_lev == false) {
-        //     // numStartQst = 0;
-            
 
-        //     // eraseCookie("PHPSESSID");
-
-        //     result.style.display = "none";
-        //     dark.style.display = "none";
-        //     otvet_true.style.display = "none";
-        //     otvet_false.style.display = "none";
-        //     image_true.style.display = "none";
-        //     image_false.style.display = "none";
-        //     why.style.display = "none";
-        //     why.innerHTML = '';
-        //     /*
-        //     // for (var i=0; i<countQst; i++) {
-        //     //     circles[i].style.background = 'white';
-        //     // }
-
-        //     // json_Q_A_next(); */
-        //     var circles = document.querySelectorAll(".step-survey");
-        //     circles[countQst-1].style.background = 'grey';
-            
-        //     init();
-        // }
         break;
 
         default :
@@ -1212,17 +1135,7 @@ function update_afterClientFoward() {
                         setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                         anime_off = true;
                     }
-                        // handle_down = setInterval(anime_step_down, 100, prevQst);
 
-                        // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                        
-
-
-                        // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                        // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                        // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
 
                         
                         zapros_Cookies();           // Делаем синхронный запрос
@@ -1264,17 +1177,6 @@ function update_afterClientFoward() {
                     anime_off = true;
                 }
                 
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                
-
-
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
 
                 zapros_Cookies();           // Делаем синхронный запрос
 
@@ -1313,16 +1215,7 @@ function update_afterClientFoward() {
                     setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                     anime_off = true;
                 }
-                
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
+    
                 zapros_Cookies();           // Делаем синхронный запрос
 
                 Object.cookie_level();
@@ -1381,21 +1274,6 @@ function update_afterClientFoward() {
                     anime_off = true;
                 }
 
-
-
-                // handle_down = setInterval(anime_step_down, 100, prevQst);
-
-                // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-                
-
-
-                // // setTimeout("handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst)", 1000);
-
-                // // setTimeout("handle_move_left = setInterval(anime_move_left, 20, numStartQst)", 2000);
-
-                // setTimeout("handle_step = setInterval(anime_step_up, 100, numStartQst)", 2000);
-
-
                 zapros_Cookies();           // Делаем синхронный запрос
     
                 Object.cookie_level();
@@ -1444,9 +1322,6 @@ function update_afterClientFoward() {
         O('next').classList.add ('next-level3');
     }          
 
-    console.log(levelQst_1.countQst)
-    console.log(numStartQst)
-    // console.log(cookies);
 }
 // ______________________________________АНИМАЦИЯ элементов ДОМ________________________________________
 
