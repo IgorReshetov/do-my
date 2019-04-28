@@ -1,14 +1,14 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
 
-   $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-//    $url: '/do-my/views/images/icon/'+$url;
+//    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   $url: '/do-my/views/images/icon/'+$url;
    background: url($url) center center / cover no-repeat;   
 }
 
 @mixin urlcont($url){
-       $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-    //    $url: '/do-my/views/images/icon/'+$url;
+    //    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+       $url: '/do-my/views/images/icon/'+$url;
        background: url($url) center center / contain no-repeat;   
     }
 
@@ -154,4 +154,22 @@
 .gift-block-present:hover {
     background-color: blue;
     @include urlcont('present_red.svg');
+}
+
+//картинки страницы thankks
+
+.thanks-image {
+    display: flex;
+    margin-top: 20px;
+    margin: 10px;
+    height: 200px;
+    @include urlcont('thanks.svg');
+}
+
+.thanks-image-problem {
+    display: flex;
+    margin-top: 20px;
+    margin: 10px;
+    height: 200px;
+    @include urlcont('elephant.png');
 }
