@@ -8,7 +8,7 @@ $postData = file_get_contents('php://input');
 $data = json_decode($postData, true);
 
 $id_question = $data['id_question'];
-$answer = new Answer(TREE, $id_question);
+$answer = new Answer(ACTION, $id_question);
 $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
 $id_answer_sample = array();
@@ -88,9 +88,9 @@ $ip_user = $_SESSION['ip_user'];
 
 $user = new User ($last_session_id);
 
-$count_1 = Question:: getQuestionsCount (TREE, 1);
-$count_2 = Question:: getQuestionsCount (TREE, 2);
-$count_3 = Question:: getQuestionsCount (TREE, 3);
+$count_1 = Question:: getQuestionsCount (ACTION, 1);
+$count_2 = Question:: getQuestionsCount (ACTION, 2);
+$count_3 = Question:: getQuestionsCount (ACTION, 3);
 $count_question = count($_SESSION['user_answer']);
 $count_true = 0;
 

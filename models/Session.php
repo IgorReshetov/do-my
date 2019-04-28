@@ -14,7 +14,7 @@ class Session
 
         $check = $mysqli->real_escape_string($_SERVER['REMOTE_ADDR']);
 
-               
+                       
         if( !isset($_SESSION['active_question']) ) {
             $_SESSION['active_question']= 0;
         }

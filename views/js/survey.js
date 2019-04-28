@@ -237,7 +237,44 @@ function init() {
     var gift_get = document.getElementById("gift-get");
     gift_get.onclick = show_get;
     gift_get.oninput = show_get;
+
+    var gift_button_get = document.getElementById("gift-button-get");
+    gift_button_get.onclick = send_mail;
+}
+
+function send_mail() {
+    var mail = document.getElementById('mail');
+    var mail_data = mail.value;
     
+       
+    var data = {
+        mail:mail_data
+    };
+
+    var data = JSON.stringify(data);
+
+    var xhr = new XMLHttpRequest();
+
+    preloader_AJAX(xhr);
+
+
+    xhr.open('POST', 'index.php?page=put_mail', true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(data);
+  
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) {
+            return;
+        }
+    
+    console.log (xhr.responseText);
+    var messages = JSON.parse(xhr.responseText);
+    
+    console.log (messages);
+
+    // if (messages==1) {document.location.href = "index.php?page=thanks&mail=true"}
+    // else {document.location.href = "index.php?page=thanks&mail=false"}
+    }
 }
 
 function show_get () {
@@ -250,7 +287,7 @@ function show_get () {
     var result1 = mail.indexOf("@");
     var result2 = mail.indexOf(".");
     // проверка правильности мэйла
-    if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2 && result2 > 5) {
+    if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2) {
         
         button_get.style.display = 'block';
     }

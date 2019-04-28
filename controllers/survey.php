@@ -2,7 +2,7 @@
 require_once 'models/Question.php';
 require_once 'models/Answer.php';
 
-$count = Question:: getQuestionsCount (TREE, 1)['questions_count']+Question:: getQuestionsCount (TREE, 2)['questions_count']+Question:: getQuestionsCount (TREE, 3)['questions_count'];
+$count = Question:: getQuestionsCount (ACTION, 1)['questions_count']+Question:: getQuestionsCount (ACTION, 2)['questions_count']+Question:: getQuestionsCount (ACTION, 3)['questions_count'];
 $active_question = $_SESSION['active_question'];
 
 if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {

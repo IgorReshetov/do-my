@@ -15,13 +15,13 @@ class Answer
     public $is_true;
     public $is_true_comment;
 
-    public function __construct($id_tree, $id_question)      //варианты ответов для вопроса
+    public function __construct($id_action, $id_question)      //варианты ответов для вопроса
     {
         global $mysqli;                                      // заводим базу в область видимости
-        $id_tree = $mysqli->real_escape_string($id_tree);
+        $id_action = $mysqli->real_escape_string($id_action);
         $id_question = $mysqli->real_escape_string($id_question);             //экранируем спецсимволы от sql инъекций
      
-        $query = "call getAnswer($id_tree, $id_question)";
+        $query = "call getAnswer($id_action, $id_question)";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
 

@@ -47,6 +47,9 @@ class Page
             case "survey":
             require_once 'controllers/survey.php';
             break;
+            case "thanks":
+            require_once 'controllers/thanks.php';
+            break;
 
             default:
             // require_once 'models/Answer.php';

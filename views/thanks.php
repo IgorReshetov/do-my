@@ -6,7 +6,7 @@ require_once 'views/templates/header.php';
 <div class="wrapper">
     <br>
     <br>
-    <div>Спасибо, что пользуетесь нашим Сервисом</div>
+    <div>Спасибо, что пользуетесь нашим cервисом</div>
     <div>Подарок направлен на ваш мэйл</div>
     <br>
     <br>

@@ -8,14 +8,14 @@ class Question
     public $is_multi_answer;
     public $id_level;
 
-    public function __construct($id_tree, $id_parent = 0, $id_answer_branch = 0) //создаем вопрос, если задан только первый аргумент возвращается первый вопрос дерева
+    public function __construct($id_action, $id_parent = 0, $id_answer_branch = 0) //создаем вопрос, если задан только первый аргумент возвращается первый вопрос дерева
     {
         global $mysqli;                                                          // заводим базу в область видимости
-        $id_tree = $mysqli->real_escape_string($id_tree);
+        $id_action = $mysqli->real_escape_string($id_action);
         $id_parent = $mysqli->real_escape_string($id_parent);
         $id_answer_branch = $mysqli->real_escape_string($id_answer_branch);                       //экранируем спецсимволы от sql инъекций
 
-        $query = "call getQuestion($id_tree, $id_parent, $id_answer_branch)";
+        $query = "call getQuestion($id_action, $id_parent, $id_answer_branch)";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
 
@@ -33,11 +33,11 @@ class Question
         $mysqli->next_result();
     }
 
-    public static function getAll($id_tree) { //функция выдычи всех вопросов дерева
+    public static function getAll($id_action) { //функция выдычи всех вопросов дерева
         global $mysqli;
-        $id_tree = $mysqli->real_escape_string($id_tree);
+        $id_action = $mysqli->real_escape_string($id_action);
        
-        $query = "call getAll($id_tree)";
+        $query = "call getAll($id_action)";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
 
@@ -49,12 +49,12 @@ class Question
         return $questiones;
     }
 
-    public static function getQuestionsCount ($id_tree, $id_level) { //функция выдачи колличества вопросов в уровне, либо всех вопросов
+    public static function getQuestionsCount ($id_action, $id_level) { //функция выдачи колличества вопросов в уровне, либо всех вопросов
         global $mysqli;
-        $id_tree = $mysqli->real_escape_string($id_tree);
+        $id_action = $mysqli->real_escape_string($id_action);
         $id_level = $mysqli->real_escape_string($id_level);
        
-        $query = "call getQuestionsCount($id_tree, $id_level)";
+        $query = "call getQuestionsCount($id_action, $id_level)";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
 

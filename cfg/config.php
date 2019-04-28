@@ -8,8 +8,8 @@ define('DB_NAME', 'db_domy');
 
 // Время хранения куки и сессии
 define('COOKIE_LIFE', 8640000);
-define('SESSION_LIFE', 86400);
+define('SESSION_LIFE', 604800);
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
-define('TREE', 1);
+define('ACTION', 1);
