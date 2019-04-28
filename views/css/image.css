@@ -1,19 +1,19 @@
 .icon-menu {
-  background: url("https://do-my.ru/test/views/images/icon/logo.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/logo.svg") center center/contain no-repeat;
   -webkit-transition: 0.01s;
   transition: 0.01s;
 }
 
 .icon-menu:hover {
-  background: url("https://do-my.ru/test/views/images/icon/aim.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
 }
 
 .icon-user {
-  background: url("https://do-my.ru/test/views/images/icon/user.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/user.svg") center center/cover no-repeat;
 }
 
 .icon-user:hover {
-  background: url("https://do-my.ru/test/views/images/icon/user_hover.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/user_hover.svg") center center/cover no-repeat;
 }
 
 @-webkit-keyframes fox_sleep {
@@ -41,7 +41,7 @@
 }
 
 .fox {
-  background: url("https://do-my.ru/test/views/images/icon/fox_ring.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/fox_sleep.svg") center center/cover no-repeat;
   position: relative;
 }
 
@@ -51,14 +51,14 @@
   height: 10px;
   width: 17px;
   top: 0px;
-  left: 14px;
-  background: url("https://do-my.ru/test/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
+  left: 5px;
+  background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
   -webkit-animation: fox_sleep 10s infinite;
           animation: fox_sleep 10s infinite;
 }
 
 .column2-image1 {
-  background: url("https://do-my.ru/test/views/images/icon/keyhole.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/keyhole.svg") center center/cover no-repeat;
 }
 
 @-webkit-keyframes aim {
@@ -80,80 +80,80 @@
 }
 
 .column2-image1-aim {
-  background: url("https://do-my.ru/test/views/images/icon/aim.svg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/aim.svg") center center/cover no-repeat;
   -webkit-animation: aim 5s 1;
           animation: aim 5s 1;
 }
 
 .column2-image2 {
-  background: url("https://do-my.ru/test/views/images/icon/IgorR.jpg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/IgorR.jpg") center center/cover no-repeat;
 }
 
 .column2-image3 {
-  background: url("https://do-my.ru/test/views/images/icon/Minakov.png") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Minakov.png") center center/cover no-repeat;
 }
 
 .column2-image4 {
-  background: url("https://do-my.ru/test/views/images/icon/Stas_Sap.jpg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Stas_Sap.jpg") center center/cover no-repeat;
 }
 
 .column2-image5 {
-  background: url("https://do-my.ru/test/views/images/icon/YraReshetov.png") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/YraReshetov.png") center center/cover no-repeat;
 }
 
 .column2-image6 {
-  background: url("https://do-my.ru/test/views/images/icon/Tany_Lyb.jpg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Tany_Lyb.jpg") center center/cover no-repeat;
 }
 
 .column2-image7 {
-  background: url("https://do-my.ru/test/views/images/icon/Vlad_Pal.jpg") center center/cover no-repeat;
+  background: url("/do-my/views/images/icon/Vlad_Pal.jpg") center center/cover no-repeat;
 }
 
 .result-tru-question {
-  background: url("https://do-my.ru/test/views/images/icon/true_question.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/true_question.svg") center center/contain no-repeat;
 }
 
 .result-false-question {
-  background: url("https://do-my.ru/test/views/images/icon/false_question.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/false_question.svg") center center/contain no-repeat;
 }
 
 .result-loss-level {
-  background: url("https://do-my.ru/test/views/images/icon/loss_level.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/loss_level.svg") center center/contain no-repeat;
 }
 
 .result-pass-level1 {
-  background: url("https://do-my.ru/test/views/images/icon/pass_level_1.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/pass_level_1.svg") center center/contain no-repeat;
 }
 
 .result-pass-level2 {
-  background: url("https://do-my.ru/test/views/images/icon/pass_level_2.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/pass_level_2.svg") center center/contain no-repeat;
 }
 
 .result-pass-level3 {
-  background: url("https://do-my.ru/test/views/images/icon/pass_level_3.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/pass_level_3.svg") center center/contain no-repeat;
 }
 
 .result-victory {
-  background: url("https://do-my.ru/test/views/images/icon/victory.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/victory.svg") center center/contain no-repeat;
 }
 
 .present {
-  background: url("https://do-my.ru/test/views/images/icon/present.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/present.svg") center center/contain no-repeat;
 }
 
 .present:hover {
-  background: url("https://do-my.ru/test/views/images/icon/present_red.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/present_red.svg") center center/contain no-repeat;
 }
 
 .gift-block-present {
   background-color: blue;
-  background: url("https://do-my.ru/test/views/images/icon/present.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/present.svg") center center/contain no-repeat;
   width: 70px;
   height: 70px;
 }
 
 .gift-block-present:hover {
   background-color: blue;
-  background: url("https://do-my.ru/test/views/images/icon/present_red.svg") center center/contain no-repeat;
+  background: url("/do-my/views/images/icon/present_red.svg") center center/contain no-repeat;
 }
 /*# sourceMappingURL=image.css.map */

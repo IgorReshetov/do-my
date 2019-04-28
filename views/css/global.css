@@ -198,7 +198,7 @@ a.menu-proect:hover {
 }
 
 .centr-fox {
-  width: 110px;
+  width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -208,10 +208,34 @@ a.menu-proect:hover {
 }
 
 .fox {
-  justify-items: center;
-  width: 40px;
+  justify-items: flex-start;
+  width: 50px;
   height: 40px;
   margin: 5px;
+}
+
+.fox-speak {
+  position: relative;
+  justify-items: flex-end;
+  border: yellow 2px solid;
+  width: 120px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.fox-speak::before {
+  content: "";
+  position: absolute;
+  border-bottom: yellow  2px solid;
+  border-left: #ffff00  2px solid;
+  height: 10px;
+  width: 10px;
+  top: 15px;
+  left: -8px;
+  background: white;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 @media (max-width: 570px) {
@@ -246,6 +270,11 @@ a.menu-proect:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  .fox-speak {
+    width: 80px;
+    height: 40px;
+    margin: 5px;
   }
 }
 

@@ -1,14 +1,14 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
 
-   $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-//    $url: '/do-my/views/images/icon/'+$url;
+//    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   $url: '/do-my/views/images/icon/'+$url;
    background: url($url) center center / cover no-repeat;   
 }
 
 @mixin urlcont($url){
-       $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-    //    $url: '/do-my/views/images/icon/'+$url;
+    //    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+       $url: '/do-my/views/images/icon/'+$url;
        background: url($url) center center / contain no-repeat;   
     }
 
@@ -48,7 +48,7 @@
 }
 
 .fox {
-    @include url('fox_ring.svg');
+    @include url('fox_sleep.svg');
     position: relative
 }
 
@@ -58,7 +58,7 @@
     height: 10px;
     width: 17px;
     top: 0px;
-    left: 14px;
+    left: 5px;
     @include urlcont('fox_ring_sleep.svg');
     animation: fox_sleep 10s infinite;
 }

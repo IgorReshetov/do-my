@@ -10,7 +10,9 @@ var fox = {
         level_end: ["Отличный результат!", "Попробуй еще раз", "Вы отличный знаток"],
         game_end: ["Вы дошли до конца, Вы молодец!", "Получи подарок - он ждет тебя на email"]
     },
-    sleep: function() {},
+    sleep: function() {
+        
+    },
     wakeUp: function() {},
     speak: function() {},
 
