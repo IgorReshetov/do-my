@@ -267,11 +267,11 @@ function send_mail() {
             return;
         }
     
-    
+    console.log (xhr.responseText);
     var messages = JSON.parse(xhr.responseText);
         
-    if (messages==true) {document.location.href = "index.php?page=thanks&mail=true"}
-    else {document.location.href = "index.php?page=thanks&mail=false"}
+    if (messages==true) {document.location.href = "index.php?page=thanks&mail=1"}
+    else {document.location.href = "index.php?page=thanks&mail=0"}
     }
 }
 

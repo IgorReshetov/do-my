@@ -155,3 +155,21 @@
     background-color: blue;
     @include urlcont('present_red.svg');
 }
+
+//картинки страницы thankks
+
+.thanks-image {
+    display: flex;
+    margin-top: 20px;
+    margin: 10px;
+    height: 200px;
+    @include urlcont('thanks.svg');
+}
+
+.thanks-image-problem {
+    display: flex;
+    margin-top: 20px;
+    margin: 10px;
+    height: 200px;
+    @include urlcont('elephant.png');
+}

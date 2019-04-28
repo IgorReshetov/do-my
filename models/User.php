@@ -85,6 +85,51 @@ class User
         $mysqli->next_result();
     }
 
+    public static function putUserMail($mailTo){
+        global $mysqli; // заводим базу в область видимости
+                
+        $mailTo = $mysqli->real_escape_string($mailTo);
+        
+        $last_session_id = $_COOKIE ['PHPSESSID'];
+
+        $query = "UPDATE `usr_login` SET `MAIL` = '$mailTo' WHERE `usr_login`.`LAST_SESSION_ID` = '$last_session_id'"; 
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+
+        if($result == true) {
+            return true;
+        } else {
+            return false;
+        }
+
+        $result->close();
+        $mysqli->next_result();
+
+    }
+
+    public static function putUserTrofy($id_action, $promo, $position = 'NULL', $desire_1 = 'NULL', $desire_2 = 'NULL', $desire_3 = 'NULL', $desire_4 = 'NULL', $desire_5 = 'NULL'){
+        global $mysqli; // заводим базу в область видимости
+        
+        $last_session_id = $_COOKIE ['PHPSESSID'];
+        
+        $user = new self($last_session_id);
+
+        $query = "INSERT INTO `user_trophy` (`ID_USER`, `ID_ACTION`, `POSITION`, `PROMO_CODE`, `DESIRE_1`, `DESIRE_2`, `DESIRE_3`, `DESIRE_4`, `DESIRE_5`) VALUES ($user->id_user, $id_action, $position, '$promo', '$desire_1', '$desire_2', '$desire_3', '$desire_4', '$desire_5')"; 
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+
+        
+        if($result == true) {
+            return true;
+        } else {
+            return false;
+        }
+
+        $result->close();
+        $mysqli->next_result();
+
+    }
+
 }
 
 
