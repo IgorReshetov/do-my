@@ -62,7 +62,7 @@ class User
         $mysqli->next_result();
     }
 
-    public static function putUserAnswer($id_user, $id_question, $id_answer, $is_true, $info = 'NULL', $scale_value = 'NULL')
+    public static function putUserAnswer($id_user, $id_action, $id_question, $id_answer, $is_true, $info = 'NULL', $scale_value = 'NULL')
     {
         global $mysqli;
         $id_user = $mysqli->real_escape_string($id_user);
@@ -72,7 +72,7 @@ class User
         $is_true = $mysqli->real_escape_string($is_true);
 
         if ($is_true ==''){$is_true  = 'NULL';};
-        $query = "call putUserAnswer($id_user, $id_question, '$id_answer', '$info', $scale_value, $is_true)";
+        $query = "call putUserAnswer($id_user, $id_question, '$id_answer', '$info', $scale_value, $is_true,  $id_action)";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
         if($result == true) {

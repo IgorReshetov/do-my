@@ -41,11 +41,7 @@
 }
 
 .fox {
-<<<<<<< HEAD
   background: url("/do-my/views/images/icon/fox_sleep.svg") center center/cover no-repeat;
-=======
-  background: url("/do-my/views/images/icon/fox_ring.svg") center center/cover no-repeat;
->>>>>>> 9fa631ee90d178f53446ca5e26a5be2594e8caf2
   position: relative;
 }
 
@@ -55,11 +51,7 @@
   height: 10px;
   width: 17px;
   top: 0px;
-<<<<<<< HEAD
   left: 5px;
-=======
-  left: 14px;
->>>>>>> 9fa631ee90d178f53446ca5e26a5be2594e8caf2
   background: url("/do-my/views/images/icon/fox_ring_sleep.svg") center center/contain no-repeat;
   -webkit-animation: fox_sleep 10s infinite;
           animation: fox_sleep 10s infinite;
@@ -163,8 +155,6 @@
 .gift-block-present:hover {
   background-color: blue;
   background: url("/do-my/views/images/icon/present_red.svg") center center/contain no-repeat;
-<<<<<<< HEAD
-=======
 }
 
 .thanks-image {
@@ -185,6 +175,5 @@
   margin: 10px;
   height: 200px;
   background: url("/do-my/views/images/icon/elephant.png") center center/contain no-repeat;
->>>>>>> 9fa631ee90d178f53446ca5e26a5be2594e8caf2
 }
 /*# sourceMappingURL=image.css.map */

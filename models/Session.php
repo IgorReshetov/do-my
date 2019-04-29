@@ -2,7 +2,7 @@
 
 class Session 
 {
-     
+    
     public function __construct()      
     {
         global $mysqli; 
@@ -14,9 +14,10 @@ class Session
 
         $check = $mysqli->real_escape_string($_SERVER['REMOTE_ADDR']);
 
-                       
+                               
         if( !isset($_SESSION['active_question']) ) {
             $_SESSION['active_question']= 0;
+            $_SESSION['life'] = 'new';
         }
 
         if( !isset($_SESSION['level_access']) ) {
@@ -35,6 +36,7 @@ class Session
         }
         $_SESSION['time_start'] = time();
         $_SESSION['ip_user'] = $check;
-        
+
+           
     }
 }
