@@ -132,7 +132,7 @@ if ($level_access >= 2){
         // }
     } else {
         if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
-        User::putUserAnswer($user->id_user, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
+        User::putUserAnswer($user->id_user, ACTION, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
     }
 }
 
