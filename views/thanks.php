@@ -12,7 +12,7 @@ require_once 'views/templates/header.php';
         <div class= "thanks-thanks"><div>Спасибо, что пользуетесь нашим cервисом!</div></div>
         <div class= "thanks-fift"><div>Подарок направлен на ваш email.</div></div>
         <div class="thanks-block">
-        <a href="index.php" class="thanks-button">НА ГЛАВНУЮ</a>
+        <a href="index.php?back=1" class="thanks-button">НА ГЛАВНУЮ</a>
         </div>'
         );
     } else {

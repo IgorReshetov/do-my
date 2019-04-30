@@ -12,19 +12,19 @@
             <div class="menu-block">
               <div class="wrapper-menu">
                     <div class="menu-block-first">
-                        <a href="index.php" class="icon-menu"></a>
+                        <a href="index.php?back=1" class="icon-menu"></a>
                         <?php
                             switch ($page) {
                                 case 'project':
                                 echo ('
-                                <a href="index.php" class="menu-start">
+                                <a href="index.php?back=1" class="menu-start">
                                 <div class="menu-start-block1">Думай</div>
                                 </a>
                                 ');
                                 break;
                                 case 'privacy':
                                 echo ('
-                                <a href="index.php" class="menu-start">
+                                <a href="index.php?back=1" class="menu-start">
                                 <div class="menu-start-block1">Думай</div>
                                 </a>
                                 ');
