@@ -130,6 +130,23 @@ class User
 
     }
 
+    public static function getUserStat ($user, $action){
+        global $mysqli;
+        
+        $query = "call getUserStat($user, $action)";
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+        
+        $stat = [];
+        while ($stat_data = $result->fetch_assoc()) {
+            $stat[] = $stat_data;
+        }
+
+        $result->close();
+        $mysqli->next_result();
+
+        return $stat;
+    }
 }
 
 

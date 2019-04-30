@@ -123,18 +123,25 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$
 
 $level_access = $_SESSION['level_access'];
 
-if ($level_access >= 2){
-    if ($count_question == $count_1['questions_count']){
-        if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
-        // foreach ($_SESSION['user_answer'] as $key => $user_answer) {
-        //     if (is_array($user_answer['id_answer'])) {$string = implode(", ", $user_answer['id_answer']);} else {$string = $user_answer['id_answer'];}
-        //     User::putUserAnswer($user->id_user, $user_answer['id_question'], $string);
-        // }
-    } else {
-        if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
-        User::putUserAnswer($user->id_user, ACTION, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
-    }
-}
+if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
+if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
+User::putUserAnswer($user->id_user, ACTION, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
+
+
+// -----НА период тестирования пишем в базу все-------
+// if ($level_access >= 2){
+//     if ($count_question == $count_1['questions_count']){
+//         if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
+//         // foreach ($_SESSION['user_answer'] as $key => $user_answer) {
+//         //     if (is_array($user_answer['id_answer'])) {$string = implode(", ", $user_answer['id_answer']);} else {$string = $user_answer['id_answer'];}
+//         //     User::putUserAnswer($user->id_user, $user_answer['id_question'], $string);
+//         // }
+//     } else {
+//         if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
+//         User::putUserAnswer($user->id_user, ACTION, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
+//     }
+// }
+
 
 //  проверяем и записываем с сессию следующую текущую позицию пользователя
 while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {

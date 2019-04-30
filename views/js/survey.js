@@ -242,6 +242,28 @@ function init() {
     gift_button_get.onclick = send_mail;
 }
 
+
+function stat(){      //  Синхронный запрос
+    var xhr = new XMLHttpRequest();
+
+    preloader_AJAX(xhr);
+
+    xhr.open('POST', 'index.php?page=get_stat', true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) {
+            return;
+        }
+    
+    
+    var stat = JSON.parse(xhr.responseText);
+
+    console.log (stat);
+    }
+}
+
 function send_mail() {
     var mail = document.getElementById('mail');
     var mail_data = mail.value;
@@ -541,6 +563,7 @@ function startOpros() {
         document.getElementsByClassName('title')[0].style.display="none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
+        stat();
         // var status_Game = document.getElementsByClassName('board');
         // status_Game[0].style.display = "flex";
         return;
@@ -1341,7 +1364,7 @@ function update_afterClientFoward() {
         present[0].style.display = "none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-
+        stat();
     }
 
     var inputs = document.querySelectorAll(".right input");
