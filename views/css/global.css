@@ -214,6 +214,13 @@ a.menu-proect:hover {
   margin: 5px;
 }
 
+.fox-js {
+  justify-items: flex-start;
+  width: 50px;
+  height: 40px;
+  margin: 5px;
+}
+
 .fox-speak {
   position: relative;
   justify-items: flex-end;
