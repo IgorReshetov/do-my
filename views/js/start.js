@@ -1,10 +1,14 @@
 window.onload = init;
 function init() {
+preloader();
 
 fox.speak_HELLO();
 
+fox.enter_leave_mouse();
 
-preloader();
+fox.wakeUp_mouse();
+
+
 // var timeLoadPage = new Date();
 
 document.onclick = onclick_flowQuestion;
