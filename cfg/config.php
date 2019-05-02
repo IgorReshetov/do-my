@@ -12,4 +12,4 @@ define('SESSION_LIFE', 604800);
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
-define('ACTION', 1);
+define('ACTION', 2);

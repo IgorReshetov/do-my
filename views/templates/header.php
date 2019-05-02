@@ -65,8 +65,8 @@
                             //     break;      
                             // }
                         ?>
-                        <div class="user-menu-reg">Зарегистрироваться</div>
-                        <div class="user-menu-auth">Войти</div>
+                        <!-- <div class="user-menu-reg">Зарегистрироваться</div> -->
+                        <!-- <div class="user-menu-auth">Войти</div> -->
                     </div>
                 </div>
             </div>

@@ -155,11 +155,11 @@ a.menu-proect:hover {
 }
 
 .icon-user {
-  padding: 20px;
+  padding: 18px;
   cursor: pointer;
   -webkit-transition: 0.1s;
   transition: 0.1s;
-  display: none;
+  display: block;
 }
 
 .user-menu-reg, .user-menu-auth {
@@ -167,7 +167,7 @@ a.menu-proect:hover {
 }
 
 .user-menu-reg, .user-menu-auth {
-  font-weight: 350;
+  font-weight: 600;
 }
 
 .user-menu-reg:hover, .user-menu-auth:hover, .proect:hover {
