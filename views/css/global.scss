@@ -201,6 +201,8 @@ font-weight: 600;
     width: 50px;
     height: 40px;
     margin: 5px;
+    background-origin: border-box;
+    background-clip: border-box;
 }
 
 .fox-js {
@@ -209,6 +211,8 @@ font-weight: 600;
     width: 50px;
     height: 40px;
     margin: 5px;
+    background-origin: border-box;
+    background-clip: border-box;
 }
 
 .fox-speak {
@@ -277,6 +281,7 @@ font-weight: 600;
         width: 80px;
         height: 40px;
         margin: 5px;
+        
         // margin-left: 0;
     }
 }

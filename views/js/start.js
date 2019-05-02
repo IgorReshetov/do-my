@@ -3,6 +3,7 @@ function init() {
 
 fox.speak_HELLO();
 
+
 preloader();
 // var timeLoadPage = new Date();
 
