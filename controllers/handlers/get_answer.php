@@ -3,13 +3,13 @@ require_once 'models/Question.php';
 
 $i=1;
 $questions_count = array();
-$count = Question:: getQuestionsCount (ACTION, $i);
+$count = Question:: getQuestionsCount ($_SESSION['action'], $i);
 
 while ($count ['questions_count'] > 0){
     $questions_count[$i-1]['level'] = $i;
     $questions_count[$i-1]['questions_count'] = $count ['questions_count'];
     $i=$i+1;
-    $count = Question:: getQuestionsCount (ACTION, $i);
+    $count = Question:: getQuestionsCount ($_SESSION['action'], $i);
 }
 
 $data = 

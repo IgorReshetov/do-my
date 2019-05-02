@@ -1082,9 +1082,7 @@ table.prev_next {
 }
 
 .gift-block1-diagr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1093,6 +1091,31 @@ table.prev_next {
           align-items: center;
   height: 70px;
   width: 70px;
+  position: relative;
+}
+
+.gift-block1-diagr:hover > .gift-block1-diagr-label {
+  color: red;
+}
+
+.gift-block1-diagr:hover > .gift-block1-diagr-data {
+  -webkit-animation: step-level 1s infinite;
+          animation: step-level 1s infinite;
+  color: red;
+}
+
+.gift-block1-diagr-data {
+  margin: auto;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+}
+
+.gift-block1-diagr-label {
+  bottom: -15px;
+  margin: auto;
+  font-size: 16px;
+  position: absolute;
 }
 
 .gift-block2 {
@@ -1103,6 +1126,10 @@ table.prev_next {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.gift-block2:hover > div > div > div {
+  background-color: yellow;
 }
 
 .gift-block2-text {
@@ -1460,6 +1487,29 @@ table.prev_next {
     margin-right: 20px;
     cursor: pointer;
   }
+  #result-center {
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  #why {
+    font-family: sans-serif;
+  }
+  .gift-block1-row {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 65px;
+  }
+  .gift-block1-diagr-data {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .gift-block1-diagr-label {
+    font-size: 12px;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    bottom: -40px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -1502,6 +1552,25 @@ table.prev_next {
   }
   .board-right {
     min-width: 60px;
+  }
+  #result-center {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .gift-block1-row {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+  }
+  .gift-block1-diagr-data {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .gift-block1-diagr-label {
+    font-size: 10px;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    bottom: -30px;
   }
 }
 /*# sourceMappingURL=survey.css.map */

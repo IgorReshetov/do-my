@@ -62,7 +62,7 @@ class User
         $mysqli->next_result();
     }
 
-    public static function putUserAnswer($id_user, $id_action, $id_question, $id_answer, $is_true, $info = 'NULL', $scale_value = 'NULL')
+    public static function putUserAnswer($id_user, $id_action, $id_question, $id_answer, $is_true, $play_key, $info = 'NULL', $scale_value = 'NULL')
     {
         global $mysqli;
         $id_user = $mysqli->real_escape_string($id_user);
@@ -72,7 +72,7 @@ class User
         $is_true = $mysqli->real_escape_string($is_true);
 
         if ($is_true ==''){$is_true  = 'NULL';};
-        $query = "call putUserAnswer($id_user, $id_question, '$id_answer', '$info', $scale_value, $is_true,  $id_action)";
+        $query = "call putUserAnswer($id_user, $id_question, '$id_answer', '$info', $scale_value, $is_true,  $id_action, '$play_key')";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
         if($result == true) {
@@ -114,11 +114,18 @@ class User
         
         $user = new self($last_session_id);
 
+        $query = "SELECT * FROM user_trophy WHERE ID_USER = $user->id_user AND ID_ACTION = $id_action";
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+        
+                
+        if ($result->num_rows == 0) {
+        $mysqli->next_result();
         $query = "INSERT INTO `user_trophy` (`ID_USER`, `ID_ACTION`, `POSITION`, `PROMO_CODE`, `DESIRE_1`, `DESIRE_2`, `DESIRE_3`, `DESIRE_4`, `DESIRE_5`) VALUES ($user->id_user, $id_action, $position, '$promo', '$desire_1', '$desire_2', '$desire_3', '$desire_4', '$desire_5')"; 
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
+        }
 
-        
         if($result == true) {
             return true;
         } else {
@@ -127,13 +134,12 @@ class User
 
         $result->close();
         $mysqli->next_result();
-
     }
 
-    public static function getUserStat ($user, $action){
+    public static function getUserStat ($play_key){
         global $mysqli;
         
-        $query = "call getUserStat($user, $action)";
+        $query = "call getUserStat('$play_key')";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
         

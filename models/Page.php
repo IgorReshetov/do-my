@@ -13,8 +13,10 @@ class Page
         }
 
         $page = addslashes($page);
-        if ($_SESSION['bot'] == 1 && DEV_MODE != true) {$page = "check_bot";}
-        if ($_SESSION['bot'] == 2 && DEV_MODE != true) {$page = "die_bot";}
+        
+        // проверка на бота
+        // if ($_SESSION['bot'] == 1 && DEV_MODE != true) {$page = "check_bot";}
+        // if ($_SESSION['bot'] == 2 && DEV_MODE != true) {$page = "die_bot";}
 
         switch ($page) {
             case "project":

@@ -233,7 +233,7 @@ require_once 'views/templates/header.php';
         <div class="gift-center">
             <div class="gift-heard">
                 <div class="gift-heard-text">
-                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш тест.</div>
+                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш квиз.</div>
                 </div>
                 <div class="gift-heard-present">
                     <div class="gift-block-present"></div>
@@ -241,49 +241,61 @@ require_once 'views/templates/header.php';
                 </div>
             </div>
             <div class="gift-block1"></div>
-                <div class="gift-block1-head">Результаты прохождения теста:</div>
+                <div class="gift-block1-head">Результаты прохождения квиза:</div>
                 <div class="gift-block1-row">
                     <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
                         <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="6"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="6" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
                         </svg>
+                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-label">Все</div>
                     </div>
                     <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
                         <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
                         </svg>
+                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-label">Общие</div>
                     </div>
                     <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
                         <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
                         </svg>
+                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-label">Общие</div>
                     </div>
                     <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
                         <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
                         </svg>
+                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-label">Общие</div>
                     </div>
                     <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
                         <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
                         </svg>
+                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-label">Общие</div>
                     </div>
                     <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
                         <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" stroke-dasharray="85 15" stroke-dashoffset="0"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
                         </svg>
+                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-label">Общие</div>
                     </div>
                 </div>
             <div class="gift-block2">

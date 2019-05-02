@@ -243,7 +243,8 @@ function init() {
 }
 
 
-function stat(){      //  Синхронный запрос
+function stat(){      //  Синхронный запрос Функция получения статистики и прорисовки диаграмм
+    
     var xhr = new XMLHttpRequest();
 
     preloader_AJAX(xhr);
@@ -260,10 +261,45 @@ function stat(){      //  Синхронный запрос
     
     var stat = JSON.parse(xhr.responseText);
 
+    var diagr = document.getElementsByClassName('gift-block1-diagr');
+
+    // переставляем общие на нулевую позицию при наличии
+    
+    for (var i=0; i<stat.length; i++) {
+        if (stat[i].group_name == 'Общие') {
+            var tranzit = stat[0].group_name;
+            stat[0].group_name = stat[i].group_name;
+            stat[i].group_name = tranzit;
+        }
+    }
+
+    // заполняем круги
+    diagr[0].style.display = 'flex';
+    var sum_count_true =0;
+    var sum_count_all =0;
+        
+    for (var i=0; i<stat.length; i++) {
+        diagr[i+1].style.display = 'flex';
+        diagr[i+1].children[1].innerHTML = Math.round((stat[i].count_true/stat[i].count_all)*100) + "%";
+        diagr[i+1].children[0].children[2].setAttribute('stroke-dasharray', String(Math.round((stat[i].count_true/stat[i].count_all)*100))+" "+String(100-Math.round((stat[i].count_true/stat[i].count_all)*100)));
+        diagr[i+1].children[2].innerHTML = stat[i].group_name;
+        sum_count_true = sum_count_true + parseInt(stat[i].count_true);
+        sum_count_all = sum_count_all + parseInt(stat[i].count_all);
+    }
+
+        console.log (Math.round((sum_count_true/sum_count_all)*100));
+        console.log (String(Math.round((sum_count_true/sum_count_all)*100))+" "+String(100-Math.round((sum_count_true/sum_count_all)*100)));
+
+
+    diagr[0].children[1].innerHTML = Math.round((sum_count_true/sum_count_all)*100)+"%";
+    diagr[0].children[0].children[2].setAttribute('stroke-dasharray', String(Math.round((sum_count_true/sum_count_all)*100))+" "+String(100-Math.round((sum_count_true/sum_count_all)*100)));
+
+
     console.log (stat);
     }
 }
 
+// функция отправки мэйла пользователю
 function send_mail() {
     var mail = document.getElementById('mail');
     var mail_data = mail.value;
@@ -291,12 +327,14 @@ function send_mail() {
     
     console.log (xhr.responseText);
     var messages = JSON.parse(xhr.responseText);
-        
-    if (messages==true) {document.location.href = "index.php?page=thanks&mail=1"}
+
+    console.log (messages);  
+    if (messages.result == true) {document.location.href = "index.php?page=thanks&mail=1"}
     else {document.location.href = "index.php?page=thanks&mail=0"}
     }
 }
 
+// функция проверки правильности ввода мэйла
 function show_get () {
     
     var check_privacy = document.getElementById("privacy-check");
