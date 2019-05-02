@@ -1,11 +1,7 @@
 <?php
 require_once 'models/User.php';
 
-$last_session_id = $_COOKIE ['PHPSESSID'];
-
-$user = new User($last_session_id);
-
-$stat = User::getUserStat($user->id_user, ACTION);
+$stat = User::getUserStat($_SESSION['play_key']);
 
 echo json_encode($stat);
 

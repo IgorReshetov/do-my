@@ -28,7 +28,7 @@ require_once 'views/templates/header.php';
         </div>
        
         <div class="start-linia">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 700" preserveAspectRatio="none">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 700" preserveAspectRatio="none" class="start-svg">
                 <path width="100%"  height="500px" fill="none" stroke="#0000ff"  stroke-width="10" d="M20,300 Q100,700, 380,670" />
             </svg>
             <div class="start-planeta-img"></div>

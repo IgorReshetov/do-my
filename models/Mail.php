@@ -19,7 +19,7 @@ class Mail
         // если письмо с вложением
         if($file){
             $bodyMail = "--$separator\n"; // начало тела письма, выводим разделитель
-            $bodyMail .= "Content-Type:text/html; charset=\"utf-8\"\n"; // кодировка письма
+            $bodyMail .= "Content-Type:text/plain; charset=\"utf-8\"\n"; // кодировка письма
             $bodyMail .= "Content-Transfer-Encoding: 7bit\n\n"; // задаем конвертацию письма
             $bodyMail .= $message."\n"; // добавляем текст письма
             $bodyMail .= "--$separator\n";
@@ -38,8 +38,9 @@ class Mail
         }
 
         
-        $this->result= mail($mailTo, $subject, $bodyMail, $headers); // отправка письма
+        // $this->result= mail($mailTo, $subject, $bodyMail, $headers); // отправка письма
       
+        $this->result = true;
 
     }
 

@@ -8,7 +8,7 @@ $postData = file_get_contents('php://input');
 $data = json_decode($postData, true);
 
 $id_question = $data['id_question'];
-$answer = new Answer(ACTION, $id_question);
+$answer = new Answer($_SESSION['action'], $id_question);
 $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
 $id_answer_sample = array();
@@ -70,16 +70,16 @@ $reset = 0;
 $data = array();
 
 // проверка на бота по времени ответов на вопросы и в случае провала проверки  записываем признак бота в сессию
-if ($i == 0) {$delta = $_SESSION['user_answer'][$i]['time_answer'] - $_SESSION['time_start'];}
-else {$delta = $_SESSION['user_answer'][$i]['time_answer'] - $_SESSION['user_answer'][$i-1]['time_answer'];}
+// if ($i == 0) {$delta = $_SESSION['user_answer'][$i]['time_answer'] - $_SESSION['time_start'];}
+// else {$delta = $_SESSION['user_answer'][$i]['time_answer'] - $_SESSION['user_answer'][$i-1]['time_answer'];}
 
-if ($retry == 0) {
-    if ($delta <= 10) {$_SESSION['bot'] = 1;}
-}
-else {
-    if ($delta <= 3) {$_SESSION['bot'] = 1;}
-}
-if ($sign_bot == 1) {$_SESSION['bot'] = 1;}
+// if ($retry == 0) {
+//     if ($delta <= 10) {$_SESSION['bot'] = 1;}
+// }
+// else {
+//     if ($delta <= 3) {$_SESSION['bot'] = 1;}
+// }
+// if ($sign_bot == 1) {$_SESSION['bot'] = 1;}
 
 
 // определяем доступ к уровням и текущую позицию по уровню, если вопрос последний на 1 уровне и правильных ответов 100% - идет запись ответов в базу начиная со второго уровня под сессией пользователя.
@@ -88,9 +88,9 @@ $ip_user = $_SESSION['ip_user'];
 
 $user = new User ($last_session_id);
 
-$count_1 = Question:: getQuestionsCount (ACTION, 1);
-$count_2 = Question:: getQuestionsCount (ACTION, 2);
-$count_3 = Question:: getQuestionsCount (ACTION, 3);
+$count_1 = Question:: getQuestionsCount ($_SESSION['action'], 1);
+$count_2 = Question:: getQuestionsCount ($_SESSION['action'], 2);
+$count_3 = Question:: getQuestionsCount ($_SESSION['action'], 3);
 $count_question = count($_SESSION['user_answer']);
 $count_true = 0;
 
@@ -125,7 +125,7 @@ $level_access = $_SESSION['level_access'];
 
 if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
 if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
-User::putUserAnswer($user->id_user, ACTION, $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true']);
+User::putUserAnswer($user->id_user, $_SESSION['action'], $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true'], $_SESSION['play_key']);
 
 
 // -----НА период тестирования пишем в базу все-------
