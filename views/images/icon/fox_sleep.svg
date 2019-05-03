@@ -1,26 +1,149 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="148px" height="123px" viewBox="-40 -20 200 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 10</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Тест" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-10" transform="translate(0.000000, -1.000000)">
-            <path d="M29.25,31.92 C29.25,31.92 17.65,20.09 4.75,20.2 C-8.15,20.31 14.2,59.42 14.2,59.42 L29.25,31.92 Z" id="Shape" fill="#CB2027" fill-rule="nonzero"></path>
-            <ellipse id="Oval" fill="#A11D21" fill-rule="nonzero" cx="99.06" cy="85.61" rx="48.42" ry="37.24"></ellipse>
-            <path d="M24.18,39.76 C19.97,34.04 8.46,24.59 2.98,20.26 C-7.61,22.49 13.46,59.37 13.46,59.37 L24.18,39.76 Z" id="Shape" fill="#A11D21" fill-rule="nonzero"></path>
-            <path d="M41.36,85.6 L47.72,103.31 L92.22,83.31 C92.22,83.31 108.22,60.11 103.06,46.17 C97.9,32.23 83.25,48.35 83.25,48.35 L41.36,85.6 Z" id="Shape" fill="#575EAA" fill-rule="nonzero"></path>
-            <path d="M58.78,23.46 C61.3399867,19.8609994 63.6969896,16.1218446 65.84,12.26 C68.46,7.4 70.13,1.73 71.69,1.02 C72.27,0.76 79.41,2.4 82.63,8.84 C85.85,15.28 85.21,41.23 85.21,41.23 L58.78,23.46 Z" id="Shape" fill="#CB2027" fill-rule="nonzero"></path>
-            <path d="M71.87,1.04 L71.65,1.04 C70.09,1.75 68.42,7.42 65.8,12.28 C63.6569896,16.1418446 61.2999867,19.8809994 58.74,23.48 L68.74,30.23 C69.74,30.57 70.82,30.96 71.96,31.39 C81.94,35.13 76.06,13.66 71.87,1.04 Z" id="Shape" fill="#A11D21" fill-rule="nonzero"></path>
-            <path d="M95.48,45.51 C100.31,59.73 85.93,81.77 66.48,88.4 C47.03,95.03 17.84,86.33 13.01,72.11 C8.18,57.89 17.08,31.67 43.33,23.52 C66.72,16.24 90.65,31.3 95.48,45.51 Z" id="Shape" fill="#CB2027" fill-rule="nonzero"></path>
-            <path d="M145.52,85.92 C147.52,92.38 145.4,100.42 138.27,107.45 C133.206478,112.66574 127.019388,116.65708 120.18,119.12 C113.842846,121.139141 107.285681,122.388125 100.65,122.84 C89.28,123.77 58.76,123.58 41.73,114.93 C23.85,105.84 20.28,93.47 20.28,93.47 C33.0970681,95.4742258 46.1822733,94.9544864 58.8,91.94 C68.06,89.61 76.64,79.94 85.74,77.13 C114.52,68.26 141.3,72.2 145.52,85.92 Z" id="Shape" fill="#CB2027" fill-rule="nonzero"></path>
-            <path d="M62.73,85.04 C62.73,85.04 53.33,65.36 37.57,63.2 C29.76,62.13 15.45,65.95 12.09,68.48 C12.2850262,69.7126804 12.5827289,70.9269059 12.98,72.11 C17.81,86.33 46.98,95.02 66.45,88.4 C84.24,82.4 97.77,63.4 96.32,49.4 C88.52,50.5 82.78,47.4 74.03,50.98 C57.41,57.86 62.73,85.04 62.73,85.04 Z" id="Shape" fill="#FFF6D1" fill-rule="nonzero"></path>
-            <ellipse id="Oval" fill="#6B1D10" fill-rule="nonzero" transform="translate(62.013758, 83.344724) rotate(-22.270000) translate(-62.013758, -83.344724) " cx="62.0137584" cy="83.3447236" rx="3.24" ry="1.85"></ellipse>
-            <path d="M71.16,64.78 C71.16,64.78 78.86,64.38 81.39,59.37" id="Shape" stroke="#6B1D10" stroke-linecap="round"></path>
-            <path d="M31.84,75.57 C31.84,75.57 39.23,77.79 43.29,73.91" id="Shape" stroke="#6B1D10" stroke-linecap="round"></path>
-            <path d="M50.65,106.84 L50.32,107 C50.77,107.41 50.65,106.84 50.65,106.84 Z" id="Shape" fill="#FFF6D1" fill-rule="nonzero"></path>
-            <path d="M47.3,113.49 C44.06,110.43 48.95,107.68 50.3,107 C49.3040802,105.868607 48.4355319,104.631177 47.71,103.31 C46,100.53 46.05,96.94 46.5,94.1 C37.76084,95.0564505 28.9332151,94.8445875 20.25,93.47 C20.25,93.47 23.82,105.84 41.7,114.93 C46.2945427,117.146912 51.1394564,118.802174 56.13,119.86 C52.9694035,118.055335 50.0094618,115.920021 47.3,113.49 Z" id="Shape" fill="#FFF6D1" fill-rule="nonzero"></path>
-            <path d="M31.65,65.2 C25.1,53.2 28.65,38.36 32.51,28.29 C14.65,39.27 8.87,59.96 12.97,72.04 C16.75,83.16 35.42,90.91 52.7,90.57 C45.28,83.72 36.86,74.73 31.65,65.2 Z" id="Shape" fill="#791615" fill-rule="nonzero" opacity="0.36"></path>
-        </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="109.13274"
+   height="90.443291"
+   viewBox="-40 -20 147.47668 117.64981"
+   version="1.1"
+   id="svg88"
+   sodipodi:docname="fox_sleep.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata92">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Group 10</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview90"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="6.8943089"
+     inkscape:cx="44.397546"
+     inkscape:cy="46.03898"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg88" />
+  <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title52">Group 10</title>
+  <desc
+     id="desc54">Created with Sketch.</desc>
+  <defs
+     id="defs56" />
+  <g
+     id="Тест"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="translate(-40.003316,-23.102287)">
+    <g
+       id="Group-10"
+       transform="translate(0,-1)">
+      <path
+         d="m 29.25,31.92 c 0,0 -11.6,-11.83 -24.5,-11.72 -12.9,0.11 9.45,39.22 9.45,39.22 z"
+         id="Shape"
+         inkscape:connector-curvature="0"
+         style="fill:#cb2027;fill-rule:nonzero" />
+      <ellipse
+         id="Oval"
+         cx="99.059998"
+         cy="85.610001"
+         rx="48.419998"
+         ry="37.240002"
+         style="fill:#a11d21;fill-rule:nonzero" />
+      <path
+         d="M 24.18,39.76 C 19.97,34.04 8.46,24.59 2.98,20.26 -7.61,22.49 13.46,59.37 13.46,59.37 Z"
+         id="path60"
+         inkscape:connector-curvature="0"
+         style="fill:#a11d21;fill-rule:nonzero" />
+      <path
+         d="m 41.36,85.6 6.36,17.71 44.5,-20 c 0,0 16,-23.2 10.84,-37.14 -5.16,-13.94 -19.81,2.18 -19.81,2.18 z"
+         id="path62"
+         inkscape:connector-curvature="0"
+         style="fill:#575eaa;fill-rule:nonzero" />
+      <path
+         d="m 58.78,23.46 c 2.559987,-3.599001 4.91699,-7.338155 7.06,-11.2 2.62,-4.86 4.29,-10.53 5.85,-11.24 0.58,-0.26 7.72,1.38 10.94,7.82 3.22,6.44 2.58,32.39 2.58,32.39 z"
+         id="path64"
+         inkscape:connector-curvature="0"
+         style="fill:#cb2027;fill-rule:nonzero" />
+      <path
+         d="m 71.87,1.04 h -0.22 c -1.56,0.71 -3.23,6.38 -5.85,11.24 -2.14301,3.861845 -4.500013,7.600999 -7.06,11.2 l 10,6.75 c 1,0.34 2.08,0.73 3.22,1.16 9.98,3.74 4.1,-17.73 -0.09,-30.35 z"
+         id="path66"
+         inkscape:connector-curvature="0"
+         style="fill:#a11d21;fill-rule:nonzero" />
+      <path
+         d="m 95.48,45.51 c 4.83,14.22 -9.55,36.26 -29,42.89 C 47.03,95.03 17.84,86.33 13.01,72.11 8.18,57.89 17.08,31.67 43.33,23.52 66.72,16.24 90.65,31.3 95.48,45.51 Z"
+         id="path68"
+         inkscape:connector-curvature="0"
+         style="fill:#cb2027;fill-rule:nonzero" />
+      <path
+         d="m 145.52,85.92 c 2,6.46 -0.12,14.5 -7.25,21.53 -5.06352,5.21574 -11.25061,9.20708 -18.09,11.67 -6.33715,2.01914 -12.89432,3.26813 -19.53,3.72 -11.37,0.93 -41.89,0.74 -58.92,-7.91 -17.88,-9.09 -21.45,-21.46 -21.45,-21.46 12.817068,2.004226 25.902273,1.484486 38.52,-1.53 9.26,-2.33 17.84,-12 26.94,-14.81 28.78,-8.87 55.56,-4.93 59.78,8.79 z"
+         id="path70"
+         inkscape:connector-curvature="0"
+         style="fill:#cb2027;fill-rule:nonzero" />
+      <path
+         d="m 62.73,85.04 c 0,0 -9.4,-19.68 -25.16,-21.84 -7.81,-1.07 -22.12,2.75 -25.48,5.28 0.195026,1.23268 0.492729,2.446906 0.89,3.63 4.83,14.22 34,22.91 53.47,16.29 17.79,-6 31.32,-25 29.87,-39 -7.8,1.1 -13.54,-2 -22.29,1.58 -16.62,6.88 -11.3,34.06 -11.3,34.06 z"
+         id="path72"
+         inkscape:connector-curvature="0"
+         style="fill:#fff6d1;fill-rule:nonzero" />
+      <ellipse
+         id="ellipse74"
+         transform="rotate(-22.27,62.013758,83.344724)"
+         cx="62.01376"
+         cy="83.344727"
+         rx="3.24"
+         ry="1.85"
+         style="fill:#6b1d10;fill-rule:nonzero" />
+      <path
+         d="m 71.16,64.78 c 0,0 7.7,-0.4 10.23,-5.41"
+         id="path76"
+         inkscape:connector-curvature="0"
+         style="stroke:#6b1d10;stroke-linecap:round" />
+      <path
+         d="m 31.84,75.57 c 0,0 7.39,2.22 11.45,-1.66"
+         id="path78"
+         inkscape:connector-curvature="0"
+         style="stroke:#6b1d10;stroke-linecap:round" />
+      <path
+         d="M 50.65,106.84 50.32,107 c 0.45,0.41 0.33,-0.16 0.33,-0.16 z"
+         id="path80"
+         inkscape:connector-curvature="0"
+         style="fill:#fff6d1;fill-rule:nonzero" />
+      <path
+         d="m 47.3,113.49 c -3.24,-3.06 1.65,-5.81 3,-6.49 -0.99592,-1.13139 -1.864468,-2.36882 -2.59,-3.69 -1.71,-2.78 -1.66,-6.37 -1.21,-9.21 -8.73916,0.95645 -17.566785,0.744588 -26.25,-0.63 0,0 3.57,12.37 21.45,21.46 4.594543,2.21691 9.439456,3.87217 14.43,4.93 -3.160597,-1.80466 -6.120538,-3.93998 -8.83,-6.37 z"
+         id="path82"
+         inkscape:connector-curvature="0"
+         style="fill:#fff6d1;fill-rule:nonzero" />
+      <path
+         d="M 31.65,65.2 C 25.1,53.2 28.65,38.36 32.51,28.29 14.65,39.27 8.87,59.96 12.97,72.04 16.75,83.16 35.42,90.91 52.7,90.57 45.28,83.72 36.86,74.73 31.65,65.2 Z"
+         id="path84"
+         inkscape:connector-curvature="0"
+         style="opacity:0.36000001;fill:#791615;fill-rule:nonzero" />
     </g>
+  </g>
 </svg>
