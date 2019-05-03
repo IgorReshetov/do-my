@@ -92,7 +92,7 @@ var mobile = 0;
 function init() {
     preloader();
 
-    fox.speak_survey();
+    // fox.speak_survey();
     fox.enter_leave_mouse();
     fox.wakeUp_mouse();
     fox.no_active_user();
