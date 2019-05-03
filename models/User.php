@@ -107,7 +107,7 @@ class User
 
     }
 
-    public static function putUserTrofy($id_action, $promo, $position = 'NULL', $desire_1 = 'NULL', $desire_2 = 'NULL', $desire_3 = 'NULL', $desire_4 = 'NULL', $desire_5 = 'NULL'){
+    public static function putUserTrofy($id_action, $promo, $desire_1 = 'NULL', $desire_2 = 'NULL', $desire_3 = 'NULL', $desire_4 = 'NULL', $desire_5 = 'NULL', $position = 'NULL'){
         global $mysqli; // заводим базу в область видимости
         
         $last_session_id = $_COOKIE ['PHPSESSID'];

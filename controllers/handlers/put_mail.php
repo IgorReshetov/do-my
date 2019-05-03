@@ -61,7 +61,10 @@ $mail_user = new Mail($mailTo, $from, $subject, $message, $file);
 
 User::putUserMail($mailTo);//запись почты в базу
 
-User::putUserTrofy($_SESSION['action'], $promo);//запись трофеев в базу пока без позиции и желаний
+$place = $data['place'];
+$room = $data['room'];
+
+User::putUserTrofy($_SESSION['action'], $promo, $place, $room);//запись трофеев в базу пока без позиции и желаний
 
 // if ($mail_user->result == true) {$_SESSION['active_question'] = $_SESSION['active_question']+1;}//делаем метку в сессию что подарок получен
 

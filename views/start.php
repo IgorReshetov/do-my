@@ -14,14 +14,14 @@ require_once 'views/templates/header.php';
                 <div class="start-h2-upor-l"></div>
                 <div class="start-h2">
                     <a href="index.php?page=survey" class="start-h2-menu">Эта игра подскажет, где вам лучше жить</a>
-                    <div class="start-qustions-flex-appendix-2"></div>
+                    <a href="index.php?page=survey" class="start-qustions-flex-appendix-2"></a>
                 </div>
                 <div class="start-h2-upor-r"></div>
             </div>
 
             <div class="start-smallcoteiner">
                 <div class="start-o-proecte">
-                    <div class="start-qustions-flex-appendix-1"></div>
+                    <a href="index.php?page=project" class="start-qustions-flex-appendix-1"></a>
                     <a href="index.php?page=project" class= 'start-qustions-2'>Хотите узнать секрет, как работает наш сервис?</a>
                 </div> 
             </div>

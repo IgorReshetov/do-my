@@ -304,14 +304,43 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-yellow"></div>
                     </div>
-                    <div class="gift-block-text-text">полезную информацию по выбору жилья по результатам прохождения теста;</div>
+                    <div class="gift-block-text-text">Полезную информацию по выбору жилья по результатам прохождения квиза.</div>
                 </div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-red"></div>
                     </div>
-                    <div class="gift-block-text-text">предложения по участию в наших викторинах и получению скидок от затсройщиков.</div>
-                </div>  
+                    <div class="gift-block-text-text">Для участия в наших новых викторинах с призами и скидками от застройщиков выберите ваши предпочтения:</div>
+                </div> 
+                
+                <div class="gift-block2-desires">
+                    <div class="gift-block2-desire1">
+                        <select name="place" id="gift-block2-desire1-place">
+                        <option value="O" style="display:none">Округ Москвы, где вы ищите квартиру</option>
+                        <option value="C">Центральный округ Москвы</option>
+                        <option value="N">Северный округ Москвы</option>
+                        <option value="NW">Северо-Восточный округ Москвы</option>
+                        <option value="W">Восточный округ Москвы</option>
+                        <option value="SW">Юго-Восточный округ Москвы</option>
+                        <option value="S">Южный округ Москвы</option>
+                        <option value="SE">Юго-Западный округ Москвы</option>
+                        <option value="E">Западный округ Москвы</option>
+                        <option value="NE">Северо-Западный округ Москвы</option>
+                        <option value="Z">Зеленоградский округ Москвы</option>
+                        <option value="N">Новая Москва Москвы</option>
+                        </select>
+                    </div>
+                    <div class="gift-block2-desire2">
+                        <select name="room" id="gift-block2-desire2-room">
+                        <option value="0" style="display:none">Количество комнат в квартире</option>
+                        <option value="1">Однокмонатная квартира</option>
+                        <option value="2">Двухкомнатная квартира</option>
+                        <option value="3">Трехкомнатная квартира</option>
+                        <option value="4">Четырехкомнатная квартира</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
             <div class="gift-block3">
                 <div class="gift-block3-head">Получите подарок на свой email:</div>
