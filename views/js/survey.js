@@ -92,6 +92,13 @@ var mobile = 0;
 function init() {
     preloader();
 
+    fox.speak_survey();
+    fox.enter_leave_mouse();
+    fox.wakeUp_mouse();
+    fox.no_active_user();
+    fox.fast_answer();
+    
+
     var page_size = getPageSize();
         if (page_size.page.width <= 570) {
             mobile = 1;
@@ -507,6 +514,12 @@ function next_ready() {
 
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
 function json_Q_A() {
+    // _______________Блок для обработчик Лиса fox.toFast___________________
+       
+        var timeAnsw = new Date().getTime();
+         fox.time_answer = timeAnsw; 
+         console.log(fox.time_answer); 
+    // _________________________________________________________________________
     next.style.display = 'none';
     var inputs = document.querySelectorAll(".right input");
     var numAnsw, numQst;
@@ -596,6 +609,7 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
+    if (Math.random()<0.33) fox.speak_about_Qst();  
     if (countQst==numStartQst) {
         document.getElementById("button").style.display="none";
         document.getElementsByClassName('title')[0].style.display="none";
@@ -606,6 +620,7 @@ function startOpros() {
         // status_Game[0].style.display = "flex";
         return;
     }
+    
     // handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
     if (prevQst==numStartQst && cookies.user_answer.length > 0) {
         handle_move_left_start = setInterval(anime_move_left_start,4, numStartQst);
@@ -627,7 +642,7 @@ function startOpros() {
     document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     
-       
+     
     var data = {
         numStartQst:numStartQst
     };
@@ -694,6 +709,7 @@ function update_Q_A (messages) {
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
         if (messages.question.is_multi_answer == '1'){ 
+            fox.speak_multi();
             inputs[i].setAttribute('type', 'checkbox');
             inputs[i].nextElementSibling.classList.remove ('radio');  
             inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
@@ -1382,7 +1398,9 @@ function update_afterClientFoward() {
     if (numStartQst >= 0 && numStartQst<levelQst_1.countQst) {
         level[0].innerHTML = numStartQst + 1 + "/" + levelQst_1.countQst;
         level[0].style.borderColor = "yellow";
+        if(fox.time_answer_toFast == true) fox.speak_hurry();
 
+        if (Math.random()<0.33) fox.speak_about_Qst();
     } else if (numStartQst>= levelQst_1.countQst && numStartQst < (levelQst_1.countQst + levelQst_2.countQst)) {
         level[0].innerHTML = (numStartQst*1 + 1) - levelQst_1.countQst + "/" + levelQst_2.countQst;
         level[0].style.borderColor = "blue";
@@ -1403,6 +1421,7 @@ function update_afterClientFoward() {
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
         stat();
+        fox.speak_multi();
     }
 
     var inputs = document.querySelectorAll(".right input");
@@ -1418,6 +1437,9 @@ function update_afterClientFoward() {
         O('next').classList.add ('next-level3');
     }          
 
+    if(fox.time_answer_toFast == true) fox.speak_hurry();
+
+    if (numStartQst!==countQst && Math.random()<0.33) fox.speak_about_Qst();      
 }
 // ______________________________________АНИМАЦИЯ элементов ДОМ________________________________________
 

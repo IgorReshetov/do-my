@@ -2,7 +2,7 @@ window.onload = init;
 function init() {
 preloader();
 
-fox.speak_HELLO();
+fox.speake_start();
 
 fox.enter_leave_mouse();
 

@@ -1,14 +1,14 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
 
-   $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-//    $url: '/do-my/views/images/icon/'+$url;
+//    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   $url: '/do-my/views/images/icon/'+$url;
    background: url($url) center center / cover no-repeat;   
 }
 
 @mixin urlcont($url){
-       $url: 'https://do-my.ru/test/views/images/icon/'+$url;
-    //    $url: '/do-my/views/images/icon/'+$url;
+    //    $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+       $url: '/do-my/views/images/icon/'+$url;
        background: url($url) center center / contain no-repeat;   
     }
 
@@ -46,13 +46,13 @@
     100% {opacity: 1;
     }
 }
+// КАРТИНКИ ЛИСА____________________
+// .fox {
+//     @include url('fox_sleep.svg');
+//     position: relative
+// }
 
-.fox {
-    @include url('fox_sleep.svg');
-    position: relative
-}
-
-.fox::after {
+.fox-sleep::after, .fox-sniff::after {
     content: "";
     position: absolute;
     height: 10px;
@@ -61,6 +61,16 @@
     left: 5px;
     @include urlcont('fox_ring_sleep.svg');
     animation: fox_sleep 10s infinite;
+}
+
+// .fox-wakeUP {
+//     @include url('fox_wakeUp.svg');
+//     position: relative
+// }
+
+.fox-wakeUP1 {
+    @include url('fox_wakeUp1.svg');
+    position: relative
 }
 
 // КАРТИНКИ СТРАНИЦЫ ПРОЕКТА
