@@ -1177,6 +1177,40 @@ table.prev_next {
   text-align: start;
 }
 
+.gift-block2-desires {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#gift-block2-desire1-place, #gift-block2-desire2-room {
+  width: 290px;
+  height: 30px;
+  font-size: 15px;
+  border: 1px solid #aaaaaa;
+  text-align-last: center;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+}
+
+#gift-block2-desire1-place:hover, #gift-block2-desire2-room:hover {
+  border: 2px solid blue;
+}
+
+#gift-block2-desire1-place:focus, #gift-block2-desire2-room:focus {
+  border: 2px solid blue;
+}
+
 .gift-block3 {
   display: -webkit-box;
   display: -ms-flexbox;

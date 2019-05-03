@@ -303,10 +303,15 @@ function stat(){      //  Синхронный запрос Функция по�
 function send_mail() {
     var mail = document.getElementById('mail');
     var mail_data = mail.value;
-    
+    var place = document.getElementById('gift-block2-desire1-place');
+    var room = document.getElementById('gift-block2-desire2-room');
+    var place_data = place.value;
+    var room_data = room.value;
        
     var data = {
-        mail:mail_data
+        mail:mail_data,
+        place:place_data,
+        room:room_data
     };
 
     var data = JSON.stringify(data);

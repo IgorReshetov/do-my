@@ -990,6 +990,33 @@ margin-right: 30px;
     text-align: start;
 }
 
+.gift-block2-desires {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#gift-block2-desire1-place, #gift-block2-desire2-room {
+    width: 290px;
+    height: 30px;
+    font-size: 15px;
+    border: 1px solid rgb(170, 170, 170);
+    text-align-last: center;
+    margin: 10px;
+    cursor: pointer;
+    appearance: none !important;
+}
+
+#gift-block2-desire1-place:hover, #gift-block2-desire2-room:hover{
+    border: 2px solid blue;
+}
+
+#gift-block2-desire1-place:focus, #gift-block2-desire2-room:focus  {
+    border: 2px solid blue;
+}
+
+
 .gift-block3 {
     display: flex;
     flex-direction: column;
