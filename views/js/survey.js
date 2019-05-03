@@ -349,8 +349,9 @@ function show_get () {
     var result = mail.length;
     var result1 = mail.indexOf("@");
     var result2 = mail.indexOf(".");
+    console.log (result2);
     // проверка правильности мэйла
-    if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2) {
+    if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2 && result2 > 0) {
         
         button_get.style.display = 'block';
     }

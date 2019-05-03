@@ -46,32 +46,13 @@
                     </div>
                     <div class="user-menu">
                         <div class="icon-user"></div>
-                        <?php
-                            // switch ($page) {
-                            //     case 'project':
-                            //     echo ('
-                            //     <div class="menu-proect"><b>О проекте</b></div>
-                            //     ');
-                            //     break;
-                            //     case 'privacy':
-                            //     echo ('
-                            //     <div class="menu-proect"><b>Политика конфиденциальности</b></div>
-                            //     ');
-                            //     break;
-                            //     default:
-                            //     echo ('
-                            //     <a href="index.php?page=project" class="menu-proect">О проекте</a>
-                            //     ');
-                            //     break;      
-                            // }
-                        ?>
-                        <!-- <div class="user-menu-reg">Зарегистрироваться</div> -->
-                        <!-- <div class="user-menu-auth">Войти</div> -->
                     </div>
                 </div>
             </div>
             <div class="hiden-menu"></div>
-            <div class="hiden-menu-user"></div>
+            <div class="hiden-menu-user">
+                <div class="hiden-menu-user-getpromo">Получить промокод</div>
+            </div>
              
     </header>
 

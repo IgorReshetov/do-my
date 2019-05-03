@@ -11,7 +11,7 @@ fox.wakeUp_mouse();
 
 // var timeLoadPage = new Date();
 
-document.onclick = onclick_flowQuestion;
+
 };
 
 
