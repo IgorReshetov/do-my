@@ -202,8 +202,6 @@ a.menu-proect:hover {
   width: 50px;
   height: 40px;
   margin: 5px;
-  background-origin: border-box;
-  background-clip: border-box;
 }
 
 .fox-sleep {
