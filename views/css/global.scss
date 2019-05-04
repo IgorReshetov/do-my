@@ -189,31 +189,70 @@ font-weight: 600;
     justify-content: flex-end;
 }
 
-.fox {
-
+#fox {
     justify-items: flex-start;
-
+    position: relative;
     width: 50px;
     height: 40px;
     margin: 5px;
     background-origin: border-box;
     background-clip: border-box;
+
 }
 
-.fox-js {
-    justify-items: flex-start;
+.fox-sleep {
+    background: url('../images/icon/fox_sleep.svg') center/70% no-repeat;
+}
 
-    width: 50px;
-    height: 40px;
-    margin: 5px;
-    background-origin: border-box;
-    background-clip: border-box;
+.fox-wakeUp {
+    background: url('../images/icon/fox_wakeUp.svg') center/100% no-repeat; 
+}
+
+.fox-wakeUp2 {
+    background: url('../images/icon/fox_wakeUp2.svg') center/100% no-repeat; 
+}
+
+.fox-sniff {
+    background: url('../images/icon/fox_sniff.svg') center/70% no-repeat; 
 }
 
 .fox-speak {
+    background: url('../images/icon/fox_speak.svg') center/60% no-repeat;
+}
+
+.fox-speak2 {
+    background: url('../images/icon/fox_speak2.svg') center/60% no-repeat;
+}
+
+.fox-speak3 {
+    background: url('../images/icon/fox_speak3.svg') center/60% no-repeat;
+}
+// .fox-sniff {
+//     justify-items: flex-start;
+//     position: relative;
+//     width: 50px;
+//     height: 40px;
+//     margin: 5px;
+//     background-origin: border-box;
+//     background-clip: border-box;
+//     background: url('../images/icon/fox_sniff.svg') center/70% no-repeat; 
+// }
+
+// .fox-js {
+//     justify-items: flex-start;
+
+//     width: 50px;
+//     height: 40px;
+//     margin: 5px;
+//     background-origin: border-box;
+//     background-clip: border-box;
+// }
+
+.fox-words {
+    opacity: 0;
     position: relative;
     justify-items: flex-end;
-    border: yellow 2px solid;
+    border: rgb(204, 204, 204) 2px solid;
     width: 120px;
     height: 40px;
     margin: 5px;
@@ -221,11 +260,11 @@ font-weight: 600;
     // background: white;
 }
 
-.fox-speak::before {
+.fox-words::before {
     content: "";
     position: absolute;
-    border-bottom: yellow  2px solid;
-    border-left: #ffff00  2px solid;
+    border-bottom: rgb(204, 204, 204)  2px solid;
+    border-left:  rgb(204, 204, 204)   2px solid;
     height: 10px;
     width: 10px;
     top: 15px;
@@ -411,11 +450,11 @@ font-weight: 600;
         width: 40%;
     }
 
-    .centr-fox {
-        justify-content: center;
-    }
+    // .centr-fox {
+    //     justify-content: center;
+    // }
 
-    .fox-speak {
+    .fox-words {
         width: 80px;
         height: 40px;
         margin: 5px;

@@ -5,7 +5,7 @@ function init() {
 preloader();
 menu();
 
-fox.speak_HELLO();
+fox.speake_start();
 
 fox.enter_leave_mouse();
 

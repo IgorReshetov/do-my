@@ -345,7 +345,7 @@ require_once 'views/templates/header.php';
             <div class="gift-block3">
                 <div class="gift-block3-head">Получите подарок на свой email:</div>
                 <div class="gift-get" id = "gift-get">
-                    <input class="gift-get-mail" id = "mail" name = "mail" type="text" placeholder= "Введите email">
+                    <input class="gift-get-mail" onfocus="fox.speak_multi();" id = "mail" name = "mail" type="text" placeholder= "Введите email">
                     <label class="gift-get-check" id = "privacy">
                         <div class="gift-get-check-right" id = "check-text">Подтвердите oзнакомление с политикой конфиденциальности</div>
                         <div class="gift-get-check-left">
@@ -373,6 +373,8 @@ require_once 'views/templates/header.php';
 
 <div id="dark"></div>
 
+
+<script src="views/js/fox.js"></script> 
 <script src="views/js/preloader.js"></script>
 <script src="views/js/survey.js"></script>
 
