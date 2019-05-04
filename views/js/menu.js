@@ -3,38 +3,19 @@
 function menu() {
 
     console.log (flag);
-        
-    // document.getElementsByClassName('icon-user')[0].onclick = open_menu;
-
-    // document.getElementById("getpromo").onclick = open_menu_promo;
-    
+         
     document.onclick = menu_moov;
 
     var mail_field = document.getElementById("menu-mail");
-    mail_field.onclick = show_get;
-    mail_field.oninput = show_get;
+    mail_field.onclick = show_get_menu;
+    mail_field.oninput = show_get_menu;
 
     var mail_button = document.getElementById("promo-button-get");
-    mail_button.onclick = send_mail;
+    mail_button.onclick = send_mail_menu;
 
 
 };
 
-// function open_menu() {
-
-//     document.getElementsByClassName('hiden-menu-user')[0].classList.remove("hiden-menu-user-back");
-//     document.getElementsByClassName('hiden-menu-user')[0].classList.add("hiden-menu-user-moov");
-//     flag = 1;
-    
-// }
-
-// function open_menu_promo() {
-
-//     document.getElementsByClassName('hiden-menu-user-promo')[0].classList.remove("hiden-menu-user-back");
-//     document.getElementsByClassName('hiden-menu-user-promo')[0].classList.add("hiden-menu-user-moov");
-//     flag = 11;
-    
-// }
 
 function menu_moov(e) {
     
@@ -70,7 +51,10 @@ function menu_moov(e) {
         return;
     }
 
-    if (!(e.path[1].classList[0] == "hiden-menu-user-promo"||e.path[2].classList[0] == "hiden-menu-user-promo") && flag == 11){
+    if (typeof e.path[2].classList == "undefined") {var element =""}
+    else {var element = e.path[2].classList[0]}
+
+    if (!(e.path[1].classList[0] == "hiden-menu-user-promo"||element == "hiden-menu-user-promo") && flag == 11){
     
         document.getElementsByClassName('hiden-menu-user-promo')[0].classList.remove("hiden-menu-user-promo-moov");
         document.getElementsByClassName('hiden-menu-user-promo')[0].classList.add("hiden-menu-user-promo-back");
@@ -81,7 +65,7 @@ function menu_moov(e) {
 }
 
 
-function show_get () {
+function show_get_menu () {
     
     var mail_field = document.getElementById("menu-mail");
     var mail_button = document.getElementById("promo-button-get");
@@ -100,7 +84,7 @@ function show_get () {
 }
 
 
-function send_mail() {
+function send_mail_menu() {
     var mail_field = document.getElementById("menu-mail");
     var mail_data = mail_field.value;
            
@@ -112,7 +96,7 @@ function send_mail() {
 
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
+    // preloader_AJAX(xhr);
 
 
     xhr.open('POST', 'index.php?page=put_mail_short', true);

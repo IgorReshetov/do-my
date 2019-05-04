@@ -28,6 +28,9 @@ require_once 'views/templates/header.php';
     ?>
 </div>
 
+<script src="views/js/preloader.js"></script>
+<script src="views/js/privacy.js"></script>
+
 <?php
 
 require_once 'views/templates/footer.php';

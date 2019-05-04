@@ -8,7 +8,7 @@
                     <?php
                         switch ($page) {
                             case 'privacy':
-                            echo ('<a href="index.php?page=privacy" class="proect">Информация о проекте</a>');
+                            echo ('<a href="index.php?page=project" class="proect">Информация о проекте</a>');
                             break;                         
                             default:
                             echo ('<a href="index.php?page=privacy" class="proect">Политика конфиденциальности</a>');

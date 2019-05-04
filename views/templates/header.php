@@ -52,16 +52,26 @@
             </div>
             <div class="hiden-menu" id = "menu1"> </div>
             <div class="hiden-menu-user">
-                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденному квизу</div>
+                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным квизам</div>
                 <div class="hiden-menu-user-getpromo" id = "inwork">Проверить промокод</div>
 
                 <?php
                 if ($_SESSION['active_question'] > 0){
                     echo ('<a href="index.php?page=survey&reset=1" class="hiden-menu-user-getpromo">Вернуться к началу квиза</a>');
                 }
+
+                if ($page != "project") {
+                    echo ('<a href="index.php?page=project" class="hiden-menu-user-getpromo">Информация о проекте</a>');
+                }
+
+                if ($page != "privacy") {
+                    echo ('<a href="index.php?page=privacy" class="hiden-menu-user-getpromo">Политика конфиденциальности</a>');
+                }
+
                 ?>
 
-                <a href="index.php?page=project" class="hiden-menu-user-getpromo">Информация о проекте</a>
+                          
+
             </div>
             <div class="hiden-menu-user-promo" id = "menu12">
                 <div class="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
