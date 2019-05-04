@@ -374,7 +374,7 @@ require_once 'views/templates/header.php';
 <div id="dark"></div>
 
 
-<script src="views/js/fox.js"></script> 
+
 <script src="views/js/preloader.js"></script>
 <script src="views/js/survey.js"></script>
 
