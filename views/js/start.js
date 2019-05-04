@@ -1,6 +1,9 @@
 window.onload = init;
+var flag = 0;//переменная меню
+
 function init() {
 preloader();
+menu();
 
 fox.speak_HELLO();
 
@@ -9,12 +12,11 @@ fox.enter_leave_mouse();
 fox.wakeUp_mouse();
 
 
+
 // var timeLoadPage = new Date();
 
 
 };
-
-
 
 
 

@@ -113,7 +113,12 @@ class User
         $last_session_id = $_COOKIE ['PHPSESSID'];
         
         $user = new self($last_session_id);
-
+        $desire_1 = $mysqli->real_escape_string($desire_1);
+        $desire_2 = $mysqli->real_escape_string($desire_2);
+        $desire_3 = $mysqli->real_escape_string($desire_3);
+        $desire_4 = $mysqli->real_escape_string($desire_4);
+        $desire_5 = $mysqli->real_escape_string($desire_5);
+        
         $query = "SELECT * FROM user_trophy WHERE ID_USER = $user->id_user AND ID_ACTION = $id_action";
         $mysqli->multi_query($query);
         $result = $mysqli->store_result();
@@ -153,6 +158,29 @@ class User
 
         return $stat;
     }
+
+    public static function getPromocod ($mail){
+        global $mysqli;
+        $mail = $mysqli->real_escape_string($mail);
+        
+        $query = "call getPromocod('$mail')";
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+        
+        if ($result->num_rows == 0) {$promo = [];}
+        else{
+        $promo = [];
+        while ($stat_data = $result->fetch_assoc()) {
+            $promo[] = $stat_data;
+        }
+        }
+
+        $result->close();
+        $mysqli->next_result();
+
+        return $promo;
+    }
+
 }
 
 

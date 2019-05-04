@@ -6,6 +6,7 @@
     <title><?php echo "$admin_page_title" ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="views/css/style.css">
+    
 </head>
 <body>
     <header>
@@ -49,11 +50,32 @@
                     </div>
                 </div>
             </div>
-            <div class="hiden-menu"></div>
+            <div class="hiden-menu" id = "menu1"> </div>
             <div class="hiden-menu-user">
-                <div class="hiden-menu-user-getpromo">Получить промокод</div>
+                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденному квизу</div>
+                <div class="hiden-menu-user-getpromo" id = "inwork">Проверить промокод</div>
+
+                <?php
+                if ($_SESSION['active_question'] > 0){
+                    echo ('<a href="index.php?page=survey&reset=1" class="hiden-menu-user-getpromo">Вернуться к началу квиза</a>');
+                }
+                ?>
+
+                <a href="index.php?page=project" class="hiden-menu-user-getpromo">Информация о проекте</a>
+            </div>
+            <div class="hiden-menu-user-promo" id = "menu12">
+                <div class="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
+                
+                <input class="hiden-menu-user-promo-mail" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
+                
+                <div class="hiden-menu-user-promo-block">
+                    <div class="hiden-menu-user-promo-block-text"></div>
+                    <div class="hiden-menu-user-promo-get" id = "promo-button-get">ПОЛУЧИТЬ</div>
+                </div>
+                <div class="hiden-menu-user-promo-ask"></div>
             </div>
              
     </header>
-
+    <script src="views/js/fox.js"></script>
+    <script src="views/js/menu.js"></script>  
     

@@ -1,5 +1,8 @@
 window.onload = init;
+var flag = 0;//переменная меню
+
 function init() {
+    menu();
     // обработчики нажатия на вопрос о проекте
     var left_qw = document.getElementById('first').children[1].getAttribute('left');
     var right_qw = document.getElementById('first').children[1].getAttribute('right');

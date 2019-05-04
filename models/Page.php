@@ -37,6 +37,9 @@ class Page
             case "put_mail":
             require_once 'controllers/handlers/put_mail.php';
             break;
+            case "put_mail_short":
+            require_once 'controllers/handlers/put_mail_short.php';
+            break;
             case "get_stat":
             require_once 'controllers/handlers/get_stat.php';
             break;
