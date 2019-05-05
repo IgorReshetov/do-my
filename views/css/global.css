@@ -70,7 +70,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .menu-block-first a:hover {
@@ -151,7 +151,7 @@ a.menu-proect:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .icon-user {
@@ -201,34 +201,6 @@ a.menu-proect:hover {
   width: 50px;
   height: 40px;
   margin: 5px;
-}
-
-.fox-sleep {
-  background: url("../images/icon/fox_sleep.svg") center/70% no-repeat;
-}
-
-.fox-wakeUp {
-  background: url("../images/icon/fox_wakeUp.svg") center/100% no-repeat;
-}
-
-.fox-wakeUp2 {
-  background: url("../images/icon/fox_wakeUp2.svg") center/100% no-repeat;
-}
-
-.fox-sniff {
-  background: url("../images/icon/fox_sniff.svg") center/70% no-repeat;
-}
-
-.fox-speak {
-  background: url("../images/icon/fox_speak.svg") center/60% no-repeat;
-}
-
-.fox-speak2 {
-  background: url("../images/icon/fox_speak2.svg") center/60% no-repeat;
-}
-
-.fox-speak3 {
-  background: url("../images/icon/fox_speak3.svg") center/60% no-repeat;
 }
 
 .fox-words {
@@ -504,15 +476,15 @@ a.menu-proect:hover {
 .menu-btn-bot-open {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 15px;
-  background-color: red;
+  top: 15px !important;
+  background-color: red !important;
 }
 
 .menu-btn-top-open {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: 15px;
-  background-color: red;
+  top: 15px !important;
+  background-color: red !important;
 }
 
 #menu-btn-box-main:hover div {

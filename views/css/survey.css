@@ -1206,6 +1206,8 @@ table.prev_next {
   width: 290px;
   height: 30px;
   font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: 1px solid #aaaaaa;
   text-align-last: center;
   margin: 10px;
@@ -1213,6 +1215,10 @@ table.prev_next {
   -webkit-appearance: none !important;
      -moz-appearance: none !important;
           appearance: none !important;
+}
+
+#gift-block2-desire1-place::-ms-expand, #gift-block2-desire2-room::-ms-expand {
+  display: none;
 }
 
 #gift-block2-desire1-place:hover, #gift-block2-desire2-room:hover {

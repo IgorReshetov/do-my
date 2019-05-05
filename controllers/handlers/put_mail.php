@@ -121,7 +121,7 @@ $room = $data['room'];
 
 User::putUserTrofy($_SESSION['action'], $promo, $place, $room);//запись трофеев в базу пока без позиции и желаний
 
-// if ($mail_user->result == true) {$_SESSION['active_question'] = $_SESSION['active_question']+1;}//делаем метку в сессию что подарок получен
+if ($mail_user->result == true) {$_SESSION['active_question'] = $_SESSION['active_question']+1;}//делаем метку в сессию что подарок получен
 
 echo json_encode($mail_user);
 
