@@ -1406,9 +1406,9 @@ function update_afterClientFoward() {
     if (numStartQst >= 0 && numStartQst<levelQst_1.countQst) {
         level[0].innerHTML = numStartQst + 1 + "/" + levelQst_1.countQst;
         level[0].style.borderColor = "yellow";
-        if(fox.time_answer_toFast == true) fox.speak_hurry();
+        // if(fox.time_answer_toFast == true) fox.speak_hurry();
 
-        if (Math.random()<0.33) fox.speak_about_Qst();
+        // if (Math.random()<0.33) fox.speak_about_Qst();
     } else if (numStartQst>= levelQst_1.countQst && numStartQst < (levelQst_1.countQst + levelQst_2.countQst)) {
         level[0].innerHTML = (numStartQst*1 + 1) - levelQst_1.countQst + "/" + levelQst_2.countQst;
         level[0].style.borderColor = "blue";
@@ -1429,7 +1429,8 @@ function update_afterClientFoward() {
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
         stat();
-        fox.speak_multi();
+        fox.speak_game_end();
+        // fox.speak_multi();
     }
 
     var inputs = document.querySelectorAll(".right input");
@@ -1447,7 +1448,10 @@ function update_afterClientFoward() {
 
     if(fox.time_answer_toFast == true) fox.speak_hurry();
 
-    if (numStartQst!==countQst && Math.random()<0.33) fox.speak_about_Qst();      
+    if (numStartQst!==countQst && Math.random()<0.33) fox.speak_about_Qst();  
+    
+    
+    
 }
 // ______________________________________АНИМАЦИЯ элементов ДОМ________________________________________
 
