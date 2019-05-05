@@ -1453,14 +1453,10 @@ function update_afterClientFoward() {
         present[0].style.display = "none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-<<<<<<< HEAD
         stat();
         fox.speak_game_end();
-        // fox.speak_multi();
-=======
-        fox.speak_multi();
+
         window.location.href = 'index.php?page=survey'
->>>>>>> f5cdf688c511f417caa5be008576512aaad64514
     }
 
     var inputs = document.querySelectorAll(".right input");
