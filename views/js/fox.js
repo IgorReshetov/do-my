@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 var fox = {
     status_IMG: {sleep: "sleep", wakeUp: "wakeUp", speak: "speak", sniff: "sniff"},
@@ -44,15 +44,12 @@ var fox = {
                
         this.sleep = false;
         setTimeout(function() {
-            fox_img.classList = [];
-            fox_img.classList.add('fox-wakeUp');
+            fox_img.className = 'fox-wakeUp';
             var handler_wakeUp = setInterval(function(){
                 if(fox_img.classList.contains('fox-wakeUp')) {
-                    fox_img.classList.add('fox-wakeUp2');
-                    fox_img.classList.remove('fox-wakeUp');
+                    fox_img.className = 'fox-wakeUp2';
                 } else if (fox_img.classList.contains('fox-wakeUp2')) {
-                    fox_img.classList.add('fox-wakeUp');
-                    fox_img.classList.remove('fox-wakeUp2');
+                    fox_img.className = 'fox-wakeUp';
                 }
             },500);
             setTimeout(function(){clearInterval(handler_wakeUp)},1000);
@@ -60,8 +57,7 @@ var fox = {
         }, 2000);
 
         setTimeout(function() {
-            fox_img.classList = [];
-            fox_img.classList.add('fox-speak');
+            fox_img.className = 'fox-speak';
             if (privet == "start"){
                 if (new_old[0].attributes.user.nodeValue == 'new') fox_words[0].innerHTML = hello_new;
                 else if (new_old[0].attributes.user.nodeValue == 'old') fox_words[0].innerHTML = hello_old;
@@ -75,16 +71,14 @@ var fox = {
             
             var handler_speak = setInterval(function() {
                 if(fox_img.classList.contains('fox-speak')) {
-                    fox_img.classList.remove('fox-speak');
-                    fox_img.classList.add('fox-speak2');
+                        fox_img.className = 'fox-speak2';
                     setTimeout( function(){
-                        fox_img.classList.add('fox-speak3')
+                        fox_img.className = 'fox-speak3';
                     }, 100);
                 } else if (fox_img.classList.contains('fox-speak3' )) {
-                    fox_img.classList.remove('fox-speak3');
+                        fox_img.className = 'fox-speak2';
                     setTimeout( function(){
-                         fox_img.classList.remove('fox-speak2');
-                         fox_img.classList.add('fox-speak');
+                        fox_img.className = 'fox-speak';
                     }, 100);
                 } 
 
@@ -100,9 +94,9 @@ var fox = {
         }, 3000, speak, new_old, hello_new, hello_old, last_time, privet);
        
         this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
-                 setTimeout(function(){
-                fox_img.classList=[],
-                fox_img.classList.add('fox-sleep');
+            
+            setTimeout(function(){
+                fox_img.className='fox-sleep';
                 fox.sleep=true;
          }, 5000)
         });
@@ -137,7 +131,7 @@ var fox = {
         this.watch('time_answer', function (id, oldval, newval) {            
         if (oldval== 0) return newval;
         else {
-            if((newval-oldval)<=10000) {
+            if((newval-oldval)<=3000) {
                 fox.time_answer_toFast = true;
                 return newval;
             } else {
@@ -156,11 +150,12 @@ var fox = {
         setInterval(function(){fox.no_active_time++; }, 1000); // Каждую секунду увеличиваем количество секунд простоя мыши
         setInterval(function() {
             if (fox.no_active_time >= no_active_delay) { // Проверяем не превышен ли "предел активности" пользователя 
-            fox.speak_HELLO("delay");  // ЛИС ГОВОРИТ ЭГЕГЕЙ ДАВАЙ ДАВАЙ!
+            fox.speak_HELLO("delay");
+            fox.no_active_time = 0;  // ЛИС ГОВОРИТ ЭГЕГЕЙ ДАВАЙ ДАВАЙ!
             return;
             }
-            }, 5000, no_active_delay); // Запускаем функцию проверки через определённый интервал
-        document.onmousemove = function() {
+        }, 5000, no_active_delay); // Запускаем функцию проверки через определённый интервал
+        document.onmousemove = document.onkeypress = document.ontouchend = function() {
             fox.no_active_time = 0; // Обнуляем счётчик простоя секунд
         };
      
@@ -184,39 +179,34 @@ var fox = {
         fox_img.onclick = function() {
             if (fox.sleep == true) {
                 fox.sleep = false;
-                fox_img.classList = [];
-                fox_img.classList.add('fox-wakeUp');
-                var handler_wakeUp = setInterval(function(){
-                    if(fox_img.classList.contains('fox-wakeUp')) {
-                        fox_img.classList.add('fox-wakeUp2');
-                        fox_img.classList.remove('fox-wakeUp');
-                    } else if (fox_img.classList.contains('fox-wakeUp2')) {
-                        fox_img.classList.add('fox-wakeUp');
-                        fox_img.classList.remove('fox-wakeUp2');
-                    }
-                },500);
-                setTimeout(function(){clearInterval(handler_wakeUp)},1000);
+                fox_img.className = 'fox-wakeUp';
+            var handler_wakeUp = setInterval(function(){
+                if(fox_img.classList.contains('fox-wakeUp')) {
+                    fox_img.className = 'fox-wakeUp2';
+                } else if (fox_img.classList.contains('fox-wakeUp2')) {
+                    fox_img.className = 'fox-wakeUp';
+                }
+            },500);
+            setTimeout(function(){clearInterval(handler_wakeUp)},1000);
         
                 setTimeout(function() {
-                    fox_img.classList = [];
-                    fox_img.classList.add('fox-speak');
+                   fox_img.className = 'fox-speak';
                     fox_words[0].innerHTML = hello_back; 
                     fox_words[0].style.opacity = 1;
                     
                     var handler_speak = setInterval(function() {
                         if(fox_img.classList.contains('fox-speak')) {
-                            fox_img.classList.remove('fox-speak');
-                            fox_img.classList.add('fox-speak2');
+                                fox_img.className = 'fox-speak2';
                             setTimeout( function(){
-                                fox_img.classList.add('fox-speak3')
+                                fox_img.className = 'fox-speak3';
                             }, 100);
                         } else if (fox_img.classList.contains('fox-speak3' )) {
-                            fox_img.classList.remove('fox-speak3');
+                                fox_img.className = 'fox-speak2';
                             setTimeout( function(){
-                                fox_img.classList.remove('fox-speak2');
-                                fox_img.classList.add('fox-speak');
+                                fox_img.className = 'fox-speak';
                             }, 100);
                         } 
+        
                         },100);
                     setTimeout(function(){clearInterval(handler_speak)},3000);
         
@@ -226,14 +216,14 @@ var fox = {
                         fox.last_time = new Date().getTime();
                     },3000);
         
-                }, 1000, speak, new_old, hello_new, hello_old, last_time);
-            
+                }, 3000, speak, new_old, hello_new, hello_old, last_time);
+               
                 this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
+                    
                     setTimeout(function(){
-                        fox_img.classList=[],
-                        fox_img.classList.add('fox-sleep');
-                        fox.sleep = true;
-                    }, 3000)
+                        fox_img.className='fox-sleep';
+                        fox.sleep=true;
+                 }, 3000)
                 });
 
             } else return false;
@@ -246,14 +236,12 @@ var fox = {
         var fox_img = document.getElementById("fox");
         fox_img.onmouseenter = function () {
             if(fox_img.classList.contains('fox-sleep')) { 
-                fox_img.classList.add('fox-sniff');
-                fox_img.classList.remove('fox-sleep');
+                fox_img.className = 'fox-sniff';
             }
         };
         fox_img.onmouseleave = function () {
             if(fox_img.classList.contains('fox-sniff')) {
-                fox_img.classList.add('fox-sleep');
-                fox_img.classList.remove('fox-sniff');
+                fox_img.className = 'fox-sleep';
             }
         };
     }
