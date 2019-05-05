@@ -152,12 +152,9 @@ font-weight: 700;
 }
 
 .icon-user {
-    padding: 18px;
-    // margin: 5px;
-    // margin-right: 30px;
     cursor: pointer;
     transition: 0.1s;
-    display: block;          // Скрываем иконку для десктопа
+    display: block;          
 }
 
 .user-menu-reg, .user-menu-auth {
@@ -417,6 +414,75 @@ font-weight: 600;
     100% {right: -303px;}
 }
 
+
+
+// кнопка меню
+// .icon-user-menu {
+//     position: relative;
+// }
+
+#menu-btn-box-main {
+    width: 35px;
+    height: 31px;
+    display: block;
+    transition: 1s all;
+    position: relative;
+    cursor: pointer;    
+}
+
+#menu-btn {
+    width: 35px;
+    height: 3px;
+    background-color: blue;
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    transition: 1s all;
+    cursor: pointer; 
+}
+
+#menu-btn-top {
+    width: 35px;
+    height: 3px;
+    background-color:blue;
+    position: absolute;
+    top: 3px;
+    transition: 1s all;
+    cursor: pointer; 
+}
+#menu-btn-bot {
+    width: 35px;
+    height: 3px;
+    background-color: blue;
+    position: absolute;
+    top: 28px;
+    transition: 1s all;
+    cursor: pointer; 
+}
+
+.menu-btn-open  {
+  opacity: 0;
+}
+
+.menu-btn-bot-open   {
+    transform: rotate(-45deg);
+    top: 15px;
+    background-color: red;
+}
+
+.menu-btn-top-open {
+    transform: rotate(45deg);
+    top: 15px;
+    background-color: red;
+}
+
+#menu-btn-box-main:hover div {
+    background-color: red;
+}
+
+
+
 @media (max-width: 570px) {
     
     .hiden-menu-user, .hiden-menu-user-promo{
@@ -427,9 +493,7 @@ font-weight: 600;
         // width: 320px;
         margin: 0 auto;
     }
-    .icon-user {
-        display: block;        //Добавляем иконку для мобил.версии
-    }
+
     .user-menu-reg, .user-menu-auth {
         display: none;
     }

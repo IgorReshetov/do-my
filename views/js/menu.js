@@ -20,12 +20,15 @@ function menu() {
 function menu_moov(e) {
     
     console.log (e.target.getAttribute('class'));
-    if (e.target.getAttribute('class') == "icon-user" && flag == 0){
+    if (e.target.getAttribute('class') == "menu-btn-box" && flag == 0){
     
         document.getElementsByClassName('hiden-menu-user')[0].classList.add("hiden-menu-user-moov");
         document.getElementsByClassName('hiden-menu-user')[0].classList.remove("hiden-menu-user-back");
         
         flag = 1;
+
+        document.getElementById('')
+
         return;
     }
 

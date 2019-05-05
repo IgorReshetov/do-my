@@ -47,7 +47,13 @@
                         <div class="fox-words"></div>
                     </div>
                     <div class="user-menu">
-                        <div class="icon-user"></div>
+                        <div class="icon-user-menu">
+                            <div class="menu-btn-box" id ="menu-btn-box-main">
+                                <div class="menu-btn-box" id ="menu-btn"></div>
+                                <div class="menu-btn-box" id = "menu-btn-top"></div>
+                                <div class="menu-btn-box" id= "menu-btn-bot"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,5 +94,20 @@
     </header>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
     <script src="views/js/fox.js"></script>
-    <script src="views/js/menu.js"></script>  
+    <script src="views/js/menu.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(53543287, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/53543287" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->  
     

@@ -155,7 +155,6 @@ a.menu-proect:hover {
 }
 
 .icon-user {
-  padding: 18px;
   cursor: pointer;
   -webkit-transition: 0.1s;
   transition: 0.1s;
@@ -452,15 +451,79 @@ a.menu-proect:hover {
   }
 }
 
+#menu-btn-box-main {
+  width: 35px;
+  height: 31px;
+  display: block;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  position: relative;
+  cursor: pointer;
+}
+
+#menu-btn {
+  width: 35px;
+  height: 3px;
+  background-color: blue;
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  cursor: pointer;
+}
+
+#menu-btn-top {
+  width: 35px;
+  height: 3px;
+  background-color: blue;
+  position: absolute;
+  top: 3px;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  cursor: pointer;
+}
+
+#menu-btn-bot {
+  width: 35px;
+  height: 3px;
+  background-color: blue;
+  position: absolute;
+  top: 28px;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  cursor: pointer;
+}
+
+.menu-btn-open {
+  opacity: 0;
+}
+
+.menu-btn-bot-open {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 15px;
+  background-color: red;
+}
+
+.menu-btn-top-open {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 15px;
+  background-color: red;
+}
+
+#menu-btn-box-main:hover div {
+  background-color: red;
+}
+
 @media (max-width: 570px) {
   .hiden-menu-user, .hiden-menu-user-promo {
     top: 30%;
   }
   .wrapper {
     margin: 0 auto;
-  }
-  .icon-user {
-    display: block;
   }
   .user-menu-reg, .user-menu-auth {
     display: none;
