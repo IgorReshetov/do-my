@@ -1061,14 +1061,10 @@ table.prev_next {
 }
 
 .gift-block1-head, .gift-block2-head, .gift-block3-head {
-  height: 25px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
-}
-
-.gift-block2-head {
   margin-bottom: 10px;
 }
 
@@ -1111,20 +1107,26 @@ table.prev_next {
   color: red;
 }
 
+.gift-svg {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+}
+
 .gift-block1-diagr-data {
-  margin: auto;
   font-size: 16px;
   font-weight: 500;
-  position: absolute;
-  z-index: 99;
 }
 
 .gift-block1-diagr-label {
   bottom: -15px;
-  margin: auto;
+  text-align: center;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
   font-size: 16px;
   position: absolute;
-  z-index: 99;
 }
 
 .gift-block2 {
@@ -1152,8 +1154,9 @@ table.prev_next {
 }
 
 .gift-block-text-icon {
+  width: 50px;
   min-width: 50px;
-  min-height: 50px;
+  height: 50px;
   margin-left: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1202,7 +1205,7 @@ table.prev_next {
 #gift-block2-desire1-place, #gift-block2-desire2-room {
   width: 290px;
   height: 30px;
-  font-size: 15px;
+  font-size: 14px;
   border: 1px solid #aaaaaa;
   text-align-last: center;
   margin: 10px;
@@ -1247,6 +1250,20 @@ table.prev_next {
           flex-direction: column;
 }
 
+.gift-mail-small-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 265px;
+  height: 55px;
+}
+
 .gift-get-mail {
   width: 260px;
   height: 30px;
@@ -1276,6 +1293,7 @@ table.prev_next {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
 }
 
 .check-privacy {
@@ -1325,6 +1343,7 @@ table.prev_next {
 }
 
 .gift-get-check-right {
+  width: 100%;
   color: #5a5a5a;
   font-size: 18px;
   margin-left: 15px;
@@ -1614,6 +1633,10 @@ table.prev_next {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
     bottom: -30px;
+  }
+  #gift-block2-desire1-place, #gift-block2-desire2-room {
+    width: 250px;
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=survey.css.map */

@@ -8,7 +8,7 @@ require_once 'views/templates/header.php';
 </div>
 
 <div class="wrapper main">
-    <h1 class="title">Пройдите квиз и получите подарок </h1>
+    <h1 class="title"><?=$title?></h1>
     <div class="board">
         <div class="board-left">
             <div class="result1">
@@ -334,7 +334,9 @@ require_once 'views/templates/header.php';
             <div class="gift-block3">
                 <div class="gift-block3-head">Получите подарок на свой email:</div>
                 <div class="gift-get" id = "gift-get">
-                    <input class="gift-get-mail" onfocus="fox.speak_multi();" id = "mail" name = "mail" type="text" placeholder= "Введите email">
+                    <div class="gift-mail-small-box">
+                        <input class="gift-get-mail" onfocus="fox.speak_multi();" id = "mail" name = "mail" type="text" placeholder= "Введите email">
+                    </div>
                     <label class="gift-get-check" id = "privacy">
                         <div class="gift-get-check-right" id = "check-text">Подтвердите oзнакомление с политикой конфиденциальности</div>
                         <div class="gift-get-check-left">

@@ -2,6 +2,9 @@
 
 require_once 'views/templates/header.php';
 ?>
+<div id ='id-preloader' class="preloader">
+    <div class="loader"></div>
+</div>
 
 <div class="wrapper">
     
@@ -29,7 +32,7 @@ require_once 'views/templates/header.php';
 </div>
 
 <script src="views/js/preloader.js"></script>
-<script src="views/js/privacy.js"></script>
+<script src="views/js/thanks.js"></script>
 
 <?php
 

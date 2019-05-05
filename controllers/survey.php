@@ -6,14 +6,14 @@ require_once 'models/User.php';
 $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 2)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 3)['questions_count'];
 $active_question = $_SESSION['active_question'];
 
-
+$title = "Пройдите квиз и получите подарок";
 
 if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {
     $play = 'play1';
     
 } else {
     if ($active_question < $count) {$play = 'play2';}
-    if ($active_question == $count) {$play = 'play3';}
+    if ($active_question == $count) {$play = 'play3'; $title = "Поздравляем, вы прошли квиз!";}
     if ($active_question > $count) {
         $play = 'play4';
         $_SESSION['active_question']= 0;
