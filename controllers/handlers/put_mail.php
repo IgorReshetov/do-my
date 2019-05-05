@@ -2,6 +2,7 @@
 require_once 'models/User.php';
 require_once 'models/Mail.php';
 
+
 $postData = file_get_contents('php://input');
 
 $data = json_decode($postData, true);
@@ -54,8 +55,62 @@ C уважением, команда сервиса "Думай"';
 // </body>
 // </html>
 
-
+// Глущим отправку через свою email
 $mail_user = new Mail($mailTo, $from, $subject, $message, $file);
+
+
+// $SPApiClient = new ApiClient(API_USER_ID, API_SECRET, new FileStorage());
+
+// // Get Mailing Lists list example
+// var_dump($SPApiClient->listAddressBooks());
+
+
+// $bookID = 1838762;
+//  $emails = array(
+//     array(
+//         'email' => $mailTo,
+//         'variables' => array(
+//             'phone' => '+12345678900',
+//             'name' => 'User Name',
+//       )
+//    )
+// );
+
+// $SPApiClient->addEmails($bookID, $emails);
+
+// // Without confirmation
+// var_dump($SPApiClient->addEmails($bookID, $emails));
+
+
+// Send mail using SMTP
+// $email = array(
+//     'html' => '<p>Hello!</p>',
+//     'text' => 'text',
+//     'subject' => 'Mail subject',
+//     'from' => array(
+//         'name' => 'John',
+//         'email' => 'do-my.ru@mail.ru',
+//     ),
+//     'to' => array(
+//         array(
+//             'name' => 'Client',
+//             'email' => $mailTo,
+//         ),
+//     ),
+//     'bcc' => array(
+//         array(
+//             'name' => 'Manager',
+//             'email' => 'manager@domain.com',
+//         ),
+//     ),
+//     'attachments' => array(
+//         'do-my.pdf' => file_get_contents("views/mail/do-my.pdf"),
+//     ),
+// );
+
+// $SPApiClient->smtpSendMail($email);
+
+// var_dump($SPApiClient->smtpSendMail($email));
 
 
 

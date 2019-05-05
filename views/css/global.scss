@@ -417,9 +417,9 @@ font-weight: 600;
 
 
 // кнопка меню
-// .icon-user-menu {
-//     position: relative;
-// }
+.icon-user-menu >div > div {
+    background-color: blue;
+}
 
 #menu-btn-box-main {
     width: 35px;
@@ -433,7 +433,6 @@ font-weight: 600;
 #menu-btn {
     width: 35px;
     height: 3px;
-    background-color: blue;
     display: block;
     position: absolute;
     top: 15px;
@@ -445,7 +444,6 @@ font-weight: 600;
 #menu-btn-top {
     width: 35px;
     height: 3px;
-    background-color:blue;
     position: absolute;
     top: 3px;
     transition: 1s all;
@@ -454,7 +452,6 @@ font-weight: 600;
 #menu-btn-bot {
     width: 35px;
     height: 3px;
-    background-color: blue;
     position: absolute;
     top: 28px;
     transition: 1s all;

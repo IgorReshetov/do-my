@@ -27,7 +27,9 @@ function menu_moov(e) {
         
         flag = 1;
 
-        document.getElementById('')
+        document.getElementById('menu-btn').classList.add('menu-btn-open');
+        document.getElementById('menu-btn-bot').classList.add('menu-btn-bot-open');
+        document.getElementById('menu-btn-top').classList.add('menu-btn-top-open');
 
         return;
     }
@@ -51,6 +53,9 @@ function menu_moov(e) {
         document.getElementsByClassName('hiden-menu-user')[0].classList.add("hiden-menu-user-back");
         
         flag = 0;
+        document.getElementById('menu-btn').classList.remove('menu-btn-open');
+        document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
+        document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
         return;
     }
 
@@ -61,6 +66,9 @@ function menu_moov(e) {
         document.getElementsByClassName('hiden-menu-user-promo')[0].classList.remove("hiden-menu-user-promo-moov");
         document.getElementsByClassName('hiden-menu-user-promo')[0].classList.add("hiden-menu-user-promo-back");
         flag = 0;
+        document.getElementById('menu-btn').classList.remove('menu-btn-open');
+        document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
+        document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
         return;
     }
     

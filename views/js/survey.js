@@ -339,15 +339,11 @@ function send_mail() {
     var place_data = place.value;
     var room_data = room.value;
        
-    var data = [
-        {
-          "email": mail_data ,
-          "variables": {
-            "Имя": "",
-            "Phone": ""
-        }
-    }
-    ];
+    var data = {
+        mail:mail_data,
+        place:place_data,
+        room:room_data
+    };
 
     var data = JSON.stringify(data);
 
@@ -356,7 +352,7 @@ function send_mail() {
     preloader_AJAX(xhr);
 
 
-    xhr.open('POST', 'https://api.sendpulse.com/addressbooks/1838762/emails', true);
+    xhr.open('POST', 'index.php?page=put_mail', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   

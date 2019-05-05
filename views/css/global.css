@@ -451,6 +451,10 @@ a.menu-proect:hover {
   }
 }
 
+.icon-user-menu > div > div {
+  background-color: blue;
+}
+
 #menu-btn-box-main {
   width: 35px;
   height: 31px;
@@ -464,7 +468,6 @@ a.menu-proect:hover {
 #menu-btn {
   width: 35px;
   height: 3px;
-  background-color: blue;
   display: block;
   position: absolute;
   top: 15px;
@@ -477,7 +480,6 @@ a.menu-proect:hover {
 #menu-btn-top {
   width: 35px;
   height: 3px;
-  background-color: blue;
   position: absolute;
   top: 3px;
   -webkit-transition: 1s all;
@@ -488,7 +490,6 @@ a.menu-proect:hover {
 #menu-btn-bot {
   width: 35px;
   height: 3px;
-  background-color: blue;
   position: absolute;
   top: 28px;
   -webkit-transition: 1s all;
