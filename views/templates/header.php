@@ -74,15 +74,14 @@
 
             </div>
             <div class="hiden-menu-user-promo" id = "menu12">
-                <div class="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
+                <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
                 
-                <input class="hiden-menu-user-promo-mail" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
+                <input class="hiden-menu-user-promo-block" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
                 
-                <div class="hiden-menu-user-promo-block">
-                    <div class="hiden-menu-user-promo-block-text"></div>
-                    <div class="hiden-menu-user-promo-get" id = "promo-button-get">ПОЛУЧИТЬ</div>
+                <div class="hiden-menu-user-promo-bl">
+                    <div class="hiden-menu-user-promo-block"></div>
+                    <div class="hiden-menu-user-promo-block" id = "promo-button-get">ПОЛУЧИТЬ</div>
                 </div>
-                <div class="hiden-menu-user-promo-ask"></div>
             </div>
              
     </header>

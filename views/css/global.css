@@ -327,13 +327,14 @@ a.menu-proect:hover {
   transition: 1s all;
 }
 
-.hiden-menu-user-promo-header {
+#hiden-menu-user-promo-header {
   font-size: 18px;
   padding: 10px;
   text-align: center;
+  width: 300px;
 }
 
-.hiden-menu-user-promo-mail {
+#menu-mail {
   width: 260px;
   height: 30px;
   font-size: 18px;
@@ -343,11 +344,19 @@ a.menu-proect:hover {
 }
 
 .hiden-menu-user-promo-block {
-  width: 100%;
+  width: 300px;
+}
+
+.hiden-menu-user-promo-bl {
+  width: 300px;
   height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -361,15 +370,15 @@ a.menu-proect:hover {
   font-weight: 500;
 }
 
-.hiden-menu-user-promo-mail:hover {
+#menu-mail:hover {
   border-color: blue;
 }
 
-.hiden-menu-user-promo-mail:focus {
+#menu-mail:focus {
   border-color: blue;
 }
 
-.hiden-menu-user-promo-get {
+#promo-button-get {
   display: none;
   width: 150px;
   padding: 13px;
@@ -383,7 +392,7 @@ a.menu-proect:hover {
   cursor: pointer;
 }
 
-.hiden-menu-user-promo-get:hover {
+#promo-button-get:hover {
   border-width: 2px;
 }
 

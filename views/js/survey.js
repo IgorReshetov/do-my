@@ -93,12 +93,19 @@ var mobile = 0;
 function init() {
     preloader();
     menu();
+    
+
+    history.pushState({param: 'Value'}, '', 'index.php?page=survey');// автозамена URL при сбросе через GET параметр
+
+    // history.pushState(null,null, 'newpage');    // добавляет новый URL в историю
+    // history.replaceState(null,null, 'newpage');
+
 
     // fox.speak_survey();
-    fox.enter_leave_mouse();
-    fox.wakeUp_mouse();
-    fox.no_active_user();
-    fox.fast_answer();
+    // fox.enter_leave_mouse();
+    // fox.wakeUp_mouse();
+    // fox.no_active_user();
+    // fox.fast_answer();
     
 
     var page_size = getPageSize();
@@ -251,62 +258,77 @@ function init() {
     gift_button_get.onclick = send_mail;
 }
 
+// функция построения статистики перенесена в back - не работает на IE
 
-function stat(){      //  Синхронный запрос Функция получения статистики и прорисовки диаграмм
-    
-    var xhr = new XMLHttpRequest();
-
-    preloader_AJAX(xhr);
-
-    xhr.open('POST', 'index.php?page=get_stat', true);
-    xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send();
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) {
-            return;
-        }
+// function stat(){      //  Синхронный запрос Функция получения статистики и прорисовки диаграмм
     
     
-    var stat = JSON.parse(xhr.responseText);
+//     var xhr = new XMLHttpRequest();
 
-    var diagr = document.getElementsByClassName('gift-block1-diagr');
+//     preloader_AJAX(xhr);
 
-    // переставляем общие на нулевую позицию при наличии
+//     xhr.open('POST', 'index.php?page=get_stat', true);
+//     xhr.setRequestHeader("Content-type", "application/json");
+//     xhr.send();
+
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState != 4) {
+//             return;
+//         }
     
-    for (var i=0; i<stat.length; i++) {
-        if (stat[i].group_name == 'Общие') {
-            var tranzit = stat[0].group_name;
-            stat[0].group_name = stat[i].group_name;
-            stat[i].group_name = tranzit;
-        }
-    }
+    
+//     var stat = JSON.parse(xhr.responseText);
 
-    // заполняем круги
-    diagr[0].style.display = 'flex';
-    var sum_count_true =0;
-    var sum_count_all =0;
+//     var diagr = document.getElementsByClassName('gift-block1-diagr');
+
+//     переставляем общие на нулевую позицию при наличии
+    
+//     for (var i=0; i<stat.length; i++) {
+//         if (stat[i].group_name == 'Общие') {
+//             var tranzit = stat[0].group_name;
+//             stat[0].group_name = stat[i].group_name;
+//             stat[i].group_name = tranzit;
+//         }
+//     }
+
+//     console.log(stat);
+    
+
+//     // заполняем круги
+//     var sum_count_true =0;
+//     var sum_count_all =0;
         
-    for (var i=0; i<stat.length; i++) {
-        diagr[i+1].style.display = 'flex';
-        diagr[i+1].children[1].innerHTML = Math.round((stat[i].count_true/stat[i].count_all)*100) + "%";
-        diagr[i+1].children[0].children[2].setAttribute('stroke-dasharray', String(Math.round((stat[i].count_true/stat[i].count_all)*100))+" "+String(100-Math.round((stat[i].count_true/stat[i].count_all)*100)));
-        diagr[i+1].children[2].innerHTML = stat[i].group_name;
-        sum_count_true = sum_count_true + parseInt(stat[i].count_true);
-        sum_count_all = sum_count_all + parseInt(stat[i].count_all);
-    }
+//     for (var i=0; i<stat.length; i++) {
+//         diagr[i+1].children[2].innerHTML = stat[i].group_name;
+//         sum_count_true = sum_count_true + parseInt(stat[i].count_true);
+//         sum_count_all = sum_count_all + parseInt(stat[i].count_all);
 
-        console.log (Math.round((sum_count_true/sum_count_all)*100));
-        console.log (String(Math.round((sum_count_true/sum_count_all)*100))+" "+String(100-Math.round((sum_count_true/sum_count_all)*100)));
+//         diagr[i+1].children[1].innerHTML = Math.round((stat[i].count_true/stat[i].count_all)*100) + "%";
+//         var insert = String(Math.round((stat[i].count_true/stat[i].count_all)*100))+" "+String(100-Math.round((stat[i].count_true/stat[i].count_all)*100));
+//         diagr[i+1].children[0].append(
+//             '<svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg"></svg>'+
+//             '<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>'+
+//             '<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>'+
+//             '<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="'+insert+'" stroke-dashoffset="25"></circle>'+
+//             '</svg>');
+//         diagr[i+1].style.display = 'flex';
+        
+//         }
 
+//     insert = String(Math.round((sum_count_true/sum_count_all)*100))+" "+String(100-Math.round((sum_count_true/sum_count_all)*100))
 
-    diagr[0].children[1].innerHTML = Math.round((sum_count_true/sum_count_all)*100)+"%";
-    diagr[0].children[0].children[2].setAttribute('stroke-dasharray', String(Math.round((sum_count_true/sum_count_all)*100))+" "+String(100-Math.round((sum_count_true/sum_count_all)*100)));
-
-
-    console.log (stat);
-    }
-}
+//     diagr[0].children[1].innerHTML = Math.round((sum_count_true/sum_count_all)*100)+"%";
+//     diagr[0].children[0].append(
+//         '<svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg"></svg>'+
+//         '<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>'+
+//         '<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="6"></circle>'+
+//         '<circle id = "svg-index" class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="6" stroke-dasharray="'+insert+'" stroke-dashoffset="25"></circle>'+
+//         '</svg>');
+//     diagr[0].style.display = 'flex';
+    
+//     }
+    
+// }
 
 // функция отправки мэйла пользователю
 function send_mail() {
@@ -617,13 +639,16 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
+        
+    
+
     if (Math.random()<0.33) fox.speak_about_Qst();  
     if (countQst==numStartQst) {
         document.getElementById("button").style.display="none";
         document.getElementsByClassName('title')[0].style.display="none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-        stat();
+        // stat();
         // var status_Game = document.getElementsByClassName('board');
         // status_Game[0].style.display = "flex";
         return;
@@ -1428,8 +1453,8 @@ function update_afterClientFoward() {
         present[0].style.display = "none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-        stat();
         fox.speak_multi();
+        window.location.href = 'index.php?page=survey'
     }
 
     var inputs = document.querySelectorAll(".right input");

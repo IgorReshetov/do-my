@@ -237,66 +237,55 @@ require_once 'views/templates/header.php';
                 </div>
                 <div class="gift-heard-present">
                     <div class="gift-block-present"></div>
-                    <!-- <img src="views/images/icon/present.svg" alt="Подарок"> -->
                 </div>
             </div>
             <div class="gift-block1"></div>
                 <div class="gift-block1-head">Результаты прохождения квиза:</div>
                 <div class="gift-block1-row">
+            
+            <?php
+            //готовим диаграммы статистики по итогам игры /доработка для IE
+            if(($active_question == $count)){
+
+                $sum_count_true=0;
+                $sum_count_all=0;
+                
+                for ($i=0; $i<count($stat); $i++) {
+                    $sum_count_true = $sum_count_true + $stat[$i]{'count_true'};
+                    $sum_count_all = $sum_count_all + $stat[$i]{'count_all'};
+                    $rate = round($stat[$i]{'count_true'}/$stat[$i]{'count_all'}*100)."%";
+                    $graf = round($stat[$i]{'count_true'}/$stat[$i]{'count_all'}*100)." ".(100-round($stat[$i]{'count_true'}/$stat[$i]{'count_all'}*100));
+                    echo ('
+                        <div class="gift-block1-diagr">
+                            <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
+                                <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                                <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
+                                <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="'.$graf.'" stroke-dashoffset="25"></circle>
+                            </svg>
+                            <div class="gift-block1-diagr-data">'.$rate.'</div>
+                            <div class="gift-block1-diagr-label">'.$stat[$i]{'group_name'}.'</div>
+                        </div>
+                    ');
+                }
+
+      
+                $graf = round(($sum_count_true/$sum_count_all)*100)." ".(100-round(($sum_count_true/$sum_count_all)*100));
+
+                $rate = round(($sum_count_true/$sum_count_all)*100)."%";
+                echo ('
                     <div class="gift-block1-diagr">
                         <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="6"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="6" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
+                            <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+                            <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="6"></circle>
+                            <circle id = "svg-index" class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="6" stroke-dasharray="'.$graf.'" stroke-dashoffset="25"></circle>
                         </svg>
-                        <div class="gift-block1-diagr-data">100%</div>
+                        <div class="gift-block1-diagr-data">'.$rate.'</div>
                         <div class="gift-block1-diagr-label">Все</div>
                     </div>
-                    <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
-                        </svg>
-                        <div class="gift-block1-diagr-data">100%</div>
-                        <div class="gift-block1-diagr-label">Общие</div>
-                    </div>
-                    <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
-                        </svg>
-                        <div class="gift-block1-diagr-data">100%</div>
-                        <div class="gift-block1-diagr-label">Общие</div>
-                    </div>
-                    <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
-                        </svg>
-                        <div class="gift-block1-diagr-data">100%</div>
-                        <div class="gift-block1-diagr-label">Общие</div>
-                    </div>
-                    <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
-                        </svg>
-                        <div class="gift-block1-diagr-data">100%</div>
-                        <div class="gift-block1-diagr-label">Общие</div>
-                    </div>
-                    <div class="gift-block1-diagr">
-                        <svg width="100%" height="100%" viewBox="0 0 42 42" class="gift-svg">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0000ff" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
-                        </svg>
-                        <div class="gift-block1-diagr-data">100%</div>
-                        <div class="gift-block1-diagr-label">Общие</div>
-                    </div>
+                ');
+            }
+            
+            ?>
                 </div>
             <div class="gift-block2">
                 <div class="gift-block2-head">Мы подготовили для вас:</div>
