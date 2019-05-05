@@ -40,6 +40,7 @@ var fox = {
         var toFast = this.words.toFast;
         var Qst = this.words.after_Qst[Math.floor(Math.random() * this.words.after_Qst.length)];
         var hello_old = this.words.hello_old[Math.floor(Math.random() * this.words.hello_old.length)];
+        var game_end = this.words.game_end[Math.floor(Math.random() * this.words.game_end.length)];
         var hello_back = this.words.hello_back_mouse;
                
         this.sleep = false;
@@ -66,7 +67,8 @@ var fox = {
               else if (privet == "delay") fox_words[0].innerHTML = delay;
               else if (privet == "multi") fox_words[0].innerHTML = multi;
               else if (privet == "toFast") fox_words[0].innerHTML = toFast;
-              else if (privet == 'Qst') fox_words[0].innerHTML = Qst; 
+              else if (privet == 'Qst') fox_words[0].innerHTML = Qst;
+              else if (privet == 'game_end') fox_words[0].innerHTML = game_end; 
             fox_words[0].style.opacity = 1;
             
             var handler_speak = setInterval(function() {
@@ -122,6 +124,9 @@ var fox = {
         this.speak_HELLO("toFast");
     },
 
+    speak_game_end: function () {
+        this.speak_HELLO("game_end");
+    },
 
     time_answer: 0,
     time_answer_toFast:false, 
