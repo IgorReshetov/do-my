@@ -102,12 +102,12 @@ function init() {
 
 
     // fox.speak_survey();
-    fox.enter_leave_mouse();
-    fox.wakeUp_mouse();
-    fox.no_active_user();
-    fox.fast_answer();
+    // fox.enter_leave_mouse();
+    // fox.wakeUp_mouse();
+    // fox.no_active_user();
+    // fox.fast_answer();
     
-    
+
     var page_size = getPageSize();
         if (page_size.page.width <= 570) {
             mobile = 1;
@@ -640,6 +640,7 @@ function json_Q_A_next() {
 
 function startOpros() {
         
+    
 
     if (Math.random()<0.33) fox.speak_about_Qst();  
     if (countQst==numStartQst) {
@@ -647,7 +648,6 @@ function startOpros() {
         document.getElementsByClassName('title')[0].style.display="none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-        fox.speak_game_end();
         // stat();
         // var status_Game = document.getElementsByClassName('board');
         // status_Game[0].style.display = "flex";
@@ -856,9 +856,8 @@ function update_afterClientAnswer(otvet) {
     result.style.display = "flex";
     dark.style.display = "block";
     if (otvet.answer_is_true == 1) {
-        image.className = 'result-tru-question'; // Правка класс листа для IE
-        // image.classList = [];
-        // image.classList.add('result-tru-question');
+        image.classList = [];
+        image.classList.add('result-tru-question');
         image.style.display = "block";
         otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
         otvet_true.style.display = "block";
@@ -868,9 +867,8 @@ function update_afterClientAnswer(otvet) {
         why.innerHTML = otvet.answer_is_true_comment;
         why.style.display = "block";
     } else {
-        image.className = 'result-false-question'; // Правка класс листа для IE
-        // image.classList = [];
-        // image.classList.add('result-false-question');
+        image.classList = [];
+        image.classList.add('result-false-question');
         image.style.display = "block";
         why_title.style.display = "none";
         why.style.display = "none";
@@ -921,9 +919,8 @@ function valid_level_1() {
             why.style.display = "none"; 
             why_title.style.display = "none";
             otvet_true.style.display = 'none';
-            image.className = 'result-loss-level';// Правка класс листа для IE
-            // image.classList = [];
-            // image.classList.add('result-loss-level');
+            image.classList = [];
+            image.classList.add('result-loss-level');
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ levelQst_1.miss + "</strong> " + text +  " уровня \"Easy\".";
             otvet_false.style.display = "block"; 
@@ -936,9 +933,8 @@ function valid_level_1() {
 
             why.style.display = "none";
             why_title.style.display = "none";
-            image.className = 'result-pass-level1'; // Правка класс листа для IE                   
-            // image.classList = [];
-            // image.classList.add('result-pass-level1');
+            image.classList = [];
+            image.classList.add('result-pass-level1');
             image.style.display = "block";
             otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Easy\".";
             otvet_true.style.display = "block";
@@ -974,9 +970,8 @@ function valid_level_2() {
             why.style.display = "none"; 
             why_title.style.display = "none";
             otvet_true.style.display = "none"; 
-            image.className = 'result-loss-level1'; // Правка класс листа для IE   
-            // image.classList = [];
-            // image.classList.add('result-loss-level');
+            image.classList = [];
+            image.classList.add('result-loss-level');
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ levelQst_2.miss + "</strong> " + text +  " уровня \"Medium\".";
             otvet_false.style.display = "block"; 
@@ -986,9 +981,8 @@ function valid_level_2() {
         } else {
             why.style.display = "none";
             why_title.style.display = "none";
-            image.className = 'result-pass-level2'; // Правка класс листа для IE   
-            // image.classList = [];
-            // image.classList.add('result-pass-level2');
+            image.classList = [];
+            image.classList.add('result-pass-level2');
             image.style.display = "block";
             otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Medium\".";
             otvet_true.style.display = "block";
@@ -1026,9 +1020,8 @@ function valid_level_3() {
             why.style.display = "none";
             why_title.style.display = "none"; 
             otvet_true.style.display = 'none';
-            image.className = 'result-loss-level'; // Правка класс листа для IE   
-            // image.classList = [];
-            // image.classList.add('result-loss-level');
+            image.classList = [];
+            image.classList.add('result-loss-level');
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ levelQst_3.miss + "</strong> " + text + " уровня \"Hard\".";
             otvet_false.style.display = "block"; 
@@ -1039,9 +1032,8 @@ function valid_level_3() {
         } else {
             why.style.display = "none";
             why_title.style.display = "none";
-            image.className = 'result-pass-level3'; // Правка класс листа для IE   
-            // image.classList = [];
-            // image.classList.add('result-pass-level3');
+            image.classList = [];
+            image.classList.add('result-pass-level3');
             image.style.display = "block";
             otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Hard\".";
             otvet_true.style.display = "block";
@@ -1461,10 +1453,10 @@ function update_afterClientFoward() {
         present[0].style.display = "none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
-        
-        // stat();
-        window.location.href = 'index.php?page=survey'
+        stat();
         fox.speak_game_end();
+
+        window.location.href = 'index.php?page=survey'
     }
 
     var inputs = document.querySelectorAll(".right input");

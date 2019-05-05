@@ -19,7 +19,7 @@ var fox = {
         help: ["Выбери вариант ответов", "Нажми ответить", "Будь внимателен"],
         // game_start: "Желаю удачи в игре!",
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
-        game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
+        game_end: ["Mолодец!", "Крутяшно", "Я в тебя верил"],
         
     },
    
@@ -60,9 +60,9 @@ var fox = {
         setTimeout(function() {
             fox_img.className = 'fox-speak';
             if (privet == "start"){
-                    if (new_old[0].attributes.user.nodeValue == 'new') fox_words[0].innerHTML = hello_new;
-                    else if (new_old[0].attributes.user.nodeValue == 'old') fox_words[0].innerHTML = hello_old;
-                    else if (new_old[0].attributes.user.nodeValue == 'back') fox_words[0].innerHTML = hello_back;
+                if (new_old[0].attributes.user.nodeValue == 'new') fox_words[0].innerHTML = hello_new;
+                else if (new_old[0].attributes.user.nodeValue == 'old') fox_words[0].innerHTML = hello_old;
+                else if (new_old[0].attributes.user.nodeValue == 'back') fox_words[0].innerHTML = hello_back;
             } else if (privet == "survey") fox_words[0].innerHTML = start_game;
               else if (privet == "delay") fox_words[0].innerHTML = delay;
               else if (privet == "multi") fox_words[0].innerHTML = multi;
