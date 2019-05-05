@@ -44,7 +44,7 @@
                     </div>
                     <div class="centr-fox"> 
                         <div id = "fox" class="fox-sleep"></div>
-                        <div class="fox-words"></div>
+                        <div class="fox-words-down"></div>
                     </div>
                     <div class="user-menu">
                         <div class="icon-user-menu">
