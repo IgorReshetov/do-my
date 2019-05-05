@@ -1461,6 +1461,7 @@ function update_afterClientFoward() {
         present[0].style.display = "none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
+
         
         // stat();
         window.location.href = 'index.php?page=survey'

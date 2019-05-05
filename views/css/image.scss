@@ -1,13 +1,13 @@
 // МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
 @mixin url($url){
 
-   $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+   $url: '../images/icon/'+$url;
 //    $url: '/do-my/views/images/icon/'+$url;
    background: url($url) center center / cover no-repeat;   
 }
 
 @mixin urlcont($url){
-       $url: 'https://do-my.ru/test/views/images/icon/'+$url;
+       $url: '../images/icon/'+$url;
     //    $url: '/do-my/views/images/icon/'+$url;
        background: url($url) center center / contain no-repeat;   
     }
@@ -27,7 +27,39 @@
 // картирнки стартовой страницы
 
 
+.house {
+    @include url('house.svg');         
+}
+
 // ЭТО НАЩ БОТ ЛИСЕНОК СПИТ
+
+.fox-sleep {
+    background: url('../images/icon/fox_sleep.svg') center/70% no-repeat;
+}
+
+.fox-wakeUp {
+    background: url('../images/icon/fox_wakeUp.svg') center/100% no-repeat; 
+}
+
+.fox-wakeUp2 {
+    background: url('../images/icon/fox_wakeUp2.svg') center/100% no-repeat; 
+}
+
+.fox-sniff {
+    background: url('../images/icon/fox_sniff.svg') center/70% no-repeat; 
+}
+
+.fox-speak {
+    background: url('../images/icon/fox_speak.svg') center/60% no-repeat;
+}
+
+.fox-speak2 {
+    background: url('../images/icon/fox_speak2.svg') center/60% no-repeat;
+}
+
+.fox-speak3 {
+    background: url('../images/icon/fox_speak3.svg') center/60% no-repeat;
+}
 
 @keyframes fox_sleep {
     0% {opacity: 1;
@@ -39,11 +71,7 @@
     100% {opacity: 1;
     }
 }
-// КАРТИНКИ ЛИСА____________________
-// .fox {
-//     @include url('fox_sleep.svg');
-//     position: relative
-// }
+
 
 .fox-sleep::after, .fox-sniff::after {
     content: "";
@@ -56,10 +84,7 @@
     animation: fox_sleep 10s infinite;
 }
 
-// .fox-wakeUP {
-//     @include url('fox_wakeUp.svg');
-//     position: relative
-// }
+
 
 .fox-wakeUP1 {
     @include url('fox_wakeUp1.svg');
@@ -86,29 +111,6 @@
     animation: aim 5s 1;
 }
 
-.column2-image2 {
-    @include url('IgorR.jpg');
-}
-
-.column2-image3 {
-    @include url('Minakov.png');
-}
-
-.column2-image4 {
-    @include url('Stas_Sap.jpg');
-}
-
-.column2-image5 {
-    @include url('YraReshetov.png');
-}
-
-.column2-image6 {
-    @include url('Tany_Lyb.jpg');
-}
-
-.column2-image7 {
-    @include url('Vlad_Pal.jpg');
-}
 
 // картинки страницы опроса
 .result-tru-question {

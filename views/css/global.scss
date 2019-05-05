@@ -66,7 +66,7 @@ html {
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .menu-block-first a:hover {
@@ -148,7 +148,7 @@ font-weight: 700;
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .icon-user {
@@ -199,10 +199,8 @@ font-weight: 600;
     margin: 0px;
 }
 
-.fox-sleep {
-    background: url('../images/icon/fox_sleep.svg') center/70% no-repeat;
-}
 
+<<<<<<< HEAD
 .fox-wakeUp {
     background: url('../images/icon/fox_wakeUp.svg') center/100% no-repeat; 
 }
@@ -226,6 +224,28 @@ font-weight: 600;
 .fox-speak3 {
     background: url('../images/icon/fox_speak3.svg') center/60% no-repeat;
 }
+=======
+// .fox-sniff {
+//     justify-items: flex-start;
+//     position: relative;
+//     width: 50px;
+//     height: 40px;
+//     margin: 5px;
+//     background-origin: border-box;
+//     background-clip: border-box;
+//     background: url('../images/icon/fox_sniff.svg') center/70% no-repeat; 
+// }
+
+// .fox-js {
+//     justify-items: flex-start;
+
+//     width: 50px;
+//     height: 40px;
+//     margin: 5px;
+//     background-origin: border-box;
+//     background-clip: border-box;
+// }
+>>>>>>> 7b8eed0927f2820f322422f1d7ab95f5086881df
 
 .fox-words {
     opacity: 0;
@@ -428,7 +448,7 @@ font-weight: 600;
 
 
 // кнопка меню
-.icon-user-menu >div > div {
+.icon-user-menu > div > div {
     background-color: blue;
 }
 
@@ -475,14 +495,14 @@ font-weight: 600;
 
 .menu-btn-bot-open   {
     transform: rotate(-45deg);
-    top: 15px;
-    background-color: red;
+    top: 15px !important;
+    background-color: red !important;
 }
 
 .menu-btn-top-open {
     transform: rotate(45deg);
-    top: 15px;
-    background-color: red;
+    top: 15px !important;
+    background-color: red !important;
 }
 
 #menu-btn-box-main:hover div {

@@ -63,8 +63,8 @@
   height: 400px;
   opacity: 0.5;
   z-index: -2;
-  -webkit-transition: 2s all;
-  transition: 2s all;
+  -webkit-transition: 5s all;
+  transition: 5s all;
 }
 
 .start-block {
@@ -97,7 +97,6 @@
   z-index: -1;
   border-radius: 50%;
   border: 15px solid yellow;
-  background: url("../images/icon/house.svg") center center/cover no-repeat;
 }
 
 .house:hover {

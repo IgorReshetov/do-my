@@ -1,0 +1,37 @@
+// МИКСИН ЗАМЕНЫ URL иконок для хоста - заменить ссылку перед вставкой на хост
+@mixin url($url){
+
+    $url: '../images/icon/'+$url;
+ //    $url: '/do-my/views/images/icon/'+$url;
+    background: url($url) center center / cover no-repeat;   
+ }
+ 
+ @mixin urlcont($url){
+        $url: '../images/icon/'+$url;
+     //    $url: '/do-my/views/images/icon/'+$url;
+        background: url($url) center center / contain no-repeat;   
+     }
+
+    .column2-image2 {
+        @include url('IgorR.jpg');
+    }
+    
+    .column2-image3 {
+        @include url('Minakov.png');
+    }
+    
+    .column2-image4 {
+        @include url('Stas_Sap.jpg');
+    }
+    
+    .column2-image5 {
+        @include url('YraReshetov.png');
+    }
+    
+    .column2-image6 {
+        @include url('Tany_Lyb.jpg');
+    }
+    
+    .column2-image7 {
+        @include url('Vlad_Pal.jpg');
+    }  
