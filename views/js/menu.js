@@ -19,8 +19,8 @@ function menu() {
 
 function menu_moov(e) {
     
-    
-    if (e.path[0].classList[0] == "icon-user" && flag == 0){
+    console.log (e.target.getAttribute('class'));
+    if (e.target.getAttribute('class') == "icon-user" && flag == 0){
     
         document.getElementsByClassName('hiden-menu-user')[0].classList.add("hiden-menu-user-moov");
         document.getElementsByClassName('hiden-menu-user')[0].classList.remove("hiden-menu-user-back");
@@ -42,7 +42,7 @@ function menu_moov(e) {
     }
 
 
-    if (e.path[1].classList[0] != "hiden-menu-user" && flag == 1){
+    if (e.target.getAttribute('class') != "hiden-menu-user-getpromo" && flag == 1){
     
         document.getElementsByClassName('hiden-menu-user')[0].classList.remove("hiden-menu-user-moov");
         document.getElementsByClassName('hiden-menu-user')[0].classList.add("hiden-menu-user-back");
@@ -51,10 +51,9 @@ function menu_moov(e) {
         return;
     }
 
-    if (typeof e.path[2].classList == "undefined") {var element =""}
-    else {var element = e.path[2].classList[0]}
+    
 
-    if (!(e.path[1].classList[0] == "hiden-menu-user-promo"||element == "hiden-menu-user-promo") && flag == 11){
+    if (e.target.getAttribute('class') != "hiden-menu-user-promo-block" && flag == 11){
     
         document.getElementsByClassName('hiden-menu-user-promo')[0].classList.remove("hiden-menu-user-promo-moov");
         document.getElementsByClassName('hiden-menu-user-promo')[0].classList.add("hiden-menu-user-promo-back");
@@ -76,8 +75,8 @@ function show_get_menu () {
     
     // проверка правильности мэйла
     if (result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2 && result2 > 0) {
-        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block-text');
-        text_result[0].innerHTML = '';
+        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+        text_result[2].innerHTML = '';
         mail_button.style.display = 'block';
     }
     else {mail_button.style.display = 'none';}
@@ -117,17 +116,17 @@ function send_mail_menu() {
     if (messages == 1) {
         var mail_button = document.getElementById("promo-button-get");
         mail_button.style.display = 'none';
-        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block-text');
-        text_result[0].innerHTML = 'Информация с промокодом по '+messages+' квизу направлена вам на email'
+        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+        text_result[2].innerHTML = 'Информация с промокодом по '+messages+' квизу направлена вам на email'
     }
     else if (messages > 1){
         var mail_button = document.getElementById("promo-button-get");
         mail_button.style.display = 'none';
-        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block-text');
-        text_result[0].innerHTML = 'Информация с промокодами по '+messages+' квизам направлена вам на email'
+        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+        text_result[2].innerHTML = 'Информация с промокодами по '+messages+' квизам направлена вам на email'
     }else{
-        var text_not_result = document.getElementsByClassName('hiden-menu-user-promo-header');
-        text_not_result[0].innerHTML = 'По указанному email нет пройденных квизов. Уточните ваш email.';
+        var text_not_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+        text_not_result[0].innerHTML = 'По указанному email нет пройденных квизов.<br>Уточните ваш email.';
     }
     }
 }
