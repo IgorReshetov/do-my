@@ -856,7 +856,7 @@ function update_afterClientAnswer(otvet) {
     result.style.display = "flex";
     dark.style.display = "block";
     if (otvet.answer_is_true == 1) {
-        image.className = 'result-tru-question'; // Правка класс листа для IE
+        image.className = 'result-tru-question';  // Правка класс листа для IE
         // image.classList = [];
         // image.classList.add('result-tru-question');
         image.style.display = "block";
