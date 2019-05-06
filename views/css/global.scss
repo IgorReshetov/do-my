@@ -200,10 +200,6 @@ font-weight: 600;
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ba4f202bb33aa83b42f6a2b39b1b6e378d0fe692
 .fox-wakeUp {
     background: url('../images/icon/fox_wakeUp.svg') center/100% no-repeat; 
 }
@@ -227,18 +223,14 @@ font-weight: 600;
 .fox-speak3 {
     background: url('../images/icon/fox_speak3.svg') center/60% no-repeat;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ba4f202bb33aa83b42f6a2b39b1b6e378d0fe692
 
 .fox-words {
     opacity: 0;
     position: relative;
     justify-items: flex-end;
     border: rgb(204, 204, 204) 2px solid;
-    width: 120px;
-    height: 40px;
+    max-width: 120px;
+    // height: 40px;
     margin: 5px;
     border-radius: 5px;
     // background: white;
@@ -265,7 +257,7 @@ font-weight: 600;
     justify-items: flex-end;
     border: rgba(223, 221, 221, 0.8) 2px solid;
     max-width: 200px;
-    // height: 40px;
+    // max-height: 40px;
     margin: 5px;
     border-radius: 5px;
     background: rgba(255,255,255,0.8);
@@ -275,6 +267,7 @@ font-weight: 600;
 }
 
 .fox-words-text {
+    min-width: 100px;
     color: black;
     text-align: center;
     text-shadow: 0 0 1px  rgb(178, 199, 255);

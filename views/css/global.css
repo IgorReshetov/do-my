@@ -240,8 +240,7 @@ a.menu-proect:hover {
   position: relative;
   justify-items: flex-end;
   border: #cccccc 2px solid;
-  width: 120px;
-  height: 40px;
+  max-width: 120px;
   margin: 5px;
   border-radius: 5px;
 }
@@ -278,6 +277,7 @@ a.menu-proect:hover {
 }
 
 .fox-words-text {
+  min-width: 100px;
   color: black;
   text-align: center;
   text-shadow: 0 0 1px #b2c7ff;
