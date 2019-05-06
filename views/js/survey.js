@@ -1220,12 +1220,6 @@ function update_afterClientFoward() {
             why_title.style.display = "none";
             why.innerHTML = '';
             
-            // // json_Q_A_next();
-            // var circles = document.querySelectorAll(".step-survey");
-            // circles[countQst-1].style.background = 'red';
-            
-            // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
-
             if (anime_off) { anime_off=false;
                 if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, 0);
                     ints.push(handle_hit_5);}
@@ -1243,7 +1237,8 @@ function update_afterClientFoward() {
                     anime_off = true;
             }
 
-     
+            window.location.href = 'index.php?page=survey';
+
             zapros_Cookies();           // Делаем синхронный запрос
     
             Object.cookie_level();
@@ -1464,8 +1459,8 @@ function update_afterClientFoward() {
 
         
         // stat();
-        window.location.href = 'index.php?page=survey'
-        fox.speak_game_end();
+        // window.location.href = 'index.php?page=survey'
+        // fox.speak_game_end();
     }
 
     var inputs = document.querySelectorAll(".right input");

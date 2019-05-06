@@ -2,6 +2,11 @@ window.onload = init;
 var flag = 0;//переменная меню
 
 function init() {
+   
+    fox.no_active_user();
+    fox.enter_leave_mouse();
+    fox.wakeUp_mouse();
+
     menu();
     // обработчики нажатия на вопрос о проекте
     var left_qw = document.getElementById('first').children[1].getAttribute('left');

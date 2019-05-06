@@ -30,6 +30,7 @@ var fox = {
         var fox_img = document.getElementById("fox");
         var fox_img_js = document.getElementsByClassName("fox-js");
         var fox_words = fox_img.nextElementSibling;
+        var fox_words_text = fox_img.nextElementSibling.firstElementChild;
         var sleep = this.status_IMG.sleep;
         var wakeUp = this.status_IMG.wakeUp;
         var speak = this.status_IMG.speak;
@@ -60,16 +61,16 @@ var fox = {
         setTimeout(function() {
             fox_img.className = 'fox-speak';
             if (privet == "start"){
-                    if (new_old[0].attributes.user.nodeValue == 'new') fox_words.innerHTML = hello_new;
-                    else if (new_old[0].attributes.user.nodeValue == 'old') fox_words.innerHTML = hello_old;
-                    else if (new_old[0].attributes.user.nodeValue == 'back') fox_words.innerHTML = hello_back;
-            } else if (privet == "survey") fox_words.innerHTML = start_game;
-              else if (privet == "delay") fox_words.innerHTML = delay;
-              else if (privet == "multi") fox_words.innerHTML = multi;
-              else if (privet == "toFast") fox_words.innerHTML = toFast;
-              else if (privet == 'Qst') fox_words.innerHTML = Qst;
-              else if (privet == 'game_end') fox_words.innerHTML = game_end; 
-            fox_words.style.opacity = 1;
+                    if (new_old[0].attributes.user.nodeValue == 'new') fox_words_text.innerHTML = hello_new;
+                    else if (new_old[0].attributes.user.nodeValue == 'old') fox_words_text.innerHTML = hello_old;
+                    else if (new_old[0].attributes.user.nodeValue == 'back') fox_words_text.innerHTML = hello_back;
+            } else if (privet == "survey") fox_words_text.innerHTML = start_game;
+              else if (privet == "delay") fox_words_text.innerHTML = delay;
+              else if (privet == "multi") fox_words_text.innerHTML = multi;
+              else if (privet == "toFast") fox_words_text.innerHTML = toFast;
+              else if (privet == 'Qst') fox_words_text.innerHTML = Qst;
+              else if (privet == 'game_end') fox_words_text.innerHTML = game_end; 
+            fox_words.style.display = "block";
             
             var handler_speak = setInterval(function() {
                 if(fox_img.classList.contains('fox-speak')) {
@@ -88,8 +89,8 @@ var fox = {
             setTimeout(function(){clearInterval(handler_speak)},3000);
 
             setTimeout(function(){
-                fox_words.innerHTML = "";
-                fox_words.style.opacity = 0;
+                fox_words_text.innerHTML = "";
+                fox_words.style.display = 'none';
                 fox.last_time = new Date().getTime();
             },3000);
 
@@ -174,6 +175,7 @@ var fox = {
         var fox_img_wakeUp = document.getElementsByClassName("fox-sleep");
         var fox_img_js = document.getElementsByClassName("fox-js");
         var fox_words = fox_img.nextElementSibling;
+        var fox_words_text = fox_img.nextElementSibling.firstElementChild;
         var sleep = this.status_IMG.sleep;
         var wakeUp = this.status_IMG.wakeUp;
         var speak = this.status_IMG.speak;
@@ -196,8 +198,8 @@ var fox = {
         
                 setTimeout(function() {
                    fox_img.className = 'fox-speak';
-                    fox_words.innerHTML = hello_back; 
-                    fox_words.style.opacity = 1;
+                    fox_words_text.innerHTML = hello_back; 
+                    fox_words.style.display = "block";
                     
                     var handler_speak = setInterval(function() {
                         if(fox_img.classList.contains('fox-speak')) {
@@ -216,14 +218,14 @@ var fox = {
                     setTimeout(function(){clearInterval(handler_speak)},3000);
         
                     setTimeout(function(){
-                        fox_words.innerHTML = "";
-                        fox_words.style.opacity = 0;
+                        fox_words_text.innerHTML = "";
+                        fox_words.style.display = 'none';
                         fox.last_time = new Date().getTime();
                     },3000);
         
                 }, 3000, speak, new_old, hello_new, hello_old, last_time);
                
-                this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
+                fox.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
                     
                     setTimeout(function(){
                         fox_img.className='fox-sleep';

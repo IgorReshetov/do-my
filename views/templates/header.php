@@ -44,7 +44,9 @@
                     </div>
                     <div class="centr-fox"> 
                         <div id = "fox" class="fox-sleep"></div>
-                        <div class="fox-words-down"></div>
+                        <div class="fox-words-down">
+                            <p class="fox-words-text"></p>
+                        </div>
                     </div>
                     <div class="user-menu">
                         <div class="icon-user-menu">
@@ -83,7 +85,7 @@
             <div class="hiden-menu-user-promo" id = "menu12">
                 <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
                 
-                <input class="hiden-menu-user-promo-block" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
+                <input class="hiden-menu-user-promo-block" onfocus="fox.speak_multi();" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
                 
                 <div class="hiden-menu-user-promo-bl">
                     <div class="hiden-menu-user-promo-block"></div>
