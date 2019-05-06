@@ -12,8 +12,9 @@ define('SESSION_LIFE', 2592000);
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
-define('ACTION', 2);
+define('ACTION', 1);
 
 // Для пульса
 define('API_USER_ID', '0a74d6f622f74cbe5a134a3ea5fa0b56');
 define('API_SECRET', '63d86eba1836e2eec7032aaa6792e69e');
+define('BOOK_ID', 1838762);
