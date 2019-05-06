@@ -58,7 +58,13 @@
                 </div>
             </div>
             <div class="hiden-menu" id = "menu1"> </div>
+               
             <div class="hiden-menu-user">
+                <?php
+                if ($page != "start" && $page != "first"){
+                    echo ('<a href="index.php?page=start" class="hiden-menu-user-getpromo">На главную страницу</a>');
+                }
+                ?>
                 <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным квизам</div>
                 <div class="hiden-menu-user-getpromo" id = "inwork">Проверить промокод</div>
 
@@ -72,7 +78,7 @@
                 }
 
                 if ($page != "privacy") {
-                    echo ('<a href="index.php?page=privacy" class="hiden-menu-user-getpromo">Политика конфиденциальности</a>');
+                    echo ('<a href="index.php?page=privacy" class="hiden-menu-user-getpromo">Политика конфиденциальности и информационная политика</a>');
                 }
 
                 ?>

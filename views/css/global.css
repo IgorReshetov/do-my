@@ -211,6 +211,30 @@ a.menu-proect:hover {
   margin: 0px;
 }
 
+.fox-wakeUp {
+  background: url("../images/icon/fox_wakeUp.svg") center/100% no-repeat;
+}
+
+.fox-wakeUp2 {
+  background: url("../images/icon/fox_wakeUp2.svg") center/100% no-repeat;
+}
+
+.fox-sniff {
+  background: url("../images/icon/fox_sniff.svg") center/70% no-repeat;
+}
+
+.fox-speak {
+  background: url("../images/icon/fox_speak.svg") center/60% no-repeat;
+}
+
+.fox-speak2 {
+  background: url("../images/icon/fox_speak2.svg") center/60% no-repeat;
+}
+
+.fox-speak3 {
+  background: url("../images/icon/fox_speak3.svg") center/60% no-repeat;
+}
+
 .fox-words {
   opacity: 0;
   position: relative;

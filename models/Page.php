@@ -18,6 +18,10 @@ class Page
         // if ($_SESSION['bot'] == 1 && DEV_MODE != true) {$page = "check_bot";}
         // if ($_SESSION['bot'] == 2 && DEV_MODE != true) {$page = "die_bot";}
 
+        if ($_SESSION['active_question'] > 0 && $page == 'first'){
+            $page = 'survey';
+        }
+
         switch ($page) {
             case "project":
             require_once 'controllers/proect.php';
@@ -58,7 +62,9 @@ class Page
             case "thanks":
             require_once 'controllers/thanks.php';
             break;
-
+            case "start":
+            require_once 'controllers/start.php';
+            break;
             default:
             // require_once 'models/Answer.php';
             require_once 'controllers/start.php';
