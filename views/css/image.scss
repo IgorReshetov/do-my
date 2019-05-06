@@ -21,6 +21,7 @@
 
 .icon-menu:hover {
     @include url('aim.svg');
+    transition: 0.01s;
 }
 
 

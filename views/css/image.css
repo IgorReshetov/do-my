@@ -6,6 +6,8 @@
 
 .icon-menu:hover {
   background: url("../images/icon/aim.svg") center center/cover no-repeat;
+  -webkit-transition: 0.01s;
+  transition: 0.01s;
 }
 
 .house {

@@ -10,7 +10,7 @@ require_once 'models/Page.php'; // ПОДКЛЮЧЕНИЕ ГЛАВНОГО КО�
 require_once 'models/Session.php'; // ПОДКЛЮЧЕНИЕ КОНТРОЛЕРА СЕССИИ
 
 // Переход на страницу через Get параметр
-$page = (isset($_GET['page']) && $_GET['page'] !== "")?$_GET['page']:'start';
+$page = (isset($_GET['page']) && $_GET['page'] !== "")?$_GET['page']:'first';
 
 New Session;
 
