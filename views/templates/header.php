@@ -98,6 +98,30 @@
                     <div class="hiden-menu-user-promo-block" id = "promo-button-get">ПОЛУЧИТЬ</div>
                 </div>
             </div>
+                            <!-- // Загрузка картинок в кэш браузера -->
+            <div class="repo-images">
+                <img src="/do-my/views/images/icon/elephant.png" alt="">
+                <img src="/do-my/views/images/icon/false_question.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_sleep.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_sniff.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_speak.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_speak2.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_speak3.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_wakeUp.svg" alt="">
+                <img src="/do-my/views/images/icon/fox_wakeUp2.svg" alt="">
+                <img src="/do-my/views/images/icon/loss_level.svg" alt="">
+                <img src="/do-my/views/images/icon/pass_level_1.svg" alt="">
+                <img src="/do-my/views/images/icon/pass_level_2.svg" alt="">
+                <img src="/do-my/views/images/icon/pass_level_3.svg" alt="">
+                <img src="/do-my/views/images/icon/present.svg" alt="">
+                <img src="/do-my/views/images/icon/present_red.svg" alt="">
+                <img src="/do-my/views/images/icon/thanks.svg" alt="">
+                <img src="/do-my/views/images/icon/true_question.svg" alt="">
+                <img src="/do-my/views/images/icon/true.svg" alt="">
+                <img src="/do-my/views/images/icon/victory_level.svg" alt="">
+                <img src="/do-my/views/images/icon/victory.svg" alt="">
+                <img src="/do-my/views/images/icon/logo.svg" alt="">
+            </div>
              
     </header>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
