@@ -1383,8 +1383,8 @@ function update_afterClientFoward() {
         prev[0].style.display = "none";
         var present = document.getElementsByClassName('present');
         present[0].style.display = "none";
-        var gift = document.getElementsByClassName('gift');
-        gift[0].style.display = "flex";
+        // var gift = document.getElementsByClassName('gift');
+        // gift[0].style.display = "flex";
 
         
         // stat();
