@@ -140,6 +140,9 @@ font-weight: 700;
     // margin: 5px;
     // margin-left: 30px;
     transition: 0.1s;
+}
+
+a.icon-menu {
     cursor: pointer;
 }
 
@@ -199,30 +202,6 @@ font-weight: 600;
     margin: 0px;
 }
 
-
-.fox-wakeUp {
-    background: url('../images/icon/fox_wakeUp.svg') center/100% no-repeat; 
-}
-
-.fox-wakeUp2 {
-    background: url('../images/icon/fox_wakeUp2.svg') center/100% no-repeat; 
-}
-
-.fox-sniff {
-    background: url('../images/icon/fox_sniff.svg') center/70% no-repeat; 
-}
-
-.fox-speak {
-    background: url('../images/icon/fox_speak.svg') center/60% no-repeat;
-}
-
-.fox-speak2 {
-    background: url('../images/icon/fox_speak2.svg') center/60% no-repeat;
-}
-
-.fox-speak3 {
-    background: url('../images/icon/fox_speak3.svg') center/60% no-repeat;
-}
 
 .fox-words {
     opacity: 0;
@@ -288,19 +267,35 @@ font-weight: 600;
 
 
 // стили меню пользователя
-.hiden-menu-user {
-    display: flex;
+
+.menu-wraper{
     position: fixed;
     width: 300px;
-    top: 54px;
+    top: 54;
     right: -303px;
-    opacity: 0.9;
+    z-index: 99;
+    transition: 1s all;
+}
+
+.menu-wraper-promo{
+    position: fixed;
+    width: 300px;
+    top: 54;
+    right: -303px;
+    z-index: 98;
+    transition: 1s all;
+}
+
+.hiden-menu-user {
+    position: absolute;
+    display: flex;
+    width: 300px;
+    opacity: 0.95;
     background-color: white;
     flex-direction: column;
     border-top: blue  2px solid;
     box-shadow: 0 0 2px rgb(187, 187, 187);
-    z-index: 99;
-    transition: 1s all;
+    
 }
 
 .hiden-menu-user > div, .hiden-menu-user > a {
@@ -327,21 +322,17 @@ font-weight: 600;
 //подменю получения промокода
 
 .hiden-menu-user-promo {
-    // height: 200px;
+    position: absolute;
     align-items: center;
-    z-index: 98;
     display: flex;
-    position: fixed;
     width: 300px;
-    top: 54px;
-    right: -303px;
     opacity: 0.95;
     background-color: white;
     flex-direction: column;
+    justify-content: space-around;
     border-top: blue  2px solid;
     box-shadow: 0 0 5px rgb(187, 187, 187);
     z-index: 99;
-    transition: 1s all;
 }
 
 #hiden-menu-user-promo-header {
@@ -357,6 +348,14 @@ font-weight: 600;
     text-align: center;
     margin: 10px;
     cursor: text;
+}
+
+.hiden-menu-input-wraper {
+    width: 265px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hiden-menu-user-promo-block {
@@ -403,21 +402,21 @@ font-weight: 600;
 
 }
 
-.hiden-menu-user-moov {
+.menu-wraper-moov {
     animation: 1s moov;
     right: 0px;
 }
 
-.hiden-menu-user-back {
+.menu-wraper-back {
     animation: 1s moovback;
 }
 
-.hiden-menu-user-promo-moov {
+.menu-wraper-promo-moov {
     animation: 1s moov;
     right: 0px;
 }
 
-.hiden-menu-user-promo-back {
+.menu-wraper-promo-back {
     animation: 1s moovback;
 }
 
@@ -454,7 +453,7 @@ font-weight: 600;
     position: absolute;
     top: 15px;
     right: 0px;
-    transition: 1s all;
+    transition: 0.5s all;
     cursor: pointer; 
 }
 
@@ -463,7 +462,7 @@ font-weight: 600;
     height: 3px;
     position: absolute;
     top: 3px;
-    transition: 1s all;
+    transition: 0.5s all;
     cursor: pointer; 
 }
 #menu-btn-bot {
@@ -471,7 +470,7 @@ font-weight: 600;
     height: 3px;
     position: absolute;
     top: 28px;
-    transition: 1s all;
+    transition: 0.5s all;
     cursor: pointer; 
 }
 
@@ -500,7 +499,11 @@ font-weight: 600;
 @media (max-width: 570px) {
     
     .hiden-menu-user, .hiden-menu-user-promo{
-    top: 30%;
+        transform: translateY(-50%);
+    }
+
+    .menu-wraper, .menu-wraper-promo{
+        top: 50%;
     }
 
     .wrapper {

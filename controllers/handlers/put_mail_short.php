@@ -12,14 +12,13 @@ $promo = User::getPromocod ($data['mail']);
 if (count($promo) == 0) {echo json_encode(count($promo));}
 else {
 if (count($promo) == 1) {$message_promo = "Направляем Ваш промокод по пройденному  квизу:\n\n";
-$subject = "Промокод по квизу";}
+$subject = "Информация по квизу";}
 else{$message_promo = "Направляем Ваши промокоды по пройденным  квизам:\n\n";
-$subject = "Промокоды по квизам";
+$subject = "Информация по квизам";
 }
 
 $mailTo = $data['mail']; // кому
-$from = "do-my.ru@mail.ru"; // от кого
-$subject = "Промокоды по квизам"; // тема письма
+$from = "fox@do-my.ru"; // от кого
 
 // текст письма
 

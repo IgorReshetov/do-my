@@ -138,6 +138,9 @@ a.menu-proect:hover {
   padding: 20px;
   -webkit-transition: 0.1s;
   transition: 0.1s;
+}
+
+a.icon-menu {
   cursor: pointer;
 }
 
@@ -211,30 +214,6 @@ a.menu-proect:hover {
   margin: 0px;
 }
 
-.fox-wakeUp {
-  background: url("../images/icon/fox_wakeUp.svg") center/100% no-repeat;
-}
-
-.fox-wakeUp2 {
-  background: url("../images/icon/fox_wakeUp2.svg") center/100% no-repeat;
-}
-
-.fox-sniff {
-  background: url("../images/icon/fox_sniff.svg") center/70% no-repeat;
-}
-
-.fox-speak {
-  background: url("../images/icon/fox_speak.svg") center/60% no-repeat;
-}
-
-.fox-speak2 {
-  background: url("../images/icon/fox_speak2.svg") center/60% no-repeat;
-}
-
-.fox-speak3 {
-  background: url("../images/icon/fox_speak3.svg") center/60% no-repeat;
-}
-
 .fox-words {
   opacity: 0;
   position: relative;
@@ -297,15 +276,33 @@ a.menu-proect:hover {
           transform: rotate(45deg) translate(-50%);
 }
 
+.menu-wraper {
+  position: fixed;
+  width: 300px;
+  top: 54;
+  right: -303px;
+  z-index: 99;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
+.menu-wraper-promo {
+  position: fixed;
+  width: 300px;
+  top: 54;
+  right: -303px;
+  z-index: 98;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
 .hiden-menu-user {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
   width: 300px;
-  top: 54px;
-  right: -303px;
-  opacity: 0.9;
+  opacity: 0.95;
   background-color: white;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -314,9 +311,6 @@ a.menu-proect:hover {
   border-top: blue  2px solid;
   -webkit-box-shadow: 0 0 2px #bbbbbb;
           box-shadow: 0 0 2px #bbbbbb;
-  z-index: 99;
-  -webkit-transition: 1s all;
-  transition: 1s all;
 }
 
 .hiden-menu-user > div, .hiden-menu-user > a {
@@ -340,29 +334,26 @@ a.menu-proect:hover {
 }
 
 .hiden-menu-user-promo {
+  position: absolute;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 98;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
   width: 300px;
-  top: 54px;
-  right: -303px;
   opacity: 0.95;
   background-color: white;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   border-top: blue  2px solid;
   -webkit-box-shadow: 0 0 5px #bbbbbb;
           box-shadow: 0 0 5px #bbbbbb;
   z-index: 99;
-  -webkit-transition: 1s all;
-  transition: 1s all;
 }
 
 #hiden-menu-user-promo-header {
@@ -379,6 +370,20 @@ a.menu-proect:hover {
   text-align: center;
   margin: 10px;
   cursor: text;
+}
+
+.hiden-menu-input-wraper {
+  width: 265px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .hiden-menu-user-promo-block {
@@ -434,24 +439,24 @@ a.menu-proect:hover {
   border-width: 2px;
 }
 
-.hiden-menu-user-moov {
+.menu-wraper-moov {
   -webkit-animation: 1s moov;
           animation: 1s moov;
   right: 0px;
 }
 
-.hiden-menu-user-back {
+.menu-wraper-back {
   -webkit-animation: 1s moovback;
           animation: 1s moovback;
 }
 
-.hiden-menu-user-promo-moov {
+.menu-wraper-promo-moov {
   -webkit-animation: 1s moov;
           animation: 1s moov;
   right: 0px;
 }
 
-.hiden-menu-user-promo-back {
+.menu-wraper-promo-back {
   -webkit-animation: 1s moovback;
           animation: 1s moovback;
 }
@@ -513,8 +518,8 @@ a.menu-proect:hover {
   position: absolute;
   top: 15px;
   right: 0px;
-  -webkit-transition: 1s all;
-  transition: 1s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   cursor: pointer;
 }
 
@@ -523,8 +528,8 @@ a.menu-proect:hover {
   height: 3px;
   position: absolute;
   top: 3px;
-  -webkit-transition: 1s all;
-  transition: 1s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   cursor: pointer;
 }
 
@@ -533,8 +538,8 @@ a.menu-proect:hover {
   height: 3px;
   position: absolute;
   top: 28px;
-  -webkit-transition: 1s all;
-  transition: 1s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   cursor: pointer;
 }
 
@@ -562,7 +567,11 @@ a.menu-proect:hover {
 
 @media (max-width: 570px) {
   .hiden-menu-user, .hiden-menu-user-promo {
-    top: 30%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .menu-wraper, .menu-wraper-promo {
+    top: 50%;
   }
   .wrapper {
     margin: 0 auto;

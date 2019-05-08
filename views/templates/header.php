@@ -14,28 +14,33 @@
             <div class="menu-block">
               <div class="wrapper-menu">
                     <div class="menu-block-first">
-                        <a href="index.php?back=1" class="icon-menu"></a>
+                        
                         <?php
                             switch ($page) {
-                                case 'project':
+                                case 'start':
                                 echo ('
-                                <a href="index.php?back=1" class="menu-start">
-                                <div class="menu-start-block1">Думай</div>
-                                </a>
-                                ');
-                                break;
-                                case 'privacy':
-                                echo ('
-                                <a href="index.php?back=1" class="menu-start">
-                                <div class="menu-start-block1">Думай</div>
-                                </a>
-                                ');
-                                break;
-                                default:
-                                echo ('
+                                <div class="icon-menu"></div>
                                 <div class="menu-start">
                                 <div class="menu-start-block1">Думай</div>
                                 </div>
+                                ');
+                                break;
+
+                                case 'first':
+                                echo ('
+                                <div class="icon-menu"></div>
+                                <div class="menu-start">
+                                <div class="menu-start-block1">Думай</div>
+                                </div>
+                                ');
+                                break;
+
+                                default:
+                                echo ('
+                                <a href="index.php?page=start&back=1" class="icon-menu"></a>
+                                <a href="index.php?page=start&back=1" class="menu-start">
+                                <div class="menu-start-block1">Думай</div>
+                                </a>
                                 ');
                                 break;      
                             }
@@ -60,11 +65,12 @@
                 </div>
             </div>
             <div class="hiden-menu" id = "menu1"> </div>
-               
+            
+            <div class="menu-wraper">
             <div class="hiden-menu-user">
-                <?php
+               <?php
                 if ($page != "start" && $page != "first"){
-                    echo ('<a href="index.php?page=start" class="hiden-menu-user-getpromo">На главную страницу</a>');
+                    echo ('<a href="index.php?page=start&back=1" class="hiden-menu-user-getpromo">На главную страницу</a>');
                 }
                 ?>
                 <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным квизам</div>
@@ -86,17 +92,21 @@
                 ?>
 
                           
-
+            </div>  
             </div>
+            <div class="menu-wraper-promo">
             <div class="hiden-menu-user-promo" id = "menu12">
                 <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
                 
+                <div class="hiden-menu-input-wraper">
                 <input class="hiden-menu-user-promo-block" onfocus="fox.speak_multi();" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
-                
+                </div>
+
                 <div class="hiden-menu-user-promo-bl">
                     <div class="hiden-menu-user-promo-block"></div>
                     <div class="hiden-menu-user-promo-block" id = "promo-button-get">ПОЛУЧИТЬ</div>
                 </div>
+            </div>
             </div>
              
     </header>
