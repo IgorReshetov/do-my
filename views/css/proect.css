@@ -39,6 +39,10 @@
           box-shadow: 0 0 20px #ffc0c0;
 }
 
+.column-proect-light-red div {
+  cursor: pointer;
+}
+
 .column-proect-light-blue {
   -webkit-box-shadow: 0 0 20px #727bff;
           box-shadow: 0 0 20px #727bff;
@@ -99,6 +103,10 @@
 
 .display-none {
   display: none;
+}
+
+#proect-end {
+  margin-bottom: 40px;
 }
 
 @media (max-width: 570px) {

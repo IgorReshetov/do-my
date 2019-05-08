@@ -73,7 +73,7 @@ function opros() {
     // определяем на каком вопросе о команде остановился пользователь
     var start_elem = document.getElementById('first');
     start_elem = start_elem.children[2];
-    for(var i = 1; i < 7; i++) {
+    for(var i = 1; i < 5; i++) {
         var check = parseInt(start_elem.getAttribute('left'));
         if (check > 0) {
             var slogan = parseInt(start_elem.children[0].children[check-1].getAttribute('row'));
@@ -120,16 +120,16 @@ function question(point) {
     if (pos > 1) {start_elem.children[2].children[pos-2].classList.add('display-none')};
     start_elem.children[2].children[pos-1].classList.add('display-block');
     if (row == 1) {pos=pos+1};
-    if (row == 1 && pos == 4) {
+    if (row == 1 && pos == 3) {
         show();
         window.setTimeout(function(){
         window.scrollTo(0,0);
-        }, 12000);
+        }, 8000);
         window.setTimeout(function(){
         document.getElementById('first').children[1].children[1].classList.remove('column2-image1');
         document.getElementById('first').children[1].children[1].classList.add('column2-image1-aim');
         document.getElementById('first').children[0].innerHTML = 'Полезные квизы';
-        }, 13000);
+        }, 9000);
         return false;}
     blue(start_elem.children[2]);
     window.setTimeout(function(){
@@ -144,20 +144,20 @@ function question(point) {
 // функция финального показa
 function show(){
     var start_elem = document.getElementById('first');
-    start_elem.children[2].children[0].children[3].classList.add('display-block');
+    start_elem.children[2].children[0].children[2].classList.add('display-block');
     yellow (start_elem.children[2].children[0]);
-    start_elem.children[2].children[2].children[2].classList.add('display-none');
+    start_elem.children[2].children[2].children[1].classList.add('display-none');
     start_elem.children[2].children[1].children[0].classList.add('display-none');
-    start_elem.children[2].children[2].children[3].classList.add('display-block');
+    start_elem.children[2].children[2].children[2].classList.add('display-block');
     yellow (start_elem.children[2].children[2]);
 
     window.setTimeout(function(){
     start_elem.children[3].previousElementSibling.scrollIntoView(true);
-    start_elem.children[3].children[0].children[3].classList.add('display-block');
+    start_elem.children[3].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[0]);
     start_elem.children[3].children[1].children[0].classList.add('display-none');
-    start_elem.children[3].children[2].children[2].classList.add('display-none');
-    start_elem.children[3].children[2].children[3].classList.add('display-block');
+    start_elem.children[3].children[2].children[1].classList.add('display-none');
+    start_elem.children[3].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[2]);
     }, 2000);
 
@@ -180,27 +180,7 @@ function show(){
     start_elem.children[5].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[2]);
     }, 6000);
-
-    window.setTimeout(function(){
-    start_elem.children[6].previousElementSibling.scrollIntoView(true);
-    start_elem.children[6].children[0].children[2].classList.add('display-block');
-    yellow(start_elem.children[6].children[0]);
-    start_elem.children[6].children[1].children[0].classList.add('display-none');
-    start_elem.children[6].children[2].children[1].classList.add('display-none');
-    start_elem.children[6].children[2].children[2].classList.add('display-block');
-    yellow(start_elem.children[6].children[2]);
-    }, 8000);
-
-    window.setTimeout(function(){
-    start_elem.children[7].previousElementSibling.scrollIntoView(true);
-    start_elem.children[7].children[0].children[2].classList.add('display-block');
-    yellow(start_elem.children[7].children[0]);
-    start_elem.children[7].children[1].children[0].classList.add('display-none');
-    start_elem.children[7].children[2].children[1].classList.add('display-none');
-    start_elem.children[7].children[2].children[2].classList.add('display-block');
-    yellow(start_elem.children[7].children[2]);
-    }, 10000);
-    
+   
     return;
 }
 

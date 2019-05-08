@@ -26,6 +26,10 @@
     box-shadow: 0 0 20px rgb(255, 192, 192);
 }
 
+.column-proect-light-red div{
+    cursor: pointer;
+}
+
 .column-proect-light-blue{
     box-shadow: 0 0 20px rgb(114, 123, 255);
 }
@@ -81,6 +85,10 @@
 
 .display-none {
     display: none;
+}
+
+#proect-end {
+    margin-bottom: 40px;
 }
 
 @media (max-width: 570px) {
