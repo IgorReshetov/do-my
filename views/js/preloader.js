@@ -1,3 +1,9 @@
+function preloader_start() {
+    var preloader = document.getElementById('id-preloader');
+    preloader.className = "preloader";
+    preloader.style.display = 'block';
+   }
+
 function preloader() {
     var preloader = document.getElementById('id-preloader');
     preloader.classList.add('load_end');
@@ -7,7 +13,7 @@ function preloader() {
 function preloader_AJAX(xhr) {
     xhr.upload.onloadstart = function() {
         var preloader = document.getElementById('id-preloader');
-        preloader.classList.remove('load_end');
+        preloader.className = "preloader";
         preloader.style.display = 'block';
     }    
     xhr.upload.onloadend = function() {

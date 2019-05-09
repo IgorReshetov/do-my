@@ -54,6 +54,8 @@ Object.prototype.cookie_level = function() {
         };
         break;
     }
+    preloader();
+
 }
 
 // Создаем метод по проверке правильных ответов для перехода на след.уровень при 80% правильных ответов
@@ -343,8 +345,7 @@ function check_size() {
 function zapros_Cookies(){      //  Синхронный запрос
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
-
+    
     xhr.open('POST', 'index.php?page=get_answer', false);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send();
@@ -370,7 +371,7 @@ function zapros_Cookies(){      //  Синхронный запрос
     //     //     countQst += parseInt(cookies.questions_count[i].questions_count);
     //     // }
     // }
-
+    preloader();
     return cookies;
 }
 
@@ -546,7 +547,7 @@ function json_Q_A_next() {
 
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
+    preloader_start();
 
     xhr.open('POST', 'index.php?page=get_question', false);
     xhr.setRequestHeader("Content-type", "application/json");
@@ -573,7 +574,6 @@ function startOpros() {
     if (Math.random()<0.33) fox.speak_about_Qst();  
     if (countQst==numStartQst) {
         document.getElementById("button").style.display="none";
-        document.getElementsByClassName('title')[0].style.display="none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
         fox.speak_game_end();
@@ -613,7 +613,7 @@ function startOpros() {
 
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
+    preloader_start();
 
 
     xhr.open('POST', 'index.php?page=get_question', true);
@@ -720,6 +720,8 @@ function update_Q_A (messages) {
             eval('A'+ i).parentElement.style.display = 'none';
        } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
     }
+
+    preloader();
   
 }
 
@@ -966,6 +968,9 @@ function valid_level_3() {
             
             
         } else {
+            document.getElementsByClassName('title')[0].style.display="none";
+            document.getElementsByClassName('board')[0].style.display="none";
+            document.getElementsByClassName('opros')[0].style.display="none";
             why.style.display = "none";
             why_title.style.display = "none";
             image.className = 'result-pass-level3'; // Правка класс листа для IE   
@@ -974,6 +979,7 @@ function valid_level_3() {
             image.style.display = "block";
             otvet_true.innerHTML = "Поздравляем! Вы прошли уровень \"Hard\".";
             otvet_true.style.display = "block";
+            
         }
     // } 
     
@@ -1140,6 +1146,9 @@ function update_afterClientFoward() {
         case countQst_lev3 :
         if (!levelQst_3.check) valid_level_3();
         else if (levelQst_3.check==true && levelQst_3.next_lev == true) {
+            document.getElementsByClassName('title')[0].style.display="none";
+            document.getElementsByClassName('board')[0].style.display="none";
+            document.getElementsByClassName('opros')[0].style.display="none";
             result.style.display = "none";
             dark.style.display = "none";
             otvet_true.style.display = "none";
@@ -1149,22 +1158,24 @@ function update_afterClientFoward() {
             why_title.style.display = "none";
             why.innerHTML = '';
             
-            if (anime_off) { anime_off=false;
-                if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, 0);
-                    ints.push(handle_hit_5);}
-                else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
-                        handle_hit_6 = setInterval(anime_step_fillHit_6, 20, prevQst, 0);
-                        ints.push(handle_hit_6);}
-                else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, 0);
-                        ints.push(handle_miss);}
-            } else {
-                    for (var i=0; i<ints.length; i++)
-                    clearInterval( ints[i] );
-                    ints = [];
-                    fill_circle();
-                    handle_move_left_start = setInterval(anime_move_left_start,10, 0);
-                    anime_off = true;
-            }
+            // document.getElementsByClassName('title')[0].style.display="none";
+
+            // if (anime_off) { anime_off=false;
+            //     if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, 0);
+            //         ints.push(handle_hit_5);}
+            //     else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+            //             handle_hit_6 = setInterval(anime_step_fillHit_6, 20, prevQst, 0);
+            //             ints.push(handle_hit_6);}
+            //     else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, 0);
+            //             ints.push(handle_miss);}
+            // } else {
+            //         for (var i=0; i<ints.length; i++)
+            //         clearInterval( ints[i] );
+            //         ints = [];
+            //         fill_circle();
+            //         handle_move_left_start = setInterval(anime_move_left_start,10, 0);
+            //         anime_off = true;
+            // }
 
             window.location.href = 'index.php?page=survey';
 
@@ -1373,16 +1384,17 @@ function update_afterClientFoward() {
         level[0].innerHTML = (numStartQst + 1) - (levelQst_1.countQst + levelQst_2.countQst) + "/" + levelQst_3.countQst;
         level[0].style.borderColor = "red";
     } else if (numStartQst==countQst) { 
-        level[0].innerHTML = "Done";
-        level[0].style.backgroundColor = "red";
-        level[0].style.color = "yellow";
-        level[0].classList.add('step-level-finish');
-        var opros = document.getElementsByClassName('opros');
-        opros[0].style.display = "none";
-        var prev = document.getElementsByClassName('prev_next');
-        prev[0].style.display = "none";
-        var present = document.getElementsByClassName('present');
-        present[0].style.display = "none";
+        // document.getElementsByClassName('title')[0].style.display="none";
+        // level[0].innerHTML = "Done";
+        // level[0].style.backgroundColor = "red";
+        // level[0].style.color = "yellow";
+        // level[0].classList.add('step-level-finish');
+        // var opros = document.getElementsByClassName('opros');
+        // opros[0].style.display = "none";
+        // var prev = document.getElementsByClassName('prev_next');
+        // prev[0].style.display = "none";
+        // var present = document.getElementsByClassName('present');
+        // present[0].style.display = "none";
         // var gift = document.getElementsByClassName('gift');
         // gift[0].style.display = "flex";
 
