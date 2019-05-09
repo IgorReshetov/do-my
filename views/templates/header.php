@@ -50,9 +50,10 @@
                     <div class="centr-fox"> 
                         <div id = "fox" class="fox-sleep"></div>
                         <div class="fox-words-down">
-                            <p class="fox-words-text"></p>
-                        </div>
+                        <p class="fox-words-text"></p>
                     </div>
+                    </div>
+                    
                     <div class="user-menu">
                         <div class="icon-user-menu">
                             <div class="menu-btn-box" id ="menu-btn-box-main">
@@ -106,6 +107,7 @@
                     <div class="hiden-menu-user-promo-block"></div>
                     <div class="hiden-menu-user-promo-block" id = "promo-button-get">ПОЛУЧИТЬ</div>
                 </div>
+            </div>
             </div>
                             <!-- // Загрузка картинок в кэш браузера -->
             <div class="repo-images">

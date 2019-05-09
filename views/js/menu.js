@@ -21,7 +21,8 @@ function menu_moov(e) {
     
     console.log (e.target.getAttribute('class'));
     if (e.target.getAttribute('class') == "menu-btn-box" && flag == 0){
-    
+
+          
         document.getElementsByClassName('menu-wraper')[0].classList.add("menu-wraper-moov");
         document.getElementsByClassName('menu-wraper')[0].classList.remove("menu-wraper-back");
         
