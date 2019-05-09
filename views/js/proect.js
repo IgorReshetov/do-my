@@ -24,6 +24,7 @@ function init() {
         this.children[0].nextElementSibling.classList.add('display-block');
         blue(button1);
         document.getElementById('first').children[1].setAttribute('left', 2);
+        
         init();
         }
         return; 
@@ -43,6 +44,7 @@ function init() {
         this.children[0].nextElementSibling.classList.add('display-block');
         blue(button2);
         document.getElementById('first').children[1].setAttribute('right', 2);
+        
         init();
         }
         return; 
@@ -57,16 +59,32 @@ function init() {
 
     
     if (left_qw == 2 && right_qw == 2){
+        window.setTimeout(function(){
         document.getElementById('first').children[1].children[1].children[0].classList.add('display-none');
         if (document.getElementById('first').children[2].children[0].children[0].classList.contains('display-none') == true){
         document.getElementById('first').children[2].children[0].children[0].classList.remove('display-none');
-        document.getElementById('first').children[1].scrollIntoView(true);
-        document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
+        
+        var coord_target = offset(document.getElementById('first').children[2]);
+        $('html').animate({scrollTop: coord_target},700);
 
+        document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
+        document.getElementById('first').children[2].children[1].children[0].classList.add('opacity07');
         }
+        }, 3500);
         opros();
     }
 }
+
+// функция определения расстояния от верха до центра элемента
+function offset(el) {
+    var rect = el.getBoundingClientRect().top + el.clientHeight/2 + document.documentElement.clientHeight/2;
+    // console.log(rect);
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var top = rect + scrollTop - document.documentElement.clientHeight;
+    
+    return top;
+}
+
 
 // Функция опроса
 function opros() {
@@ -114,8 +132,9 @@ function question(point) {
     if (row == 0) {return false};
     var start_elem = document.getElementById('first');
     start_elem = start_elem.children[row+1];
-    
-    start_elem.previousElementSibling.scrollIntoView(true);
+        
+    var coord_target = offset(start_elem);
+    $('html').animate({scrollTop: coord_target},1000);
     
     if (pos > 1) {start_elem.children[2].children[pos-2].classList.add('display-none')};
     start_elem.children[2].children[pos-1].classList.add('display-block');
@@ -123,19 +142,19 @@ function question(point) {
     if (row == 1 && pos == 3) {
         show();
         window.setTimeout(function(){
-        window.scrollTo(0,0);
-        }, 8000);
+        $('html').animate({scrollTop: 0},3000);
+        }, 12000);
         window.setTimeout(function(){
         document.getElementById('first').children[1].children[1].classList.remove('column2-image1');
         document.getElementById('first').children[1].children[1].classList.add('column2-image1-aim');
         document.getElementById('first').children[0].innerHTML = 'Полезные квизы';
-        }, 9000);
+        }, 14000);
         return false;}
     blue(start_elem.children[2]);
     window.setTimeout(function(){
     start_elem.children[0].children[pos-1].classList.add('display-block');
     start_elem.children[0].classList.add('column-proect-light-red');
-    }, 1000);
+    }, 3000);
     start_elem.setAttribute('left', pos);
     start_elem.children[1].children[0].classList.add('opacity07');
     return;
@@ -152,34 +171,43 @@ function show(){
     yellow (start_elem.children[2].children[2]);
 
     window.setTimeout(function(){
-    start_elem.children[3].previousElementSibling.scrollIntoView(true);
+
+    var coord_target = offset(start_elem.children[3]);
+    $('html').animate({scrollTop: coord_target},1000);
+
     start_elem.children[3].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[0]);
     start_elem.children[3].children[1].children[0].classList.add('display-none');
     start_elem.children[3].children[2].children[1].classList.add('display-none');
     start_elem.children[3].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[2]);
-    }, 2000);
+    }, 3000);
 
     window.setTimeout(function(){
-    start_elem.children[4].previousElementSibling.scrollIntoView(true);
+
+    var coord_target = offset(start_elem.children[4]);
+    $('html').animate({scrollTop: coord_target},1000);
+
     start_elem.children[4].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[4].children[0]);
     start_elem.children[4].children[1].children[0].classList.add('display-none');
     start_elem.children[4].children[2].children[1].classList.add('display-none');
     start_elem.children[4].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[4].children[2]);
-    }, 4000);
+    }, 6000);
 
     window.setTimeout(function(){
-    start_elem.children[5].previousElementSibling.scrollIntoView(true);
+
+    var coord_target = offset(start_elem.children[5]);;
+    $('html').animate({scrollTop: coord_target},1000);
+
     start_elem.children[5].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[0]);
     start_elem.children[5].children[1].children[0].classList.add('display-none');
     start_elem.children[5].children[2].children[1].classList.add('display-none');
     start_elem.children[5].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[2]);
-    }, 6000);
+    }, 9000);
    
     return;
 }
@@ -188,7 +216,7 @@ function blue(element){
     element.classList.add('column-proect-light-blue');
     window.setTimeout(function(){
         element.classList.remove('column-proect-light-blue');
-    }, 1000);
+    }, 3000);
     return;
 }  
 
@@ -196,7 +224,7 @@ function yellow(element){
     element.classList.add('column-proect-light-yellow');
     window.setTimeout(function(){
         element.classList.remove('column-proect-light-yellow');
-    }, 1000);
+    }, 3000);
     return;
 }  
 

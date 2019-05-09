@@ -72,9 +72,9 @@ require_once 'views/templates/header.php';
             <div class="column-proect-text <?=($proect_left[4]+$proect_right[5] == 5)?'display-block':''?>"><b>Татьяна:</b> UI/UX дизайнер, администратор команды.</div>
         </div>
     </div>
-
-<br>
+    
 </div>
+<script src="views/js/jquery-3.3.1.js"></script>
 <script src="views/js/proect.js"></script>
 <?php
 require_once 'views/templates/footer.php';
