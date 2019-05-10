@@ -109,8 +109,10 @@
                 </div>
             </div>
             </div>
-                            <!-- // Загрузка картинок в кэш браузера -->
-            <div class="repo-images">
+             
+    </header>
+    <!-- // Загрузка картинок в кэш браузера -->
+    <div class="repo-images">
                 <img src="views/images/icon/elephant.png" alt="">
                 <img src="views/images/icon/false_question.svg" alt="">
                 <img src="views/images/icon/fox_sleep.svg" alt="">
@@ -132,9 +134,7 @@
                 <img src="views/images/icon/victory_level.svg" alt="">
                 <img src="views/images/icon/victory.svg" alt="">
                 <img src="views/images/icon/logo.svg" alt="">
-            </div>
-             
-    </header>
+    </div>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
     <script src="views/js/fox.js"></script>
     <script src="views/js/menu.js"></script>

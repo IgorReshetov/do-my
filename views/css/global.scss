@@ -29,7 +29,11 @@ html {
     scroll-behavior: smooth;
      
 }
-
+.repo-images {
+    position: fixed;
+    left: -1000px;
+    top: -1000px;
+}
 
 .wrapper {
     max-width: 1200px;
