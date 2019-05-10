@@ -54,7 +54,7 @@ Object.prototype.cookie_level = function() {
         };
         break;
     }
-    preloader();
+    // preloader();
 
 }
 
@@ -263,6 +263,7 @@ function init() {
 
 // функция отправки мэйла пользователю
 function send_mail() {
+    preloader_start();
     var mail = document.getElementById('mail');
     var mail_data = mail.value;
     var place = document.getElementById('gift-block2-desire1-place');
@@ -280,8 +281,8 @@ function send_mail() {
 
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
-
+    // preloader_AJAX(xhr);
+   
 
     xhr.open('POST', 'index.php?page=put_mail', true);
     xhr.setRequestHeader("Content-type", "application/json");
@@ -298,6 +299,7 @@ function send_mail() {
     console.log (messages);  
     if (messages.result == true) {document.location.href = "index.php?page=thanks&mail=1"}
     else {document.location.href = "index.php?page=thanks&mail=0"}
+    preloader();
     }
 }
 
@@ -343,6 +345,8 @@ function check_size() {
 }
 
 function zapros_Cookies(){      //  Синхронный запрос
+    preloader_start();
+    
     var xhr = new XMLHttpRequest();
 
     
@@ -474,6 +478,7 @@ function next_ready() {
 
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
 function json_Q_A() {
+    
     // _______________Блок для обработчик Лиса fox.toFast___________________
        
         var timeAnsw = new Date().getTime();
@@ -512,9 +517,11 @@ function json_Q_A() {
     var data = JSON.stringify(data);
     // console.log(data);
 
+    preloader_start();
+
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
+    // preloader_AJAX(xhr);
 
     xhr.open('POST', 'index.php?page=put_answer', true);
     xhr.setRequestHeader("Content-type", "application/json");
@@ -528,6 +535,7 @@ function json_Q_A() {
         otvet = JSON.parse(xhr.responseText);
         console.log(otvet);
     update_afterClientAnswer(otvet);
+    preloader();
     }
     
     return false;
@@ -545,9 +553,10 @@ function json_Q_A_next() {
     // console.log (cookies.user_answer[cookies.active_question-1].id_question);
     var data = JSON.stringify(data);
 
+    preloader_start();
+
     var xhr = new XMLHttpRequest();
 
-    preloader_start();
 
     xhr.open('POST', 'index.php?page=get_question', false);
     xhr.setRequestHeader("Content-type", "application/json");
@@ -563,6 +572,7 @@ function json_Q_A_next() {
     console.log(messages);
     // numStartQst++;
     update_Q_A(messages);
+    preloader();
     // }
 
     return false;
@@ -611,9 +621,9 @@ function startOpros() {
 
     var data = JSON.stringify(data);
 
-    var xhr = new XMLHttpRequest();
-
     preloader_start();
+
+    var xhr = new XMLHttpRequest();
 
 
     xhr.open('POST', 'index.php?page=get_question', true);
@@ -628,6 +638,7 @@ function startOpros() {
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);  
     update_Q_A(messages);
+    preloader();
     }
     return false;
 }
@@ -721,7 +732,7 @@ function update_Q_A (messages) {
        } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
     }
 
-    preloader();
+    // preloader();
   
 }
 
