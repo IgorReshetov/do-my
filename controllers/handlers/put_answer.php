@@ -114,12 +114,15 @@ while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_S
 }
 
 $_SESSION['finish']=0;
+$_SESSION['count_true']=0;
+
 
 if ($activ_question == $count_1['questions_count']){
     for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
     $_SESSION['finish']=1;
+    $_SESSION['count_true']=$count_true;
     if ($count_true == $count_1['questions_count']) {$_SESSION['level_access'] = 2;} 
     else {$activ_question = 0;}
 }
@@ -129,6 +132,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
     $_SESSION['finish']=2;
+    $_SESSION['count_true']=$count_true;
     if ($count_true == $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
     else {$activ_question = $count_1['questions_count'];}
 }
@@ -137,6 +141,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
     $_SESSION['finish']=3;
+    $_SESSION['count_true']=$count_true;
     if ($count_true == $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
     else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
@@ -180,7 +185,8 @@ $data =
 'answer_is_true' => $answer_is_true ,
 'answer_is_true_comment' => $answer_is_true_comment,
 'active_question' => $_SESSION['active_question'],
-'finish' => $_SESSION['finish']
+'finish' => $_SESSION['finish'],
+'count_true' => $_SESSION['count_true']
 ];
  
 echo json_encode($data);
