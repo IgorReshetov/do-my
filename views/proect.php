@@ -21,11 +21,11 @@ require_once 'views/templates/header.php';
         <div class="column1-proect column-proect">
             <div class="column-proect-text <?=($proect_left[1] == 1)?'display-block':''?> display-none" row ="4" pos = "1">Кто в проекте больше всех заботится о пользователях?</div> 
             <div class="column-proect-text <?=($proect_left[1] == 2)?'display-block':''?>" row ="3" pos = "1">Кто по ночам кодит на нативном Java Script?</div>
-            <div class="column-proect-text <?=($proect_left[1] == 4)?'display-block':''?>" row ="0" pos = "0"><i>"Чтобы видеть дальше других, нужно стоять на плечах гигантов"</i></div>
+            <div class="column-proect-text <?=($proect_left[1] == 4)?'display-block':''?>" row ="0" pos = "0"><i>"Чтобы видеть дальше других, нужно стоять на плечах гигантов."</i></div>
         </div>
         <div class="column2-proect column-proect column2-image2"><img src="views/images/icon/question_ring.svg" class="<?=($proect_right[1] > 0)?'opacity07':''?> <?=($proect_left[1]+$proect_right[1] == 7)?'display-none':''?>"></div>
         <div class="column3-proect column-proect">
-            <div class="column-proect-text <?=($proect_right[1] == 1)?'display-block':''?>"><b>Игорь:</b> разработчик back-end, администратор хостинга</div>
+            <div class="column-proect-text <?=($proect_right[1] == 1)?'display-block':''?>"><b>Игорь:</b> разработчик back-end, администратор хостинга.</div>
             <div class="column-proect-text <?=($proect_right[1] == 2)?'display-block':''?>"><b>Игорь:</b> лидер команды.</div>
             <div class="column-proect-text <?=($proect_left[1]+$proect_right[1] == 7)?'display-block':''?>"><b>Игорь:</b> разработчик back-end, администратор хостинга, лидер команды.</div>
         </div>
@@ -35,7 +35,7 @@ require_once 'views/templates/header.php';
         <div class="column1-proect column-proect">
             <div class="column-proect-text <?=($proect_left[2] == 1)?'display-block':''?>" row ="4" pos ="2">Кто в нашей команде самый пунктуальный?</div> 
             <div class="column-proect-text <?=($proect_left[2] == 2)?'display-block':''?>" row ="1" pos = "2">Кто может не взять крепость, но при этом выиграть войну?</div>
-            <div class="column-proect-text <?=($proect_left[2] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Лучший способ предсказать будущее - это создать его"</i></div>
+            <div class="column-proect-text <?=($proect_left[2] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Лучший способ предсказать будущее - это создать его."</i></div>
         </div>
         <div class="column2-proect column-proect column2-image4"><img src="views/images/icon/question_ring.svg" class="<?=($proect_right[3] > 0)?'opacity07':''?> <?=($proect_left[3]+$proect_right[3] == 5)?'display-none':''?>"></div>
         <div class="column3-proect column-proect">
@@ -49,7 +49,7 @@ require_once 'views/templates/header.php';
         <div class="column1-proect column-proect">
             <div class="column-proect-text <?=($proect_left[3] == 1)?'display-block':''?>" row ="2" pos = "1">Он продвигает нас вперед и следит за пауками?</div> 
             <div class="column-proect-text <?=($proect_left[3] == 2)?'display-block':''?>" row ="2" pos = "2">Он знает, что нужно продавать не сверла, а отверстия - определенного диаметра?</div>
-            <div class="column-proect-text <?=($proect_left[3] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Мы никогда не узнаем то что ищем, пока не найдем это"</i></div>
+            <div class="column-proect-text <?=($proect_left[3] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Мы никогда не узнаем то что ищем, пока не найдем это."</i></div>
         </div>
         <div class="column2-proect column-proect column2-image5"><img src="views/images/icon/question_ring.svg" class="<?=($proect_right[4] > 0)?'opacity07':''?> <?=($proect_left[4]+$proect_right[4] == 5)?'display-none':''?>"></div>
         <div class="column3-proect column-proect">
@@ -63,7 +63,7 @@ require_once 'views/templates/header.php';
         <div class="column1-proect column-proect">
             <div class="column-proect-text <?=($proect_left[4] == 1)?'display-block':''?>" row = "1" pos = "1">Кто среди нас больше всех любит объекты и кует победу в тылу?</div> 
             <div class="column-proect-text <?=($proect_left[4] == 2)?'display-block':''?>" row ="3" pos ="2">Разве юрист и compliance может быть фронтовиком?</div>
-            <div class="column-proect-text <?=($proect_left[4] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Успех - это умение двигаться от одной неудачи к другой, не теряя энтузиазма"</i></div>
+            <div class="column-proect-text <?=($proect_left[4] == 3)?'display-block':''?>" row ="0" pos = "0"><i>"Успех - это умение двигаться от одной неудачи к другой, не теряя энтузиазма."</i></div>
         </div>
         <div class="column2-proect column-proect column2-image6"><img src="views/images/icon/question_ring.svg" class="<?=($proect_right[5] > 0)?'opacity07':''?> <?=($proect_left[5]+$proect_right[5] == 5)?'display-none':''?>"></div>
         <div class="column3-proect column-proect">

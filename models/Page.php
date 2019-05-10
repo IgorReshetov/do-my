@@ -47,6 +47,9 @@ class Page
             case "get_stat":
             require_once 'controllers/handlers/get_stat.php';
             break;
+            case "put_book":
+            require_once 'controllers/handlers/put_book.php';
+            break;
             case "check_bot":
             require_once 'controllers/check_bot.php';
             break;
@@ -64,6 +67,9 @@ class Page
             break;
             case "start":
             require_once 'controllers/start.php';
+            break;
+            case "storage":
+            require_once 'controllers/storage.php';
             break;
             default:
             // require_once 'models/Answer.php';

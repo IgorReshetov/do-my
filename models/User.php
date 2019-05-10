@@ -181,6 +181,62 @@ class User
         return $promo;
     }
 
+    public static function putUserBook($book){
+        global $mysqli; // заводим базу в область видимости
+        
+        $last_session_id = $_COOKIE ['PHPSESSID'];
+        
+        $user = new self($last_session_id);
+        $book = $mysqli->real_escape_string($book);
+        $book = (int)$book;
+        
+        
+
+        if($user->id_user == NULL) {
+            $query = "UPDATE user_trophy SET GET_GIFT = GET_GIFT + 1 WHERE ID_USER = 1 AND ID_ACTION = $book"; 
+            $mysqli->multi_query($query);
+            $result = $mysqli->store_result();
+
+            
+
+        }else{
+            $query = "SELECT * FROM user_trophy WHERE ID_USER = $user->id_user AND ID_ACTION = $book";
+            $mysqli->multi_query($query);
+            $result = $mysqli->store_result();
+            
+            
+                
+            if ($result->num_rows > 0) {
+                $result->close();
+                $mysqli->next_result();
+
+                $query = "UPDATE user_trophy SET GET_GIFT = 1 WHERE ID_USER = $user->id_user AND ID_ACTION = $book"; 
+                $mysqli->multi_query($query);
+                $result = $mysqli->store_result();
+
+                
+
+            }else {
+                $mysqli->next_result();
+
+                $query = "UPDATE user_trophy SET GET_GIFT = GET_GIFT + 1 WHERE ID_USER = 1 AND ID_ACTION = $book"; 
+                $mysqli->multi_query($query);
+                $result = $mysqli->store_result();
+
+                
+            }
+            
+            if($result == true) {
+                return true;
+            } else {
+                return false;
+            }
+
+            $result->close();
+            $mysqli->next_result();
+        }
+    }
+
 }
 
 

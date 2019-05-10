@@ -119,11 +119,10 @@ function send_mail_menu() {
             return;
         }
     
-    console.log (xhr.responseText);
+    
     var messages = JSON.parse(xhr.responseText);
 
-    console.log (messages);
-    
+       
       
     if (messages == 1) {
         var mail_button = document.getElementById("promo-button-get");
