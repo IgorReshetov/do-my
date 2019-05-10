@@ -38,9 +38,9 @@ class Mail
         }
 
         
-        $this->result= mail($mailTo, $subject, $bodyMail, $headers); // отправка письма
+        // $this->result= mail($mailTo, $subject, $bodyMail, $headers); // отправка письма
       
-        // $this->result = true;
+        $this->result = true;
 
     }
 

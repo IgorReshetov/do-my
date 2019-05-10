@@ -30,7 +30,7 @@ $subject = "Привет, жду ответа"; // тема письма
 use Sendpulse\RestApi\ApiClient;
 use Sendpulse\RestApi\Storage\FileStorage;
 
-SPApiClient = new ApiClient(API_USER_ID, API_SECRET, new FileStorage());
+$SPApiClient = new ApiClient(API_USER_ID, API_SECRET, new FileStorage());
 
 // $list = $SPApiClient->listAddressBooks();
 
