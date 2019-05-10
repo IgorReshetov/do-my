@@ -94,14 +94,31 @@ $count_3 = Question:: getQuestionsCount ($_SESSION['action'], 3);
 $count_question = count($_SESSION['user_answer']);
 $count_true = 0;
 
+
+// на период тестирования по ветке три делает откат по нетвеченным вопросам при втором проходе
+
+// var_dump(isset($_SESSION['user_answer'][$activ_question]['answer_is_true']));
+// var_dump($_SESSION['user_answer'][$activ_question-1]['answer_is_true']);
+// var_dump($_SESSION['action']);
+
+if ($_SESSION['action'] == 3){
+    if (isset($_SESSION['user_answer'][$activ_question]['time_answer']) && $_SESSION['user_answer'][$activ_question-1]['answer_is_true'] == NULL) {
+        $activ_question = $activ_question-1;
+        // echo 'сработка';
+    }
+}else{
+
 while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {
     $activ_question = $activ_question+1;
 }
+}
+$_SESSION['finish']=0;
 
 if ($activ_question == $count_1['questions_count']){
     for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
+    $_SESSION['finish']=1;
     if ($count_true == $count_1['questions_count']) {$_SESSION['level_access'] = 2;} 
     else {$activ_question = 0;}
 }
@@ -110,6 +127,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
     for ($i = $count_1['questions_count']; $i <= $count_1['questions_count'] + $count_2['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
+    $_SESSION['finish']=2;
     if ($count_true == $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
     else {$activ_question = $count_1['questions_count'];}
 }
@@ -117,6 +135,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$
     for ($i = $count_1['questions_count']+$count_2['questions_count']; $i <= $count_1['questions_count']+$count_2['questions_count']+ $count_3['questions_count']-1; $i++) {
         if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
     }
+    $_SESSION['finish']=3;
     if ($count_true == $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
     else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
@@ -143,10 +162,13 @@ User::putUserAnswer($user->id_user, $_SESSION['action'], $_SESSION['user_answer'
 // }
 
 
-//  проверяем и записываем с сессию следующую текущую позицию пользователя
+//  пропуск правильных вопросов при возврате после сброса уровня
+
 while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {
     $activ_question = $activ_question+1;
 }
+
+
 
 $_SESSION['active_question'] = $activ_question;
 
@@ -156,7 +178,8 @@ $data =
 [
 'answer_is_true' => $answer_is_true ,
 'answer_is_true_comment' => $answer_is_true_comment,
-'active_question' => $_SESSION['active_question']
+'active_question' => $_SESSION['active_question'],
+'finish' => $_SESSION['finish']
 ];
  
 echo json_encode($data);
