@@ -11,17 +11,17 @@ switch ($book) {
     
     case 2:
     $file_name = "30 ответов квиза по жилью";
-    $file_paht = "http://do-my.ru/storage/book_1.pdf";
+    $file_paht = "http://do-my.ru/storage/book_2.pdf";
     break;
 
     case 3:
     $file_name = "30 ответов квиза по жилью";
-    $file_paht = "http://do-my.ru/storage/book_1.pdf";
+    $file_paht = "http://do-my.ru/storage/book_3.pdf";
     break;
 
     case 4:
     $file_name = "30 ответов квиза по жилью";
-    $file_paht = "http://do-my.ru/storage/book_1.pdf";
+    $file_paht = "http://do-my.ru/storage/book_4.pdf";
     break;
 
     default:
