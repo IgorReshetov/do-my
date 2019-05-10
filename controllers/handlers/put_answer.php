@@ -106,12 +106,13 @@ if ($_SESSION['action'] == 3){
         $activ_question = $activ_question-1;
         // echo 'сработка';
     }
-}else{
+}
+
 
 while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_SESSION['user_answer'][$activ_question]['answer_is_true'] == 1) {
     $activ_question = $activ_question+1;
 }
-}
+
 $_SESSION['finish']=0;
 
 if ($activ_question == $count_1['questions_count']){
