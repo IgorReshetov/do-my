@@ -2,6 +2,9 @@
 require_once 'views/templates/header.php';
 ?>
 <link rel="stylesheet" href="views/css/imagefoto.css">
+<div id ='id-preloader' class="start-preloader">
+<div class="loader"></div>
+</div>
 
 <div class="wrapper block-proect" id="first">
     <h1 class="proect-h1">Для чего и кто делает проект?</h1>
@@ -74,7 +77,11 @@ require_once 'views/templates/header.php';
     </div>
     
 </div>
+
+
 <script src="views/js/jquery-3.3.1.js"></script>
+<script src="views/js/preloader.js"></script> 
 <script src="views/js/proect.js"></script>
+
 <?php
 require_once 'views/templates/footer.php';
