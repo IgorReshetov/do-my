@@ -120,26 +120,26 @@ function init() {
     
     document.body.onresize = check_size;       
 
-    zapros_Cookies();           // Делаем синхронный запрос
+    zapros_Cookies_start();           // Делаем синхронный запрос при старте страницы
     
-    cookie_level();
+    // cookie_level();
     
-    fill_circle();
+    // fill_circle();
     
-    if (cookies.level_access == 2) {
-        O('next').classList.add ('next-level2');
-        C('forward')[0].classList.add ('forward-level2');
-    } else if (cookies.level_access == 3) {
-         O('next').classList.add ('next-level3');
-         C('forward')[0].classList.add('forward-level3');
-    } 
-    console.log(cookies);
-    console.log(prevQst);
-    console.log(numStartQst);
+    // if (cookies.level_access == 2) {
+    //     O('next').classList.add ('next-level2');
+    //     C('forward')[0].classList.add ('forward-level2');
+    // } else if (cookies.level_access == 3) {
+    //      O('next').classList.add ('next-level3');
+    //      C('forward')[0].classList.add('forward-level3');
+    // } 
+    // console.log(cookies);
+    // console.log(prevQst);
+    // console.log(numStartQst);
 
-    var status_Game = document.getElementsByClassName('slider-box-main');
-    if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
-    status_Game[0].style.display = "block";
+    // var status_Game = document.getElementsByClassName('slider-box-main');
+    // if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
+    // status_Game[0].style.display = "block";
 
     var button = document.getElementById('button');
     button.onclick = startOpros;
@@ -344,39 +344,83 @@ function check_size() {
     }
 }
 
+function zapros_Cookies_start(){      //  Синхронный запрос
+    preloader_start();
+    
+    var xhr = new XMLHttpRequest();
+
+    
+    xhr.open('POST', 'index.php?page=get_answer', true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) {
+            return;
+        }
+        cookies = JSON.parse(xhr.responseText);
+        numStartQst = 0;
+        countQst = 0;
+        for (var i =0; i<cookies.questions_count.length; i++) {
+                countQst += parseInt(cookies.questions_count[i].questions_count);
+        }
+
+        numStartQst = cookies.active_question;
+
+        cookie_level();
+    
+        fill_circle();
+        
+        if (cookies.level_access == 2) {
+            O('next').classList.add ('next-level2');
+            C('forward')[0].classList.add ('forward-level2');
+        } else if (cookies.level_access == 3) {
+            O('next').classList.add ('next-level3');
+            C('forward')[0].classList.add('forward-level3');
+        } 
+        console.log(cookies);
+        console.log(prevQst);
+        console.log(numStartQst);
+
+        var status_Game = document.getElementsByClassName('slider-box-main');
+        if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
+        status_Game[0].style.display = "block";
+
+
+        preloader();
+        return cookies;
+    }
+}
+
 function zapros_Cookies(){      //  Синхронный запрос
     preloader_start();
     
     var xhr = new XMLHttpRequest();
 
     
-    xhr.open('POST', 'index.php?page=get_answer', false);
+    xhr.open('POST', 'index.php?page=get_answer', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send();
 
-    cookies = JSON.parse(xhr.responseText);
-    numStartQst = 0;
-    countQst = 0;
-    for (var i =0; i<cookies.questions_count.length; i++) {
-            countQst += parseInt(cookies.questions_count[i].questions_count);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) {
+            return;
+        }
+
+        cookies = JSON.parse(xhr.responseText);
+        numStartQst = 0;
+        countQst = 0;
+        for (var i =0; i<cookies.questions_count.length; i++) {
+                countQst += parseInt(cookies.questions_count[i].questions_count);
+        }
+
+        numStartQst = cookies.active_question;
+
+        cookie_level();
+
+        preloader();
+        return cookies;
     }
-
-
-    // if (cookies.user_answer.length > 0) {
-    //     // countQst = 0;
-    numStartQst = cookies.active_question;
-
-    // }  
-    // } else {
-        
-    //     // countQst = 0;
-    //     console.log(numStartQst);
-    //     // for (var i =0; i<cookies.questions_count.length; i++) {
-    //     //     countQst += parseInt(cookies.questions_count[i].questions_count);
-    //     // }
-    // }
-    preloader();
-    return cookies;
 }
 
 function fill_circle() {
@@ -916,7 +960,7 @@ function valid_level_2() {
             why.style.display = "none"; 
             why_title.style.display = "none";
             otvet_true.style.display = "none"; 
-            image.className = 'result-loss-level1'; // Правка класс листа для IE   
+            image.className = 'result-loss-level'; // Правка класс листа для IE   
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
@@ -1057,7 +1101,7 @@ function update_afterClientFoward() {
             
                 zapros_Cookies();           // Делаем синхронный запрос
 
-                Object.cookie_level();
+                // Object.cookie_level();
              
             } 
           
@@ -1109,7 +1153,7 @@ function update_afterClientFoward() {
   
                 zapros_Cookies();           // Делаем синхронный запрос
 
-                Object.cookie_level();
+                // Object.cookie_level();
               
             } 
         }  else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
@@ -1146,7 +1190,7 @@ function update_afterClientFoward() {
       
             zapros_Cookies();           // Делаем синхронный запрос
 
-            Object.cookie_level();
+            // Object.cookie_level();
           
             } 
 
@@ -1192,7 +1236,7 @@ function update_afterClientFoward() {
 
             zapros_Cookies();           // Делаем синхронный запрос
     
-            Object.cookie_level();
+            // Object.cookie_level();
          
         } 
 
@@ -1239,7 +1283,7 @@ function update_afterClientFoward() {
                         
                         zapros_Cookies();           // Делаем синхронный запрос
     
-                        Object.cookie_level();
+                        // Object.cookie_level();
                      
                 } 
                 // }
@@ -1279,7 +1323,7 @@ function update_afterClientFoward() {
 
                 zapros_Cookies();           // Делаем синхронный запрос
 
-                Object.cookie_level();
+                // Object.cookie_level();
             
                 } 
             } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
@@ -1317,7 +1361,7 @@ function update_afterClientFoward() {
     
                 zapros_Cookies();           // Делаем синхронный запрос
 
-                Object.cookie_level();
+                // Object.cookie_level();
     
                 } 
 
@@ -1375,7 +1419,7 @@ function update_afterClientFoward() {
 
                 zapros_Cookies();           // Делаем синхронный запрос
     
-                Object.cookie_level();
+                // Object.cookie_level();
               
             }
         break;
