@@ -292,14 +292,14 @@ function send_mail() {
         if (xhr.readyState != 4) {
             return;
         }
-    
-    console.log (xhr.responseText);
-    var messages = JSON.parse(xhr.responseText);
+        
+        console.log (xhr.responseText);
+        var messages = JSON.parse(xhr.responseText);
 
-    console.log (messages);  
-    if (messages.result == true) {document.location.href = "index.php?page=thanks&mail=1"}
-    else {document.location.href = "index.php?page=thanks&mail=0"}
-    preloader();
+        console.log (messages);  
+        if (messages.result == true) {document.location.href = "index.php?page=thanks&mail=1"}
+        else {document.location.href = "index.php?page=thanks&mail=0"}
+        preloader();
     }
 }
 
@@ -602,22 +602,21 @@ function json_Q_A_next() {
     var xhr = new XMLHttpRequest();
 
 
-    xhr.open('POST', 'index.php?page=get_question', false);
+    xhr.open('POST', 'index.php?page=get_question', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(data);
   
-    // xhr.onreadystatechange = function() {
-    //     if (xhr.readyState != 4) {
-    //         return;
-    //     }
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) {
+            return;
+        }
     
-    
-    var messages = JSON.parse(xhr.responseText);
-    console.log(messages);
-    // numStartQst++;
-    update_Q_A(messages);
-    preloader();
-    // }
+        var messages = JSON.parse(xhr.responseText);
+        console.log(messages);
+        // numStartQst++;
+        update_Q_A(messages);
+        preloader();
+    }
 
     return false;
 }
