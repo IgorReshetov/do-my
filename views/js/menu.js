@@ -107,7 +107,7 @@ function send_mail_menu() {
 
     var xhr = new XMLHttpRequest();
 
-    preloader_AJAX(xhr);
+    preloader_start();
 
 
     xhr.open('POST', 'index.php?page=put_mail_short', true);
@@ -119,32 +119,34 @@ function send_mail_menu() {
             return;
         }
     
-    console.log (xhr.responseText);
-    var messages = JSON.parse(xhr.responseText);
+        console.log (xhr.responseText);
+        var messages = JSON.parse(xhr.responseText);
 
-    console.log (messages);
-    
-      
-    if (messages == 1) {
-        var mail_button = document.getElementById("promo-button-get");
-        mail_button.style.display = 'none';
-        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
-        document.getElementsByClassName('hiden-menu-input-wraper')[0].style.display = 'none';
-        document.getElementsByClassName('hiden-menu-user-promo-block')[0].style.display = 'none';
-        text_result[2].innerHTML = 'Информация с промокодом по '+messages+' квизу направлена вам на email';
+        console.log (messages);
         
-    }
-    else if (messages > 1){
-        var mail_button = document.getElementById("promo-button-get");
-        mail_button.style.display = 'none';
-        var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
-        document.getElementsByClassName('hiden-menu-input-wraper')[0].style.display = 'none';
-        document.getElementsByClassName('hiden-menu-user-promo-block')[0].style.display = 'none';
-        text_result[2].innerHTML = 'Информация с промокодами по '+messages+' квизам направлена вам на email';
-    }else{
-        var text_not_result = document.getElementsByClassName('hiden-menu-user-promo-block');
-        text_not_result[0].innerHTML = 'По указанному email нет пройденных квизов.<br>Уточните ваш email:';
-        document.getElementById("menu-mail").value = '';
-    }
+        
+        if (messages == 1) {
+            var mail_button = document.getElementById("promo-button-get");
+            mail_button.style.display = 'none';
+            var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+            document.getElementsByClassName('hiden-menu-input-wraper')[0].style.display = 'none';
+            document.getElementsByClassName('hiden-menu-user-promo-block')[0].style.display = 'none';
+            text_result[2].innerHTML = 'Информация с промокодом по '+messages+' квизу направлена вам на email';
+            
+        }
+        else if (messages > 1){
+            var mail_button = document.getElementById("promo-button-get");
+            mail_button.style.display = 'none';
+            var text_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+            document.getElementsByClassName('hiden-menu-input-wraper')[0].style.display = 'none';
+            document.getElementsByClassName('hiden-menu-user-promo-block')[0].style.display = 'none';
+            text_result[2].innerHTML = 'Информация с промокодами по '+messages+' квизам направлена вам на email';
+        }else{
+            var text_not_result = document.getElementsByClassName('hiden-menu-user-promo-block');
+            text_not_result[0].innerHTML = 'По указанному email нет пройденных квизов.<br>Уточните ваш email:';
+            document.getElementById("menu-mail").value = '';
+        }
+
+        preloader();
     }
 }

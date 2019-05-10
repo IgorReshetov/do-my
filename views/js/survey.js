@@ -960,7 +960,7 @@ function valid_level_2() {
             why.style.display = "none"; 
             why_title.style.display = "none";
             otvet_true.style.display = "none"; 
-            image.className = 'result-loss-level1'; // Правка класс листа для IE   
+            image.className = 'result-loss-level'; // Правка класс листа для IE   
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
