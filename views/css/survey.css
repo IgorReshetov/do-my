@@ -972,7 +972,7 @@ table.prev_next {
 
 .gift {
   display: none;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-bottom: 100px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

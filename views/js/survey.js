@@ -629,6 +629,8 @@ function startOpros() {
         document.getElementById("button").style.display="none";
         var gift = document.getElementsByClassName('gift');
         gift[0].style.display = "flex";
+        var title = document.getElementsByClassName('title');
+        title[0].style.display = "none";
         fox.speak_game_end();
         // stat();
         // var status_Game = document.getElementsByClassName('board');
