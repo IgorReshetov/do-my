@@ -1105,6 +1105,8 @@ function update_afterClientFoward() {
                         // Object.cookie_level();
                     
                     }
+
+
                 } else if (otvet.finish == 2) /*if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
                 ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1))))*/ {
                     if (!levelQst_2.check) valid_level_2();
@@ -1155,7 +1157,64 @@ function update_afterClientFoward() {
                       
                     }
         
+                } else if (otvet.finish == 0) {    
+                    result.style.display = "none";
+                    dark.style.display = "none";
+                    otvet_true.style.display = "none";
+                    otvet_false.style.display = "none";
+                    image.style.display = "none";
+                    why.style.display = "none";
+                    why_title.style.display = "none";
+                    why.innerHTML = '';
+    
+                    json_Q_A_next();
+    
+                                        // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
+                    if (anime_off) {
+                        if (otvet.active_question < countQst_lev1){ anime_off = false;
+                            // console.log(otvet.answer_is_true);
+                            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,20, prevQst, numStartQst);
+                                ints.push(handle_hit);}
+                            else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                                handle_hit_2 = setInterval(anime_step_fillHit_2, 20, prevQst, numStartQst);
+                                ints.push(handle_hit_2);}
+                            else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                                ints.push(handle_miss);}
+                        } else if (otvet.active_question >= countQst_lev1 && otvet.active_question < countQst_lev2) { anime_off = false;
+                            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
+                                ints.push(handle_hit_3);}
+                            else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                                handle_hit_4 = setInterval(anime_step_fillHit_4, 20, prevQst, numStartQst);
+                                ints.push(handle_hit_4);}
+                            else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                                ints.push(handle_miss);}
+                        } else if (otvet.active_question >= countQst_lev2 && otvet.active_question < countQst_lev3){ anime_off = false;
+                            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, numStartQst);
+                                ints.push(handle_hit_5);}
+                            else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                                handle_hit_6 = setInterval(anime_step_fillHit_6, 20, prevQst, numStartQst);
+                                ints.push(handle_hit_6);}
+                            else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                                ints.push(handle_miss);}
+                        }
+                    } else { 
+                        for (var i=0; i<ints.length; i++)
+                            clearInterval( ints[i] );
+                        ints = [];
+                        margin_left = 5;
+                        fill_circle();
+                        if (otvet.answer_is_true == '1') S(C('step-survey')[prevQst]).backgroundColor = 'yellow';
+                        handle_move_left_start = setInterval(anime_move_left_start,10, numStartQst);
+                        setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
+                        anime_off = true;
+                    }
+    
+                    zapros_Cookies();           // Делаем синхронный запрос
+        
+                    // Object.cookie_level();
+                  
                 }
+            
         break;
 
         case countQst_lev2 :
@@ -1246,8 +1305,64 @@ function update_afterClientFoward() {
           
             } 
 
+        } else if (otvet.finish == 0) {    
+            result.style.display = "none";
+            dark.style.display = "none";
+            otvet_true.style.display = "none";
+            otvet_false.style.display = "none";
+            image.style.display = "none";
+            why.style.display = "none";
+            why_title.style.display = "none";
+            why.innerHTML = '';
+
+            json_Q_A_next();
+
+                                // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
+            if (anime_off) {
+                if (otvet.active_question < countQst_lev1){ anime_off = false;
+                    // console.log(otvet.answer_is_true);
+                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,20, prevQst, numStartQst);
+                        ints.push(handle_hit);}
+                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                        handle_hit_2 = setInterval(anime_step_fillHit_2, 20, prevQst, numStartQst);
+                        ints.push(handle_hit_2);}
+                    else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                        ints.push(handle_miss);}
+                } else if (otvet.active_question >= countQst_lev1 && otvet.active_question < countQst_lev2) { anime_off = false;
+                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
+                        ints.push(handle_hit_3);}
+                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                        handle_hit_4 = setInterval(anime_step_fillHit_4, 20, prevQst, numStartQst);
+                        ints.push(handle_hit_4);}
+                    else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) {handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                        ints.push(handle_miss);}
+                } else if (otvet.active_question >= countQst_lev2 && otvet.active_question < countQst_lev3){ anime_off = false;
+                    if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, numStartQst);
+                        ints.push(handle_hit_5);}
+                    else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                        handle_hit_6 = setInterval(anime_step_fillHit_6, 20, prevQst, numStartQst);
+                        ints.push(handle_hit_6);}
+                    else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                        ints.push(handle_miss);}
+                }
+            } else { 
+                for (var i=0; i<ints.length; i++)
+                    clearInterval( ints[i] );
+                ints = [];
+                margin_left = 5;
+                fill_circle();
+                if (otvet.answer_is_true == '1') S(C('step-survey')[prevQst]).backgroundColor = 'yellow';
+                handle_move_left_start = setInterval(anime_move_left_start,10, numStartQst);
+                setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
+                anime_off = true;
+            }
+
+            zapros_Cookies();           // Делаем синхронный запрос
+
+            // Object.cookie_level();
+          
         }
-   
+    
         break;
 
         case countQst_lev3 :
