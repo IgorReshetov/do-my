@@ -101,7 +101,7 @@ $count_true = 0;
 // var_dump($_SESSION['user_answer'][$activ_question-1]['answer_is_true']);
 // var_dump($_SESSION['action']);
 
-if ($_SESSION['action'] == 3){
+if ($_SESSION['action'] == 4){
     if (isset($_SESSION['user_answer'][$activ_question]['time_answer']) && $_SESSION['user_answer'][$activ_question-1]['answer_is_true'] == NULL) {
         $activ_question = $activ_question-1;
         // echo 'сработка';

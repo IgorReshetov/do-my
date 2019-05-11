@@ -1105,8 +1105,57 @@ function update_afterClientFoward() {
                         // Object.cookie_level();
                     
                     }
-                } 
-            
+                } else if (otvet.finish == 2) /*if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
+                ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1))))*/ {
+                    if (!levelQst_2.check) valid_level_2();
+                    else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
+                        result.style.display = "none";
+                        dark.style.display = "none";
+                        otvet_true.style.display = "none";
+                        otvet_false.style.display = "none";
+                        image.style.display = "none";
+                        why.style.display = "none";
+                        why_title.style.display = "none";
+                        why.innerHTML = '';
+        
+                        json_Q_A_next();
+                    if (anime_off) {anime_off=false;
+                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
+                            ints.push(handle_hit_3);
+                            S(C('result2')[0]).display = 'flex';
+                            S(C('step-level3')[0]).display = 'none';
+                            S(C('step-level2')[0]).display = 'none';
+                            S(C('present')[0]).display = 'flex';
+                        }
+                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                            handle_hit_4 = setInterval(anime_step_fillHit_4, 20, prevQst, numStartQst);
+                            ints.push(handle_hit_4);
+                            S(C('result2')[0]).display = 'flex';
+                            S(C('step-level3')[0]).display = 'none';
+                            S(C('step-level2')[0]).display = 'none';
+                            S(C('present')[0]).display = 'flex';
+                        }
+                        else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                            ints.push(handle_miss);}
+                    } else {
+                        for (var i=0; i<ints.length; i++)
+                        clearInterval( ints[i] );
+                        ints = [];
+                        fill_circle();
+                        handle_move_left_start = setInterval(anime_move_left_start,10, numStartQst);
+                        setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
+                        anime_off = true;
+                     }
+        
+                     C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
+          
+                        zapros_Cookies();           // Делаем синхронный запрос
+        
+                        // Object.cookie_level();
+                      
+                    }
+        
+                }
         break;
 
         case countQst_lev2 :
@@ -1371,7 +1420,7 @@ function update_afterClientFoward() {
     
                 } 
 
-            } else {    
+            } else if (otvet.finish == 0) {    
                 result.style.display = "none";
                 dark.style.display = "none";
                 otvet_true.style.display = "none";
