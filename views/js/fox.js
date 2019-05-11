@@ -137,7 +137,7 @@ var fox = {
         this.watch('time_answer', function (id, oldval, newval) {            
         if (oldval== 0) return newval;
         else {
-            if((newval-oldval)<=3000) {
+            if((newval-oldval)<=5000) {
                 fox.time_answer_toFast = true;
                 return newval;
             } else {
