@@ -3,7 +3,7 @@ window.onload = init;
 var numStartQst = 0; // Вводим глобальный счетчик вопросов
 var check_arr = [0];
 var prevQst = 0;
-var flag = 0;//переменная меню
+var flag = 0;
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
 Object.prototype.cookie_level = function() {

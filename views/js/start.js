@@ -1,5 +1,5 @@
 window.onload = init;
-var flag = 0;//переменная меню
+var flag = 0;
 
 function init() {
 preloader();

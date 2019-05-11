@@ -67,7 +67,7 @@
             </div>
             <div class="hiden-menu" id = "menu1"> </div>
             
-            <div class="menu-wraper">
+            <div class="menu-wraper" id = "menu-wraper">
             <div class="hiden-menu-user">
                <?php
                 if ($page != "start" && $page != "first"){
@@ -95,7 +95,7 @@
                           
             </div>  
             </div>
-            <div class="menu-wraper-promo">
+            <div class="menu-wraper-promo" id = "menu-wraper-promo">
             <div class="hiden-menu-user-promo" id = "menu12">
                 <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
                 
@@ -134,6 +134,9 @@
                 <img src="views/images/icon/victory_level.svg" alt="">
                 <img src="views/images/icon/victory.svg" alt="">
                 <img src="views/images/icon/logo.svg" alt="">
+                <img src="views/images/icon/house.svg" alt="">
+                <img src="views/images/icon/aim.svg" alt="">
+
     </div>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
     <script src="views/js/fox.js"></script>
