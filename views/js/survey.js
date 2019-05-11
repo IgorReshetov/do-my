@@ -1004,7 +1004,7 @@ function valid_level_3() {
         // console.log(!(levelQst_1.next_level()));
         if (otvet.miss == 1) { var text = "вопрос";}
         else {
-            if (otvet.miss == 2 || otvet.miss == 3 || otvet.miss == 4){
+            if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
             } else {var text = "вопросoв";}
         }
@@ -1020,7 +1020,7 @@ function valid_level_3() {
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet.miss + "</strong> " + text + " уровня \"Hard\".";
+            otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text + " уровня \"Hard\".";
             otvet_false.style.display = "block"; 
             why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
             why.style.display = "block";
