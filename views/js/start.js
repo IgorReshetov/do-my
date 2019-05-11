@@ -2,7 +2,7 @@ window.onload = init;
 var flag = 0;
 
 function init() {
-preloader();
+
 menu();
 
 fox.speake_start();
@@ -15,7 +15,7 @@ fox.wakeUp_mouse();
 
 // var timeLoadPage = new Date();
 
-
+preloader();
 };
 
 

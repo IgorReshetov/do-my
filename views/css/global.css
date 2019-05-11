@@ -440,7 +440,7 @@ a.icon-menu {
 
 #menu-btn-box-main {
   width: 35px;
-  height: 31px;
+  height: 29px;
   display: block;
   -webkit-transition: 1s all;
   transition: 1s all;
@@ -453,7 +453,7 @@ a.icon-menu {
   height: 3px;
   display: block;
   position: absolute;
-  top: 15px;
+  top: 13px;
   right: 0px;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
@@ -464,7 +464,7 @@ a.icon-menu {
   width: 35px;
   height: 3px;
   position: absolute;
-  top: 3px;
+  top: 0px;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
   cursor: pointer;
@@ -474,7 +474,7 @@ a.icon-menu {
   width: 35px;
   height: 3px;
   position: absolute;
-  top: 28px;
+  top: 26px;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
   cursor: pointer;
@@ -487,14 +487,14 @@ a.icon-menu {
 .menu-btn-bot-open {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 15px !important;
+  top: 13px !important;
   background-color: red !important;
 }
 
 .menu-btn-top-open {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: 15px !important;
+  top: 13px !important;
   background-color: red !important;
 }
 

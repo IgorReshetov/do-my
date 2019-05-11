@@ -417,7 +417,7 @@ font-weight: 600;
 
 #menu-btn-box-main {
     width: 35px;
-    height: 31px;
+    height: 29px;
     display: block;
     transition: 1s all;
     position: relative;
@@ -429,7 +429,7 @@ font-weight: 600;
     height: 3px;
     display: block;
     position: absolute;
-    top: 15px;
+    top: 13px;
     right: 0px;
     transition: 0.5s all;
     cursor: pointer; 
@@ -439,7 +439,7 @@ font-weight: 600;
     width: 35px;
     height: 3px;
     position: absolute;
-    top: 3px;
+    top: 0px;
     transition: 0.5s all;
     cursor: pointer; 
 }
@@ -447,7 +447,7 @@ font-weight: 600;
     width: 35px;
     height: 3px;
     position: absolute;
-    top: 28px;
+    top: 26px;
     transition: 0.5s all;
     cursor: pointer; 
 }
@@ -458,13 +458,13 @@ font-weight: 600;
 
 .menu-btn-bot-open   {
     transform: rotate(-45deg);
-    top: 15px !important;
+    top: 13px !important;
     background-color: red !important;
 }
 
 .menu-btn-top-open {
     transform: rotate(45deg);
-    top: 15px !important;
+    top: 13px !important;
     background-color: red !important;
 }
 
