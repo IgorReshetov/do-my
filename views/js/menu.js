@@ -2,7 +2,7 @@
 
 function menu() {
 
-    console.log (flag);
+    // console.log (flag);
          
     document.onclick = menu_moov;
 
@@ -19,7 +19,7 @@ function menu() {
 
 function menu_moov(e) {
     
-    console.log (e.target.getAttribute('class'));
+    // console.log (e.target.getAttribute('class'));
     if (e.target.getAttribute('class') == "menu-btn-box" && flag == 0){
 
           

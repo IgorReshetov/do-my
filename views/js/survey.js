@@ -205,7 +205,7 @@ function init() {
         C('slider-box-survey-after')[0].onmousedown = function () {
             if (flag_slaider == 1) return;
             handle_msr = setInterval(move_slider_right, 20);
-            console.log((C('slider-box-survey')[0]).offsetWidth);}
+            }
         C('slider-box-survey-after')[0].onmouseup = function () {
             if (flag_slaider == 1) return;
             clearInterval(handle_msr);
@@ -225,7 +225,7 @@ function init() {
         C('slider-box-survey-after')[0].addEventListener("touchstart", function () {
             if (flag_slaider == 1) return;
             handle_msr = setInterval(move_slider_right, 20);
-            console.log((C('slider-box-survey')[0]).offsetWidth);}, false);
+            }, false);
         C('slider-box-survey-after')[0].addEventListener("touchend", function () {
             if (flag_slaider == 1) return;
             clearInterval(handle_msr);
@@ -293,10 +293,10 @@ function send_mail() {
             return;
         }
         
-        console.log (xhr.responseText);
+        // console.log (xhr.responseText);
         var messages = JSON.parse(xhr.responseText);
 
-        console.log (messages);  
+        // console.log (messages);  
         if (messages.result == true) {document.location.href = "index.php?page=thanks&mail=1"}
         else {document.location.href = "index.php?page=thanks&mail=0"}
         preloader();
@@ -313,7 +313,7 @@ function show_get () {
     var result = mail.length;
     var result1 = mail.indexOf("@");
     var result2 = mail.indexOf(".");
-    console.log (result2);
+    // console.log (result2);
     // проверка правильности мэйла
     if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2 && result2 > 0) {
         
@@ -378,9 +378,9 @@ function zapros_Cookies_start(){      //  Синхронный запрос
             O('next').classList.add ('next-level3');
             C('forward')[0].classList.add('forward-level3');
         } 
-        console.log(cookies);
-        console.log(prevQst);
-        console.log(numStartQst);
+        // console.log(cookies);
+        // console.log(prevQst);
+        // console.log(numStartQst);
 
         var status_Game = document.getElementsByClassName('slider-box-main');
         if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
@@ -430,8 +430,8 @@ function fill_circle() {
     var circles = document.querySelectorAll(".step-survey");
     var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
     var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
-    console.log(C('slider-level')[0]);
-    console.log(level[0].style);
+    // console.log(C('slider-level')[0]);
+    // console.log(level[0].style);
     
     level2[0].innerHTML = levelQst_2.countQst;
     level3[0].innerHTML = levelQst_3.countQst;
@@ -445,8 +445,8 @@ function fill_circle() {
         level[0].style.borderColor = "yellow";
         
     } else if (numStartQst>= levelQst_1.countQst && numStartQst < (levelQst_1.countQst + levelQst_2.countQst)) {
-    console.log(levelQst_1.countQst)
-    console.log(numStartQst)
+    // console.log(levelQst_1.countQst)
+    // console.log(numStartQst)
         level[0].innerHTML = (numStartQst*1 + 1)- levelQst_1.countQst + "/" + levelQst_2.countQst;
         level[0].style.borderColor = "blue";
         level[0].classList.add('step-level-js-M');
@@ -527,7 +527,7 @@ function json_Q_A() {
        
         var timeAnsw = new Date().getTime();
          fox.time_answer = timeAnsw; 
-         console.log(fox.time_answer); 
+        //  console.log(fox.time_answer); 
     // _________________________________________________________________________
     next.style.display = 'none';
     var inputs = document.querySelectorAll(".right input");
@@ -547,8 +547,8 @@ function json_Q_A() {
             };
         }
     };
-    console.log(numAnsw);
-    console.log(numQst);
+    // console.log(numAnsw);
+    // console.log(numQst);
 
     // numStartQst++;
     
@@ -575,7 +575,7 @@ function json_Q_A() {
         if (xhr.readyState != 4) {
             return;
         }
-        console.log(xhr.responseText); 
+        // console.log(xhr.responseText); 
         otvet = JSON.parse(xhr.responseText);
         console.log(otvet);
         update_afterClientAnswer(otvet);
@@ -679,7 +679,7 @@ function startOpros() {
         }
     
     var messages = JSON.parse(xhr.responseText);
-    console.log(messages);  
+    // console.log(messages);  
     update_Q_A(messages);
     preloader();
     }
@@ -1247,8 +1247,9 @@ function update_afterClientFoward() {
 
         default :
           
-            if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (levelQst_1.countQst - 1))) ||
-            ((check_arr[1] == check_arr[0]) && (levelQst_1.hit == (levelQst_1.countQst - 1)))) {
+            if ((check_arr[1] <= check_arr[0]) && (otvet.finish == 1)) {
+            // (cookies.user_answer.length == (levelQst_1.countQst - 1))) ||
+            // ((check_arr[1] == check_arr[0]) && (levelQst_1.hit == (levelQst_1.countQst - 1)))) {
                 // if ((cookies.user_answer.length == countQst_lev1) || (cookies.user_answer.length == (countQst_lev1 - 1))) {
                 if (!levelQst_1.check) valid_level_1();
                 else if (levelQst_1.check==true) { // && levelQst_1.next_lev == true
@@ -1290,8 +1291,9 @@ function update_afterClientFoward() {
                      
                 } 
                 // }
-            } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
-            ((check_arr[1] == check_arr[0]) && (levelQst_2.hit == (levelQst_2.countQst - 1)))) {
+            } else if ((check_arr[1] <= check_arr[0]) && (otvet.finish == 2)) {
+            // (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) ||
+            // ((check_arr[1] == check_arr[0]) && (levelQst_2.hit == (levelQst_2.countQst - 1)))) {
                 if (!levelQst_2.check) valid_level_2();
                 else if (levelQst_2.check==true) { // && levelQst_2.next_lev == true
                     result.style.display = "none";
@@ -1329,8 +1331,9 @@ function update_afterClientFoward() {
                 // Object.cookie_level();
             
                 } 
-            } else if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
-            ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))) {
+            } else if ((check_arr[1] <= check_arr[0]) && (otvet.finish == 3)) {
+            // (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
+            // ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))) {
                 if (!levelQst_3.check) valid_level_3();
                 else if (levelQst_3.check==true) { // && levelQst_3.next_lev == true
                     result.style.display = "none";
@@ -1383,7 +1386,7 @@ function update_afterClientFoward() {
                                     // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
                 if (anime_off) {
                     if (otvet.active_question < countQst_lev1){ anime_off = false;
-                        console.log(otvet.answer_is_true);
+                        // console.log(otvet.answer_is_true);
                         if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,20, prevQst, numStartQst);
                             ints.push(handle_hit);}
                         else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
