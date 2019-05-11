@@ -18,7 +18,7 @@ h2 {
 }
 
 body {
-  margin-top: 54px;
+  margin-top: 48px;
   margin-bottom: 0px;
 }
 
@@ -30,6 +30,7 @@ html {
   position: fixed;
   left: -1000px;
   top: -1000px;
+  opacity: 0;
 }
 
 .wrapper {
@@ -55,6 +56,10 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 48px;
 }
 
 .menu-block {
@@ -261,9 +266,9 @@ a.icon-menu {
 .menu-wraper {
   position: fixed;
   width: 300px;
-  top: 54;
+  top: 48;
   right: -303px;
-  z-index: 99;
+  z-index: 49;
   -webkit-transition: 1s all;
   transition: 1s all;
 }
@@ -271,9 +276,9 @@ a.icon-menu {
 .menu-wraper-promo {
   position: fixed;
   width: 300px;
-  top: 54;
+  top: 48;
   right: -303px;
-  z-index: 98;
+  z-index: 48;
   -webkit-transition: 1s all;
   transition: 1s all;
 }
@@ -422,61 +427,11 @@ a.icon-menu {
 }
 
 .menu-wraper-moov {
-  -webkit-animation: 1s moov;
-          animation: 1s moov;
   right: 0px;
-}
-
-.menu-wraper-back {
-  -webkit-animation: 1s moovback;
-          animation: 1s moovback;
 }
 
 .menu-wraper-promo-moov {
-  -webkit-animation: 1s moov;
-          animation: 1s moov;
   right: 0px;
-}
-
-.menu-wraper-promo-back {
-  -webkit-animation: 1s moovback;
-          animation: 1s moovback;
-}
-
-@-webkit-keyframes moov {
-  0% {
-    right: -303px;
-  }
-  100% {
-    right: 0px;
-  }
-}
-
-@keyframes moov {
-  0% {
-    right: -303px;
-  }
-  100% {
-    right: 0px;
-  }
-}
-
-@-webkit-keyframes moovback {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: -303px;
-  }
-}
-
-@keyframes moovback {
-  0% {
-    right: 0px;
-  }
-  100% {
-    right: -303px;
-  }
 }
 
 .icon-user-menu > div > div {

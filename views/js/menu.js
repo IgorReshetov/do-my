@@ -1,14 +1,70 @@
 
 
 function menu() {
-
-    // console.log (flag);
-         
-    document.onclick = menu_moov;
-
+    
     var mail_field = document.getElementById("menu-mail");
     mail_field.onclick = show_get_menu;
     mail_field.oninput = show_get_menu;
+
+    var menu_button = document.getElementById("menu-btn-box-main");
+    menu_button.onclick = function () {
+        if (flag == 0){
+               
+            document.getElementById('menu-wraper').classList.add("menu-wraper-moov");
+            // document.getElementById('menu-wraper').classList.remove("menu-wraper-back");
+            
+            document.getElementById('menu-btn').classList.add('menu-btn-open');
+            document.getElementById('menu-btn-bot').classList.add('menu-btn-bot-open');
+            document.getElementById('menu-btn-top').classList.add('menu-btn-top-open');
+    
+            flag = 1;
+            return;
+        }
+
+        if (flag == 1){
+    
+        document.getElementById('menu-wraper').classList.remove("menu-wraper-moov");
+        // document.getElementById('menu-wraper').classList.add("menu-wraper-back");
+        
+        
+        document.getElementById('menu-btn').classList.remove('menu-btn-open');
+        document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
+        document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
+        
+        flag = 0;
+        return;
+        }
+
+        if (flag == 11){
+    
+            document.getElementsByClassName('menu-wraper-promo')[0].classList.remove("menu-wraper-promo-moov");
+            
+            
+            document.getElementById('menu-btn').classList.remove('menu-btn-open');
+            document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
+            document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
+            
+            flag = 0;
+            return;
+        }
+        
+    }
+
+    var menu_button = document.getElementById("getpromo");
+    menu_button.onclick = function () {
+        if (flag == 1){
+    
+            document.getElementById('menu-wraper').classList.remove("menu-wraper-moov");
+            
+            
+            document.getElementById('menu-wraper-promo').classList.add("menu-wraper-promo-moov");
+            
+            
+            flag = 11;
+            return;
+        }
+    }
+
 
     var mail_button = document.getElementById("promo-button-get");
     mail_button.onclick = send_mail_menu;
@@ -17,63 +73,69 @@ function menu() {
 };
 
 
-function menu_moov(e) {
+// function menu_moov(e) {
+//     // var flag = 0;
+//     // if (document.getElementById('menu-wraper').classList.contains('menu-wraper-moov')){flag = 1;}
+//     // if (document.getElementById('menu-wraper-promo').classList.contains('menu-wraper-promo-moov')){flag = 11;}
     
-    // console.log (e.target.getAttribute('class'));
-    if (e.target.getAttribute('class') == "menu-btn-box" && flag == 0){
-
-          
-        document.getElementsByClassName('menu-wraper')[0].classList.add("menu-wraper-moov");
-        document.getElementsByClassName('menu-wraper')[0].classList.remove("menu-wraper-back");
+//     console.log (e.target.getAttribute('class'));
+//     console.log (flag);
+//     if (e.target.getAttribute('class') == "menu-btn-box" && flag == 0){
+               
+//         document.getElementById('menu-wraper').classList.add("menu-wraper-moov");
+//         document.getElementById('menu-wraper').classList.remove("menu-wraper-back");
         
-        flag = 1;
+//         document.getElementById('menu-btn').classList.add('menu-btn-open');
+//         document.getElementById('menu-btn-bot').classList.add('menu-btn-bot-open');
+//         document.getElementById('menu-btn-top').classList.add('menu-btn-top-open');
 
-        document.getElementById('menu-btn').classList.add('menu-btn-open');
-        document.getElementById('menu-btn-bot').classList.add('menu-btn-bot-open');
-        document.getElementById('menu-btn-top').classList.add('menu-btn-top-open');
+//         flag = 1;
+//         return;
+//     }
 
-        return;
-    }
-
-    if (e.target.getAttribute('id') == "getpromo" && flag == 1){
+//     if (e.target.getAttribute('id') == "getpromo" && flag == 1){
     
-        document.getElementsByClassName('menu-wraper')[0].classList.remove("menu-wraper-moov");
-        document.getElementsByClassName('menu-wraper')[0].classList.add("menu-wraper-back");
+//         document.getElementById('menu-wraper').classList.remove("menu-wraper-moov");
+//         document.getElementById('menu-wraper').classList.add("menu-wraper-back");
         
-        document.getElementsByClassName('menu-wraper-promo')[0].classList.add("menu-wraper-promo-moov");
-        document.getElementsByClassName('menu-wraper-promo')[0].classList.remove("menu-wraper-promo-back");
+//         document.getElementById('menu-wraper-promo').classList.add("menu-wraper-promo-moov");
+//         document.getElementById('menu-wraper-promo').classList.remove("menu-wraper-promo-back");
         
-        flag = 11;
-        return;
-    }
+//         flag = 11;
+//         return;
+//     }
 
 
-    if (e.target.getAttribute('class') != "hiden-menu-user-getpromo" && flag == 1){
+//     if ((e.target.getAttribute('class') == "menu-btn-box menu-btn-open"||e.target.getAttribute('class') == "menu-btn-box"||e.target.getAttribute('class') == "menu-btn-box menu-btn-top-open"||e.target.getAttribute('class') == "menu-btn-box menu-btn-bot-open") && flag == 1){
     
-        document.getElementsByClassName('menu-wraper')[0].classList.remove("menu-wraper-moov");
-        document.getElementsByClassName('menu-wraper')[0].classList.add("menu-wraper-back");
+//         document.getElementById('menu-wraper').classList.remove("menu-wraper-moov");
+//         document.getElementById('menu-wraper').classList.add("menu-wraper-back");
         
-        flag = 0;
-        document.getElementById('menu-btn').classList.remove('menu-btn-open');
-        document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
-        document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
-        return;
-    }
+        
+//         document.getElementById('menu-btn').classList.remove('menu-btn-open');
+//         document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
+//         document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
+        
+//         flag = 0;
+//         return;
+//     }
 
     
 
-    if (e.target.getAttribute('class') != "hiden-menu-user-promo-block" && flag == 11){
+//     if (e.target.getAttribute('class') == "menu-btn-box" && flag == 11){
     
-        document.getElementsByClassName('menu-wraper-promo')[0].classList.remove("menu-wraper-promo-moov");
-        document.getElementsByClassName('menu-wraper-promo')[0].classList.add("menu-wraper-promo-back");
-        flag = 0;
-        document.getElementById('menu-btn').classList.remove('menu-btn-open');
-        document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
-        document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
-        return;
-    }
-    
-}
+//         document.getElementsByClassName('menu-wraper-promo')[0].classList.remove("menu-wraper-promo-moov");
+//         document.getElementsByClassName('menu-wraper-promo')[0].classList.add("menu-wraper-promo-back");
+        
+//         document.getElementById('menu-btn').classList.remove('menu-btn-open');
+//         document.getElementById('menu-btn-bot').classList.remove('menu-btn-bot-open');
+//         document.getElementById('menu-btn-top').classList.remove('menu-btn-top-open');
+        
+//         flag = 0;
+//         return;
+//     }
+
+// }
 
 
 function show_get_menu () {

@@ -20,7 +20,7 @@ h2 {
 
 body {
     // background: white;
-    margin-top: 54px;
+    margin-top: 48px;
     margin-bottom: 0px;     
 }
 
@@ -32,6 +32,7 @@ html {
     position: fixed;
     left: -1000px;
     top: -1000px;
+    opacity: 0;
 }
 
 .wrapper {
@@ -54,6 +55,8 @@ html {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 48px;
 }
 
 .menu-block{
@@ -248,18 +251,18 @@ font-weight: 600;
 .menu-wraper{
     position: fixed;
     width: 300px;
-    top: 54;
+    top: 48;
     right: -303px;
-    z-index: 99;
+    z-index: 49;
     transition: 1s all;
 }
 
 .menu-wraper-promo{
     position: fixed;
     width: 300px;
-    top: 54;
+    top: 48;
     right: -303px;
-    z-index: 98;
+    z-index: 48;
     transition: 1s all;
 }
 
@@ -380,32 +383,30 @@ font-weight: 600;
 }
 
 .menu-wraper-moov {
-    animation: 1s moov;
     right: 0px;
 }
 
-.menu-wraper-back {
-    animation: 1s moovback;
-}
+// .menu-wraper-back {
+//     animation: 1s moovback;
+// }
 
 .menu-wraper-promo-moov {
-    animation: 1s moov;
     right: 0px;
 }
 
-.menu-wraper-promo-back {
-    animation: 1s moovback;
-}
+// .menu-wraper-promo-back {
+//     animation: 1s moovback;
+// }
 
-@keyframes moov {
-    0% {right: -303px;};
-    100% {right: 0px;}
-}
+// @keyframes moov {
+//     0% {right: -303px;};
+//     100% {right: 0px;}
+// }
 
-@keyframes moovback {
-    0% {right: 0px;};
-    100% {right: -303px;}
-}
+// @keyframes moovback {
+//     0% {right: 0px;};
+//     100% {right: -303px;}
+// }
 
 
 
