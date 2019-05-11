@@ -201,46 +201,51 @@ function init() {
     
     forward.onclick = update_afterClientFoward;
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
-    if (mobile==0) {
+    // if (mobile==0) {
         C('slider-box-survey-after')[0].onmousedown = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             handle_msr = setInterval(move_slider_right, 20);
             }
         C('slider-box-survey-after')[0].onmouseup = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             clearInterval(handle_msr);
         handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
         }
         C('slider-box-survey-before')[0].onmousedown = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             handle_msl = setInterval(move_slider_left, 20);}
         C('slider-box-survey-before')[0].onmouseup = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             clearInterval(handle_msl);
             handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }
 
-    } else {
+    // } else {
         C('slider-box-survey-after')[0].addEventListener("touchstart", function (e) {
             if (flag_slaider == 1) return false;
             handle_msr = setInterval(move_slider_right, 20);
+            e.preventDefault();
             }, false);
         C('slider-box-survey-after')[0].addEventListener("touchend", function (e) {
             if (flag_slaider == 1) return false;
             clearInterval(handle_msr);
-        handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            e.preventDefault();
         }, false);   
-        C('slider-box-survey-before')[0].addEventListener("touchstart", function () {
+        C('slider-box-survey-before')[0].addEventListener("touchstart", function (e) {
             if (flag_slaider == 1) return false;
-            handle_msl = setInterval(move_slider_left, 20);}, false);
-        C('slider-box-survey-before')[0].addEventListener("touchend", function () {
+            handle_msl = setInterval(move_slider_left, 20);
+            e.preventDefault();
+        }, false);
+        C('slider-box-survey-before')[0].addEventListener("touchend", function (e) {
             if (flag_slaider == 1) return false;
             clearInterval(handle_msl);
             handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            e.preventDefault();
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }, false);
-    }
+    // }
  
 
     //обраюотчики окна подарка
