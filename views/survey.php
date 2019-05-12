@@ -3,8 +3,8 @@
 require_once 'views/templates/header.php';
 ?>
 
-<div id ='id-preloader' class="preloader">
-    <div class="loader"></div>
+<div id ='id-preloader' class="start-preloader">
+<div class="loader"></div>
 </div>
 
 <div class="wrapper main">
@@ -207,12 +207,26 @@ require_once 'views/templates/header.php';
 
     <div id='button' class = 'button <?=$play?>'></div>
 
-
-    <div class="title-gift-block">
-        <div class="title-gift-text">Вы получите в подарок:</div>
-        <div class="title-gift-pic"></div>
-    </div>
-
+    <?php
+    if ($play == 'play1'|| $play == 'play2'){
+        if ($_SESSION['action'] == 1) {
+            echo ('
+            <div class="title-gift-block">
+                <div class="title-gift-text">Вы получите в подарок:</div>
+                <div class="title-gift-pic60"></div>
+            </div>
+            ');
+        }else{
+            echo ('
+            <div class="title-gift-block">
+                <div class="title-gift-text">Вы получите в подарок:</div>
+                <div class="title-gift-pic30"></div>
+            </div>
+            }
+            ');
+        }
+    }
+    ?>
 
     <div id="result">
         <div id="result-left"></div>

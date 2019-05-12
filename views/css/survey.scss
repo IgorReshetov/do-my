@@ -1215,7 +1215,11 @@ margin-right: 30px;
     }
 
     .title-gift-pic30 {
-        @include urlcont('title30.png');
+        width: 200px;
+        height: 130px;
+    }
+
+    .title-gift-pic60 {
         width: 200px;
         height: 130px;
     }

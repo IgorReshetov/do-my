@@ -1447,6 +1447,14 @@ table.prev_next {
   .title-gift-text {
     font-size: 17px;
   }
+  .title-gift-pic30 {
+    width: 200px;
+    height: 130px;
+  }
+  .title-gift-pic60 {
+    width: 200px;
+    height: 130px;
+  }
   .button:before {
     height: 35px;
     width: 240px;

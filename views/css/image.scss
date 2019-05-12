@@ -102,6 +102,12 @@
     height: 180px;
 }
 
+.title-gift-pic60 {
+    @include urlcont('title60.png');
+    width: 250px;
+    height: 180px;
+}
+
 .result-tru-question {
     @include urlcont('true_question.svg');
 }
