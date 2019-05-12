@@ -201,51 +201,52 @@ function init() {
     
     forward.onclick = update_afterClientFoward;
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
-    if (mobile==0) {
+    // if (mobile==0) {
         C('slider-box-survey-after')[0].onmousedown = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             handle_msr = setInterval(move_slider_right, 20);
             }
         C('slider-box-survey-after')[0].onmouseup = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             clearInterval(handle_msr);
         handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
         }
         C('slider-box-survey-before')[0].onmousedown = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             handle_msl = setInterval(move_slider_left, 20);}
         C('slider-box-survey-before')[0].onmouseup = function () {
-            if (flag_slaider == 1) return;
+            if (flag_slaider == 1) return false;
             clearInterval(handle_msl);
             handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }
 
-    } else {
-        C('slider-box-survey-after')[0].addEventListener("touchstart", function () {
-            if (flag_slaider == 1) return;
+    // } else {
+        C('slider-box-survey-after')[0].addEventListener("touchstart", function (e) {
+            if (flag_slaider == 1) return false;
             handle_msr = setInterval(move_slider_right, 20);
+            e.preventDefault();
             }, false);
-        C('slider-box-survey-after')[0].addEventListener("touchend", function () {
-            if (flag_slaider == 1) return;
+        C('slider-box-survey-after')[0].addEventListener("touchend", function (e) {
+            if (flag_slaider == 1) return false;
             clearInterval(handle_msr);
-        handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            e.preventDefault();
         }, false);   
-        C('slider-box-survey-before')[0].addEventListener("touchstart", function () {
-            if (flag_slaider == 1) return;
-            handle_msl = setInterval(move_slider_left, 20);}, false);
-        C('slider-box-survey-before')[0].addEventListener("touchend", function () {
-            if (flag_slaider == 1) return;
+        C('slider-box-survey-before')[0].addEventListener("touchstart", function (e) {
+            if (flag_slaider == 1) return false;
+            handle_msl = setInterval(move_slider_left, 20);
+            e.preventDefault();
+        }, false);
+        C('slider-box-survey-before')[0].addEventListener("touchend", function (e) {
+            if (flag_slaider == 1) return false;
             clearInterval(handle_msl);
             handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            e.preventDefault();
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }, false);
-    }
-    // var el = document.getElementsByTagName("canvas")[0];
-    //     el.addEventListener("touchstart", handleStart, false);
-    //     el.addEventListener("touchend", handleEnd, false);
-    
-    // C('slider-box-survey-before')[0].onmousedown = move_slider_left;
+    // }
+ 
 
     //обраюотчики окна подарка
 
@@ -777,7 +778,22 @@ function update_Q_A (messages) {
        } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
     }
 
-    // preloader();
+    var result = document.getElementById("result");
+    var dark = document.getElementById("dark");
+    var otvet_true = document.getElementById("true");
+    var otvet_false = document.getElementById("false");
+    var image = document.getElementById("image");
+    var why = document.getElementById("why");
+    var why_title = document.getElementById("why-title");
+
+    result.style.display = "none";
+    dark.style.display = "none";
+    otvet_true.style.display = "none";
+    otvet_false.style.display = "none";
+    image.style.display = "none";
+    why.style.display = "none";
+    why_title.style.display = "none";
+    why.innerHTML = '';
   
 }
 
@@ -810,14 +826,14 @@ function update_afterClientAnswer(otvet) {
 
 
     if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev1 - 1))) {
-        if (otvet.answer_is_true == 1) {++levelQst_1.hit; --levelQst_1.miss;}
-            else ++levelQst_1.miss;
+        if (otvet.answer_is_true == 1) {++levelQst_1.hit; levelQst_1.miss--;}
+            // else ++levelQst_1.miss;
     } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev2 - 1))) {
-        if (otvet.answer_is_true == 1) {levelQst_2.hit++; --levelQst_1.miss;}
-            else levelQst_2.miss++;
+        if (otvet.answer_is_true == 1) {levelQst_2.hit++; levelQst_1.miss--;}
+            // else levelQst_2.miss++;
     } else if ((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) {
-        if (otvet.answer_is_true == 1) {levelQst_3.hit++; --levelQst_1.miss;}
-            else levelQst_3.miss++;
+        if (otvet.answer_is_true == 1) {levelQst_3.hit++; levelQst_1.miss--;}
+            // else levelQst_3.miss++;
     }
  
 
@@ -863,23 +879,7 @@ function update_afterClientAnswer(otvet) {
         why.style.display = "none";
         otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
         otvet_false.style.display = "block";
-    }
-   
-   
-    // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
-    //     if (otvet.answer_is_true) levelQst_1.hit++;
-    //     else levelQst_1.miss++;
-    //     console.log(!(levelQst_1.next_level()));
-    //     if (!(levelQst_1.next_level())) { 
-    //         why.innerHTML = "<strong>Результаты первого уровня: попаданий " + levelQst_1.hit + "; промахов " + levelQst_1.miss + "</br>" +
-    //         " Вы можете пройти опрос повторно</strong>";
-    //         why.style.display = "block"; 
-    //     } else {
-    //         why.innerHTML = "<strong>Результаты первого уровня: попаданий " + levelQst_1.hit + "; промахов " + levelQst_1.miss + "</br>" +
-    //         " Поздравляем вы переходите на следующий уровень</strong>";
-    //         why.style.display = "block"; 
-    //     }
-    // }
+    }  
 }
 
 function valid_level_1() {
@@ -917,8 +917,6 @@ function valid_level_1() {
             otvet_false.style.display = "block"; 
             why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
             why.style.display = "block";
-            
-
             
         } else {
 
@@ -989,20 +987,17 @@ function valid_level_2() {
 }
 
 function valid_level_3() {
-    // var result = document.getElementById("result");
-    // var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
     var otvet_false = document.getElementById("false");
     var image = document.getElementById("image");
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
-
     var otvet_miss = levelQst_3.countQst - otvet.count_true;
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet.miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
@@ -1024,8 +1019,6 @@ function valid_level_3() {
             otvet_false.style.display = "block"; 
             why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
             why.style.display = "block";
-            
-            
         } else {
             document.getElementsByClassName('title')[0].style.display="none";
             document.getElementsByClassName('board')[0].style.display="none";
@@ -1040,22 +1033,10 @@ function valid_level_3() {
             otvet_true.style.display = "block";
             
         }
-    // } 
-    
-    // else
-    // return false;
 }
 
 function update_afterClientFoward() {
   
-    var result = document.getElementById("result");
-    var dark = document.getElementById("dark");
-    var otvet_true = document.getElementById("true");
-    var otvet_false = document.getElementById("false");
-    var image = document.getElementById("image");
-    var why = document.getElementById("why");
-    var why_title = document.getElementById("why-title");
-     
     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);
@@ -1069,16 +1050,10 @@ function update_afterClientFoward() {
                 if (otvet.finish == 1) {
                     if (!levelQst_1.check) valid_level_1();
                     else if (levelQst_1.check==true && levelQst_1.next_lev == true) {
-                        result.style.display = "none";
-                        dark.style.display = "none";
-                        otvet_true.style.display = "none";
-                        otvet_false.style.display = "none";
-                        image.style.display = "none";
-                        why.style.display = "none";
-                        why_title.style.display = "none";
-                        why.innerHTML = '';
-                        
+                        zapros_Cookies(); 
+    
                         json_Q_A_next();
+
                         if (anime_off) {anime_off = false;
                             if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,20, prevQst, numStartQst);
                                 ints.push(handle_hit);
@@ -1102,30 +1077,18 @@ function update_afterClientFoward() {
                             setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                             anime_off = true;
                         }
-
                         C('step-level')[0].classList.add('step-level-js-M');
-                    
-                        zapros_Cookies();           // Делаем синхронный запрос
-
+                        // zapros_Cookies();           // Делаем синхронный запрос
                         // Object.cookie_level();
-                    
                     }
-
-
                 } else if (otvet.finish == 2) /*if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
                 ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1))))*/ {
                     if (!levelQst_2.check) valid_level_2();
                     else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
-                        result.style.display = "none";
-                        dark.style.display = "none";
-                        otvet_true.style.display = "none";
-                        otvet_false.style.display = "none";
-                        image.style.display = "none";
-                        why.style.display = "none";
-                        why_title.style.display = "none";
-                        why.innerHTML = '';
-        
+                        zapros_Cookies(); 
+    
                         json_Q_A_next();
+
                     if (anime_off) {anime_off=false;
                         if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
                             ints.push(handle_hit_3);
@@ -1153,27 +1116,16 @@ function update_afterClientFoward() {
                         setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                         anime_off = true;
                      }
-        
                      C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
-          
-                        zapros_Cookies();           // Делаем синхронный запрос
-        
+                        // zapros_Cookies();           // Делаем синхронный запрос
                         // Object.cookie_level();
-                      
                     }
         
-                } else if (otvet.finish == 0) {    
-                    result.style.display = "none";
-                    dark.style.display = "none";
-                    otvet_true.style.display = "none";
-                    otvet_false.style.display = "none";
-                    image.style.display = "none";
-                    why.style.display = "none";
-                    why_title.style.display = "none";
-                    why.innerHTML = '';
+                } else if (otvet.finish == 0) {
+
+                    zapros_Cookies(); 
     
                     json_Q_A_next();
-    
                                         // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
                     if (anime_off) {
                         if (otvet.active_question < countQst_lev1){ anime_off = false;
@@ -1213,29 +1165,19 @@ function update_afterClientFoward() {
                         setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                         anime_off = true;
                     }
-    
-                    zapros_Cookies();           // Делаем синхронный запрос
-        
+                    // zapros_Cookies();           // Делаем синхронный запрос
                     // Object.cookie_level();
-                  
                 }
-            
         break;
 
         case countQst_lev2 :
             if (otvet.finish==2) {
             if (!levelQst_2.check) valid_level_2();
             else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
-                result.style.display = "none";
-                dark.style.display = "none";
-                otvet_true.style.display = "none";
-                otvet_false.style.display = "none";
-                image.style.display = "none";
-                why.style.display = "none";
-                why_title.style.display = "none";
-                why.innerHTML = '';
-
+                zapros_Cookies(); 
+    
                 json_Q_A_next();
+
             if (anime_off) {anime_off=false;
                 if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
                     ints.push(handle_hit_3);
@@ -1265,27 +1207,19 @@ function update_afterClientFoward() {
              }
 
              C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
-  
-                zapros_Cookies();           // Делаем синхронный запрос
+                // zapros_Cookies();           // Делаем синхронный запрос
 
                 // Object.cookie_level();
-              
             }
          
             }  else if (otvet.finish == 3) /*if (((check_arr[1] <= check_arr[0]) && (cookies.user_answer.length == (countQst_lev3 - 1))) ||
         ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1))))*/ {
             if (!levelQst_3.check) valid_level_3();
             else if (levelQst_3.check==true) { // && levelQst_3.next_lev == true
-            result.style.display = "none";
-            dark.style.display = "none";
-            otvet_true.style.display = "none";
-            otvet_false.style.display = "none";
-            image.style.display = "none";
-            why.style.display = "none";
-            why_title.style.display = "none";
-            why.innerHTML = '';
-            
-            json_Q_A_next();
+                zapros_Cookies(); 
+    
+                json_Q_A_next();
+
             if (anime_off) { anime_off=false;
             if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, numStartQst);
                 ints.push(handle_hit_5);}
@@ -1304,22 +1238,15 @@ function update_afterClientFoward() {
                 anime_off = true;
              }
       
-            zapros_Cookies();           // Делаем синхронный запрос
+            // zapros_Cookies();           // Делаем синхронный запрос
 
             // Object.cookie_level();
           
             } 
 
-        } else if (otvet.finish == 0) {    
-            result.style.display = "none";
-            dark.style.display = "none";
-            otvet_true.style.display = "none";
-            otvet_false.style.display = "none";
-            image.style.display = "none";
-            why.style.display = "none";
-            why_title.style.display = "none";
-            why.innerHTML = '';
-
+        } else if (otvet.finish == 0) { 
+            zapros_Cookies(); 
+    
             json_Q_A_next();
 
                                 // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
@@ -1362,7 +1289,7 @@ function update_afterClientFoward() {
                 anime_off = true;
             }
 
-            zapros_Cookies();           // Делаем синхронный запрос
+            // zapros_Cookies();           // Делаем синхронный запрос
 
             // Object.cookie_level();
           
@@ -1376,14 +1303,21 @@ function update_afterClientFoward() {
             document.getElementsByClassName('title')[0].style.display="none";
             document.getElementsByClassName('board')[0].style.display="none";
             document.getElementsByClassName('opros')[0].style.display="none";
-            result.style.display = "none";
-            dark.style.display = "none";
-            otvet_true.style.display = "none";
-            otvet_false.style.display = "none";
-            image.style.display = "none";
-            why.style.display = "none";
-            why_title.style.display = "none";
-            why.innerHTML = '';
+
+            zapros_Cookies(); 
+    
+            json_Q_A_next();
+
+            window.location.href = 'index.php?page=survey';
+
+            // result.style.display = "none";
+            // dark.style.display = "none";
+            // otvet_true.style.display = "none";
+            // otvet_false.style.display = "none";
+            // image.style.display = "none";
+            // why.style.display = "none";
+            // why_title.style.display = "none";
+            // why.innerHTML = '';
             
             // document.getElementsByClassName('title')[0].style.display="none";
 
@@ -1404,9 +1338,8 @@ function update_afterClientFoward() {
             //         anime_off = true;
             // }
 
-            window.location.href = 'index.php?page=survey';
 
-            zapros_Cookies();           // Делаем синхронный запрос
+            // zapros_Cookies();           // Делаем синхронный запрос
     
             // Object.cookie_level();
          
@@ -1422,15 +1355,8 @@ function update_afterClientFoward() {
                 // if ((cookies.user_answer.length == countQst_lev1) || (cookies.user_answer.length == (countQst_lev1 - 1))) {
                 if (!levelQst_1.check) valid_level_1();
                 else if (levelQst_1.check==true) { // && levelQst_1.next_lev == true
-                        result.style.display = "none";
-                        dark.style.display = "none";
-                        otvet_true.style.display = "none";
-                        otvet_false.style.display = "none";
-                        image.style.display = "none";
-                        why.style.display = "none";
-                        why_title.style.display = "none";
-                        why.innerHTML = '';
-                        
+                    zapros_Cookies(); 
+    
                     json_Q_A_next();
 
                         // handle_move_left_right = setInterval(anime_move_left_right, 50, prevQst, numStartQst);
@@ -1451,13 +1377,9 @@ function update_afterClientFoward() {
                         setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                         anime_off = true;
                     }
-
-
-                        
-                        zapros_Cookies();           // Делаем синхронный запрос
+                        // zapros_Cookies();           // Делаем синхронный запрос
     
                         // Object.cookie_level();
-                     
                 } 
                 // }
             } else if ((check_arr[1] <= check_arr[0]) && (otvet.finish == 2)) {
@@ -1465,16 +1387,10 @@ function update_afterClientFoward() {
             // ((check_arr[1] == check_arr[0]) && (levelQst_2.hit == (levelQst_2.countQst - 1)))) {
                 if (!levelQst_2.check) valid_level_2();
                 else if (levelQst_2.check==true) { // && levelQst_2.next_lev == true
-                    result.style.display = "none";
-                    dark.style.display = "none";
-                    otvet_true.style.display = "none";
-                    otvet_false.style.display = "none";
-                    image.style.display = "none";
-                    why.style.display = "none";
-                    why_title.style.display = "none";
-                    why.innerHTML = '';
-                
-                json_Q_A_next();
+                    zapros_Cookies(); 
+    
+                    json_Q_A_next();
+
                 if (anime_off) { anime_off = false;
                 if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
                     ints.push(handle_hit_3);}
@@ -1495,7 +1411,7 @@ function update_afterClientFoward() {
                 }
                 
 
-                zapros_Cookies();           // Делаем синхронный запрос
+                // zapros_Cookies();           // Делаем синхронный запрос
 
                 // Object.cookie_level();
             
@@ -1505,17 +1421,12 @@ function update_afterClientFoward() {
             // ((check_arr[1] == check_arr[0]) && (levelQst_3.hit == (levelQst_3.countQst - 1)))) {
                 if (!levelQst_3.check) valid_level_3();
                 else if (levelQst_3.check==true) { // && levelQst_3.next_lev == true
-                    result.style.display = "none";
-                    dark.style.display = "none";
-                    otvet_true.style.display = "none";
-                    otvet_false.style.display = "none";
-                    image.style.display = "none";
-                    why.style.display = "none";
-                    why_title.style.display = "none";
-                    why.innerHTML = '';
-                
-                json_Q_A_next();
-             if (anime_off) { anime_off=false;
+                    
+                    zapros_Cookies(); 
+    
+                    json_Q_A_next();
+
+                if (anime_off) { anime_off=false;
                 if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_5 = setInterval(anime_step_fillHit_5,20, prevQst, numStartQst);
                     ints.push(handle_hit_5);}
                 else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
@@ -1534,22 +1445,15 @@ function update_afterClientFoward() {
                     anime_off = true;
                 }
     
-                zapros_Cookies();           // Делаем синхронный запрос
+                // zapros_Cookies();           // Делаем синхронный запрос
 
                 // Object.cookie_level();
     
                 } 
 
-            } else if (otvet.finish == 0) {    
-                result.style.display = "none";
-                dark.style.display = "none";
-                otvet_true.style.display = "none";
-                otvet_false.style.display = "none";
-                image.style.display = "none";
-                why.style.display = "none";
-                why_title.style.display = "none";
-                why.innerHTML = '';
-
+            } else if (otvet.finish == 0) {
+                zapros_Cookies(); 
+    
                 json_Q_A_next();
 
                                     // Если пользователь быстро нажал на ответить и продолжить анимация стартует сначала
@@ -1592,14 +1496,13 @@ function update_afterClientFoward() {
                     anime_off = true;
                 }
 
-                zapros_Cookies();           // Делаем синхронный запрос
+                // zapros_Cookies();           // Делаем синхронный запрос
     
                 // Object.cookie_level();
               
             }
         break;
     }
-// ______________________________________ КОД ОТКЛЮЧЕН____________________________________________
 
     var level = document.querySelectorAll(".step-level");
     // var circles = document.querySelectorAll(".step-survey");
@@ -1652,10 +1555,9 @@ function update_afterClientFoward() {
     if(fox.time_answer_toFast == true) fox.speak_hurry();
 
     if (numStartQst!==countQst && Math.random()<0.33) fox.speak_about_Qst();  
-    
-    
-    
 }
+
+
 // ______________________________________АНИМАЦИЯ элементов ДОМ________________________________________
 
 var anime_off = true; var ints = [];  // глобальная переменная для корректной работы анимации включаем в начале цикла анимации
