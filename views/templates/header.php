@@ -27,15 +27,6 @@
                                 ');
                                 break;
 
-                                case 'first':
-                                echo ('
-                                <div class="icon-menu"></div>
-                                <div class="menu-start">
-                                <div class="menu-start-block1">Думай</div>
-                                </div>
-                                ');
-                                break;
-
                                 default:
                                 echo ('
                                 <a href="index.php?page=start&back=1" class="icon-menu"></a>
@@ -71,7 +62,7 @@
             <div class="menu-wraper" id = "menu-wraper">
             <div class="hiden-menu-user">
                <?php
-                if ($page != "start" && $page != "first"){
+                if ($page != "start"){
                     echo ('<a href="index.php?page=start&back=1" class="hiden-menu-user-getpromo">На главную страницу</a>');
                 }
                 ?>
