@@ -25,6 +25,7 @@
 }
 
 
+
 // картирнки стартовой страницы
 
 
@@ -92,28 +93,15 @@
     position: relative
 }
 
-// КАРТИНКИ СТРАНИЦЫ ПРОЕКТА
-
-.column2-image1 {
-    @include url('keyhole.svg');
-}
-
-@keyframes aim {
-    0% {opacity: 0;
-
-    }
-    
-    100% {opacity: 1;
-    }
-}
-
-.column2-image1-aim {
-    @include url('aim.svg');
-    animation: aim 5s 1;
-}
-
 
 // картинки страницы опроса
+
+.title-gift-pic30 {
+    @include urlcont('title30.png');
+    width: 250px;
+    height: 180px;
+}
+
 .result-tru-question {
     @include urlcont('true_question.svg');
 }
@@ -161,6 +149,29 @@
     background-color: blue;
     @include urlcont('present_red.svg');
 }
+
+
+// КАРТИНКИ СТРАНИЦЫ ПРОЕКТА
+
+.column2-image1 {
+    @include url('keyhole.svg');
+}
+
+@keyframes aim {
+    0% {opacity: 0;
+
+    }
+    
+    100% {opacity: 1;
+    }
+}
+
+.column2-image1-aim {
+    @include url('aim.svg');
+    animation: aim 5s 1;
+}
+
+
 
 //картинки страницы thankks
 

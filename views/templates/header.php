@@ -141,7 +141,7 @@
                 <img src="views/images/icon/logo.svg" alt="">
                 <img src="views/images/icon/house.svg" alt="">
                 <img src="views/images/icon/aim.svg" alt="">
-
+                <img src="views/images/icon/title30.png" alt="">        
     </div>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
     <script src="views/js/fox.js"></script>

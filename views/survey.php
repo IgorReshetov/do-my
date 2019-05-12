@@ -207,6 +207,13 @@ require_once 'views/templates/header.php';
 
     <div id='button' class = 'button <?=$play?>'></div>
 
+
+    <div class="title-gift-block">
+        <div class="title-gift-text">Вы получите в подарок:</div>
+        <div class="title-gift-pic"></div>
+    </div>
+
+
     <div id="result">
         <div id="result-left"></div>
         <div id="result-center">
