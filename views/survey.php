@@ -222,7 +222,6 @@ require_once 'views/templates/header.php';
                 <div class="title-gift-text">Вы получите в подарок:</div>
                 <div class="title-gift-pic30"></div>
             </div>
-            }
             ');
         }
     }

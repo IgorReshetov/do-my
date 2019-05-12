@@ -201,7 +201,7 @@ function init() {
     
     forward.onclick = update_afterClientFoward;
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
-    // if (mobile==0) {
+    if (mobile==0) {
         C('slider-box-survey-after')[0].onmousedown = function () {
             if (flag_slaider == 1) return false;
             handle_msr = setInterval(move_slider_right, 20);
@@ -221,7 +221,7 @@ function init() {
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }
 
-    // } else {
+    } else {
         C('slider-box-survey-after')[0].addEventListener("touchstart", function (e) {
             if (flag_slaider == 1) return false;
             handle_msr = setInterval(move_slider_right, 20);
@@ -245,7 +245,7 @@ function init() {
             e.preventDefault();
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }, false);
-    // }
+    }
  
 
     //обраюотчики окна подарка
@@ -657,6 +657,7 @@ function startOpros() {
         tables[i].style.opacity = "1";
     };
     document.getElementById("button").style.display="none";
+    document.getElementsByClassName("title-gift-block")[0].style.display="none";
     document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     
