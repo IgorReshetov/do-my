@@ -79,8 +79,12 @@
                 <div class="hiden-menu-user-getpromo" id = "inwork">Проверить промокод</div>
 
                 <?php
+                if ($_SESSION['active_question'] > 0 && $page != "survey"){
+                    echo ('<a href="index.php?page=survey" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
+                }
+
                 if ($_SESSION['active_question'] > 0){
-                    echo ('<a href="index.php?page=survey&reset=1" class="hiden-menu-user-getpromo">Вернуться к началу квиза</a>');
+                    echo ('<a href="index.php?page=survey&reset=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
                 }
 
                 if ($page != "project") {

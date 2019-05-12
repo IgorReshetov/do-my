@@ -1,6 +1,6 @@
     <footer>
         <div class="footer-block">
-            <div class="wrapper-menu">
+            <div class="wrapper-footer">
                 <div class = "footer-block-inside1">
                 <a href="http://sber-up.ru" class = "footer-block-inside1-a">Участник акселератора Sber#Up </a>
                 </div>    

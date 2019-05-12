@@ -59,6 +59,14 @@ html {
     height: 48px;
 }
 
+.wrapper-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .menu-block{
     width: 100%;
     background-color: #ffffff;
