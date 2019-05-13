@@ -222,33 +222,54 @@ function init() {
             // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
         }
 
-    } else {
-        C('slider-box-survey-after')[0].addEventListener("touchstart", function (e) {
-            if (flag_slaider == 1) return false;
-            handle_msr = setInterval(move_slider_right, 20);
-            e.preventDefault();
-            }, false);
-        C('slider-box-survey-after')[0].addEventListener("touchend", function (e) {
-            if (flag_slaider == 1) return false;
-            clearInterval(handle_msr);
-            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
-            e.preventDefault();
-        }, false);   
-        C('slider-box-survey-before')[0].addEventListener("touchstart", function (e) {
-            if (flag_slaider == 1) return false;
-            handle_msl = setInterval(move_slider_left, 20);
-            e.preventDefault();
-        }, false);
-        C('slider-box-survey-before')[0].addEventListener("touchend", function (e) {
-            if (flag_slaider == 1) return false;
-            clearInterval(handle_msl);
-            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
-            e.preventDefault();
-            // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
-        }, false);
+    // } else {
+    //     C('slider-box-survey-after')[0].addEventListener("touchstart", function (e) {
+    //         if (flag_slaider == 1) return false;
+    //         handle_msr = setInterval(move_slider_right, 20);
+    //         e.preventDefault();
+    //         }, false);
+    //     C('slider-box-survey-after')[0].addEventListener("touchend", function (e) {
+    //         if (flag_slaider == 1) return false;
+    //         clearInterval(handle_msr);
+    //         handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+    //         e.preventDefault();
+    //     }, false);   
+    //     C('slider-box-survey-before')[0].addEventListener("touchstart", function (e) {
+    //         if (flag_slaider == 1) return false;
+    //         handle_msl = setInterval(move_slider_left, 20);
+    //         e.preventDefault();
+    //     }, false);
+    //     C('slider-box-survey-before')[0].addEventListener("touchend", function (e) {
+    //         if (flag_slaider == 1) return false;
+    //         clearInterval(handle_msl);
+    //         handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+    //         e.preventDefault();
+    //         // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
+    //     }, false);
     }
  
+    // __________Реакция слайдера на движения пальца влево-вправо_____________
 
+    var slider_moove = document.getElementsByClassName('slider-survey'),
+    slider_left, 
+    start_X, 
+    dist = 0, 
+    touch_OBJ = null 
+  
+    slider_moove[0].addEventListener('touchstart', function(e){
+        touch_OBJ = e.changedTouches[0] 
+        slider_left = parseInt(slider_moove[0].style.marginLeft) 
+        start_X = parseInt(touch_OBJ.clientX) 
+        e.preventDefault() 
+  
+    slider_moove[0].addEventListener('touchmove', function(e){
+        touch_OBJ = e.changedTouches[0] 
+        var dist = parseInt(touch_OBJ.clientX) - start_X 
+        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -750)? -750 : slider_left + dist ) + 'px'
+        e.preventDefault()
+    }, false);
+  
+    
     //обраюотчики окна подарка
 
     var privacy_label = document.getElementById("privacy");
