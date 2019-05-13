@@ -104,6 +104,7 @@ function init() {
 
 
     // fox.speak_survey();
+    fox.speake_start();
     fox.enter_leave_mouse();
     fox.wakeUp_mouse();
     fox.no_active_user();

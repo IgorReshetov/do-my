@@ -7,7 +7,7 @@ require_once 'views/templates/header.php';
     </div>
 
     <div class="wrapper">
-        <h1 class = "start-h1" user = "<?=$user?>">Полезные квизы и викторины</h1>
+        <h1 class = "start-h1" id= "fox-start" user = "<?=$user?>">Полезные квизы и викторины</h1>
         
         <div class="start-block">
             <div class="start-h2-conteiner">

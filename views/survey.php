@@ -8,7 +8,7 @@ require_once 'views/templates/header.php';
 </div>
 
 <div class="wrapper main">
-    <h1 class="title"><?=$title?></h1>
+    <h1 class="title" id= "fox-start" user = "<?=$user?>"><?=$title?></h1>
     <div class="board">
         <div class="board-left">
             <div class="result1">

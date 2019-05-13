@@ -3,17 +3,16 @@ require_once 'models/Question.php';
 require_once 'models/Answer.php';
 require_once 'models/User.php';
 
+$user = $_SESSION['life']; 
+$_SESSION['life'] = 'old';
+
+if(isset($_REQUEST['back'])){$user = 'back';}
+
 $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 2)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 3)['questions_count'];
 $active_question = $_SESSION['active_question'];
 
-if ($_SESSION['action'] == 1 || $_SESSION['action'] == 2){
-    $title = "Перед покупкой квартиры в Москве, пройдите нашу игру и узнайте, как правильно выбрать квартиру";
-}
 
-
-if ($_SESSION['action'] == 3 || $_SESSION['action'] == 4){
-    $title = "Не покупайте квартиру в Москве, пока не пройдете нашу игру и не узнаете, как правильно выбрать квартиру";
-}
+$title = "Перед покупкой квартиры в Москве, пройдите нашу игру и узнайте, как правильно выбрать квартиру";
 
 
 if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {

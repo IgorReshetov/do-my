@@ -26,7 +26,7 @@ var fox = {
     speak_HELLO: function(privet) {
         
         var last_time = this.last_time;
-        var new_old = document.getElementsByClassName("start-h1");
+        var new_old = document.getElementById("fox-start");
         var fox_img = document.getElementById("fox");
         var fox_img_js = document.getElementsByClassName("fox-js");
         var fox_words = fox_img.nextElementSibling;
@@ -61,9 +61,9 @@ var fox = {
         setTimeout(function() {
             fox_img.className = 'fox-speak';
             if (privet == "start"){
-                    if (new_old[0].attributes.user.nodeValue == 'new') fox_words_text.innerHTML = hello_new;
-                    else if (new_old[0].attributes.user.nodeValue == 'old') fox_words_text.innerHTML = hello_old;
-                    else if (new_old[0].attributes.user.nodeValue == 'back') fox_words_text.innerHTML = hello_back;
+                    if (new_old.attributes.user.nodeValue == 'new') fox_words_text.innerHTML = hello_new;
+                    else if (new_old.attributes.user.nodeValue == 'old') fox_words_text.innerHTML = hello_old;
+                    else if (new_old.attributes.user.nodeValue == 'back') fox_words_text.innerHTML = hello_back;
             } else if (privet == "survey") fox_words_text.innerHTML = start_game;
               else if (privet == "delay") fox_words_text.innerHTML = delay;
               else if (privet == "multi") fox_words_text.innerHTML = multi;
@@ -170,7 +170,7 @@ var fox = {
    
     wakeUp_mouse: function() {
         var last_time = this.last_time;
-        var new_old = document.getElementsByClassName("start-h1");
+        var new_old = document.getElementById("fox-start");
         var fox_img = document.getElementById("fox");
         var fox_img_wakeUp = document.getElementsByClassName("fox-sleep");
         var fox_img_js = document.getElementsByClassName("fox-js");
