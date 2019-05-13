@@ -261,15 +261,17 @@ function init() {
         slider_left = parseInt(slider_moove[0].style.marginLeft) 
         start_X = parseInt(touch_OBJ.clientX) 
         e.preventDefault() 
+    }, false);
   
     slider_moove[0].addEventListener('touchmove', function(e){
-        touch_OBJ = e.changedTouches[0] 
+        touch_OBJ = e.changedTouches[0]
         var dist = parseInt(touch_OBJ.clientX) - start_X 
         slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -750)? -750 : slider_left + dist ) + 'px'
         e.preventDefault()
     }, false);
   
     
+
     //обраюотчики окна подарка
 
     var privacy_label = document.getElementById("privacy");
