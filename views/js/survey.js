@@ -4,6 +4,7 @@ var numStartQst = 0; // Вводим глобальный счетчик воп�
 var check_arr = [0];
 var prevQst = 0;
 var flag = 0;
+var rang_Qst_Stat = true; // Переменная свойство статистического вопроса (динамически обновляется)
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
 Object.prototype.cookie_level = function() {
@@ -151,7 +152,7 @@ function init() {
     var inputs = document.querySelectorAll(".right input");
 
     var forward = document.getElementById("forward");
-
+    var saveGame = document.getElementById("saveGame");
     var answer_tr = document.querySelectorAll(".left");
 
     // Первая замена цикла foreach
@@ -201,6 +202,7 @@ function init() {
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
+    saveGame.onclick = function() {window.location.href='index.php'};
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
     if (mobile==0) {
         C('slider-box-survey-after')[0].onmousedown = function () {
@@ -417,7 +419,7 @@ function zapros_Cookies_start(){      //  Синхронный запрос
     }
 }
 
-function zapros_Cookies(){      //  Синхронный запрос
+function zapros_Cookies(){      //  AСинхронный запрос
     preloader_start();
     
     var xhr = new XMLHttpRequest();
@@ -638,6 +640,8 @@ function json_Q_A_next() {
     
         var messages = JSON.parse(xhr.responseText);
         console.log(messages);
+        // rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
+        console.log(rang_Qst_Stat); 
         // numStartQst++;
         update_Q_A(messages);
         preloader();
@@ -707,7 +711,9 @@ function startOpros() {
         }
     
     var messages = JSON.parse(xhr.responseText);
-    // console.log(messages);  
+    console.log(messages);
+    // rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
+    console.log(rang_Qst_Stat); 
     update_Q_A(messages);
     preloader();
     }
@@ -810,6 +816,7 @@ function update_Q_A (messages) {
     var image = document.getElementById("image");
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
+    var saveGame = document.getElementById("saveGame");
 
     result.style.display = "none";
     dark.style.display = "none";
@@ -819,6 +826,7 @@ function update_Q_A (messages) {
     why.style.display = "none";
     why_title.style.display = "none";
     why.innerHTML = '';
+    saveGame.style.display = "none";
   
 }
 
@@ -888,7 +896,9 @@ function update_afterClientAnswer(otvet) {
         // image.classList = [];
         // image.classList.add('result-tru-question');
         image.style.display = "block";
-        otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
+        // otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
+        (rang_Qst_Stat)? otvet_true.innerHTML = "Вы знаете лучший ответ. Поздравляем!" 
+        : otvet_true.innerHTML = "Вы знаете точный ответ. Поздравляем!";
         otvet_true.style.display = "block";
         if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
         else {why_title.innerHTML = "Пояснение:";}
@@ -902,7 +912,9 @@ function update_afterClientAnswer(otvet) {
         image.style.display = "block";
         why_title.style.display = "none";
         why.style.display = "none";
-        otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
+        // otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
+        (rang_Qst_Stat)? otvet_false.innerHTML = "Есть вариант лучше. Вопрос ждет вашего возвращения." 
+        : otvet_false.innerHTML = "Это неточный ответ. Вопрос ждет вашего возвращения.";
         otvet_false.style.display = "block";
     }  
 }
@@ -915,6 +927,7 @@ function valid_level_1() {
     var image = document.getElementById("image");
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
+    var saveGame = document.getElementById("saveGame");
 
     
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
@@ -940,9 +953,9 @@ function valid_level_1() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Easy\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
             why.style.display = "block";
-            
+            saveGame.style.display = "block";
         } else {
 
             why.style.display = "none";
@@ -968,6 +981,7 @@ function valid_level_2() {
     var image = document.getElementById("image");
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
+    var saveGame = document.getElementById("saveGame");
 
     var otvet_miss = levelQst_2.countQst - otvet.count_true;
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
@@ -992,9 +1006,9 @@ function valid_level_2() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Medium\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
             why.style.display = "block";
-            
+            saveGame.style.display = "block";
         } else {
             why.style.display = "none";
             why_title.style.display = "none";
@@ -1017,6 +1031,8 @@ function valid_level_3() {
     var image = document.getElementById("image");
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
+    var saveGame = document.getElementById("saveGame");
+
     var otvet_miss = levelQst_3.countQst - otvet.count_true;
     // if (numStartQst == parseInt(cookies.questions_count[0].questions_count)) {
         // if (otvet.answer_is_true) levelQst_1.hit++;
@@ -1042,8 +1058,9 @@ function valid_level_3() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text + " уровня \"Hard\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к вопросам с ошибочными ответами";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
             why.style.display = "block";
+            saveGame.style.display = "block";
         } else {
             document.getElementsByClassName('title')[0].style.display="none";
             document.getElementsByClassName('board')[0].style.display="none";

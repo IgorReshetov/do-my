@@ -768,6 +768,7 @@ table.prev_next {
 
 .result-image, .result-info, .result-why, .result-forwad {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
@@ -804,6 +805,9 @@ table.prev_next {
 
 }
 
+// #saveGame {
+//     display: none;
+// }
 
 
 .forward  {

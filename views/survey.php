@@ -242,7 +242,8 @@ require_once 'views/templates/header.php';
                 <div id="why"></div>
             </div>
             <div class="result-forwad">
-                <div id="forward" class="forward" >ПРОДОЛЖИТЬ</div>
+                <div id="forward" class="forward" >ПРОДОЛЖИТЬ</div> <br>
+                <div id="saveGame" class="forward" >СОХРАНИТЬ и вернуться позже</div>
             </div>
         </div>
         <div id="result-right"></div>
