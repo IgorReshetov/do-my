@@ -397,13 +397,17 @@ function zapros_Cookies_start(){      //  Синхронный запрос
         cookie_level();
     
         fill_circle();
+
+        
         
         if (cookies.level_access == 2) {
             O('next').classList.add ('next-level2');
-            C('forward')[0].classList.add ('forward-level2');
+            O('forward').classList.add ('forward-level2');
+            O('saveGame').classList.add ('forward-level2');
         } else if (cookies.level_access == 3) {
             O('next').classList.add ('next-level3');
-            C('forward')[0].classList.add('forward-level3');
+            O('forward').classList.add('forward-level3');
+            O('saveGame').classList.add('forward-level3');
         } 
         // console.log(cookies);
         // console.log(prevQst);
@@ -827,15 +831,21 @@ function update_Q_A (messages) {
     why_title.style.display = "none";
     why.innerHTML = '';
     saveGame.style.display = "none";
+
+    if (cookies.level_access == 2) {
+        O('next').classList.add ('next-level2');
+        O('forward').classList.add('forward-level2');
+        O('saveGame').classList.add ('forward-level2');
+    } else if (cookies.level_access == 3) {
+        O('next').classList.add ('next-level3');
+        O('forward').classList.add('forward-level3');
+        O('saveGame').classList.add ('forward-level3');
+    } 
   
 }
 
 function update_afterClientAnswer(otvet) {
-    if (cookies.level_access == 2) {
-        O('forward').classList.add('forward-level2');
-    } else if (cookies.level_access == 3) {
-        O('forward').classList.add('forward-level3');
-    } 
+    
  
     var inputs = document.querySelectorAll(".right input");
     for (var i=0; i<inputs.length; i++) {
