@@ -7,6 +7,7 @@ class Question
     public $is_must_have_answer;
     public $is_multi_answer;
     public $id_level;
+    public $is_stat;
 
     public function __construct($id_action, $id_parent = 0, $id_answer_branch = 0) //создаем вопрос, если задан только первый аргумент возвращается первый вопрос дерева
     {
@@ -28,6 +29,7 @@ class Question
             $this->is_must_have_answer = $question_data['is_must_have_answer'];
             $this->is_multi_answer =     $question_data['is_multi_aswer'];
             $this->id_level =     $question_data['id_level'];
+            $this->is_stat =     $question_data['is_stat'];
         }
         $result->close();
         $mysqli->next_result();

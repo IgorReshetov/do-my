@@ -326,7 +326,7 @@ require_once 'views/templates/header.php';
                 <div class="gift-block2-desires">
                     <div class="gift-block2-desire1">
                         <select name="place" id="gift-block2-desire1-place">
-                        <option value="O" style="display:none">Округ Москвы, где вы ищите квартиру</option>
+                        <option value="0" style="display:none">Округ Москвы, где вы ищите квартиру</option>
                         <option value="C">Центральный округ Москвы</option>
                         <option value="N">Северный округ Москвы</option>
                         <option value="NW">Северо-Восточный округ Москвы</option>
