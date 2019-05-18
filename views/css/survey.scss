@@ -1198,6 +1198,9 @@ margin-right: 30px;
 }
 
 @media (max-width: 570px) {
+    #saveGame {
+        order: 1;
+    }    
 
     th {
         font-size: 18px;
