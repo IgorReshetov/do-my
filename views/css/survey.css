@@ -1439,6 +1439,11 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
+  #saveGame {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
   th {
     font-size: 18px;
   }
