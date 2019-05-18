@@ -929,11 +929,12 @@ table.prev_next {
 }
 
 .result-forwad {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: 54px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-height: 150px;
+  width: 100%;
   margin-bottom: 0px;
 }
 
@@ -963,7 +964,12 @@ table.prev_next {
 }
 
 #saveGame {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
   display: none;
+  line-height: 0.9em;
+  font-size: 11pt;
 }
 
 .forward {

@@ -644,7 +644,7 @@ function json_Q_A_next() {
     
         var messages = JSON.parse(xhr.responseText);
         console.log(messages);
-        // rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
+        rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
         console.log(rang_Qst_Stat); 
         // numStartQst++;
         update_Q_A(messages);
@@ -716,7 +716,7 @@ function startOpros() {
     
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);
-    // rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
+    rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
     console.log(rang_Qst_Stat); 
     update_Q_A(messages);
     preloader();
