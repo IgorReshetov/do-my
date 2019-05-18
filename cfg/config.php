@@ -12,7 +12,7 @@ define('SESSION_LIFE', 2592000);
 
 //КОНСТАНТЫ
 define('DEV_MODE', true);
-define('ACTION', 3);
+define('ACTION', 4);
 
 // Для пульса
 define('API_USER_ID', '0a74d6f622f74cbe5a134a3ea5fa0b56');
