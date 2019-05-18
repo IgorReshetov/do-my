@@ -4,15 +4,14 @@ var survey = {
 
 // ___________________________Свойства___________________________ 
 
-    numStartQst: 0, 
+    numStartQst: 0,                  // Номер текущего вопроса
+    countQst: 0,                     // Общее количество вопросов
     cookies: {},                     // свойства пользователя 
+    prevQst: 0,                      // Номер предыдущего вопроса
+    check_arr: [0],                 // Массив проверки для вывода результата уровня
+    check_level: false,
+    otvet: {},                       // Объект с ответом при получении ответа на вопрос
 
-    // DOM:{
-    //     step_survey: document.getElementsByClassName('step-survey'),
-        
-    
-    
-    // },
     
 // _________________________Методы_____________________________
 
@@ -339,10 +338,8 @@ var survey = {
 
     get_user_data: function() {
         preloader_start();
-        
-        var xhr = new XMLHttpRequest();
 
-        
+        var xhr = new XMLHttpRequest();
         xhr.open('POST', 'index.php?page=get_answer', true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.send();
@@ -351,18 +348,101 @@ var survey = {
             if (xhr.readyState != 4) {
                 return;
             }
-            cookies = JSON.parse(xhr.responseText);
-            numStartQst = 0;
-            countQst = 0;
-            for (var i =0; i<cookies.questions_count.length; i++) {
-                    countQst += parseInt(cookies.questions_count[i].questions_count);
+            this.cookies = JSON.parse(xhr.responseText);
+            // numStartQst = 0;
+           
+            for (var i = 0; i<this.cookies.questions_count.length; i++) {
+                    this.countQst += parseInt(cookies.questions_count[i].questions_count);
+                    this.cookies.questions_count[i].questions_count = parseInt(this.cookies.questions_count[i].questions_count);
             }
+            
+            this.numStartQst = this.cookies.active_question;
+            this.prevQst = this.cookies.active_question;
 
-            numStartQst = cookies.active_question;
-
-            cookie_level();
+            var lev_1 = this.cookies.questions_count[0].questions_count;
+            var lev_2 = this.cookies.questions_count[1].questions_count;
+            var lev_3 = this.cookies.questions_count[2].questions_count;        
+            // cookie_level();
         
-            fill_circle();
+            var level = document.querySelectorAll(".step-level");
+            var level2 = document.querySelectorAll(".step-level2");
+            var level3 = document.querySelectorAll(".step-level3");
+            var circles = document.querySelectorAll(".step-survey");
+            var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
+            var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
+            // console.log(C('slider-level')[0]);
+            // console.log(level[0].style);
+            
+            C("step-level2")[0].innerHTML = lev_2;
+            C("step-level3")[0].innerHTML = lev_3;
+            // level2[0].innerHTML = levelQst_2.countQst;
+            // level3[0].innerHTML = levelQst_3.countQst;
+
+            for (var i=0; i<this.countQst; i++) {
+                C('step-survey')[i].style.background = 'white';
+            }
+            
+            if (this.numStartQst >= 0 && this.numStartQst < lev_1) {
+                C("step-level")[0].innerHTML = this.numStartQst + 1 + "/" + lev_1;
+                C("step-level")[0].style.borderColor = "yellow";
+                
+            } else if (this.numStartQst >= lev_1 && this.numStartQst < (lev_1 + lev_2)) {
+            // console.log(levelQst_1.countQst)
+            // console.log(numStartQst)
+                C("step-level")[0].innerHTML = (this.numStartQst*1 + 1) - lev_1 + "/" + lev_2;
+                C("step-level")[0].style.borderColor = "blue";
+                C("step-level")[0].classList.add('step-level-js-M');
+                S(C('result1')[0]).display = 'flex';
+                S(C('step-level2')[0]).display = 'none';
+            } else if (this.numStartQst >= (lev_1 + lev_2) && this.numStartQst < this.countQst) {
+                C("step-level")[0].innerHTML = (this.numStartQst + 1) - (lev_1 + lev_2) + "/" + lev_3;
+                C("step-level")[0].style.borderColor = "red";
+                C("step-level")[0].classList.add('step-level-js-H');
+                S(C('result1')[0]).display = 'flex';
+                S(C('result2')[0]).display = 'flex';
+                S(C('step-level2')[0]).display = 'none';
+                S(C('step-level3')[0]).display = 'none';
+                S(C('present')[0]).display = 'flex';
+            } else if (this.numStartQst == this.countQst) {
+                C("step-level")[0].innerHTML = "Done";
+                C("step-level")[0].style.backgroundColor = "red";
+                C("step-level")[0].style.color = "yellow";
+                C("step-level")[0].classList.add('step-level-finish');
+                S(C('result1')[0]).display = 'none';
+                S(C('result2')[0]).display = 'none';
+                S(C('step-level2')[0]).display = 'none';
+                S(C('step-level3')[0]).display = 'none';
+                S(C('present')[0]).display = 'flex';
+            }
+            
+            
+            // if (numStartQst==0) {
+            //     level[0].innerHTML="1/"+levelQst_1.countQst;
+            // } else if (numStartQst == countQst) level[0].innerHTML = numStartQst + "/" + levelQst_3.countQst;
+            // else level[0].innerHTML = numStartQst + 1 + '/' + countQst;
+            
+            // level[0].innerHTML = 10;}
+            // else 
+
+            for (var i=0; i<countQst; i++) {
+                // circles[i].style. = 'grey';
+                circles[i].style.display = 'inline';
+                if (i<numQstLevel_1)
+                    circles[i].style.border = '1px solid yellow';
+                    else if (i>=numQstLevel_1 && i<numQstLevel_1 + numQstLevel_2)
+                    circles[i].style.border = '1px solid blue';
+                    else if (i>=numQstLevel_1 + numQstLevel_2)
+                    circles[i].style.border = '1px solid red';  
+            }
+            for (var i=0; i<cookies.user_answer.length; i++) {
+                if (cookies.user_answer[i].answer_is_true == '1' && i<numQstLevel_1 )
+                    circles[i].style.background = 'yellow';
+                    else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 && i<numQstLevel_1 + numQstLevel_2)
+                    circles[i].style.background = 'blue';
+                    else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 + numQstLevel_2)
+                    circles[i].style.background = 'red';
+                else circles[i].style.background = 'grey';
+            }
             
             if (cookies.level_access == 2) {
                 O('next').classList.add ('next-level2');

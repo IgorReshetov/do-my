@@ -387,6 +387,7 @@ function zapros_Cookies_start(){      //  Синхронный запрос
             return;
         }
         cookies = JSON.parse(xhr.responseText);
+        console.log(cookies);
         numStartQst = 0;
         countQst = 0;
         for (var i =0; i<cookies.questions_count.length; i++) {
