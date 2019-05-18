@@ -93,6 +93,7 @@ var game_win = 'Firefox-icon';
 var mobile = 0;
 
 function init() {
+    
     preloader();
     menu();
     
@@ -1611,7 +1612,7 @@ function anime_step_up(numStartQst) {                            // x - теку
     S(C('step-survey')[numStartQst]).width = num_step + 'px';
     S(C('step-survey')[numStartQst]).height = num_step + 'px';
 
-  }
+}
 
 var flag_slaider =0; // флаг для отслеживания дваижения движения слайдера на нажатую кнопку
 
