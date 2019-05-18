@@ -768,7 +768,6 @@ table.prev_next {
 
 .result-image, .result-info, .result-why, .result-forwad {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
@@ -779,6 +778,7 @@ table.prev_next {
 }
 
 .result-forwad {
+    flex-direction: column;
     min-height: 54px;
     margin-bottom: 0px;
 }
@@ -805,14 +805,15 @@ table.prev_next {
 
 }
 
-// #saveGame {
-//     display: none;
-// }
+#saveGame {
+    display: none;
+}
 
 
 .forward  {
     width: 150px;
     padding: 13px;
+    // position: absolute;
     text-align: center;
     border: 1px solid yellow;
     box-shadow: 0 0 4px rgb(187, 187, 187);
@@ -833,7 +834,9 @@ table.prev_next {
 }
 
 .forward:hover {
-    border-width: 2px;   
+    border-width: 2px; 
+    padding: 12px; 
+    z-index: 100;
 }
 
 
