@@ -933,7 +933,7 @@ table.prev_next {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  min-height: 150px;
+  max-height: 150px;
   width: 100%;
   margin-bottom: 0px;
 }
@@ -968,8 +968,14 @@ table.prev_next {
       -ms-flex-order: -1;
           order: -1;
   display: none;
+  margin-right: 10px;
   line-height: 0.9em;
   font-size: 11pt;
+  padding: 12px;
+}
+
+#saveGame:hover {
+  padding: 11px;
 }
 
 .forward {
@@ -1439,11 +1445,6 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
-  #saveGame {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-  }
   th {
     font-size: 18px;
   }
@@ -1706,6 +1707,15 @@ table.prev_next {
   #gift-block2-desire1-place, #gift-block2-desire2-room {
     width: 250px;
     font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  #saveGame {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin: 10px;
   }
 }
 /*# sourceMappingURL=survey.css.map */

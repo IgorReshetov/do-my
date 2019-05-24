@@ -781,7 +781,7 @@ table.prev_next {
     // flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    min-height: 150px;
+    max-height: 150px;
     width: 100%;
     margin-bottom: 0px;
 }
@@ -811,10 +811,15 @@ table.prev_next {
 #saveGame {
     order: -1;
     display: none;
+    margin-right: 10px;
     line-height: 0.9em;
     font-size: 11pt;
+    padding: 12px;
 }
 
+#saveGame:hover {
+    padding: 11px;
+}
 
 .forward  {
     width: 150px;
@@ -1198,9 +1203,6 @@ margin-right: 30px;
 }
 
 @media (max-width: 570px) {
-    #saveGame {
-        order: 1;
-    }    
 
     th {
         font-size: 18px;
@@ -1501,4 +1503,11 @@ margin-right: 30px;
         font-size: 12px;
     }
 
+}
+
+@media (max-width: 450px) {
+    #saveGame {
+        order: 1;
+        margin: 10px;
+    }
 }
