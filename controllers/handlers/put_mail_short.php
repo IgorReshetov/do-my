@@ -23,7 +23,8 @@ $from = "fox@do-my.ru"; // от кого
 // текст письма
 
 foreach ($promo as $key => $row) {
- $message_promo .= $row{'promocode'}." по квизу \"".$row{'action_name'}."\"\n";
+ $promo_user = substr($row{'promocode'}, -7);
+ $message_promo .= $promo_user." по квизу \"".$row{'action_name'}."\"\n";
  $message_promo .= "\n";
 }
 

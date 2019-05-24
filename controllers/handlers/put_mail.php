@@ -18,6 +18,8 @@ $data = json_decode($postData, true);
 
 $promo = $_SESSION['action'].'_'.$_SESSION['play_key'];
 
+$promo_user = substr($promo, -7);
+
 // блок отправки письма
 $file = "views/mail/do-my.pdf";
 
@@ -42,8 +44,8 @@ $SPApiClient = new ApiClient(API_USER_ID, API_SECRET, new FileStorage());
     array(
         'email' => $data['mail'],
         'variables' => array(
-         'phone' => $promo,
-         'name' => $promo,
+         'phone' => $promo_user,
+         'name' => $promo_user,
          )
     )
 );
