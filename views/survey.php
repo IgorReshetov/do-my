@@ -315,16 +315,17 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-yellow"></div>
                     </div>
-                    <div class="gift-block-text-text">Полезную информацию по выбору жилья по результатам прохождения квиза.</div>
+                    <div class="gift-block-text-text">Ту самую скидку больше миллиона рублей на квартиру в новостройке у метро "Селигерская".</div>
                 </div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-red"></div>
                     </div>
-                    <div class="gift-block-text-text">Для участия в наших новых викторинах с призами и скидками от застройщиков выберите ваши предпочтения:</div>
+                    <div class="gift-block-text-text">Ответы на вопросы нашего квиза, чтобы впредь вы никода не ошибались при выборе квартиры</div>
                 </div> 
                 
-                <div class="gift-block2-desires">
+                <!-- выбор двых параметров пожеланий -->
+                <!-- <div class="gift-block2-desires">
                     <div class="gift-block2-desire1">
                         <select name="place" id="gift-block2-desire1-place">
                         <option value="0" style="display:none">Округ Москвы, где вы ищите квартиру</option>
@@ -350,7 +351,7 @@ require_once 'views/templates/header.php';
                         <option value="4">Четырехкомнатная квартира</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
 
             </div>
             <div class="gift-block3">

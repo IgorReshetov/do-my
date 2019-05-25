@@ -293,10 +293,11 @@ function send_mail() {
     preloader_start();
     var mail = document.getElementById('mail');
     var mail_data = mail.value;
-    var place = document.getElementById('gift-block2-desire1-place');
-    var room = document.getElementById('gift-block2-desire2-room');
-    var place_data = place.value;
-    var room_data = room.value;
+    // сбор пожеданий отключен
+    // var place = document.getElementById('gift-block2-desire1-place');
+    // var room = document.getElementById('gift-block2-desire2-room');
+    var place_data = 0;
+    var room_data = 0;
        
     var data = {
         mail:mail_data,
