@@ -634,7 +634,8 @@ a.icon-menu {
 
 .repo-images {
   position: absolute;
-  visibility: hidden;
-  top: -1000px;
+  left: -100;
+  width: 1px;
+  overflow: hidden;
 }
 /*# sourceMappingURL=global.css.map */

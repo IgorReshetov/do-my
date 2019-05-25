@@ -259,14 +259,15 @@ function init() {
     touch_OBJ = null 
   
     slider_moove[0].addEventListener('touchstart', function(e){
-        touch_OBJ = e.changedTouches[0] 
-        slider_left = parseInt(slider_moove[0].style.marginLeft) 
-        start_X = parseInt(touch_OBJ.clientX) 
-        e.preventDefault() 
+        touch_OBJ = e.changedTouches[0]; 
+        (slider_left)? slider_left = parseInt(slider_moove[0].style.marginLeft) : slider_left = parseInt(getComputedStyle(slider_moove[0]).marginLeft);
+        start_X = parseInt(touch_OBJ.clientX);
+        e.preventDefault(); 
     }, false);
   
     slider_moove[0].addEventListener('touchmove', function(e){
         touch_OBJ = e.changedTouches[0]
+        console.log(slider_left); 
         var dist = parseInt(touch_OBJ.clientX) - start_X 
         slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -750)? -750 : slider_left + dist ) + 'px'
         e.preventDefault()
