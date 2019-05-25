@@ -25,7 +25,7 @@ class Session
         }
 
         if( !isset($_SESSION['play_key']) ) {
-            $_SESSION['play_key'] = uniqid().random_int(1000000, 9999999);
+            $_SESSION['play_key'] = uniqid().rand(1000000, 9999999);
         }
 
         if( !isset($_SESSION['user_answer']) ) {
