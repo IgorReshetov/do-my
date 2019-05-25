@@ -13,8 +13,8 @@ require_once 'views/templates/header.php';
             <div class="start-h2-conteiner">
                 <div class="start-h2-upor-l"></div>
                 <div class="start-h2">
-                    <a href="index.php?page=survey" class="start-h2-menu">Эта игра подскажет, где вам лучше жить</a>
-                    <a href="index.php?page=survey" class="start-qustions-flex-appendix-2"></a>
+                    <a href="index.php?page=survey&back=1" class="start-h2-menu">Эта игра подскажет, где вам лучше жить</a>
+                    <a href="index.php?page=survey&back=1" class="start-qustions-flex-appendix-2"></a>
                 </div>
                 <div class="start-h2-upor-r"></div>
             </div>

@@ -71,11 +71,11 @@
 
                 <?php
                 if ($_SESSION['active_question'] > 0 && $page != "survey"){
-                    echo ('<a href="index.php?page=survey" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
+                    echo ('<a href="index.php?page=survey&back=1" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
                 }
 
                 if ($_SESSION['active_question'] > 0){
-                    echo ('<a href="index.php?page=survey&reset=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
+                    echo ('<a href="index.php?page=survey&reset=1&back=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
                 }
 
                 if ($page != "project") {

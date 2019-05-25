@@ -689,7 +689,7 @@ function startOpros() {
         tables[i].style.opacity = "1";
     };
     document.getElementById("button").style.display="none";
-    document.getElementsByClassName("title-gift-block")[0].style.display="none";
+    // document.getElementsByClassName("title-gift-block")[0].style.display="none";
     document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     
@@ -1360,7 +1360,7 @@ function update_afterClientFoward() {
     
             json_Q_A_next();
 
-            window.location.href = 'index.php?page=survey';
+            window.location.href = 'index.php?page=survey&back=1';
 
             // result.style.display = "none";
             // dark.style.display = "none";
