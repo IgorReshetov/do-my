@@ -947,11 +947,14 @@ function valid_level_1() {
         var otvet_miss = levelQst_1.countQst - otvet.count_true;
         levelQst_1.check = true;
         levelQst_1.next_level();
-        if (otvet_miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";
+        var text1 = "этому вопросу"}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
-            } else {var text = "вопросoв";}
+                var text1 = "этим вопросам"
+            } else {var text = "вопросoв";
+            var text1 = "этим вопросам"}
         }
         if (!(levelQst_1.next_lev)) {
             why.style.display = "none"; 
@@ -963,7 +966,7 @@ function valid_level_1() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Easy\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
@@ -998,11 +1001,14 @@ function valid_level_2() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet_miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";
+        var text1 = "этому вопросу"}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
-            } else {var text = "вопросoв";}
+                var text1 = "этим вопросам"
+            } else {var text = "вопросoв";
+            var text1 = "этим вопросам"}
         }
         levelQst_2.check = true;
         levelQst_2.next_level();
@@ -1016,7 +1022,7 @@ function valid_level_2() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Medium\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
@@ -1048,11 +1054,14 @@ function valid_level_3() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet_miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";
+        var text1 = "этому вопросу"}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
-            } else {var text = "вопросoв";}
+                var text1 = "этим вопросам"
+            } else {var text = "вопросoв";
+            var text1 = "этим вопросам"}
         }
         levelQst_3.check = true;
         levelQst_3.next_level();
@@ -1068,7 +1077,7 @@ function valid_level_3() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text + " уровня \"Hard\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
