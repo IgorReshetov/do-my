@@ -7,7 +7,7 @@
     <meta name="description" content="Полезные квизы и викторины">
     <title><?php echo "$admin_page_title" ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="views/css/style.css">
+    <link rel="stylesheet" href="views/css/style.css?ver=<?=VER?>">
     
 </head>
 <body>
@@ -71,11 +71,11 @@
 
                 <?php
                 if ($_SESSION['active_question'] > 0 && $page != "survey"){
-                    echo ('<a href="index.php?page=survey" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
+                    echo ('<a href="index.php?page=survey&back=1" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
                 }
 
                 if ($_SESSION['active_question'] > 0){
-                    echo ('<a href="index.php?page=survey&reset=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
+                    echo ('<a href="index.php?page=survey&reset=1&back=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
                 }
 
                 if ($page != "project") {
@@ -135,8 +135,8 @@
                       
     </div>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
-    <script src="views/js/fox.js"></script>
-    <script src="views/js/menu.js"></script>
+    <script src="views/js/fox.js?ver=<?=VER?>"></script>
+    <script src="views/js/menu.js?ver=<?=VER?>"></script>
 
 
 <!-- Yandex.Metrika counter -->
@@ -146,14 +146,14 @@
    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(53611297, "init", {
+   ym(53795326, "init", {
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
         webvisor:true
    });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/53611297" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/53795326" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
 <!-- /Yandex.Metrika counter -->  
     

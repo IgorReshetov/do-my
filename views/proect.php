@@ -80,8 +80,8 @@ require_once 'views/templates/header.php';
 
 
 <script src="views/js/jquery-3.3.1.js"></script>
-<script src="views/js/preloader.js"></script> 
-<script src="views/js/proect.js"></script>
+<script src="views/js/preloader.js?ver=<?=VER?>"></script> 
+<script src="views/js/proect.js?ver=<?=VER?>"></script>
 
 <?php
 require_once 'views/templates/footer.php';

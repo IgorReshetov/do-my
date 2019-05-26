@@ -11,9 +11,14 @@ if(isset($_REQUEST['back'])){$user = 'back';}
 $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 2)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 3)['questions_count'];
 $active_question = $_SESSION['active_question'];
 
-
-$title = "Перед покупкой квартиры в Москве, пройдите нашу игру и узнайте, как правильно выбрать квартиру";
-
+if ($_SESSION['action'] == 6){
+    $title = "Пройдите квиз и получите скидку более миллиона рублей на квартиру в новостройке у метро \"Селигерская\"";
+    $prize = "Ту самую скидку более миллиона рублей на квартиру в новостройке у метро \"Селигерская\"";
+}
+if ($_SESSION['action'] == 5){
+    $title = "Пройдите квиз и получите скидку более миллиона рублей на квартиру в ЖК \"Любовь и голуби\"";
+    $prize = "Ту самую скидку более миллиона рублей на квартиру в ЖК \"Любовь и голуби\"";
+}
 
 if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {
     $play = 'play1';

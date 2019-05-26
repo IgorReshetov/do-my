@@ -13,8 +13,8 @@ require_once 'views/templates/header.php';
             <div class="start-h2-conteiner">
                 <div class="start-h2-upor-l"></div>
                 <div class="start-h2">
-                    <a href="index.php?page=survey" class="start-h2-menu">Эта игра подскажет, где вам лучше жить</a>
-                    <a href="index.php?page=survey" class="start-qustions-flex-appendix-2"></a>
+                    <a href="index.php?page=survey&back=1" class="start-h2-menu">Эта игра подскажет, где вам лучше жить</a>
+                    <a href="index.php?page=survey&back=1" class="start-qustions-flex-appendix-2"></a>
                 </div>
                 <div class="start-h2-upor-r"></div>
             </div>
@@ -39,8 +39,8 @@ require_once 'views/templates/header.php';
     </div>
     
     
-    <script src="views/js/preloader.js"></script>   <!-- Подключаем загрузчик спиннер -->
-    <script src="views/js/start.js"></script>   <!-- ДОБАВЛЯЕМ основной файл js -->
+    <script src="views/js/preloader.js?ver=<?=VER?>"></script>   <!-- Подключаем загрузчик спиннер -->
+    <script src="views/js/start.js?ver=<?=VER?>"></script>   <!-- ДОБАВЛЯЕМ основной файл js -->
     
 <?php
 

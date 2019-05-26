@@ -93,8 +93,8 @@ require_once 'views/templates/header.php';
         </p>
     </div>
 </div>
-<script src="views/js/preloader.js"></script>
-<script src="views/js/privacy.js"></script>
+<script src="views/js/preloader.js?ver=<?=VER?>"></script>
+<script src="views/js/privacy.js?ver=<?=VER?>"></script>
 
 <?php
 

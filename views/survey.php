@@ -208,23 +208,24 @@ require_once 'views/templates/header.php';
     <div id='button' class = 'button <?=$play?>'></div>
 
     <?php
-    if ($play == 'play1'|| $play == 'play2'){
-        if ($_SESSION['action'] == 1) {
-            echo ('
-            <div class="title-gift-block">
-                <div class="title-gift-text">Вы получите в подарок:</div>
-                <div class="title-gift-pic60"></div>
-            </div>
-            ');
-        }else{
-            echo ('
-            <div class="title-gift-block">
-                <div class="title-gift-text">Вы получите в подарок:</div>
-                <div class="title-gift-pic30"></div>
-            </div>
-            ');
-        }
-    }
+    // картинка подарка
+    // if ($play == 'play1'|| $play == 'play2'){
+    //     if ($_SESSION['action'] == 1) {
+    //         echo ('
+    //         <div class="title-gift-block">
+    //             <div class="title-gift-text">Вы получите в подарок:</div>
+    //             <div class="title-gift-pic60"></div>
+    //         </div>
+    //         ');
+    //     }else{
+    //         echo ('
+    //         <div class="title-gift-block">
+    //             <div class="title-gift-text">Вы получите в подарок:</div>
+    //             <div class="title-gift-pic30"></div>
+    //         </div>
+    //         ');
+    //     }
+    // }
     ?>
 
     <div id="result">
@@ -243,7 +244,7 @@ require_once 'views/templates/header.php';
             </div>
             <div class="result-forwad">
                 <div id="forward" class="forward" >ПРОДОЛЖИТЬ</div>
-                <div id="saveGame" class="forward" >СОХРАНИТЬ и вернуться позже</div>
+                <div id="saveGame" class="forward" >СОХРАНИТЬ <br>и вернуться позже</div>
             </div>
         </div>
         <div id="result-right"></div>
@@ -314,16 +315,17 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-yellow"></div>
                     </div>
-                    <div class="gift-block-text-text">Полезную информацию по выбору жилья по результатам прохождения квиза.</div>
+                    <div class="gift-block-text-text"><?=$prize?></div>
                 </div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-red"></div>
                     </div>
-                    <div class="gift-block-text-text">Для участия в наших новых викторинах с призами и скидками от застройщиков выберите ваши предпочтения:</div>
+                    <div class="gift-block-text-text">Ответы на вопросы нашего квиза, чтобы впредь вы никода не ошибались при выборе квартиры</div>
                 </div> 
                 
-                <div class="gift-block2-desires">
+                <!-- выбор двых параметров пожеланий -->
+                <!-- <div class="gift-block2-desires">
                     <div class="gift-block2-desire1">
                         <select name="place" id="gift-block2-desire1-place">
                         <option value="0" style="display:none">Округ Москвы, где вы ищите квартиру</option>
@@ -349,7 +351,7 @@ require_once 'views/templates/header.php';
                         <option value="4">Четырехкомнатная квартира</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
 
             </div>
             <div class="gift-block3">

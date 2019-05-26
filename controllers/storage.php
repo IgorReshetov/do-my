@@ -24,6 +24,11 @@ switch ($book) {
     $file_paht = "http://do-my.ru/storage/book_4.pdf";
     break;
 
+    case 5:
+    $file_name = "Скидка на квартиру";
+    $file_paht = "http://do-my.ru/storage/love_pigeons.pdf";
+    break;
+
     default:
     die;
     break;

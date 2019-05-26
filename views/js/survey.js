@@ -260,14 +260,15 @@ function init() {
     touch_OBJ = null 
   
     slider_moove[0].addEventListener('touchstart', function(e){
-        touch_OBJ = e.changedTouches[0] 
-        slider_left = parseInt(slider_moove[0].style.marginLeft) 
-        start_X = parseInt(touch_OBJ.clientX) 
-        e.preventDefault() 
+        touch_OBJ = e.changedTouches[0]; 
+        (slider_left)? slider_left = parseInt(slider_moove[0].style.marginLeft) : slider_left = parseInt(getComputedStyle(slider_moove[0]).marginLeft);
+        start_X = parseInt(touch_OBJ.clientX);
+        e.preventDefault(); 
     }, false);
   
     slider_moove[0].addEventListener('touchmove', function(e){
         touch_OBJ = e.changedTouches[0]
+        console.log(slider_left); 
         var dist = parseInt(touch_OBJ.clientX) - start_X 
         slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -750)? -750 : slider_left + dist ) + 'px'
         e.preventDefault()
@@ -294,10 +295,11 @@ function send_mail() {
     preloader_start();
     var mail = document.getElementById('mail');
     var mail_data = mail.value;
-    var place = document.getElementById('gift-block2-desire1-place');
-    var room = document.getElementById('gift-block2-desire2-room');
-    var place_data = place.value;
-    var room_data = room.value;
+    // сбор пожеданий отключен
+    // var place = document.getElementById('gift-block2-desire1-place');
+    // var room = document.getElementById('gift-block2-desire2-room');
+    var place_data = 0;
+    var room_data = 0;
        
     var data = {
         mail:mail_data,
@@ -691,7 +693,7 @@ function startOpros() {
         tables[i].style.opacity = "1";
     };
     document.getElementById("button").style.display="none";
-    document.getElementsByClassName("title-gift-block")[0].style.display="none";
+    // document.getElementsByClassName("title-gift-block")[0].style.display="none";
     document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
     
@@ -949,11 +951,14 @@ function valid_level_1() {
         var otvet_miss = levelQst_1.countQst - otvet.count_true;
         levelQst_1.check = true;
         levelQst_1.next_level();
-        if (otvet_miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";
+        var text1 = "этому вопросу"}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
-            } else {var text = "вопросoв";}
+                var text1 = "этим вопросам"
+            } else {var text = "вопросoв";
+            var text1 = "этим вопросам"}
         }
         if (!(levelQst_1.next_lev)) {
             why.style.display = "none"; 
@@ -965,7 +970,7 @@ function valid_level_1() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Easy\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
@@ -1000,11 +1005,14 @@ function valid_level_2() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet_miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";
+        var text1 = "этому вопросу"}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
-            } else {var text = "вопросoв";}
+                var text1 = "этим вопросам"
+            } else {var text = "вопросoв";
+            var text1 = "этим вопросам"}
         }
         levelQst_2.check = true;
         levelQst_2.next_level();
@@ -1018,7 +1026,7 @@ function valid_level_2() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Medium\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
@@ -1050,11 +1058,14 @@ function valid_level_3() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet_miss == 1) { var text = "вопрос";}
+        if (otvet_miss == 1) { var text = "вопрос";
+        var text1 = "этому вопросу"}
         else {
             if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
                 var text = "вопроса";
-            } else {var text = "вопросoв";}
+                var text1 = "этим вопросам"
+            } else {var text = "вопросoв";
+            var text1 = "этим вопросам"}
         }
         levelQst_3.check = true;
         levelQst_3.next_level();
@@ -1070,7 +1081,7 @@ function valid_level_3() {
             image.style.display = "block";
             otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text + " уровня \"Hard\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к этим вопросам";
+            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
@@ -1362,7 +1373,7 @@ function update_afterClientFoward() {
     
             json_Q_A_next();
 
-            window.location.href = 'index.php?page=survey';
+            window.location.href = 'index.php?page=survey&back=1';
 
             // result.style.display = "none";
             // dark.style.display = "none";
