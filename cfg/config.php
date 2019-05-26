@@ -10,6 +10,9 @@ define('DB_NAME', 'db_domy');
 define('COOKIE_LIFE', 2592000);
 define('SESSION_LIFE', 2592000);
 
+//ВЕРСИЯ
+define('VER', 2);
+
 //КОНСТАНТЫ
 define('DEV_MODE', false);
 define('ACTION', 5);

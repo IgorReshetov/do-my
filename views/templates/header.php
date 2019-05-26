@@ -7,7 +7,7 @@
     <meta name="description" content="Полезные квизы и викторины">
     <title><?php echo "$admin_page_title" ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="views/css/style.css">
+    <link rel="stylesheet" href="views/css/style.css?ver=<?=VER?>">
     
 </head>
 <body>
@@ -135,8 +135,8 @@
                       
     </div>
     <!-- <script src="views/js/classlist_IE.js"></script>  -->
-    <script src="views/js/fox.js"></script>
-    <script src="views/js/menu.js"></script>
+    <script src="views/js/fox.js?ver=<?=VER?>"></script>
+    <script src="views/js/menu.js?ver=<?=VER?>"></script>
 
 
 <!-- Yandex.Metrika counter -->

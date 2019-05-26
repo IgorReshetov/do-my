@@ -1719,9 +1719,15 @@ table.prev_next {
   }
 }
 
+@media (max-height: 670px) {
+  .button {
+    margin-top: 100px;
+  }
+}
+
 @media (max-height: 600px) {
   .button {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 }
 /*# sourceMappingURL=survey.css.map */

@@ -37,7 +37,7 @@ frameborder="0">Просмотр pdf файла не возможен - ваш �
 
 <!-- /Yandex.Metrika counter --> 
 
-<script src="views/js/storage.js"></script>
+<script src="views/js/storage.js?ver=<?=VER?>"></script>
 
 
 

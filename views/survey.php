@@ -315,7 +315,7 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-yellow"></div>
                     </div>
-                    <div class="gift-block-text-text">Ту самую скидку больше миллиона рублей на квартиру в новостройке у метро "Селигерская".</div>
+                    <div class="gift-block-text-text"><?=$prize?></div>
                 </div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
@@ -389,8 +389,8 @@ require_once 'views/templates/header.php';
 
 
 
-<script src="views/js/preloader.js"></script>
-<script src="views/js/survey.js"></script>
+<script src="views/js/preloader.js?ver=<?=VER?>"></script>
+<script src="views/js/survey.js?ver=<?=VER?>"></script>
 
 <?php
 

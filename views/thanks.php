@@ -31,8 +31,8 @@ require_once 'views/templates/header.php';
     ?>
 </div>
 
-<script src="views/js/preloader.js"></script>
-<script src="views/js/thanks.js"></script>
+<script src="views/js/preloader.js?ver=<?=VER?>"></script>
+<script src="views/js/thanks.js?ver=<?=VER?>"></script>
 
 <?php
 

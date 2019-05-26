@@ -83,18 +83,6 @@
   position: relative;
 }
 
-.title-gift-pic30 {
-  background: url("../images/icon/title30.png") center center/contain no-repeat;
-  width: 250px;
-  height: 180px;
-}
-
-.title-gift-pic60 {
-  background: url("../images/icon/title60.png") center center/contain no-repeat;
-  width: 250px;
-  height: 180px;
-}
-
 .result-tru-question {
   background: url("../images/icon/true_question.svg") center center/contain no-repeat;
 }
