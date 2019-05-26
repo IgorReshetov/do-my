@@ -8,15 +8,74 @@ var survey = {
     countQst: 0,                     // Общее количество вопросов
     cookies: {},                     // свойства пользователя 
     prevQst: 0,                      // Номер предыдущего вопроса
-    check_arr: [0],                 // Массив проверки для вывода результата уровня
+    check_arr: [0],                  // Массив проверки для вывода результата уровня
     check_level: false,
     otvet: {},                       // Объект с ответом при получении ответа на вопрос
-
+    rang_Qst_Stat: "",               // Свойство вопроса (статистический или нет)
     
 // _________________________Методы_____________________________
 
     put_handler: function() {          // расстановка обработчиков на DOM
+
         document.body.onresize = this.mobile_change.check_size;
+
+        O('button').onclick = function () {
+
+            if (Math.random()<0.33) fox.speak_about_Qst();  
+
+            if (survey.countQst == survey.numStartQst) {
+                O("button").style.display="none";
+                C('gift')[0].style.display = "flex";
+                C('title')[0].style.display = "none";
+                fox.speak_game_end();
+                return;
+            }
+
+            if (survey.prevQst == survey.numStartQst && survey.cookies.user_answer.length > 0) {
+                handle_move_left_start = setInterval(survey.anime_slider.anime_move_left_start,4, survey.numStartQst);
+                // setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
+             } 
+            else handle_step = setInterval(survey.anime_slider.anime_step_up,50,numStartQst);
+         
+            C('board')[0].style.display = "flex";
+            C('opros')[0].style.display = "flex";
+            C('prev_next')[0].style.display = "flex";
+           
+            for (var i = 0; i < tables.length; i++) {
+                C('table')[i].style.opacity = "1";
+            };
+
+            O("button").style.display="none";
+            C('title')[0].style.display="none";
+
+            var data = {
+                numStartQst:survey.numStartQst
+            };
+        
+            var data = JSON.stringify(data);
+        
+            preloader_start();
+        
+            var xhr = new XMLHttpRequest();
+        
+            xhr.open('POST', 'index.php?page=get_question', true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(data);
+        
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState != 4) {
+                    return;
+                }
+            
+                var messages = JSON.parse(xhr.responseText);
+                console.log(messages);
+                survey.rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
+                console.log(rang_Qst_Stat); 
+                survey.update_Q_A(messages);
+                preloader();
+            }
+            return false;
+        }
     },
     
     mobile_change: {                   
@@ -239,9 +298,10 @@ var survey = {
             this.margin_left -= 2;
             // if ((cookies.user_answer.length ==3 && numStartQst == 2) && margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
             if (this.margin_left <= this.const_margin + y*(-this.size_step_start)){   
-            clearInterval(handle_move_left_start);
-            this.margin_left = this.const_margin + y*(-this.size_step_start);
-            this.last_margin = this.margin_left // margin_left = last_margin = start_margin_left;
+                clearInterval(handle_move_left_start);
+                this.margin_left = this.const_margin + y*(-this.size_step_start);
+                this.last_margin = this.margin_left // margin_left = last_margin = start_margin_left;
+                handle_step = setInterval(survey.anime_slider.anime_step_up,100,survey.numStartQst)
             }
             // if (margin_left == -45 || margin_left == (-45*numStartQst)) clearInterval(handle_move_left);
             S(C('slider-survey')[0]).marginLeft = this.margin_left + 'px';
@@ -356,20 +416,19 @@ var survey = {
                     this.cookies.questions_count[i].questions_count = parseInt(this.cookies.questions_count[i].questions_count);
             }
             
-            this.numStartQst = this.cookies.active_question;
-            this.prevQst = this.cookies.active_question;
-
+            this.prevQst = this.numStartQst = this.cookies.active_question;
+           
             var lev_1 = this.cookies.questions_count[0].questions_count;
             var lev_2 = this.cookies.questions_count[1].questions_count;
             var lev_3 = this.cookies.questions_count[2].questions_count;        
             // cookie_level();
         
-            var level = document.querySelectorAll(".step-level");
-            var level2 = document.querySelectorAll(".step-level2");
-            var level3 = document.querySelectorAll(".step-level3");
-            var circles = document.querySelectorAll(".step-survey");
-            var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
-            var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
+            // var level = document.querySelectorAll(".step-level");
+            // var level2 = document.querySelectorAll(".step-level2");
+            // var level3 = document.querySelectorAll(".step-level3");
+            // var circles = document.querySelectorAll(".step-survey");
+            // var numQstLevel_1 = parseInt(cookies.questions_count[0].questions_count);
+            // var numQstLevel_2 = parseInt(cookies.questions_count[1].questions_count);
             // console.log(C('slider-level')[0]);
             // console.log(level[0].style);
             
@@ -454,9 +513,11 @@ var survey = {
             if (this.cookies.level_access == 2) {
                 O('next').classList.add ('next-level2');
                 C('forward')[0].classList.add ('forward-level2');
+                O('saveGame').classList.add ('forward-level2');
             } else if (this.cookies.level_access == 3) {
                 O('next').classList.add ('next-level3');
                 C('forward')[0].classList.add('forward-level3');
+                O('saveGame').classList.add('forward-level3');
             } 
             // console.log(cookies);
             // console.log(prevQst);
@@ -470,6 +531,117 @@ var survey = {
             preloader();
             return false;
         }
+    },
+
+    update_Q_A: function(messages) {
+            var answShuffle = [];
+        
+        for (var i = 0; i < messages.answer.id_answer.length; i++) {
+            var ans = [];
+            ans.push(messages.answer.id_answer[i]);
+            ans.push(messages.answer.answer[i]);
+            answShuffle.push(ans);
+        };
+
+        answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
+        var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
+    
+        // 4 Правка цикла for
+        for (var i = 0; i < answShuffle.length; i++) {
+            idShuffle.push(answShuffle[i][0]);
+            answerShuffle.push(answShuffle[i][1]);
+        }
+    
+        // answShuffle.forEach(function(item, i){
+        //     idShuffle.push(item[0]);
+        //     answerShuffle.push(item[1])
+        // });
+        //    console.log(idShuffle);  
+        //    console.log(answerShuffle);
+    
+        var inputs = document.querySelectorAll(".right input");
+        for (var i=0; i<inputs.length; i++) {
+            inputs[i].checked = false;
+            if (messages.question.is_multi_answer == '1'){ 
+                fox.speak_multi();
+                inputs[i].setAttribute('type', 'checkbox');
+                inputs[i].nextElementSibling.classList.remove ('radio');  
+                inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
+                if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+            } else {inputs[i].setAttribute('type', 'radio');
+                inputs[i].nextElementSibling.classList.add ('radio');  
+                inputs[i].nextElementSibling.classList.remove ('checkbox');
+                if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+            }
+            inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
+            inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
+            
+        };
+        // console.log(inputs);
+
+        var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
+        var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
+        var A1 = document.getElementById("A1");     
+        var A2 = document.getElementById("A2");
+        var A3 = document.getElementById("A3");
+        var A4 = document.getElementById("A4");
+        var A5 = document.getElementById("A5");
+        var A6 = document.getElementById("A6");
+        var arr = [A0,A1,A2,A3,A4,A5,A6]
+
+        Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
+        for (var i=0; i<arr.length; i++) {
+            arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
+        }
+        
+        // 5 Правка Цикла foreach
+        for (var i = 0; i < answerShuffle.length; i++) {
+            eval('A'+ i).innerHTML = answerShuffle[i];
+        }
+
+        // answerShuffle.forEach(function(item,i) {         
+        // return eval('A'+ i).innerHTML = item;   
+        // });
+        
+        for (var i=0; i<arr.length; i++) {
+        if (arr[i].innerHTML == '') {
+                eval('A'+ i).parentElement.style.display = 'none';
+        } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
+        }
+
+        var result = document.getElementById("result");
+        var dark = document.getElementById("dark");
+        var otvet_true = document.getElementById("true");
+        var otvet_false = document.getElementById("false");
+        var image = document.getElementById("image");
+        var why = document.getElementById("why");
+        var why_title = document.getElementById("why-title");
+        var saveGame = document.getElementById("saveGame");
+
+        result.style.display = "none";
+        dark.style.display = "none";
+        otvet_true.style.display = "none";
+        otvet_false.style.display = "none";
+        image.style.display = "none";
+        why.style.display = "none";
+        why_title.style.display = "none";
+        why.innerHTML = '';
+        saveGame.style.display = "none";
+
+        if (cookies.level_access == 2) {
+            O('next').classList.add ('next-level2');
+            O('forward').classList.add('forward-level2');
+            O('saveGame').classList.add ('forward-level2');
+        } else if (cookies.level_access == 3) {
+            O('next').classList.add ('next-level3');
+            O('forward').classList.add('forward-level3');
+            O('saveGame').classList.add ('forward-level3');
+        } 
+  
     },
 
 
