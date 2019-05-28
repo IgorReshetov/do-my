@@ -26,13 +26,6 @@ html {
   background-color: #ffffff;
 }
 
-.repo-images {
-  position: fixed;
-  left: -1000px;
-  top: -1000px;
-  opacity: 0;
-}
-
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -633,9 +626,8 @@ a.icon-menu {
 }
 
 .repo-images {
-  position: absolute;
-  left: -100;
-  width: 1px;
-  overflow: hidden;
+  position: fixed;
+  top: -3000px;
+  opacity: 0;
 }
 /*# sourceMappingURL=global.css.map */

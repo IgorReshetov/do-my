@@ -109,7 +109,6 @@
     </header>
     <!-- // Загрузка картинок в кэш браузера -->
     <div class="repo-images">
-                <img src="views/images/icon/elephant.png" alt="">
                 <img src="views/images/icon/false_question.svg" alt="">
                 <img src="views/images/icon/fox_sleep.svg" alt="">
                 <img src="views/images/icon/fox_sniff.svg" alt="">
