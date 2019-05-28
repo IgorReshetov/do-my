@@ -202,7 +202,7 @@ function init() {
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
-    saveGame.onclick = function() {window.location.href='index.php'};
+    saveGame.onclick = function() {window.location.href='index.php?page=survey&back=1'};
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
     if (mobile==0) {
         C('slider-box-survey-after')[0].onmousedown = function () {
