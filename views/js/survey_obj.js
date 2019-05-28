@@ -75,7 +75,35 @@ var survey = {
                 preloader();
             }
             return false;
+        };
+        
+        var answer_tr = document.querySelectorAll(".left");
+
+        // Первая замена цикла foreach
+        for (var i = 0; i < answer_tr.length; i++) {
+            answer_tr[i].onclick =  function(e) {
+                var elem = e.target.nextElementSibling.children[0].children[0];
+                switch (elem.type) {
+                    case 'radio':
+                        elem.checked = true;
+                        next_ready();
+                    break;
+                    case 'checkbox':
+                        if (elem.checked == true) elem.checked = false;
+                        else elem.checked = true;
+                        next_ready();
+                    break 
+                }
+            }
         }
+
+        var inputs = document.querySelectorAll(".right input");
+
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = next_ready;
+        }
+
+        
     },
     
     mobile_change: {                   
@@ -543,8 +571,18 @@ var survey = {
             answShuffle.push(ans);
         };
 
+        answShuffle.shuffle = function () {
+            for (var i = this.length - 1; i > 0; i--) {
+                var num = Math.floor(Math.random() * (i + 1));
+                var d = this[num];
+                this[num] = this[i];
+                this[i] = d;
+            }
+            return this;
+        }
+
         answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
-        var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
+        var idShuffle = [], answerShuffle = [];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
     
         // 4 Правка цикла for
         for (var i = 0; i < answShuffle.length; i++) {
@@ -567,15 +605,15 @@ var survey = {
                 inputs[i].setAttribute('type', 'checkbox');
                 inputs[i].nextElementSibling.classList.remove ('radio');  
                 inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
-                if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
-                else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
-                else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+                if (this.cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                else if (this.cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                else if (this.cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
             } else {inputs[i].setAttribute('type', 'radio');
                 inputs[i].nextElementSibling.classList.add ('radio');  
                 inputs[i].nextElementSibling.classList.remove ('checkbox');
-                if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
-                else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
-                else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+                if (this.cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                else if (this.cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                else if (this.cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
             }
             inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
             inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
@@ -613,30 +651,30 @@ var survey = {
         } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
         }
 
-        var result = document.getElementById("result");
-        var dark = document.getElementById("dark");
-        var otvet_true = document.getElementById("true");
-        var otvet_false = document.getElementById("false");
-        var image = document.getElementById("image");
-        var why = document.getElementById("why");
-        var why_title = document.getElementById("why-title");
-        var saveGame = document.getElementById("saveGame");
+        // var result = document.getElementById("result");
+        // var dark = document.getElementById("dark");
+        // var otvet_true = document.getElementById("true");
+        // var otvet_false = document.getElementById("false");
+        // var image = document.getElementById("image");
+        // var why = document.getElementById("why");
+        // var why_title = document.getElementById("why-title");
+        // var saveGame = document.getElementById("saveGame");
 
-        result.style.display = "none";
-        dark.style.display = "none";
-        otvet_true.style.display = "none";
-        otvet_false.style.display = "none";
-        image.style.display = "none";
-        why.style.display = "none";
-        why_title.style.display = "none";
-        why.innerHTML = '';
-        saveGame.style.display = "none";
-
-        if (cookies.level_access == 2) {
+        O('result').style.display = "none";
+        O('dark').style.display = "none";
+        O('true').style.display = "none";
+        O('false').style.display = "none";
+        O('image').style.display = "none";
+        O('why').style.display = "none";
+        O('why-title').style.display = "none";
+        O('why').innerHTML = '';
+        O('saveGame').style.display = "none";
+        
+        if (this.cookies.level_access == 2) {
             O('next').classList.add ('next-level2');
             O('forward').classList.add('forward-level2');
             O('saveGame').classList.add ('forward-level2');
-        } else if (cookies.level_access == 3) {
+        } else if (this.cookies.level_access == 3) {
             O('next').classList.add ('next-level3');
             O('forward').classList.add('forward-level3');
             O('saveGame').classList.add ('forward-level3');
