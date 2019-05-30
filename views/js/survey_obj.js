@@ -79,6 +79,21 @@ var survey = {
         
         var answer_tr = document.querySelectorAll(".left");
 
+        next_ready = function() {
+            var inputs = document.querySelectorAll(".right input");
+            var check_ready = false;
+            for (var i=0; i<inputs.length; i++) {
+                if (inputs[i].checked == true) check_ready = true;
+            }
+            if (check_ready == true) {
+            next.style.display = 'block';
+            next.style.opacity = '1';
+            } else {
+            next.style.display = 'none';
+            next.style.opacity = '0';
+            }
+        }
+
         // Первая замена цикла foreach
         for (var i = 0; i < answer_tr.length; i++) {
             answer_tr[i].onclick =  function(e) {
@@ -103,6 +118,65 @@ var survey = {
             inputs[i].onclick = next_ready;
         }
 
+        var next = document.getElementById('next');
+
+        next.onclick = function() {
+                        
+                // _______________Блок для обработчик Лиса fox.toFast___________________
+                
+                    var timeAnsw = new Date().getTime();
+                    fox.time_answer = timeAnsw; 
+                //  console.log(fox.time_answer); 
+            // _________________________________________________________________________
+            next.style.display = 'none';
+            // var inputs = document.querySelectorAll(".right input");
+            var numAnsw, numQst;
+            if(inputs[0].type == 'checkbox') numAnsw = [];
+            for (var i=0; i<inputs.length; i++) {
+                if (inputs[i].checked===true) {
+                    switch (inputs[i].type) {
+                    case 'radio':
+                        numAnsw = parseInt(inputs[i].getAttribute('value'));
+                        numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+                    break;
+                    case 'checkbox':
+                        numAnsw.push(parseInt(inputs[i].getAttribute('value')));
+                        numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+                    break;
+                    };
+                }
+            };
+                      
+            var data = {
+                id_question: numQst,
+                id_answer: numAnsw,
+                sign_bot: 0              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
+            };
+
+            data = JSON.stringify(data);
+            // console.log(data);
+
+            preloader_start();
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'index.php?page=put_answer', true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(data);
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState != 4) {
+                    return;
+                }
+         
+                otvet = JSON.parse(xhr.responseText);
+                console.log(otvet);
+                update_afterClientAnswer(otvet);
+                preloader();
+            }
+            
+            return false;
+        }
         
     },
     
@@ -680,6 +754,53 @@ var survey = {
             O('saveGame').classList.add ('forward-level3');
         } 
   
+    },
+
+    update_afterClientAnswer: function() {
+        
+        var inputs = document.querySelectorAll(".right input");
+        for (var i=0; i<inputs.length; i++) {
+            inputs[i].checked = false;
+        }
+        var result = document.getElementById("result");
+        var dark = document.getElementById("dark");
+        var otvet_true = document.getElementById("true");
+        var otvet_false = document.getElementById("false");
+        var image = document.getElementById("image");
+        var why = document.getElementById("why");
+        var why_title = document.getElementById("why-title");
+        
+        numStartQst = otvet.active_question;
+        check_arr.push(otvet.active_question);
+
+        result.style.display = "flex";
+        dark.style.display = "block";
+        if (otvet.answer_is_true == 1) {
+            image.className = 'result-tru-question';  // Правка класс листа для IE
+            // image.classList = [];
+            // image.classList.add('result-tru-question');
+            image.style.display = "block";
+            // otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
+            (rang_Qst_Stat)? otvet_true.innerHTML = "Вы знаете лучший ответ. Поздравляем!" 
+            : otvet_true.innerHTML = "Вы знаете точный ответ. Поздравляем!";
+            otvet_true.style.display = "block";
+            if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
+            else {why_title.innerHTML = "Пояснение:";}
+            why_title.style.display = "block";
+            why.innerHTML = otvet.answer_is_true_comment;
+            why.style.display = "block";
+        } else {
+            image.className = 'result-false-question'; // Правка класс листа для IE
+            // image.classList = [];
+            // image.classList.add('result-false-question');
+            image.style.display = "block";
+            why_title.style.display = "none";
+            why.style.display = "none";
+            // otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
+            (rang_Qst_Stat)? otvet_false.innerHTML = "Есть вариант лучше. Вопрос ждет вашего возвращения." 
+            : otvet_false.innerHTML = "Это неточный ответ. Вопрос ждет вашего возвращения.";
+            otvet_false.style.display = "block";
+        }  
     },
 
 
