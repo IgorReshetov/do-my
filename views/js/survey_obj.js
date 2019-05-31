@@ -171,13 +171,132 @@ var survey = {
          
                 otvet = JSON.parse(xhr.responseText);
                 console.log(otvet);
-                update_afterClientAnswer(otvet);
+                survey.update_afterClientAnswer(otvet);
                 preloader();
             }
             
             return false;
         }
+
+        var saveGame = document.getElementById("saveGame");
+        saveGame.onclick = function() {window.location.href='index.php'};
+
+        if (mobile==0) {
+            C('slider-box-survey-after')[0].onmousedown = function () {
+                if (flag_slaider == 1) return false;
+                handle_msr = setInterval(move_slider_right, 20);
+                }
+            C('slider-box-survey-after')[0].onmouseup = function () {
+                if (flag_slaider == 1) return false;
+                clearInterval(handle_msr);
+            handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+            }
+            C('slider-box-survey-before')[0].onmousedown = function () {
+                if (flag_slaider == 1) return false;
+                handle_msl = setInterval(move_slider_left, 20);}
+            C('slider-box-survey-before')[0].onmouseup = function () {
+                if (flag_slaider == 1) return false;
+                clearInterval(handle_msl);
+                handle_down = setInterval(anime_step_down,10,prevQst, numStartQst);
+                // handle_move_left_right = setInterval(anime_move_left_right,20,prevQst, numStartQst);
+            }
+        }
+
+        // __________Реакция слайдера на движения пальца влево-вправо_____________
+
+        var slider_moove = document.getElementsByClassName('slider-survey'),
+        slider_left, 
+        start_X, 
+        dist = 0, 
+        touch_OBJ = null 
+    
+        slider_moove[0].addEventListener('touchstart', function(e){
+            touch_OBJ = e.changedTouches[0]; 
+            (slider_left)? slider_left = parseInt(slider_moove[0].style.marginLeft) : slider_left = parseInt(getComputedStyle(slider_moove[0]).marginLeft);
+            start_X = parseInt(touch_OBJ.clientX);
+            e.preventDefault(); 
+        }, false);
+    
+        slider_moove[0].addEventListener('touchmove', function(e){
+            touch_OBJ = e.changedTouches[0]
+            console.log(slider_left); 
+            var dist = parseInt(touch_OBJ.clientX) - start_X 
+            slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -750)? -750 : slider_left + dist ) + 'px'
+            e.preventDefault()
+        }, false);
+
+        //обработчики окна подарка
+
+        var privacy_label = document.getElementById("privacy");
+        privacy_label.onclick = function () {
+            var check_text = document.getElementById("check-text");
+            var check_privacy = document.getElementById("privacy-check");
+            if (check_privacy.checked) {
+                check_text.innerHTML = "Ознакомлен(а) с политикой конфиденциальности";}
+            else {check_text.innerHTML = "Подтвердите oзнакомление с политикой конфиденциальности";}
+        };
+
+        var gift_get = document.getElementById("gift-get");
+        gift_get.onclick = gift_get.oninput = function() { var check_privacy = document.getElementById("privacy-check");
+            var mail_input = document.getElementById("mail");
+            var button_get = document.getElementById("gift-button-get");
+            var mail = mail_input.value;
+            var result = mail.length;
+            var result1 = mail.indexOf("@");
+            var result2 = mail.indexOf(".");
+            // console.log (result2);
+            // проверка правильности мэйла
+            if (check_privacy.checked == true && result > 8 && result-result1 > 4 && result-result2 >2 && result1 > 2 && result2 > 0) {
+                
+                button_get.style.display = 'block';
+            }
+            else {button_get.style.display = 'none';}
+        };
+ 
+
+        var gift_button_get = document.getElementById("gift-button-get");
+        gift_button_get.onclick = function() {
+            preloader_start();
+            var mail = document.getElementById('mail');
+            var mail_data = mail.value;
+            // сбор пожеданий отключен
+            // var place = document.getElementById('gift-block2-desire1-place');
+            // var room = document.getElementById('gift-block2-desire2-room');
+            var place_data = 0;
+            var room_data = 0;
+               
+            var data = {
+                mail: mail_data,
+                place: place_data,
+                room: room_data
+            };
         
+            var data = JSON.stringify(data);
+        
+            var xhr = new XMLHttpRequest();
+        
+            // preloader_AJAX(xhr);
+           
+        
+            xhr.open('POST', 'index.php?page=put_mail', true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(data);
+          
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState != 4) {
+                    return;
+                }
+                
+                // console.log (xhr.responseText);
+                var messages = JSON.parse(xhr.responseText);
+        
+                // console.log (messages);  
+                if (messages.result == true) {document.location.href = "index.php?page=thanks&mail=1"}
+                else {document.location.href = "index.php?page=thanks&mail=0"}
+                preloader();
+            }
+        };
+        // _____________________ЗАКОНЧИЛ НА ОНКЛИК АПДЕЙТ АФТЕР КЛАЕНТ ФОРВАРД____________________!!!!!!!!!!!!!!!!!!!
     },
     
     mobile_change: {                   
@@ -756,7 +875,7 @@ var survey = {
   
     },
 
-    update_afterClientAnswer: function() {
+    update_afterClientAnswer: function(otvet) {
         
         var inputs = document.querySelectorAll(".right input");
         for (var i=0; i<inputs.length; i++) {
@@ -777,8 +896,6 @@ var survey = {
         dark.style.display = "block";
         if (otvet.answer_is_true == 1) {
             image.className = 'result-tru-question';  // Правка класс листа для IE
-            // image.classList = [];
-            // image.classList.add('result-tru-question');
             image.style.display = "block";
             // otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
             (rang_Qst_Stat)? otvet_true.innerHTML = "Вы знаете лучший ответ. Поздравляем!" 
