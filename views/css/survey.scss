@@ -1,6 +1,6 @@
 .main {
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 0px auto;
     overflow: hidden;
 }
 
@@ -231,6 +231,7 @@ table.prev_next {
 }
 
 .title {
+    display: none;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -1201,6 +1202,77 @@ margin-right: 30px;
 .gift-button-get:hover {
     border-width: 2px;   
 }
+
+// блок минилэндинга при старте
+
+.land {
+    display: flex;
+    flex-direction: column;
+    height: 1250px;
+    background-color: rgb(194, 209, 224)
+}
+
+.land-block {
+    display: flex;
+    height: 250px;
+    position: relative;
+    border: 1px solid rgb(0, 0, 0); 
+}
+
+.land-block-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    // align-items: flex-start;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    padding: 10px;
+    box-shadow: 0 0 4px rgb(158, 158, 158);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8;
+}
+
+.land-block-question {
+    // display: flex;
+    // width: 300px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.land-block2-answer2, .land-block2-answer3, .land-block2-answer4 {
+    font-style: italic;
+}
+
+.land-block5-button {
+    border-radius: 40px;
+    font-size: 20px;
+    background-color: blue;
+    width: 200px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+.land-block5-button:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.land-block-text:hover .land-block-question {
+    color: red;
+    animation: step-level 5s infinite;
+}
+
+.land-block-text:hover {
+    box-shadow: 0 0 10px rgb(131, 131, 131);
+}
+
 
 @media (max-width: 570px) {
 
