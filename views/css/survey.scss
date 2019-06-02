@@ -1219,9 +1219,9 @@ margin-right: 30px;
 }
 
 .land-block-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-around;
     // align-items: flex-start;
     position: absolute;
     top: 50%;
@@ -1240,16 +1240,19 @@ margin-right: 30px;
     font-size: 20px;
     font-weight: 700;
     text-align: center;
+    // width: 100%;
 
 }
 
 .land-block-answer {
     text-align: justify;
+    // width: 100%;
 }
 
 
 .land-block2-answer2, .land-block2-answer3, .land-block2-answer4 {
     font-style: italic;
+    color: blue;
 }
 
 .land-block5-button {
