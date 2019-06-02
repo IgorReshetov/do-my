@@ -8,7 +8,7 @@ require_once 'views/templates/header.php';
 </div>
 
 <div class="wrapper main">
-    <h1 class="title" id= "fox-start" user = "<?=$user?>"><?=$title?></h1>
+    <h1 class="title <?=($play == 'play1')?'display-none':'display-block'?>" id= "fox-start" user = "<?=$user?>"><?=$title?></h1>
     <div class="board">
         <div class="board-left">
             <div class="result1">
@@ -205,44 +205,44 @@ require_once 'views/templates/header.php';
         </tr>
     </table>
 
-    <div class="land">
+    <?php
+    // переключатель ландинга для первого захода, либо кнопки круга при повторном заходе
+    if ($play == 'play1'){
+        echo ('
+        <div class="land" id = "land">
         <div class="land-block land-block1">
             <div class="land-block-text land-block1-text">
                 <div class="land-block-question land-block1-question">Что это?</div>
-                <div class="land-block1-answer">Умная игра, где вы получите знания и призы</div>
+                <div class="land-block-answer land-block1-answer">Умная игра, где вы получите знания и призы</div>
             </div>
         </div>
         <div class="land-block land-block2">
             <div class="land-block-text land-block2-text">
                 <div class="land-block-question land-block2-question">Что делать?</div>
-                <div class="land-block2-answer1">Найти ответы на ключевые вопросы выбора квартиры, например:</div>
-                <div class="land-block2-answer2">Сколько по времени лучше выбирать квартиру?</div>
-                <div class="land-block2-answer3">Где лучше выбрать квартиру в современном новом доме?</div>
-                <div class="land-block2-answer4">Какие дома наиболее долговечны?</div>
+                <div class="land-block-answer land-block2-answer1">Найти ответы на ключевые вопросы выбора квартиры, например:</div>
+                <div class="land-block-answer land-block2-answer2">Сколько по времени лучше выбирать квартиру?</div>
+                <div class="land-block-answer land-block2-answer3">Где лучше выбрать квартиру в современном новом доме?</div>
+                <div class="land-block-answer land-block2-answer4">Какие дома наиболее долговечны?</div>
             </div> 
         </div>
         <div class="land-block land-block3">
             <div class="land-block-text land-block3-text">
                 <div class="land-block-question land-block3-question">Как долго?</div>
-                <div class="land-block-answer">Всего 15 минут</div>
+                <div class="land-block-answer land-block-answer">15 минут</div>
             </div>
         </div>
         <div class="land-block land-block4">
             <div class="land-block-text land-block4-text">
                 <div class="land-block-question  land-block4-question">Зачем?</div>
-                <div class="land-block-answer1"><b>1.</b> Чтобы не ошибиться при покупке квартиры.</div>
-                <div class="land-block-answer1"><b>2.</b> Получить приз: скидку на квартиру, которая возможно вам подходит</div>
+                <div class="land-block-answer land-block-answer1"><b>1.</b> Чтобы не ошибиться при покупке квартиры.</div>
+                <div class="land-block-answer land-block-answer1"><b>2.</b> Получить приз: скидку на квартиру, которая возможно вам подходит</div>
             </div>  
         </div>
         <div class="land-block land-block5">
-            <div class="land-block-text land-block5-button">Начать</div>
+            <div class="land-block-text land-block5-button" id = "land-block5-button">Начать</div>
         </div>
     </div>
-
-    <?php
-    // переключатель ландинга для первого захода, либо кнопки круга при повторном заходе
-    if ($play == 'play1'){
-        
+    ');
 
     }else{
         echo ("

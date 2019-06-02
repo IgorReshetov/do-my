@@ -231,7 +231,6 @@ table.prev_next {
 }
 
 .title {
-    display: none;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -1209,14 +1208,14 @@ margin-right: 30px;
     display: flex;
     flex-direction: column;
     height: 1250px;
-    background-color: rgb(194, 209, 224)
+    margin-bottom: 40px;    
 }
 
 .land-block {
     display: flex;
     height: 250px;
     position: relative;
-    border: 1px solid rgb(0, 0, 0); 
+    // border: 1px solid rgb(0, 0, 0); 
 }
 
 .land-block-text {
@@ -1232,7 +1231,7 @@ margin-right: 30px;
     box-shadow: 0 0 4px rgb(158, 158, 158);
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .land-block-question {
@@ -1241,7 +1240,13 @@ margin-right: 30px;
     font-size: 20px;
     font-weight: 700;
     text-align: center;
+
 }
+
+.land-block-answer {
+    text-align: justify;
+}
+
 
 .land-block2-answer2, .land-block2-answer3, .land-block2-answer4 {
     font-style: italic;
@@ -1266,13 +1271,36 @@ margin-right: 30px;
 
 .land-block-text:hover .land-block-question {
     color: red;
-    animation: step-level 5s infinite;
+    // animation: step-level 5s infinite;
 }
 
 .land-block-text:hover {
     box-shadow: 0 0 10px rgb(131, 131, 131);
 }
 
+.land-block1-text {
+    transform: translateY(-50%) translateX(10%);
+}
+
+.land-block2-text {
+    transform: translateY(-50%) translateX(90%);
+}
+
+.land-block3-text {
+    transform: translateY(-50%) translateX(-100%);
+}
+
+.land-block4-text {
+    transform: translateY(-50%) translateX(90%);
+}
+
+.land-block2-answer3 {
+    display: none;
+}
+
+.land-block2-answer4 {
+    display: none;
+}
 
 @media (max-width: 570px) {
 
@@ -1502,6 +1530,32 @@ margin-right: 30px;
         
     }
 
+    .land {
+        height: 1100px;
+        
+    }
+    
+    .land-block {
+        height: 220px;
+    }
+
+    .land-block1-text {
+        transform: translateY(-50%) translateX(25%);
+    }
+    
+    .land-block2-text {
+        transform: translateY(-50%) translateX(75%);
+    }
+    
+    .land-block3-text {
+        transform: translateY(-50%) translateX(25%);
+    }
+    
+    .land-block4-text {
+        transform: translateY(-50%) translateX(75%);
+    }
+
+
 }
 
 
@@ -1575,6 +1629,23 @@ margin-right: 30px;
         font-size: 12px;
     }
 
+    .land {
+        height: 900px;
+        
+    }
+    
+    .land-block {
+        height: 180px;
+    }
+
+    .land-block-question {
+        font-size: 17px;
+           
+    }
+    
+    .land-block-answer {
+        font-size: 10px;
+    }
    
 }
 

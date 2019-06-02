@@ -108,6 +108,10 @@
 //     height: 180px;
 // }
 
+.land {
+    @include urlcont('background.svg');
+}
+
 .result-tru-question {
     @include urlcont('true_question.svg');
 }

@@ -143,9 +143,13 @@ function init() {
     // if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
     // status_Game[0].style.display = "block";
 
-    var button = document.getElementById('button');
-    button.onclick = startOpros;
-    
+    var button1 = document.getElementById('land-block5-button');
+    if (button1 != null){button1.onclick = startOpros;}
+
+    var button2 = document.getElementById('button');
+    if (button2 != null){button2.onclick = startOpros;}
+
+            
     var next = document.getElementById('next');
     // var prev = document.getElementById('prev');
 
@@ -690,7 +694,13 @@ function startOpros() {
     for (var i = 0; i < tables.length; i++) {
         tables[i].style.opacity = "1";
     };
-    document.getElementById("button").style.display="none";
+
+    var land = document.getElementById('land');
+    if (land != null){land.style.display="none";}
+
+    var button2 = document.getElementById('button');
+    if (button2 != null){button2.style.display="none";}
+
     // document.getElementsByClassName("title-gift-block")[0].style.display="none";
     document.getElementsByClassName('title')[0].style.display="none";
     // numStartQst=Math.floor((Math.random()*5));                // Задаем случайное число для вопроса из arr [0,1,2,3,4]
