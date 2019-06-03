@@ -143,12 +143,25 @@ function init() {
     // if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
     // status_Game[0].style.display = "block";
 
+
     var button1 = document.getElementById('land-block5-button');
     if (button1 != null){
+<<<<<<< HEAD
         button1.onclick = startOpros;
         perebor_Qst();
     }
+=======
+    button1.onclick = startOpros;
+    window.setTimeout(function(){
 
+    var coord_target = offset(button1);
+    console.log (coord_target);
+    $('html').animate({scrollTop: coord_target},700);
+>>>>>>> b97f49ab6a2786b6bdb1e65518aaa3e8e0888b1d
+
+    }, 5000);
+    };
+    
     var button2 = document.getElementById('button');
     if (button2 != null){button2.onclick = startOpros;}
 
@@ -295,6 +308,16 @@ function init() {
     gift_button_get.onclick = send_mail;
 }
 
+
+// функция определения расстояния от верха до центра элемента
+function offset(el) {
+    var rect = el.getBoundingClientRect().top + el.clientHeight/2 + document.documentElement.clientHeight/2;
+    // console.log(rect);
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var top = rect + scrollTop - document.documentElement.clientHeight;
+    
+    return top;
+}
 
 // функция отправки мэйла пользователю
 function send_mail() {
