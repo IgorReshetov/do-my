@@ -146,18 +146,16 @@ function init() {
 
     var button1 = document.getElementById('land-block5-button');
     if (button1 != null){
-<<<<<<< HEAD
+
         button1.onclick = startOpros;
         perebor_Qst();
-    }
-=======
-    button1.onclick = startOpros;
+    
     window.setTimeout(function(){
 
     var coord_target = offset(button1);
     console.log (coord_target);
     $('html').animate({scrollTop: coord_target},700);
->>>>>>> b97f49ab6a2786b6bdb1e65518aaa3e8e0888b1d
+
 
     }, 5000);
     };
