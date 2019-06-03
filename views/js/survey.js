@@ -96,8 +96,8 @@ var mobile = 0;
 function init() {
     preloader();
     menu();
-    
 
+   
     history.pushState({param: 'Value'}, '', 'index.php?page=survey');// автозамена URL при сбросе через GET параметр
 
     // history.pushState(null,null, 'newpage');    // добавляет новый URL в историю
@@ -144,7 +144,10 @@ function init() {
     // status_Game[0].style.display = "block";
 
     var button1 = document.getElementById('land-block5-button');
-    if (button1 != null){button1.onclick = startOpros;}
+    if (button1 != null){
+        button1.onclick = startOpros;
+        perebor_Qst();
+    }
 
     var button2 = document.getElementById('button');
     if (button2 != null){button2.onclick = startOpros;}
@@ -1977,7 +1980,16 @@ function  getPageSize(){
     return {'page':{'width':pageWidth,'height':pageHeight},'window':{'width':windowWidth,'height':windowHeight}}
 }
 
-
+function perebor_Qst() {
+    setTimeout(function(){
+        S(C('land-block-answer land-block2-answer2')[0]).display = "none";
+        S(C('land-block-answer land-block2-answer3')[0]).display = "block";
+    }, 1500);
+    setTimeout(function(){
+        S(C('land-block-answer land-block2-answer3')[0]).display = "none";
+        S(C('land-block-answer land-block2-answer4')[0]).display = "block";
+    }, 3000);
+}
 
 
 
