@@ -7,7 +7,7 @@ var flag = 0;
 var rang_Qst_Stat = true; // Переменная свойство статистического вопроса (динамически обновляется)
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
-Object.prototype.cookie_level = function() {
+window.cookie_level = function() {
     prevQst = cookies.active_question;
     check_arr = [cookies.active_question];
      var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
@@ -67,7 +67,7 @@ Object.prototype.cookie_level = function() {
 //     } else return false;
 // } 
 
-Object.prototype.next_level = function(){                   // Для завершения уровня нужно набрать 100%
+window.next_level = function(){                   // Для завершения уровня нужно набрать 100%
     if (this.hit == this.countQst) {this.next_lev = true;
     return true;
     } else return false;
@@ -105,6 +105,7 @@ function init() {
 
 
     // fox.speak_survey();
+
     fox.speake_start();
     fox.enter_leave_mouse();
     fox.wakeUp_mouse();
@@ -154,7 +155,7 @@ function init() {
 
     var coord_target = offset(button1);
     console.log (coord_target);
-    $('html').animate({scrollTop: coord_target},700);
+    $('html').animate({scrollTop: coord_target},2000);
 
 
     }, 5000);

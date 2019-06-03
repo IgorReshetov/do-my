@@ -221,7 +221,7 @@ require_once 'views/templates/header.php';
                 <div class="land-block-question land-block2-question">Что делать?</div>
                 <div class="land-block-answer land-block2-answer1">Найти ответы на ключевые вопросы выбора квартиры, например:</div>
                 <div class="land-block-answer land-block2-answer2">Сколько по времени лучше выбирать квартиру?</div>
-                <div class="land-block-answer land-block2-answer3">Где лучше выбрать квартиру в современном новом доме?</div>
+                <div class="land-block-answer land-block2-answer3">Где лучше выбрать квартиру в новом доме?</div>
                 <div class="land-block-answer land-block2-answer4">Какие дома наиболее долговечны?</div>
             </div> 
         </div>
@@ -410,10 +410,10 @@ require_once 'views/templates/header.php';
 
 <div id="dark"></div>
 
-
 <script src="views/js/jquery-3.3.1.js"></script>
 <script src="views/js/preloader.js?ver=<?=VER?>"></script>
 <script src="views/js/survey.js?ver=<?=VER?>"></script>
+
 
 <?php
 
