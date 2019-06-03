@@ -1207,13 +1207,13 @@ margin-right: 30px;
 .land {
     display: flex;
     flex-direction: column;
-    height: 1250px;
+    height: 1150px;
     margin-bottom: 40px;    
 }
 
 .land-block {
     display: flex;
-    height: 250px;
+    height: 230px;
     position: relative;
     // border: 1px solid rgb(0, 0, 0); 
 }
@@ -1246,6 +1246,7 @@ margin-right: 30px;
 
 .land-block-answer {
     text-align: justify;
+    font-size: 18px;
     // width: 100%;
 }
 
@@ -1647,7 +1648,7 @@ margin-right: 30px;
     }
     
     .land-block-answer {
-        font-size: 10px;
+        font-size: 13px;
     }
    
 }

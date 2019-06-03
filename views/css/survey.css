@@ -1452,7 +1452,7 @@ table.prev_next {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 1250px;
+  height: 1150px;
   margin-bottom: 40px;
 }
 
@@ -1460,7 +1460,7 @@ table.prev_next {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 250px;
+  height: 230px;
   position: relative;
 }
 
@@ -1486,6 +1486,7 @@ table.prev_next {
 
 .land-block-answer {
   text-align: justify;
+  font-size: 18px;
 }
 
 .land-block2-answer2, .land-block2-answer3, .land-block2-answer4 {
@@ -1844,7 +1845,7 @@ table.prev_next {
     font-size: 17px;
   }
   .land-block-answer {
-    font-size: 10px;
+    font-size: 13px;
   }
 }
 

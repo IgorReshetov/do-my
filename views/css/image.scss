@@ -109,7 +109,8 @@
 // }
 
 .land {
-    @include urlcont('background.svg');
+
+    background: url('../images/icon/background_start_desktop.svg') center -10px /cover no-repeat; 
 }
 
 .result-tru-question {
@@ -200,3 +201,11 @@
     height: 200px;
     @include urlcont('elephant.png');
 }
+
+@media (max-width: 570px) {
+    .land {
+        @include urlcont('background_start_mob.svg');
+    }
+}
+
+
