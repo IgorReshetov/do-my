@@ -1497,14 +1497,19 @@ table.prev_next {
 .land-block5-button {
   border-radius: 40px;
   font-size: 20px;
-  background-color: blue;
+  background-color: yellow;
   width: 200px;
-  color: white;
+  color: black;
   text-align: center;
   padding: 20px;
   -webkit-transition: 1s all;
   transition: 1s all;
   cursor: pointer;
+}
+
+.land-block5-button-scroll {
+  background-color: blue;
+  color: white;
 }
 
 .land-block5-button:hover {
@@ -1532,8 +1537,8 @@ table.prev_next {
 }
 
 .land-block3-text {
-  -webkit-transform: translateY(-50%) translateX(-100%);
-          transform: translateY(-50%) translateX(-100%);
+  -webkit-transform: translateY(-10%) translateX(-100%);
+          transform: translateY(-10%) translateX(-100%);
 }
 
 .land-block4-text {

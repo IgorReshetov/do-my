@@ -1259,14 +1259,20 @@ margin-right: 30px;
 .land-block5-button {
     border-radius: 40px;
     font-size: 20px;
-    background-color: blue;
+    background-color: yellow;
     width: 200px;
-    color: white;
+    color: black;
     text-align: center;
     padding: 20px;
     transition: 1s all;
     cursor: pointer;
 }
+
+.land-block5-button-scroll {
+    background-color: blue;
+    color: white
+}
+
 
 .land-block5-button:hover {
     background-color: yellow;
@@ -1291,7 +1297,7 @@ margin-right: 30px;
 }
 
 .land-block3-text {
-    transform: translateY(-50%) translateX(-100%);
+    transform: translateY(-10%) translateX(-100%);
 }
 
 .land-block4-text {

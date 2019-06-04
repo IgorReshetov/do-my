@@ -7,16 +7,31 @@ var flag = 0;
 var rang_Qst_Stat = true; // Переменная свойство статистического вопроса (динамически обновляется)
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
-window.cookie_level = function() {
+function cookie_level() {
     prevQst = cookies.active_question;
     check_arr = [cookies.active_question];
-     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
-     var countQst_lev2 = parseInt(cookies.questions_count[1].questions_count);
-     var countQst_lev3 = parseInt(cookies.questions_count[2].questions_count);
+    var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
+    var countQst_lev2 = parseInt(cookies.questions_count[1].questions_count);
+    var countQst_lev3 = parseInt(cookies.questions_count[2].questions_count);
 
-     levelQst_1 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev1,  check:false}; // Вводим глобальные уровни вопросов попал/промах
-     levelQst_2 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev2,  check:false};
-     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false};
+    levelQst_1 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev1,  check:false,
+        next_level: function(){                   
+            if (this.hit == this.countQst) {this.next_lev = true;
+            return true;
+        } else return false;} 
+    }; 
+    levelQst_2 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev2,  check:false,
+        next_level: function(){                   
+            if (this.hit == this.countQst) {this.next_lev = true;
+            return true;
+        } else return false;} 
+    };
+    levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false,
+        next_level: function(){                   
+            if (this.hit == this.countQst) {this.next_lev = true;
+            return true;
+        } else return false;} 
+    };
 
     
      switch (cookies.level_access) {
@@ -67,16 +82,46 @@ window.cookie_level = function() {
 //     } else return false;
 // } 
 
-window.next_level = function(){                   // Для завершения уровня нужно набрать 100%
+
+var levelQst_1 = {hit:0, miss:0, next_lev:false, countQst:0, check:false,
+        next_level: function(){                   
+            if (this.hit == this.countQst) {this.next_lev = true;
+            return true;
+        } else return false;}  
+}; // Вводим глобальные уровни вопросов попал/промах и подсчет итогов
+var levelQst_2 = {hit:0, miss:0, next_lev:false, countQst:0, check:false,
+    next_level: function(){                   
+        if (this.hit == this.countQst) {this.next_lev = true;
+        return true;
+    } else return false;} 
+};
+var levelQst_3 = {hit:0, miss:0, next_lev:false, countQst:0, check:false,
+    next_level: function(){                   
+        if (this.hit == this.countQst) {this.next_lev = true;
+        return true;
+    } else return false;} 
+};
+var resultQst = {hit: function() {return (levelQst_1.hit + levelQst_2.hit + levelQst_3.hit);}, miss: function() {return (levelQst_1.miss+levelQst_2.miss+levelQst_3.miss);}};
+
+// levelQst_1.next_level = function(){                   // Для завершения уровня нужно набрать 100%
+//     if (this.hit == this.countQst) {this.next_lev = true;
+//     return true;
+//     } else return false;
+// } 
+
+levelQst_2.next_level = function(){                   // Для завершения уровня нужно набрать 100%
     if (this.hit == this.countQst) {this.next_lev = true;
     return true;
     } else return false;
 } 
 
-var levelQst_1 = {hit:0, miss:0, next_lev:false, countQst:0, check:false}; // Вводим глобальные уровни вопросов попал/промах и подсчет итогов
-var levelQst_2 = {hit:0, miss:0, next_lev:false, countQst:0, check:false};
-var levelQst_3 = {hit:0, miss:0, next_lev:false, countQst:0, check:false};
-var resultQst = {hit: function() {return (levelQst_1.hit + levelQst_2.hit + levelQst_3.hit);}, miss: function() {return (levelQst_1.miss+levelQst_2.miss+levelQst_3.miss);}};
+levelQst_3.next_level = function(){                   // Для завершения уровня нужно набрать 100%
+    if (this.hit == this.countQst) {this.next_lev = true;
+    return true;
+    } else return false;
+} 
+
+
 
 var countQst;     // Общее число вопросов
 var cookies;      // Репозитарий для куков
@@ -147,18 +192,16 @@ function init() {
 
     var button1 = document.getElementById('land-block5-button');
     if (button1 != null){
-
         button1.onclick = startOpros;
         perebor_Qst();
-    
-    window.setTimeout(function(){
 
-    var coord_target = offset(button1);
-    console.log (coord_target);
-    $('html').animate({scrollTop: coord_target},2000);
+        setTimeout(function(){
+            var coord_target = offset(button1);
+            console.log (coord_target);
+            $('html').animate({scrollTop: coord_target},2000);
 
-
-    }, 5000);
+            setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
+        }, 5000);
     };
     
     var button2 = document.getElementById('button');
