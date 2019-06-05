@@ -198,7 +198,8 @@ function init() {
         setTimeout(function(){
             var coord_target = offset(button1);
             console.log (coord_target);
-            $('html').animate({scrollTop: coord_target},2000);
+            handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
+            // $('html').animate({scrollTop: coord_target},2000);
 
             setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
         }, 5000);
@@ -2056,54 +2057,35 @@ function perebor_Qst() {
     }, 3000);
 }
 
+// _______________________________ S С R O L L (Плавная прокурутка страницы)______________________________________)
 
+var handl_scroll_el,
+    top_scroll_Y = 0,
+    body = document.body,
+    html = document.documentElement,
+    pageH_Y = Math.max( body.scrollHeight, body.offsetHeight, 
+                html.clientHeight, html.scrollHeight, html.offsetHeight ),
+    client_h_Y = document.documentElement.clientHeight;
 
+function scroll_to_downPage() {
+    top_scroll_Y += 5;
+    if (top_scroll_Y > (pageH_Y - client_h_Y)) {
+        clearInterval(handl_scroll_el);
+    }
+    window.scrollTo(0,top_scroll_Y);     
+    // return false; 
+}
 
-// window.onload = init;
-// var numStartQst = 3; // Вводим глобальный счетчик вопросов
-// function init() {
-//     var numStartQst = 3; // Вводим счетчик вопросов
-//     var button = document.getElementById('button');
-//     button.onclick = json_Q_A;
-
-//     console.log(numStartQst);
-
-//     // numStartQst++;
-//     // console.log((numStartQst));
-// }
-
-
-// // Создаем обработчик для отправки запроса JSON
-
-// function json_Q_A() {
+function offset(el) {
+    var rect = el.getBoundingClientRect().top + el.clientHeight/2 + document.documentElement.clientHeight/2;
+    // console.log(rect);
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var top = rect + scrollTop - document.documentElement.clientHeight;
     
-//     var url = "/controllers/handlers/get_question.php";
-      
-//     var url = "/do-my/controllers/handlers/get_question.json"; // Дабавил файл get_question.json для теста XHR
-//     var request = new XMLHttpRequest();
-//     request.open("POST", url);
-//     request.open("GET", url);
-//     request.onload = function() { 
-//         if (request.status == 200) { 
-//         update_Q_A(request.responseText);
-//         }
-//         }; console.log(request.responseText);
-//     };
-//     var number_Q = JSON.stringify(numStartQst++); //Передаем в строке следующий номер вопроса    ИЛИ(Выбираем ID элемента DOM, на который щелкнул user и парсим parseInt(str.match(/\d+/) ) // 
-//     numStartQst++; 
-//     var number_Q = JSON.stringify(numStartQst); //Передаем в строке следующий номер вопроса    ИЛИ(Выбираем ID элемента DOM, на который щелкнул user и парсим parseInt(str.match(/\d+/) ) // 
-//     console.log(number_Q);
-//     request.send(number_Q);
-//     return numStartQst++;
-//     return numStartQst;
-   
-// }
+    return top;
+}
 
-// function update_Q_A (responseText) {
-//     var div_Q = document.getElementById("Qst"); // Выбираем Блок для вставки след.вопроса для юзера
-//     var div_A = document.getElementById("Asw"); // Выбираем Блок для вставки ответа
-//     var obj= JSON.parse(responseText); // Должен придти массив с ответами []
-//     console.log(obj);
-//     // var div = document.createElement("div");
-//     // div.setAttribute("class", "start-Answer");
-//     div_Q.innerHTML= obj[0].question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
+
+
+
+
