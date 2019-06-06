@@ -197,8 +197,8 @@ function init() {
 
         setTimeout(function(){
             var coord_target = offset(button1);
-            console.log (coord_target);
-            $('html').animate({scrollTop: coord_target},2000);
+            
+            $("body,html,document").animate({scrollTop: coord_target},2000);
 
             setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
         }, 5000);
