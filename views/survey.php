@@ -205,6 +205,7 @@ require_once 'views/templates/header.php';
         </tr>
     </table>
 
+    
     <?php
     // переключатель ландинга для первого захода, либо кнопки круга при повторном заходе
     if ($play == 'play1'){
@@ -214,6 +215,10 @@ require_once 'views/templates/header.php';
             <div class="land-block-text land-block1-text">
                 <div class="land-block-question land-block1-question">Что это?</div>
                 <div class="land-block-answer land-block1-answer">Умная игра, где вы получите знания и призы</div>
+            </div>
+            <div class="land-patner">
+                <div class="land-patner-text">Партнер игры</div>
+                <div class="land-patner-pic"></div>
             </div>
         </div>
         <div class="land-block land-block2">

@@ -697,7 +697,7 @@ function json_Q_A() {
 }
 
 function json_Q_A_next() {
-    
+    window.scrollTo(0, 0);
     // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
 
