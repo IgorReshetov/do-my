@@ -1208,7 +1208,8 @@ margin-right: 30px;
     display: flex;
     flex-direction: column;
     height: 1150px;
-    margin-bottom: 40px;    
+    margin-bottom: 40px;
+    margin-top: -2px;    
 }
 
 .land-block {
@@ -1216,6 +1217,29 @@ margin-right: 30px;
     height: 230px;
     position: relative;
     // border: 1px solid rgb(0, 0, 0); 
+}
+
+.land-patner {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.land-patner-text {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.land-patner-pic {
+    width: 100px;
+    height: 100px;
 }
 
 .land-block-text {
@@ -1313,6 +1337,22 @@ margin-right: 30px;
 }
 
 @media (max-width: 570px) {
+
+    .land-patner-pic {
+        width: 85px;
+        height: 85px;
+    }
+
+    .land-patner {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .land-patner-text {
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+    }
 
     th {
         font-size: 18px;
@@ -1542,7 +1582,7 @@ margin-right: 30px;
 
     .land {
         height: 1100px;
-        
+        // margin-top: -2px;
     }
     
     .land-block {
@@ -1602,6 +1642,24 @@ margin-right: 30px;
 }
 
 @media (max-width: 410px) {
+    .land-patner-pic {
+        width: 70px;
+        height: 70px;
+    }
+
+    .land-patner {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .land-patner-text {
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        font-weight: 400;
+    }
+
+
     .board-left {
         min-width: 60px
     }

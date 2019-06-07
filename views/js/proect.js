@@ -66,7 +66,7 @@ function init() {
         document.getElementById('first').children[2].children[0].children[0].classList.remove('display-none');
         
         var coord_target = offset(document.getElementById('first').children[2]);
-        $('html').animate({scrollTop: coord_target},700);
+        $("body,html,document").animate({scrollTop: coord_target},700);
 
         document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
         document.getElementById('first').children[2].children[1].children[0].classList.add('opacity07');
@@ -135,7 +135,7 @@ function question(point) {
     start_elem = start_elem.children[row+1];
         
     var coord_target = offset(start_elem);
-    $('html').animate({scrollTop: coord_target},1000);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
     
     if (pos > 1) {start_elem.children[2].children[pos-2].classList.add('display-none')};
     start_elem.children[2].children[pos-1].classList.add('display-block');
@@ -174,7 +174,7 @@ function show(){
     window.setTimeout(function(){
 
     var coord_target = offset(start_elem.children[3]);
-    $('html').animate({scrollTop: coord_target},1000);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
 
     start_elem.children[3].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[0]);
@@ -187,7 +187,7 @@ function show(){
     window.setTimeout(function(){
 
     var coord_target = offset(start_elem.children[4]);
-    $('html').animate({scrollTop: coord_target},1000);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
 
     start_elem.children[4].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[4].children[0]);
@@ -200,7 +200,7 @@ function show(){
     window.setTimeout(function(){
 
     var coord_target = offset(start_elem.children[5]);;
-    $('html').animate({scrollTop: coord_target},1000);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
 
     start_elem.children[5].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[0]);

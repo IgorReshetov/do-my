@@ -196,10 +196,21 @@ function init() {
         perebor_Qst();
 
         setTimeout(function(){
+<<<<<<< HEAD
             var el = O('land-block5-button');
             console.log(el.getBoundingClientRect().top);
             handl_scroll_el = setInterval(scroll_to_element,15,el);
+=======
+            var coord_target = offset(button1);
+
+            
+            $("body,html,document").animate({scrollTop: coord_target},2000);
+
+            console.log (coord_target);
+            // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
+>>>>>>> c11b62c04063ab9942d6cd01544ed25f3f89f6db
             // $('html').animate({scrollTop: coord_target},2000);
+
 
             setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
             setTimeout(function(){
@@ -719,7 +730,7 @@ function json_Q_A() {
 }
 
 function json_Q_A_next() {
-    
+    window.scrollTo(0, 0);
     // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
 
