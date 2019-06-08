@@ -65,8 +65,8 @@ function init() {
         if (document.getElementById('first').children[2].children[0].children[0].classList.contains('display-none') == true){
         document.getElementById('first').children[2].children[0].children[0].classList.remove('display-none');
         
-        var coord_target = offset(document.getElementById('first').children[2]);
-        $("body,html,document").animate({scrollTop: coord_target},700);
+        var el = document.getElementById('first').children[2];
+        handl_scroll_el = setInterval(scroll_to_element,10,el);
 
         document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
         document.getElementById('first').children[2].children[1].children[0].classList.add('opacity07');
@@ -74,16 +74,6 @@ function init() {
         }, 3500);
         opros();
     }
-}
-
-// функция определения расстояния от верха до центра элемента
-function offset(el) {
-    var rect = el.getBoundingClientRect().top + el.clientHeight/2 + document.documentElement.clientHeight/2;
-    // console.log(rect);
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var top = rect + scrollTop - document.documentElement.clientHeight;
-    
-    return top;
 }
 
 
@@ -134,8 +124,7 @@ function question(point) {
     var start_elem = document.getElementById('first');
     start_elem = start_elem.children[row+1];
         
-    var coord_target = offset(start_elem);
-    $("body,html,document").animate({scrollTop: coord_target},1000);
+    handl_scroll_el = setInterval(scroll_to_element,10,start_elem);
     
     if (pos > 1) {start_elem.children[2].children[pos-2].classList.add('display-none')};
     start_elem.children[2].children[pos-1].classList.add('display-block');
@@ -143,7 +132,10 @@ function question(point) {
     if (row == 1 && pos == 3) {
         show();
         window.setTimeout(function(){
-        $('html').animate({scrollTop: 0},3000);
+        
+        var el = document.getElementById('first').children[0];
+        handl_scroll_el = setInterval(scroll_to_element,10,el);
+
         }, 12000);
         window.setTimeout(function(){
         document.getElementById('first').children[1].children[1].classList.remove('column2-image1');
@@ -173,8 +165,8 @@ function show(){
 
     window.setTimeout(function(){
 
-    var coord_target = offset(start_elem.children[3]);
-    $("body,html,document").animate({scrollTop: coord_target},1000);
+    var el = start_elem.children[3];
+    handl_scroll_el = setInterval(scroll_to_element,10,el);
 
     start_elem.children[3].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[0]);
@@ -186,8 +178,8 @@ function show(){
 
     window.setTimeout(function(){
 
-    var coord_target = offset(start_elem.children[4]);
-    $("body,html,document").animate({scrollTop: coord_target},1000);
+    var el = start_elem.children[4];
+    handl_scroll_el = setInterval(scroll_to_element,10,el);
 
     start_elem.children[4].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[4].children[0]);
@@ -199,8 +191,8 @@ function show(){
 
     window.setTimeout(function(){
 
-    var coord_target = offset(start_elem.children[5]);;
-    $("body,html,document").animate({scrollTop: coord_target},1000);
+    var el = start_elem.children[5];
+    handl_scroll_el = setInterval(scroll_to_element,10,el);
 
     start_elem.children[5].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[0]);
