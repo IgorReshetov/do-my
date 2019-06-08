@@ -499,6 +499,7 @@ function zapros_Cookies_start(){      //  Синхронный запрос
 
 
         preloader();
+        
         return cookies;
     }
 }
@@ -530,6 +531,7 @@ function zapros_Cookies(){      //  AСинхронный запрос
         cookie_level();
 
         preloader();
+        
         return cookies;
     }
 }
@@ -691,13 +693,13 @@ function json_Q_A() {
         console.log(otvet);
         update_afterClientAnswer(otvet);
         preloader();
+        window.scrollTo(0, 0);
     }
     
     return false;
 }
 
 function json_Q_A_next() {
-    window.scrollTo(0, 0);
     // numStartQst++;
     if (numStartQst<0) {return numStartQst=0;};
 
@@ -729,8 +731,9 @@ function json_Q_A_next() {
         // numStartQst++;
         update_Q_A(messages);
         preloader();
+        window.scrollTo(0, 0);
     }
-
+    
     return false;
 }
 
