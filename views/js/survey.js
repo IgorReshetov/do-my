@@ -5,6 +5,7 @@ var check_arr = [0];
 var prevQst = 0;
 var flag = 0;
 var rang_Qst_Stat = true; // Переменная свойство статистического вопроса (динамически обновляется)
+var form_Qst;   // Признак анкетного вопроса
 
 // Создаем метод по заполнению правильных и неправильных ответов по уровням
 function cookie_level() {
@@ -459,7 +460,7 @@ function zapros_Cookies_start(){      //  Синхронный запрос
         }
 
         numStartQst = cookies.active_question;
-
+        console.log(cookies);
         cookie_level();
     
         fill_circle();
@@ -715,7 +716,8 @@ function json_Q_A_next() {
         var messages = JSON.parse(xhr.responseText);
         console.log(messages);
         rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
-        console.log(rang_Qst_Stat); 
+        form_Qst = messages.question.is_form;   // меняем признак вопроса (анкетный-1 / обычный-null)
+        console.log(form_Qst); 
         // numStartQst++;
         update_Q_A(messages);
         preloader();
@@ -795,7 +797,8 @@ function startOpros() {
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);
     rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
-    console.log(rang_Qst_Stat); 
+    form_Qst = messages.question.is_form;   // меняем признак вопроса (анкетный-1 / обычный-null)
+    console.log(form_Qst); 
     update_Q_A(messages);
     preloader();
     }
@@ -977,8 +980,16 @@ function update_afterClientAnswer(otvet) {
         break;
     }
 
-    result.style.display = "flex";
-    dark.style.display = "block";
+    // result.style.display = "flex";
+    // dark.style.display = "block";
+    if (form_Qst == 1) {
+        
+
+        result.style.display = "flex";
+        dark.style.display = "block";
+        return false
+    } 
+
     if (otvet.answer_is_true == 1) {
         image.className = 'result-tru-question';  // Правка класс листа для IE
         // image.classList = [];
@@ -1004,7 +1015,10 @@ function update_afterClientAnswer(otvet) {
         (rang_Qst_Stat)? otvet_false.innerHTML = "Есть вариант лучше. Вопрос ждет вашего возвращения." 
         : otvet_false.innerHTML = "Это неточный ответ. Вопрос ждет вашего возвращения.";
         otvet_false.style.display = "block";
-    }  
+    } 
+
+    result.style.display = "flex";
+    dark.style.display = "block"; 
 }
 
 function valid_level_1() {
