@@ -20,15 +20,17 @@ $comment = '';
 $time_answer = time();
 
 $retry = 0;
-$i = count($_SESSION['user_answer']);
+$i = count($_SESSION['user_answer'])-1;
+
 foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяем на наличие ранее отвеченного вопроса и если ответ есть - перезаписываем
-
-    if ($user_answer['id_question'] == $id_question) {
-        $i = $key;
-        $retry = 1;
+    if (isset($user_answer['id_question'])){
+        if ($user_answer['id_question'] == $id_question) {
+            $i = $key;
+            $retry = 1;
+        }
     }
-
 }
+
 
 (($i == "") ? $i = 0 : $i = $i);
 

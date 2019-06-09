@@ -676,7 +676,7 @@ function json_Q_A() {
         if (xhr.readyState != 4) {
             return;
         }
-        // console.log(xhr.responseText); 
+        console.log(xhr.responseText); 
         otvet = JSON.parse(xhr.responseText);
         console.log(otvet);
         update_afterClientAnswer(otvet);
@@ -791,6 +791,7 @@ function startOpros() {
             return;
         }
     
+    // console.log(xhr.responseText);
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);
     rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)

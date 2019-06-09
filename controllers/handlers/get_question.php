@@ -22,8 +22,8 @@ if ($id_question == 0) {
 
 // проверяем на ветвление и включаев ветвление для вопросов веток
 
-if ($check_tree = 1) {
-    if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])){
+if ($check_tree == 1) {
+    if (is_array($_SESSION['user_answer'][$i-1]['id_answer'])){
         $id_answer = $_SESSION['user_answer'][$i-1]['id_answer'][0];
     }else{
         $id_answer = $_SESSION['user_answer'][$i-1]['id_answer'];
@@ -53,7 +53,7 @@ $answer->show_index[] = [];
 // запись в сессию данных о вопросе
 $_SESSION['user_answer'][$i]['is_tree'] = $question->is_tree;
 $_SESSION['user_answer'][$i]['is_form'] = $question->is_form;
-$_SESSION['user_answer'][$i]['picture'] = $question->picture;
+$_SESSION['user_answer'][$i]['is_picture'] = $question->is_picture;
 $_SESSION['user_answer'][$i]['is_scale'] = $question->is_scale;
 $_SESSION['user_answer'][$i]['is_rank'] = $question->is_rank;
 $_SESSION['user_answer'][$i]['is_word'] = $question->is_word;

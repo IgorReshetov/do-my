@@ -4,12 +4,13 @@ class Question
 {
     public $question;
     public $info;
+    public $is_tree;
     public $is_form;
     public $is_picture;
     public $is_scale;
-    public $is_scale_min;
-    public $is_scale_max;
-    public $is_scale_step;
+    public $scale_min;
+    public $scale_max;
+    public $scale_step;
     public $scale_unit;
     public $is_rank;
     public $is_word;
@@ -34,13 +35,14 @@ class Question
             $this->id_parent =           $question_data['id_parent'];
             $this->question =            $question_data['question'];
             $this->info =                $question_data['info'];
+            $this->is_tree =                $question_data['is_tree'];
             $this->is_form = $question_data['is_form'];
             $this->is_picture = $question_data['is_picture'];
             $this->is_scale = $question_data['is_scale'];
-            $this->is_scale_min = $question_data['is_scale_min'];
-            $this->is_scale_max = $question_data['is_scale_max'];
-            $this->is_scale_step = $question_data['is_scale_step'];
-            $this->is_scale_unit = $question_data['is_scale_unit'];
+            $this->scale_min = $question_data['scale_min'];
+            $this->scale_max = $question_data['scale_max'];
+            $this->scale_step = $question_data['scale_step'];
+            $this->scale_unit = $question_data['scale_unit'];
             $this->is_rank = $question_data['is_rank'];
             $this->is_word = $question_data['is_word'];
             $this->is_multi_answer =     $question_data['is_multi_aswer'];
