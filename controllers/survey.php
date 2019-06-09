@@ -8,6 +8,7 @@ $_SESSION['life'] = 'old';
 
 if(isset($_REQUEST['back'])){$user = 'back';}
 
+
 $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 2)['questions_count']+Question:: getQuestionsCount ($_SESSION['action'], 3)['questions_count'];
 $active_question = $_SESSION['active_question'];
 

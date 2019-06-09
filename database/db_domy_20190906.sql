@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 09 2019 г., 11:45
+-- Время создания: Июн 09 2019 г., 12:08
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.3
 
@@ -105,7 +105,7 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getQuestionsCount` (IN `p_id_action` INT, IN `p_id_level` INT)  SQL SECURITY INVOKER
 BEGIN
-SELECT COUNT(*)
+SELECT COUNT(*) as questions_count
 FROM
 (SELECT *
 FROM
