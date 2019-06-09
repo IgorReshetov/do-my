@@ -11,10 +11,38 @@ $id_question = $data['id_question'];
 $answer = new Answer($_SESSION['action'], $id_question);
 $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
+$amount_answer = $data['amount'];
+$word_answer = $data['word'];
 $id_answer_sample = array();
 $comment = '';
 
-// функция проверки многомерных и одномерных овтетов
+
+$time_answer = time();
+
+$retry = 0;
+$i = count($_SESSION['user_answer']);
+foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяем на наличие ранее отвеченного вопроса и если ответ есть - перезаписываем
+
+    if ($user_answer['id_question'] == $id_question) {
+        $i = $key;
+        $retry = 1;
+    }
+
+}
+
+(($i == "") ? $i = 0 : $i = $i);
+
+// функция проверки многомерных и одномерных овтетов c учетом анкеты, диапазна, картинок или ранжирования.
+
+// если вопрос диапазон
+if ($_SESSION['user_answer'][$i]['is_scale'] == 1) {
+
+} else if ($_SESSION['user_answer'][$i]['is_word'] == 1){
+
+} else if ($_SESSION['user_answer'][$i]['is_rank'] == 1){ 
+
+} else {
+
 if (is_array($id_answer)) {
     foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
         if ($answer->is_true[$key] == 1) {$id_answer_sample[] = $id_answer_check; $comment = $comment.$answer->is_true_comment[$key];}
@@ -35,22 +63,14 @@ if (is_array($id_answer)) {
     $answer_is_true = $answer->is_true[$id_answer];
     $answer_is_true_comment = $answer->is_true_comment[$id_answer];
 }
-
-
-$time_answer = time();
-
-$retry = 0;
-$i = count($_SESSION['user_answer']);
-foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяем на наличие ранее отвеченного вопроса и если ответ есть - перезаписываем
-
-    if ($user_answer['id_question'] == $id_question) {
-        $i = $key;
-        $retry = 1;
-    }
-
 }
 
-(($i == "") ? $i = 0 : $i = $i);
+// если анкетный вопрос
+if ($_SESSION['user_answer'][$i]['is_form'] == 1) {
+    $answer_is_true = 1;
+    $answer_is_true_comment = "";
+}
+
 
 $_SESSION['user_answer'][$i]['id_question'] = $id_question;
 $_SESSION['user_answer'][$i]['id_answer'] = $data['id_answer'];
