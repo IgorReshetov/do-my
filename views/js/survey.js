@@ -983,8 +983,15 @@ function update_afterClientAnswer(otvet) {
     // result.style.display = "flex";
     // dark.style.display = "block";
     if (form_Qst == 1) {
-        
-
+        image.className = 'result-tru-question';  // Правка класс листа для IE
+        image.style.display = "block";
+        otvet_true.innerHTML = "Спасибо за ответ. Так же как и вы ответили 100 человек" 
+        otvet_true.style.display = "block";
+        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
+        else {why_title.innerHTML = "Пояснение:";}
+        why_title.style.display = "block";
+        why.innerHTML = otvet.answer_is_true_comment;
+        why.style.display = "block";
         result.style.display = "flex";
         dark.style.display = "block";
         return false
