@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 09 2019 г., 09:40
+-- Время создания: Июн 09 2019 г., 11:45
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.3
 
@@ -105,19 +105,24 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getQuestionsCount` (IN `p_id_action` INT, IN `p_id_level` INT)  SQL SECURITY INVOKER
 BEGIN
-  select count(*) as questions_count 
-  from spr_question_tree join spr_question on spr_question_tree.ID_CHILD = spr_question.ID
-  where 
-  CASE
-  WHEN p_id_level = 0 THEN
-  spr_question_tree.ID_TREE = 
-  (select TREE from spr_action where ID = p_id_action)
-  ELSE
-  spr_question_tree.ID_TREE = 
-  (select TREE from spr_action where ID = p_id_action)
-  AND
-  (spr_question.ID_LEVEL = p_id_level)
-  END;
+SELECT COUNT(*)
+FROM
+(SELECT *
+FROM
+ (SELECT *
+ FROM
+   (select spr_question_tree.ID_PARENT as ID_PARENT,
+    spr_question_tree.ID_CHILD as ID_CHILD,
+    spr_question.ID_LEVEL as ID_LEVEL
+   from spr_question_tree join spr_question on spr_question_tree.ID_CHILD =   spr_question.ID
+   where 
+   spr_question_tree.ID_TREE = 
+   (select TREE from spr_action where ID = p_id_action))
+   as tbl1
+ GROUP BY ID_PARENT) as tbl2
+GROUP BY ID_CHILD) as tbl3
+WHERE
+tbl3.ID_LEVEL = p_id_level;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getUserStat` (IN `P_Play_key` VARCHAR(255))  SQL SECURITY INVOKER
@@ -228,7 +233,7 @@ INSERT INTO `spr_answer` (`ID`, `ID_GROUP`, `ANSWER`, `INFO`, `DT_INSERTED`, `DT
 (4, 1, 'экология', NULL, '2019-01-16 23:49:44', '2019-01-17 00:02:17'),
 (5, 1, 'Да', NULL, '2019-01-17 00:07:24', '2019-04-14 11:41:13'),
 (6, 1, 'Нет', NULL, '2019-01-17 00:07:37', '2019-04-14 11:41:26'),
-(7, 1, '5-7 млн', NULL, '2019-01-17 00:15:33', NULL),
+(7, 1, 'это вопрос диапазон', NULL, '2019-01-17 00:15:33', '2019-06-09 11:03:10'),
 (8, 1, '7-10 млн', NULL, '2019-01-17 00:15:52', NULL),
 (9, 1, '10-15 млн', NULL, '2019-01-17 00:16:10', NULL),
 (10, 1, '15-20 млн', NULL, '2019-01-17 00:16:24', NULL),
@@ -458,11 +463,7 @@ INSERT INTO `spr_answer_question` (`ID_QUESTION`, `ID_ANSWER`, `IS_HAVE_COMMENT`
 (1, 2, 0, 0, NULL, NULL, NULL, 2, NULL, NULL, '2019-01-17 00:03:32', '2019-06-09 10:33:35'),
 (2, 5, 0, 0, NULL, NULL, NULL, 1, NULL, NULL, '2019-01-17 00:11:54', '2019-01-17 00:14:06'),
 (2, 6, 0, 0, NULL, NULL, NULL, 2, 1, 'Здесь мы  должны давать пояснения, вот оно - вы гений.', '2019-01-17 00:12:16', '2019-03-03 10:37:16'),
-(3, 7, 0, 0, NULL, NULL, NULL, 1, NULL, NULL, '2019-01-17 00:17:26', '2019-01-17 00:18:11'),
-(3, 8, 0, 0, NULL, NULL, NULL, 2, NULL, NULL, '2019-01-17 00:17:33', '2019-01-17 00:18:13'),
-(3, 9, 0, 0, NULL, NULL, NULL, 3, NULL, NULL, '2019-01-17 00:17:43', '2019-01-17 00:18:16'),
-(3, 10, 0, 0, NULL, NULL, NULL, 4, NULL, NULL, '2019-01-17 00:17:52', '2019-01-17 00:18:17'),
-(3, 11, 0, 0, NULL, NULL, NULL, 5, 1, 'Здесь мы  должны давать пояснения, вот оно - вы гений.', '2019-01-17 00:17:58', '2019-03-03 10:37:36'),
+(3, 7, 0, 0, NULL, NULL, NULL, 1, 1, 'Отличный выбор!', '2019-01-17 00:17:26', '2019-06-09 11:17:12'),
 (4, 5, 0, 0, NULL, NULL, NULL, 1, NULL, NULL, '2019-01-17 00:25:25', '2019-01-17 00:25:52'),
 (4, 6, 0, 0, NULL, NULL, NULL, 2, 1, 'Здесь мы  должны давать пояснения, вот оно - вы гений.', '2019-01-17 00:25:45', '2019-03-03 10:37:48'),
 (5, 12, 0, 0, NULL, NULL, NULL, 1, 1, NULL, '2019-01-17 22:50:57', '2019-03-26 22:11:20'),
@@ -736,7 +737,7 @@ CREATE TABLE `spr_question` (
 INSERT INTO `spr_question` (`ID`, `ID_GROUP`, `QUESTION`, `INFO`, `IS_TREE`, `IS_FORM`, `IS_PICTURE`, `IS_SCALE`, `SCALE_MIN`, `SCALE_MAX`, `SCALE_STEP`, `SCALE_UNIT`, `IS_RANK`, `IS_WORD`, `IS_MULTI_ANSWER`, `IS_STAT`, `ID_LEVEL`, `DT_INSERT`, `DT_MODIFIED`) VALUES
 (1, 2, 'Что для вас важно при выборе квартиры (поставьте балл от 1 до 10)?', NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, 1, '2019-01-16 22:32:34', '2019-06-09 10:25:47'),
 (2, 2, 'Важен ли фактор близости к работе?', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '', NULL, NULL, 0, NULL, 1, '2019-01-16 23:11:46', '2019-06-09 10:39:41'),
-(3, 2, 'За какую сумму вы планируете приобрести квартиру?', NULL, NULL, 0, NULL, 1, 1, 10, 1, 'м.кв.', NULL, NULL, 0, NULL, 1, '2019-01-16 23:12:48', '2019-06-09 10:40:13'),
+(3, 2, 'За какую сумму вы планируете приобрести квартиру?', NULL, NULL, 0, NULL, 1, 1, 10, 1, 'млн. руб.', NULL, NULL, 0, NULL, 1, '2019-01-16 23:12:48', '2019-06-09 11:13:17'),
 (4, 3, 'Нуждаетесь ли вы в привлечении ипотечного креди', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 0, NULL, 2, '2019-01-16 23:14:26', '2019-04-05 22:30:39'),
 (5, 4, 'Важно ли для вас сопровождение риэлтора?', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, 2, '2019-01-16 23:15:13', '2019-03-26 22:10:46'),
 (6, 5, 'Какое максимальное время вы готовы уделить поиску квартиры?', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 0, NULL, 3, '2019-01-16 23:15:51', '2019-04-14 15:02:22'),

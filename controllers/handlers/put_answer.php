@@ -34,14 +34,26 @@ foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяе�
 
 // функция проверки многомерных и одномерных овтетов c учетом анкеты, диапазна, картинок или ранжирования.
 
-// если вопрос диапазон
-if ($_SESSION['user_answer'][$i]['is_scale'] == 1) {
 
-} else if ($_SESSION['user_answer'][$i]['is_word'] == 1){
+if ($_SESSION['user_answer'][$i]['is_scale'] == 1) {// если вопрос диапазон
 
-} else if ($_SESSION['user_answer'][$i]['is_rank'] == 1){ 
+    if ($amount_answer >= $answer->scale_min_true && $amount_answer <= $answer->scale_min_true) {
+        $answer_is_true = 1;
+        $answer_is_true_comment = $answer->is_true_comment[0];
+    }else {
+        $answer_is_true = NULL;
+        $answer_is_true_comment =  NULL;
+    }
 
-} else {
+} else if ($_SESSION['user_answer'][$i]['is_word'] == 1){// если вопрос слово
+
+} else if ($_SESSION['user_answer'][$i]['is_rank'] == 1){// если вопрос ранжирования
+
+} else if ($_SESSION['user_answer'][$i]['is_form'] == 1) {// если анкетный вопрос
+        $answer_is_true = 1;
+        $answer_is_true_comment = "";
+    
+} else {// если вопрос картинка или обычный вопрос выбора
 
 if (is_array($id_answer)) {
     foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
@@ -64,13 +76,6 @@ if (is_array($id_answer)) {
     $answer_is_true_comment = $answer->is_true_comment[$id_answer];
 }
 }
-
-// если анкетный вопрос
-if ($_SESSION['user_answer'][$i]['is_form'] == 1) {
-    $answer_is_true = 1;
-    $answer_is_true_comment = "";
-}
-
 
 $_SESSION['user_answer'][$i]['id_question'] = $id_question;
 $_SESSION['user_answer'][$i]['id_answer'] = $data['id_answer'];
