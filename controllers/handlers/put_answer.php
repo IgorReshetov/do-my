@@ -52,8 +52,12 @@ if ($_SESSION['user_answer'][$i]['is_scale'] == 1) {// если вопрос д�
 } else if ($_SESSION['user_answer'][$i]['is_rank'] == 1){// если вопрос ранжирования
 
 } else if ($_SESSION['user_answer'][$i]['is_form'] == 1) {// если анкетный вопрос
+        foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
+            if ($id_answer == $id_answer_check) {$id_answer = $key;}
+        }
+        
         $answer_is_true = 1;
-        $answer_is_true_comment = "";
+        $answer_is_true_comment = $answer->is_true_comment[$id_answer];
     
 } else {// если вопрос картинка или обычный вопрос выбора
 
@@ -214,6 +218,8 @@ while (isset($_SESSION['user_answer'][$activ_question]['answer_is_true']) && $_S
 $_SESSION['active_question'] = $activ_question;
 
 
+$stat_question = User::getQuestionStat($id_question);
+
 //  отправляем ответ на фронт об истинности вопроса и комментарии к нему
 $data =
 [
@@ -221,7 +227,8 @@ $data =
 'answer_is_true_comment' => $answer_is_true_comment,
 'active_question' => $_SESSION['active_question'],
 'finish' => $_SESSION['finish'],
-'count_true' => $_SESSION['count_true']
+'count_true' => $_SESSION['count_true'],
+'stat_question' => $stat_question
 ];
  
 echo json_encode($data);

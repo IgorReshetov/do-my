@@ -159,6 +159,25 @@ class User
         return $stat;
     }
 
+    public static function getQuestionStat ($question){
+        global $mysqli;
+        $question = $mysqli->real_escape_string($question);
+
+        $query = "call getQuestionStat('$question')";
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+        
+        $stat = [];
+        while ($stat_data = $result->fetch_assoc()) {
+            $stat[] = $stat_data;
+        }
+
+        $result->close();
+        $mysqli->next_result();
+
+        return $stat;
+    }
+
     public static function getPromocod ($mail){
         global $mysqli;
         $mail = $mysqli->real_escape_string($mail);
