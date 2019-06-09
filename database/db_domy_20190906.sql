@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 09 2019 г., 12:08
+-- Время создания: Июн 09 2019 г., 17:49
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.3
 
@@ -125,6 +125,16 @@ WHERE
 tbl3.ID_LEVEL = p_id_level;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getQuestionStat` (IN `P_Q` INT(255))  SQL SECURITY INVOKER
+BEGIN
+SELECT tbl.answer as answer, COUNT(tbl.answer) as count_answer
+FROM
+ (SELECT usr_answer.ID_QUESTION as question, usr_answer.ANSWER as answer
+ FROM usr_answer
+ WHERE usr_answer.ID_QUESTION = P_Q) as tbl
+GROUP BY answer;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getUserStat` (IN `P_Play_key` VARCHAR(255))  SQL SECURITY INVOKER
 BEGIN
 
@@ -133,7 +143,7 @@ SELECT tbl.group_name, SUM(tbl.is_true) as count_true, COUNT(tbl.group_name) as 
 
 FROM usr_answer JOIN spr_question ON usr_answer.ID_QUESTION = spr_question.ID JOIN spr_question_group ON spr_question.ID_GROUP = spr_question_group.ID
 
-WHERE usr_answer.PLAY_KEY = P_Play_key) as tbl
+WHERE usr_answer.PLAY_KEY = P_Play_key AND spr_question.IS_FORM <> 1) as tbl
 
 GROUP BY group_name;
 
@@ -459,8 +469,8 @@ CREATE TABLE `spr_answer_question` (
 --
 
 INSERT INTO `spr_answer_question` (`ID_QUESTION`, `ID_ANSWER`, `IS_HAVE_COMMENT`, `IS_MUST_COMMENT`, `SCALE_MIN_TRUE`, `SCALE_MAX_TRUE`, `WORD_TRUE`, `SHOW_INDEX`, `IS_TRUE`, `IS_TRUE_COMMENT`, `DT_INSERTED`, `DT_MODIFIED`) VALUES
-(1, 1, 0, 0, NULL, NULL, NULL, 1, 1, 'Это пример', '2019-01-17 00:03:04', '2019-06-09 10:33:32'),
-(1, 2, 0, 0, NULL, NULL, NULL, 2, NULL, NULL, '2019-01-17 00:03:32', '2019-06-09 10:33:35'),
+(1, 1, 0, 0, NULL, NULL, NULL, 1, 1, 'Круто, вас ждет вопрос о близости к работе', '2019-01-17 00:03:04', '2019-06-09 16:19:11'),
+(1, 2, 0, 0, NULL, NULL, NULL, 2, NULL, 'А как насчет определится с ценой квартиры', '2019-01-17 00:03:32', '2019-06-09 16:19:28'),
 (2, 5, 0, 0, NULL, NULL, NULL, 1, NULL, NULL, '2019-01-17 00:11:54', '2019-01-17 00:14:06'),
 (2, 6, 0, 0, NULL, NULL, NULL, 2, 1, 'Здесь мы  должны давать пояснения, вот оно - вы гений.', '2019-01-17 00:12:16', '2019-03-03 10:37:16'),
 (3, 7, 0, 0, NULL, NULL, NULL, 1, 1, 'Отличный выбор!', '2019-01-17 00:17:26', '2019-06-09 11:17:12'),
@@ -735,7 +745,7 @@ CREATE TABLE `spr_question` (
 --
 
 INSERT INTO `spr_question` (`ID`, `ID_GROUP`, `QUESTION`, `INFO`, `IS_TREE`, `IS_FORM`, `IS_PICTURE`, `IS_SCALE`, `SCALE_MIN`, `SCALE_MAX`, `SCALE_STEP`, `SCALE_UNIT`, `IS_RANK`, `IS_WORD`, `IS_MULTI_ANSWER`, `IS_STAT`, `ID_LEVEL`, `DT_INSERT`, `DT_MODIFIED`) VALUES
-(1, 2, 'Что для вас важно при выборе квартиры (поставьте балл от 1 до 10)?', NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, 1, '2019-01-16 22:32:34', '2019-06-09 10:25:47'),
+(1, 2, 'Что для вас важно при выборе квартиры (поставьте балл от 1 до 10)?', NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 0, NULL, 1, '2019-01-16 22:32:34', '2019-06-09 13:41:28'),
 (2, 2, 'Важен ли фактор близости к работе?', NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, '', NULL, NULL, 0, NULL, 1, '2019-01-16 23:11:46', '2019-06-09 10:39:41'),
 (3, 2, 'За какую сумму вы планируете приобрести квартиру?', NULL, NULL, 0, NULL, 1, 1, 10, 1, 'млн. руб.', NULL, NULL, 0, NULL, 1, '2019-01-16 23:12:48', '2019-06-09 11:13:17'),
 (4, 3, 'Нуждаетесь ли вы в привлечении ипотечного креди', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 0, NULL, 2, '2019-01-16 23:14:26', '2019-04-05 22:30:39'),
@@ -4064,7 +4074,36 @@ INSERT INTO `usr_answer` (`ID`, `ID_USER`, `ID_ACTION`, `PLAY_KEY`, `ID_QUESTION
 (4270, 237, 6, '5cf6e39fd6893', 50, '121', 'NULL', NULL, 1, '2019-06-07 23:28:35', NULL),
 (4271, 237, 6, '5cf6e39fd6893', 53, '131, 133', 'NULL', NULL, 1, '2019-06-07 23:28:44', NULL),
 (4272, 237, 6, '5cf6e39fd6893', 55, '145, 141', 'NULL', NULL, 1, '2019-06-07 23:28:54', NULL),
-(4273, 237, 6, '5cf6e39fd6893', 58, '160', 'NULL', NULL, 1, '2019-06-07 23:29:01', NULL);
+(4273, 237, 6, '5cf6e39fd6893', 58, '160', 'NULL', NULL, 1, '2019-06-07 23:29:01', NULL),
+(4274, 239, 6, '5cfce19eb49d34583760', 8, '21', 'NULL', NULL, 1, '2019-06-09 13:38:57', NULL),
+(4275, 240, 1, '5cfce2223038a7177043', 1, '2', 'NULL', NULL, NULL, '2019-06-09 13:43:47', NULL),
+(4276, 240, 1, '5cfce2223038a7177043', 1, '2', 'NULL', NULL, NULL, '2019-06-09 13:46:43', NULL),
+(4277, 241, 1, '5cfceb5d544005651382', 1, '1', 'NULL', NULL, 1, '2019-06-09 14:20:13', NULL),
+(4278, 241, 1, '5cfceb5d544005651382', 2, '5', 'NULL', NULL, NULL, '2019-06-09 14:21:46', NULL),
+(4279, 241, 1, '5cfceb5d544005651382', 2, '6', 'NULL', NULL, 1, '2019-06-09 14:28:46', NULL),
+(4280, 241, 1, '5cfceda63b59f', 1, '1', 'NULL', NULL, 1, '2019-06-09 14:29:56', NULL),
+(4281, 241, 1, '5cfceda63b59f', 2, '6', 'NULL', NULL, 1, '2019-06-09 14:30:08', NULL),
+(4282, 242, 1, '5cfcede1d08108155227', 1, '1', 'NULL', NULL, 1, '2019-06-09 14:31:02', NULL),
+(4283, 242, 1, '5cfcede1d08108155227', 2, '5', 'NULL', NULL, NULL, '2019-06-09 14:31:15', NULL),
+(4284, 243, 1, '5cfcefe38b3676428211', 1, '1', 'NULL', NULL, 1, '2019-06-09 14:39:31', NULL),
+(4285, 243, 1, '5cfcefe38b3676428211', 2, '5', 'NULL', NULL, NULL, '2019-06-09 14:39:41', NULL),
+(4286, 243, 1, '5cfcefe38b3676428211', 2, '6', 'NULL', NULL, 1, '2019-06-09 14:39:49', NULL),
+(4287, 243, 1, '5cfcf02c18ff0', 1, '2', 'NULL', NULL, 1, '2019-06-09 14:40:39', NULL),
+(4288, 243, 1, '5cfcf02c18ff0', 3, '7', 'NULL', NULL, NULL, '2019-06-09 14:40:50', NULL),
+(4289, 243, 1, '5cfcf02c18ff0', 3, '7', 'NULL', NULL, NULL, '2019-06-09 14:40:56', NULL),
+(4290, 244, 1, '5cfd07836a0b46383843', 1, '1', 'NULL', NULL, 1, '2019-06-09 16:20:35', NULL),
+(4291, 245, 1, '5cfd07dd633643515011', 1, '1', 'NULL', NULL, 1, '2019-06-09 16:21:52', NULL),
+(4292, 246, 1, '5cfd0937ebeba8785611', 1, '1', 'NULL', NULL, 1, '2019-06-09 16:27:35', NULL),
+(4293, 247, 1, '5cfd0977e7ce77209308', 1, '1', 'NULL', NULL, 1, '2019-06-09 16:28:38', NULL),
+(4294, 247, 1, '5cfd0977e7ce77209308', 2, '6', 'NULL', NULL, 1, '2019-06-09 16:30:20', NULL),
+(4295, 247, 1, '5cfd0977e7ce77209308', 4, '6', 'NULL', NULL, 1, '2019-06-09 16:30:30', NULL),
+(4296, 247, 1, '5cfd0977e7ce77209308', 5, '13', 'NULL', NULL, NULL, '2019-06-09 16:30:34', NULL),
+(4297, 247, 1, '5cfd0977e7ce77209308', 5, '13, 12', 'NULL', NULL, 1, '2019-06-09 16:30:40', NULL),
+(4298, 247, 1, '5cfd0977e7ce77209308', 6, '18', 'NULL', NULL, 1, '2019-06-09 16:30:48', NULL),
+(4299, 247, 1, '5cfd0977e7ce77209308', 7, '19', 'NULL', NULL, 1, '2019-06-09 16:30:53', NULL),
+(4300, 247, 1, '5cfd0a36f1e169998318', 1, '1', 'NULL', NULL, 1, '2019-06-09 18:38:18', NULL),
+(4301, 247, 1, '5cfd0a36f1e169998318', 2, '6', 'NULL', NULL, 1, '2019-06-09 18:38:33', NULL),
+(4302, 248, 1, '5cfd285458e1d9784462', 1, '1', 'NULL', NULL, 1, '2019-06-09 18:40:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -4191,7 +4230,17 @@ INSERT INTO `usr_login` (`ID_USER`, `IP_USER`, `LOGIN`, `MAIL`, `ROLE`, `FIO`, `
 (235, '::1', NULL, NULL, NULL, NULL, NULL, '8jtuqn9i6q7dalqdq8b4acf0fk', NULL, NULL, NULL, '2019-05-28 01:02:48', NULL),
 (236, '::1', NULL, NULL, NULL, NULL, NULL, '9c93l9qgdt2g05erujv12oogjc', NULL, NULL, NULL, '2019-05-29 23:53:45', NULL),
 (237, '::1', NULL, NULL, NULL, NULL, NULL, 't6161jjbdpd2nkviti7tk8s7gr', NULL, NULL, NULL, '2019-05-29 23:56:09', NULL),
-(238, '::1', NULL, NULL, NULL, NULL, NULL, '6i6vv7d7mbhvlhf329ljb1errg', NULL, NULL, NULL, '2019-06-04 01:39:58', NULL);
+(238, '::1', NULL, NULL, NULL, NULL, NULL, '6i6vv7d7mbhvlhf329ljb1errg', NULL, NULL, NULL, '2019-06-04 01:39:58', NULL),
+(239, '::1', NULL, NULL, NULL, NULL, NULL, 'rb6fva1p2pgc428jsdamqkmgqj', NULL, NULL, NULL, '2019-06-09 13:38:56', NULL),
+(240, '::1', NULL, NULL, NULL, NULL, NULL, 'ijjrds66bumnfiau7aqbitv8fi', NULL, NULL, NULL, '2019-06-09 13:43:47', NULL),
+(241, '::1', NULL, NULL, NULL, NULL, NULL, 'c6it824sbuo8asphmp0er92n2q', NULL, NULL, NULL, '2019-06-09 14:20:13', NULL),
+(242, '::1', NULL, NULL, NULL, NULL, NULL, 'htb5vijsoupudmrnjk6p9vegr4', NULL, NULL, NULL, '2019-06-09 14:31:02', NULL),
+(243, '::1', NULL, NULL, NULL, NULL, NULL, 'sir580mgghdpi7nop5af4ovnsq', NULL, NULL, NULL, '2019-06-09 14:39:31', NULL),
+(244, '::1', NULL, NULL, NULL, NULL, NULL, 'uosu466t995e8r328dhnikld7e', NULL, NULL, NULL, '2019-06-09 16:20:35', NULL),
+(245, '::1', NULL, NULL, NULL, NULL, NULL, 'lcm7ji2gka6u2d75gsc3bllt5a', NULL, NULL, NULL, '2019-06-09 16:21:52', NULL),
+(246, '::1', NULL, NULL, NULL, NULL, NULL, 'r9ql2r6ur7c7qjr2tnialql1uh', NULL, NULL, NULL, '2019-06-09 16:27:35', NULL),
+(247, '::1', NULL, NULL, NULL, NULL, NULL, 'h7h54aeig9mm9icfijeool3gdq', NULL, NULL, NULL, '2019-06-09 16:28:38', NULL),
+(248, '::1', NULL, NULL, NULL, NULL, NULL, 'p3im33saf64s43dcgncl0n0ig2', NULL, NULL, NULL, '2019-06-09 18:40:16', NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -4353,13 +4402,13 @@ ALTER TABLE `user_trophy`
 -- AUTO_INCREMENT для таблицы `usr_answer`
 --
 ALTER TABLE `usr_answer`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4274;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4303;
 
 --
 -- AUTO_INCREMENT для таблицы `usr_login`
 --
 ALTER TABLE `usr_login`
-  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `ID_USER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
