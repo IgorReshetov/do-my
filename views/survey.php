@@ -199,6 +199,42 @@ require_once 'views/templates/header.php';
         </tbody>
     </table>
 
+    
+    <div class="picture">
+        <div class="picture-dash">
+        <label id="P0" class="picture-wriper">
+            <input class="picture-input" type="radio" name="radio" value="0">
+            <div class="picture-addpsev"></div>
+            <div class="picture-block"></div>
+        </label>
+        <label id="P1" class="picture-wriper">
+            <input class="picture-input" type="radio" name="radio" value="0">
+            <div class="picture-addpsev"></div>
+            <div class="picture-block"></div>
+        </label>
+        <label id="P2" class="picture-wriper">
+            <input class="picture-input" type="radio" name="radio" value="0">
+            <div class="picture-addpsev"></div>
+            <div class="picture-block"></div>
+        </label>
+        <label id="P3" class="picture-wriper">
+            <input class="picture-input" type="radio" name="radio" value="0">
+            <div class="picture-addpsev"></div>
+            <div class="picture-block"></div>
+        </label>
+        <label id="P4" class="picture-wriper">
+            <input class="picture-input" type="radio" name="radio" value="0">
+            <div class="picture-addpsev"></div>
+            <div class="picture-block"></div>
+        </label>
+        <label id="P5" class="picture-wriper">
+            <input class="picture-input" type="radio" name="radio" value="0">
+            <div class="picture-addpsev"></div>
+            <div class="picture-block"></div>
+        </label>
+        </div>
+    </div>
+
     <table class="prev_next">
         <tr id = "tr-answer">
             <td id="next" class = "next" >ОТВЕТИТЬ</td>

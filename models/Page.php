@@ -73,7 +73,7 @@ class Page
             break;
             default:
             // require_once 'models/Answer.php';
-            require_once 'controllers/survey.php';
+            require_once 'controllers/storage.php';
             break;
             }
     }

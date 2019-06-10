@@ -717,6 +717,50 @@ table.prev_next {
 }
 
 
+// юлок ответов с рисунками
+
+.picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.picture-dash {
+    display: flex;
+    max-width: 600px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.picture-wriper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.picture-block {
+    display: flex;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 0 10px rgb(134, 134, 134);
+    border-radius: 20px;
+}
+
+.picture-addpsev {
+    position: absolute;
+}
+
+.picture-input {
+    display: none;
+}
+
+
 // окно овтетов
 
 #dark {

@@ -852,6 +852,66 @@ table.prev_next {
           box-shadow: 0 0 10px #868686;
 }
 
+.picture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.picture-dash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 600px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.picture-wriper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.picture-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 180px;
+  height: 180px;
+  -webkit-box-shadow: 0 0 10px #868686;
+          box-shadow: 0 0 10px #868686;
+  border-radius: 20px;
+}
+
+.picture-addpsev {
+  position: absolute;
+}
+
+.picture-input {
+  display: none;
+}
+
 #dark {
   position: fixed;
   z-index: 100;

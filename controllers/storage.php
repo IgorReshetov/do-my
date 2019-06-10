@@ -3,6 +3,8 @@
 
 if(isset($_REQUEST['book'])){$book = $_REQUEST['book'];}
 
+$book = 5;
+
 switch ($book) {
     case 1:
     $file_name = "60 ответов квиза по жилью";
