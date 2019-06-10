@@ -171,26 +171,6 @@ function init() {
 
     zapros_Cookies_start();           // Делаем синхронный запрос при старте страницы
     
-    // cookie_level();
-    
-    // fill_circle();
-    
-    // if (cookies.level_access == 2) {
-    //     O('next').classList.add ('next-level2');
-    //     C('forward')[0].classList.add ('forward-level2');
-    // } else if (cookies.level_access == 3) {
-    //      O('next').classList.add ('next-level3');
-    //      C('forward')[0].classList.add('forward-level3');
-    // } 
-    // console.log(cookies);
-    // console.log(prevQst);
-    // console.log(numStartQst);
-
-    // var status_Game = document.getElementsByClassName('slider-box-main');
-    // if (cookies.user_answer.length > 0 && document.querySelectorAll("table")[0].style.opacity == "1") 
-    // status_Game[0].style.display = "block";
-
-
     var button1 = document.getElementById('land-block5-button');
     if (button1 != null){
         button1.onclick = startOpros;
@@ -649,7 +629,7 @@ function json_Q_A() {
     };
     // console.log(numAnsw);
     // console.log(numQst);
-
+    var answer_user={numQst: numQst, numAnsw: numAnsw};
     // numStartQst++;
     
     var data = {
@@ -680,12 +660,12 @@ function json_Q_A() {
         console.log(xhr.responseText); 
         otvet = JSON.parse(xhr.responseText);
         console.log(otvet);
-        update_afterClientAnswer(otvet);
+        update_afterClientAnswer(otvet, answer_user);
         preloader();
         window.scrollTo(0, 0);
     }
     
-    return false;
+    return  answer_user;
 }
 
 function json_Q_A_next() {
@@ -925,9 +905,20 @@ function update_Q_A (messages) {
   
 }
 
-function update_afterClientAnswer(otvet) {
+function update_afterClientAnswer(otvet, answer_user) {
     
- 
+    // _________________ Подведение итогов для анкетных вопросов_____________________
+    var stat_info_sum = 0, stat_info_percent = 0, sum_answ=0;
+    for (var i=0; i<otvet.stat_question.length; i++) {
+        sum_answ += otvet.stat_question[i].count_answer*1;
+        if (otvet.stat_question[i].answer == answer_user.numAnsw) stat_info_sum = otvet.stat_question[i].count_answer*1;
+        console.log(stat_info_sum);
+        console.log(sum_answ);
+    }
+    
+    stat_info_percent = Math.round(stat_info_percent = (stat_info_sum/sum_answ*100));
+    // _________________________________________________________________________________
+    console.log(stat_info_percent);
     var inputs = document.querySelectorAll(".right input");
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
@@ -985,7 +976,7 @@ function update_afterClientAnswer(otvet) {
     if (form_Qst == 1) {
         image.className = 'result-tru-question';  // Правка класс листа для IE
         image.style.display = "block";
-        otvet_true.innerHTML = "Спасибо за ответ. Так же как и вы ответили 100 человек" 
+        otvet_true.innerHTML = "Спасибо за ответ. Так же как и вы ответили " + stat_info_sum + " человек (или " + stat_info_percent + "% - процентов респондентов)"   
         otvet_true.style.display = "block";
         if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
         else {why_title.innerHTML = "Пояснение:";}
