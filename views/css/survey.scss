@@ -727,15 +727,17 @@ table.prev_next {
 .range-dash {
     display: flex;
     min-width: 330px;
-    height: 200px;
+    height: 150px;
     width: 50%;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .range-focus {
     -webkit-appearance: none;
     width: 90%;
+    
 }
 
 .range-focus::-webkit-slider-runnable-track {
@@ -757,8 +759,8 @@ table.prev_next {
     border-radius: 100%;
     transition: 0.5s;
     cursor: pointer;
-    
 }
+
 
 .range-focus::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
     box-shadow: 0 0 20px yellow;
@@ -808,6 +810,28 @@ table.prev_next {
 .range-focus::-ms-thumb:hover,  .range-focus::-ms-thumb:active{
     box-shadow: 0 0 5px yellow;
     border: 4px solid yellow;
+}
+
+.range-min {
+    position: absolute;
+    top: 100px;
+    left: 5%;
+    font-size: 15px;
+}
+
+.range-max {
+    position: absolute;
+    top: 100px;
+    right: 5%;
+    font-size: 15px;
+}
+
+.range-value {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
 }
 
 
