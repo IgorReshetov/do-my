@@ -199,6 +199,11 @@ require_once 'views/templates/header.php';
         </tbody>
     </table>
 
+    <div class="range">
+        <div class="range-dash">
+        <input class="range-focus" id = "range-focus" type="range" min="0" max="100" step="20" value="50">
+        </div>
+    </div>
     
     <div class="picture">
         <div class="picture-dash">
