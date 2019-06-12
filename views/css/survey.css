@@ -866,7 +866,7 @@ table.prev_next {
   display: -ms-flexbox;
   display: flex;
   min-width: 330px;
-  height: 200px;
+  height: 150px;
   width: 50%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -874,6 +874,7 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .range-focus {
@@ -950,6 +951,29 @@ table.prev_next {
 .range-focus::-ms-thumb:hover, .range-focus::-ms-thumb:active {
   box-shadow: 0 0 5px yellow;
   border: 4px solid yellow;
+}
+
+.range-min {
+  position: absolute;
+  top: 100px;
+  left: 5%;
+  font-size: 15px;
+}
+
+.range-max {
+  position: absolute;
+  top: 100px;
+  right: 5%;
+  font-size: 15px;
+}
+
+.range-value {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 20px;
 }
 
 .picture {
