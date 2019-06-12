@@ -786,92 +786,211 @@ function startOpros() {
 }
 
 function update_Q_A (messages) {
-    var answShuffle = [];
-    
-    // 3 ЦИКЛ foreach переделан
-    for (var i = 0; i < messages.answer.id_answer.length; i++) {
-        var ans = [];
-        ans.push(messages.answer.id_answer[i]);
-        ans.push(messages.answer.answer[i]);
-        answShuffle.push(ans);
-    };
 
-    // messages.answer.id_answer.forEach(function(item,i) {
-    //     var ans = [];
-    //     ans.push(item);
-    //     ans.push(messages.answer.answer[i]);
-    //     // ans[item] = messages.answer.answer[i];
-    //     answShuffle.push(ans);
-    // });
 
-    answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
-    var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
-   
-    // 4 Правка цикла for
-    for (var i = 0; i < answShuffle.length; i++) {
-        idShuffle.push(answShuffle[i][0]);
-        answerShuffle.push(answShuffle[i][1]);
-    }
-   
-    // answShuffle.forEach(function(item, i){
-    //     idShuffle.push(item[0]);
-    //     answerShuffle.push(item[1])
-    // });
-    //    console.log(idShuffle);  
-    //    console.log(answerShuffle);
-   
-    var inputs = document.querySelectorAll(".right input");
-    for (var i=0; i<inputs.length; i++) {
-        inputs[i].checked = false;
-        if (messages.question.is_multi_answer == '1'){ 
-            fox.speak_multi();
-            inputs[i].setAttribute('type', 'checkbox');
-            inputs[i].nextElementSibling.classList.remove ('radio');  
-            inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
-            if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
-            else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
-            else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
-        } else {inputs[i].setAttribute('type', 'radio');
-            inputs[i].nextElementSibling.classList.add ('radio');  
-            inputs[i].nextElementSibling.classList.remove ('checkbox');
-            if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
-            else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
-            else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+    if (messages.question.is_picture == 1) {
+        var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
+        var A1 = document.getElementById("A1");     
+        var A2 = document.getElementById("A2");
+        var A3 = document.getElementById("A3");
+        var A4 = document.getElementById("A4");
+        var A5 = document.getElementById("A5");
+        var A6 = document.getElementById("A6");
+        var arr = [A0,A1,A2,A3,A4,A5,A6]
+        for (var i=0; i<arr.length; i++) { 
+                eval('A'+ i).parentElement.style.display = 'none';
         }
-        inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
-        inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
+
+        var answShuffle = [];
         
-    };
-    // console.log(inputs);
+        // 3 ЦИКЛ foreach переделан
+        for (var i = 0; i < messages.answer.id_answer.length; i++) {
+            var ans = [];
+            ans.push(messages.answer.id_answer[i]);
+            ans.push(messages.answer.answer[i]);
+            answShuffle.push(ans);
+        };
 
-    var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
-    var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
-    var A1 = document.getElementById("A1");     
-    var A2 = document.getElementById("A2");
-    var A3 = document.getElementById("A3");
-    var A4 = document.getElementById("A4");
-    var A5 = document.getElementById("A5");
-    var A6 = document.getElementById("A6");
-    var arr = [A0,A1,A2,A3,A4,A5,A6]
+        // messages.answer.id_answer.forEach(function(item,i) {
+        //     var ans = [];
+        //     ans.push(item);
+        //     ans.push(messages.answer.answer[i]);
+        //     // ans[item] = messages.answer.answer[i];
+        //     answShuffle.push(ans);
+        // });
 
-       Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
-    for (var i=0; i<arr.length; i++) {
-        arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
-    }
+        answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
+        var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
     
-    // 5 Правка Цикла foreach
-    for (var i = 0; i < answerShuffle.length; i++) {
-        eval('A'+ i).innerHTML = answerShuffle[i];
-    }
-
-    // answerShuffle.forEach(function(item,i) {         
-    // return eval('A'+ i).innerHTML = item;   
-    // });
+        // 4 Правка цикла for
+        for (var i = 0; i < answShuffle.length; i++) {
+            idShuffle.push(answShuffle[i][0]);
+            answerShuffle.push(answShuffle[i][1]);
+        }
     
-    for (var i=0; i<arr.length; i++) {
-       if (arr[i].innerHTML == '') {
-            eval('A'+ i).parentElement.style.display = 'none';
-       } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
+        // answShuffle.forEach(function(item, i){
+        //     idShuffle.push(item[0]);
+        //     answerShuffle.push(item[1])
+        // });
+        //    console.log(idShuffle);  
+        //    console.log(answerShuffle);
+    
+        var inputs = document.querySelectorAll(".picture-wriper input");
+        for (var i=0; i<inputs.length; i++) {
+            inputs[i].checked = false;
+            if (messages.question.is_multi_answer == '1'){ 
+                fox.speak_multi();
+                inputs[i].setAttribute('type', 'checkbox');
+                // inputs[i].nextElementSibling.classList.remove ('radio');  
+                // inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
+                // if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                // else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                // else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+            } else {
+                inputs[i].setAttribute('type', 'radio');
+                // inputs[i].nextElementSibling.classList.add ('radio');  
+                // inputs[i].nextElementSibling.classList.remove ('checkbox');
+                // if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                // else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                // else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+            }
+            inputs[i].setAttribute('name', 'P' + messages.question.id_parent);
+            inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
+            
+        };
+        // console.log(inputs);
+
+        var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
+        var P0 = document.getElementById("P0"); // Выбираем Блок для вставки ответа
+        var P1 = document.getElementById("P1");     
+        var P2 = document.getElementById("P2");
+        var P3 = document.getElementById("P3");
+        var P4 = document.getElementById("P4");
+        var P5 = document.getElementById("P5");
+        var P6 = document.getElementById("P6");
+        var arr = [P0,P1,P2,P3,P4,P5,P6]
+
+        Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
+        // for (var i=0; i<arr.length; i++) {
+        //     arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
+        // }
+        
+        // 5 Правка Цикла foreach
+        for (var i = 0; i < answerShuffle.length; i++) {
+            eval('P'+ i).children[2].style.background = "url(../images/icon/"+ answerShuffle[i] + ") center center /cover no-repeat";
+        }
+
+        // answerShuffle.forEach(function(item,i) {         
+        // return eval('A'+ i).innerHTML = item;   
+        // });
+        
+        for (var i=0; i<arr.length; i++) {
+        if (!answShuffle[i]) {
+            eval('P'+ i).parentElement.style.display = 'none';
+        } else {
+            eval('P'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
+        }
+
+    } else {
+        var P0 = document.getElementById("P0"); // Выбираем Блок для вставки ответа
+        var P1 = document.getElementById("P1");     
+        var P2 = document.getElementById("P2");
+        var P3 = document.getElementById("P3");
+        var P4 = document.getElementById("P4");
+        var P5 = document.getElementById("P5");
+        var P6 = document.getElementById("P6");
+        var arr = [P0,P1,P2,P3,P4,P5,P6]
+        for (var i=0; i<arr.length; i++) {
+            eval('P'+ i).parentElement.style.display = 'none';
+        }
+
+        var answShuffle = [];
+        // 3 ЦИКЛ foreach переделан
+        for (var i = 0; i < messages.answer.id_answer.length; i++) {
+            var ans = [];
+            ans.push(messages.answer.id_answer[i]);
+            ans.push(messages.answer.answer[i]);
+            answShuffle.push(ans);
+        };
+
+        // messages.answer.id_answer.forEach(function(item,i) {
+        //     var ans = [];
+        //     ans.push(item);
+        //     ans.push(messages.answer.answer[i]);
+        //     // ans[item] = messages.answer.answer[i];
+        //     answShuffle.push(ans);
+        // });
+
+        answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
+        var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
+    
+        // 4 Правка цикла for
+        for (var i = 0; i < answShuffle.length; i++) {
+            idShuffle.push(answShuffle[i][0]);
+            answerShuffle.push(answShuffle[i][1]);
+        }
+    
+        // answShuffle.forEach(function(item, i){
+        //     idShuffle.push(item[0]);
+        //     answerShuffle.push(item[1])
+        // });
+        //    console.log(idShuffle);  
+        //    console.log(answerShuffle);
+    
+        var inputs = document.querySelectorAll(".right input");
+        for (var i=0; i<inputs.length; i++) {
+            inputs[i].checked = false;
+            if (messages.question.is_multi_answer == '1'){ 
+                fox.speak_multi();
+                inputs[i].setAttribute('type', 'checkbox');
+                inputs[i].nextElementSibling.classList.remove ('radio');  
+                inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
+                if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+            } else {inputs[i].setAttribute('type', 'radio');
+                inputs[i].nextElementSibling.classList.add ('radio');  
+                inputs[i].nextElementSibling.classList.remove ('checkbox');
+                if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+            }
+            inputs[i].setAttribute('name', 'Q' + messages.question.id_parent);
+            inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
+            
+        };
+        // console.log(inputs);
+
+        var Q = document.getElementById("Q"); // Выбираем Блок для вставки след.вопроса для юзера
+        var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
+        var A1 = document.getElementById("A1");     
+        var A2 = document.getElementById("A2");
+        var A3 = document.getElementById("A3");
+        var A4 = document.getElementById("A4");
+        var A5 = document.getElementById("A5");
+        var A6 = document.getElementById("A6");
+        var arr = [A0,A1,A2,A3,A4,A5,A6]
+
+        Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
+        for (var i=0; i<arr.length; i++) {
+            arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
+        }
+        
+        // 5 Правка Цикла foreach
+        for (var i = 0; i < answerShuffle.length; i++) {
+            eval('A'+ i).innerHTML = answerShuffle[i];
+        }
+
+        // answerShuffle.forEach(function(item,i) {         
+        // return eval('A'+ i).innerHTML = item;   
+        // });
+        
+        for (var i=0; i<arr.length; i++) {
+        if (arr[i].innerHTML == '') {
+                eval('A'+ i).parentElement.style.display = 'none';
+        } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
+        }
+ 
     }
 
     var result = document.getElementById("result");
@@ -882,7 +1001,7 @@ function update_Q_A (messages) {
     var why = document.getElementById("why");
     var why_title = document.getElementById("why-title");
     var saveGame = document.getElementById("saveGame");
-
+    
     result.style.display = "none";
     dark.style.display = "none";
     otvet_true.style.display = "none";
@@ -902,7 +1021,8 @@ function update_Q_A (messages) {
         O('forward').classList.add('forward-level3');
         O('saveGame').classList.add ('forward-level3');
     } 
-  
+
+    
 }
 
 function update_afterClientAnswer(otvet, answer_user) {
