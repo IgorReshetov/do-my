@@ -610,8 +610,12 @@ function json_Q_A() {
         //  console.log(fox.time_answer); 
     // _________________________________________________________________________
     next.style.display = 'none';
-    var inputs = document.querySelectorAll(".right input");
-    var numAnsw, numQst;
+
+    if (S(C('picture')[0]).display != "none") var inputs = document.querySelectorAll(".picture-input");
+    else if (S(C('range')[0]).display != "none") var inputs = document.querySelectorAll(".range-focus");
+    else var inputs = document.querySelectorAll(".right input");
+   
+    var numAnsw, numQst, amountAnsw;
     if(inputs[0].type == 'checkbox') numAnsw = [];
     for (var i=0; i<inputs.length; i++) {
        if (inputs[i].checked===true) {
@@ -622,6 +626,10 @@ function json_Q_A() {
             break;
             case 'checkbox':
                 numAnsw.push(parseInt(inputs[i].getAttribute('value')));
+                numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+            break;
+            case 'range':
+                amountAnsw = parseInt(inputs[i].getAttribute('value'));
                 numQst = parseInt(inputs[i].getAttribute('name').substring(1));
             break;
             };
@@ -635,7 +643,7 @@ function json_Q_A() {
     var data = {
         id_question: numQst,
         id_answer: numAnsw,
-        amount: 0,               //Здесь нужно цеплять переменную из полоски прокрутки для вопроса диапазано  
+        amount: amountAnsw,               //Здесь нужно цеплять переменную из полоски прокрутки для вопроса диапазано  
         word: "",                //Здесь нужна переменная с вопроса с ответом подбора слова
         sign_bot: 0              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
     };
@@ -665,7 +673,7 @@ function json_Q_A() {
         window.scrollTo(0, 0);
     }
     
-    return  answer_user;
+    // return  answer_user;
 }
 
 function json_Q_A_next() {
@@ -787,7 +795,6 @@ function startOpros() {
 
 function update_Q_A (messages) {
 
-
     if (messages.question.is_picture == 1) {
         var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
         var A1 = document.getElementById("A1");     
@@ -797,9 +804,12 @@ function update_Q_A (messages) {
         var A5 = document.getElementById("A5");
         var A6 = document.getElementById("A6");
         var arr = [A0,A1,A2,A3,A4,A5,A6]
+
         for (var i=0; i<arr.length; i++) { 
                 eval('A'+ i).parentElement.style.display = 'none';
         }
+
+        S(C('range')[0]).display = 'none';
 
         var answShuffle = [];
         
@@ -867,8 +877,8 @@ function update_Q_A (messages) {
         var P3 = document.getElementById("P3");
         var P4 = document.getElementById("P4");
         var P5 = document.getElementById("P5");
-        var P6 = document.getElementById("P6");
-        var arr = [P0,P1,P2,P3,P4,P5,P6]
+        
+        var arr = [P0,P1,P2,P3,P4,P5]
 
         Q.innerHTML= messages.question.question; // Обращаемся к свойству question 0 элемента массива и заливаем в ДИВ с вопросом
         // for (var i=0; i<arr.length; i++) {
@@ -891,18 +901,30 @@ function update_Q_A (messages) {
             eval('P'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
         }
 
-    } else {
-        var P0 = document.getElementById("P0"); // Выбираем Блок для вставки ответа
-        var P1 = document.getElementById("P1");     
-        var P2 = document.getElementById("P2");
-        var P3 = document.getElementById("P3");
-        var P4 = document.getElementById("P4");
-        var P5 = document.getElementById("P5");
-        var P6 = document.getElementById("P6");
-        var arr = [P0,P1,P2,P3,P4,P5,P6]
-        for (var i=0; i<arr.length; i++) {
-            eval('P'+ i).parentElement.style.display = 'none';
+    } else if (messages.question.is_scale == 1) {
+        var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
+        var A1 = document.getElementById("A1");     
+        var A2 = document.getElementById("A2");
+        var A3 = document.getElementById("A3");
+        var A4 = document.getElementById("A4");
+        var A5 = document.getElementById("A5");
+        var A6 = document.getElementById("A6");
+        var arr = [A0,A1,A2,A3,A4,A5,A6]
+
+        for (var i=0; i<arr.length; i++) { 
+                eval('A'+ i).parentElement.style.display = 'none';
         }
+
+        S(C('picture')[0]).display = 'none';
+
+
+
+
+
+
+    } else {
+       S(C('picture')[0]).display = 'none';
+       S(C('range')[0]).display = 'none';
 
         var answShuffle = [];
         // 3 ЦИКЛ foreach переделан
@@ -1021,8 +1043,6 @@ function update_Q_A (messages) {
         O('forward').classList.add('forward-level3');
         O('saveGame').classList.add ('forward-level3');
     } 
-
-    
 }
 
 function update_afterClientAnswer(otvet, answer_user) {
@@ -1039,7 +1059,11 @@ function update_afterClientAnswer(otvet, answer_user) {
     stat_info_percent = Math.round(stat_info_percent = (stat_info_sum/sum_answ*100));
     // _________________________________________________________________________________
     console.log(stat_info_percent);
-    var inputs = document.querySelectorAll(".right input");
+    
+    if (S(C('picture')[0]).display != "none") var inputs = document.querySelectorAll(".picture-input");
+    else if (S(C('range')[0]).display != "none") var inputs = document.querySelectorAll(".range-focus");
+    else var inputs = document.querySelectorAll(".right input");
+
     for (var i=0; i<inputs.length; i++) {
         inputs[i].checked = false;
     }
