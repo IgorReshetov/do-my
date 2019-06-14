@@ -133,7 +133,7 @@ require_once 'views/templates/header.php';
         <tr class = "first">
             <th colspan="2" id="Q"></th>
         </tr>
-        <tr class = "test">
+        <tr class = "second">
             <th class = "first-picture" colspan="2" id="QP">
                     <div id="PF0" class="first-picture-wriper">
                         <div class="first-picture-block"></div>
