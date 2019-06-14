@@ -976,6 +976,90 @@ table.prev_next {
   font-size: 20px;
 }
 
+.second {
+  display: block;
+}
+
+.first-picture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0;
+}
+
+.first-picture-wriper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  padding-top: 50%;
+  position: relative;
+}
+
+.first-picture-block {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translateY(-50%) translateX(50%);
+          transform: translateY(-50%) translateX(50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  padding-top: 90%;
+  -webkit-box-shadow: 0 0 10px #868686;
+          box-shadow: 0 0 10px #868686;
+  border-radius: 20px;
+  -webkit-transition: 0.1s all;
+  transition: 0.1s all;
+  background: url("../images/icon/YraReshetov.png") center center/cover no-repeat;
+}
+
+.first-picture-block:hover {
+  -webkit-box-shadow: 0 0 10px #3a3a3a;
+          box-shadow: 0 0 10px #3a3a3a;
+}
+
+.first-picture-addpsev {
+  position: absolute;
+  top: 8%;
+  right: 8.5%;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: yellow;
+  z-index: 1;
+  display: block;
+}
+
+.first-picture-addpsev:after {
+  content: "?";
+  font-size: 26px;
+  color: black;
+  left: 9px;
+  top: 0px;
+  position: absolute;
+}
+
+.first-picture-block:hover ~ .first-picture-addpsev {
+  -webkit-animation: step-level 1s infinite;
+          animation: step-level 1s infinite;
+}
+
 .picture {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2086,6 +2170,12 @@ table.prev_next {
 }
 
 @media (max-width: 410px) {
+  table {
+    min-width: 300px;
+  }
+  .picture-dash {
+    min-width: 300px;
+  }
   .land-patner-pic {
     width: 70px;
     height: 70px;

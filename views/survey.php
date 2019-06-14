@@ -133,6 +133,18 @@ require_once 'views/templates/header.php';
         <tr class = "first">
             <th colspan="2" id="Q"></th>
         </tr>
+        <tr class = "second">
+            <th class = "first-picture" colspan="2" id="QP">
+                    <div id="PF0" class="first-picture-wriper">
+                        <div class="first-picture-block"></div>
+                        <div class="first-picture-addpsev"></div>
+                    </div>
+                    <div id="PF1" class="first-picture-wriper">
+                        <div class="first-picture-block"></div>
+                        <div class="first-picture-addpsev"></div>
+                    </div>
+            </th>
+        </tr>
         <tr>
             <td id="A0" class="left"></td>
             <td class="right">

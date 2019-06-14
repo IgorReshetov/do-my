@@ -834,7 +834,74 @@ table.prev_next {
     font-size: 20px;
 }
 
+// блок рисунков к вопросу
 
+.second {
+    display: block;
+}
+
+.first-picture {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    
+}
+
+
+.first-picture-wriper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding-top: 50%; 
+    position: relative;
+}
+
+.first-picture-block {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    // min-width: 150px;
+    padding-top: 90%;
+    box-shadow: 0 0 10px rgb(134, 134, 134);
+    border-radius: 20px;
+    transition: 0.1s all;
+    // box-sizing: border-box;
+    background: url('../images/icon/YraReshetov.png') center center /cover no-repeat;
+}
+
+.first-picture-block:hover  {
+    box-shadow: 0 0 10px rgb(58, 58, 58);
+}
+
+.first-picture-addpsev {
+    position: absolute;
+    top: 8%;
+    right: 8.5%;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: yellow;
+    z-index: 1;
+    display: block;
+}
+
+.first-picture-addpsev:after {
+    content: "?";
+    font-size: 26px;
+    color: black;
+    left: 9px;
+    top: 0px;
+    position: absolute;
+}
+.first-picture-block:hover ~.first-picture-addpsev{
+    animation: step-level 1s infinite;
+}
 
 // блок ответов с рисунками
 
@@ -1540,6 +1607,11 @@ margin-right: 30px;
 
 @media (max-width: 570px) {
 
+    // .first-picture-addpsev {
+    //     top: 16px;
+    //     right: 17px;  
+    // }
+
     .picture-wriper {
         width: 50%;
         padding-top: 50%;
@@ -1850,6 +1922,14 @@ margin-right: 30px;
 }
 
 @media (max-width: 410px) {
+    table {
+        min-width: 300px;
+    }
+
+    .picture-dash {
+       min-width: 300px;
+    }
+
     .land-patner-pic {
         width: 70px;
         height: 70px;
