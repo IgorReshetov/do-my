@@ -195,6 +195,7 @@ function init() {
     // var prev = document.getElementById('prev');
 
     var inputs = document.querySelectorAll(".right input");
+    var inputs_pic = document.querySelectorAll(".picture-wriper");
 
     var forward = document.getElementById("forward");
     var saveGame = document.getElementById("saveGame");
@@ -239,7 +240,10 @@ function init() {
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].onclick = next_ready;
     }
-    
+    for (var i = 0; i < inputs_pic.length; i++) {
+        inputs_pic[i].onclick = next_ready_pic;
+    }
+
     //     inputs.forEach(function (item) {
     //     item.onclick = 
     // });
@@ -600,6 +604,21 @@ function next_ready() {
     }
 }
 
+function next_ready_pic() {
+    var inputs = document.querySelectorAll(".picture-input");
+    var check_ready = false;
+    for (var i=0; i<inputs.length; i++) {
+        if (inputs[i].checked == true) check_ready = true;
+    }
+    if (check_ready == true) {
+    next.style.display = 'block';
+    next.style.opacity = '1';
+    } else {
+    next.style.display = 'none';
+    next.style.opacity = '0';
+    }
+}
+
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
 function json_Q_A() {
     
@@ -623,10 +642,12 @@ function json_Q_A() {
             case 'radio':
                 numAnsw = parseInt(inputs[i].getAttribute('value'));
                 numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+                amountAnsw = 0;
             break;
             case 'checkbox':
                 numAnsw.push(parseInt(inputs[i].getAttribute('value')));
                 numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+                amountAnsw = 0;
             break;
             case 'range':
                 amountAnsw = parseInt(inputs[i].getAttribute('value'));
@@ -887,7 +908,7 @@ function update_Q_A (messages) {
         
         // 5 Правка Цикла foreach
         for (var i = 0; i < answerShuffle.length; i++) {
-            eval('P'+ i).children[2].style.background = "url(../images/icon/"+ answerShuffle[i] + ") center center /cover no-repeat";
+            eval('P'+ i).children[2].style.background = "url('views/images/smart_pic/"+answerShuffle[i]+"') center center /cover no-repeat";
         }
 
         // answerShuffle.forEach(function(item,i) {         
@@ -896,10 +917,12 @@ function update_Q_A (messages) {
         
         for (var i=0; i<arr.length; i++) {
         if (!answShuffle[i]) {
-            eval('P'+ i).parentElement.style.display = 'none';
+            eval('P'+ i).style.display = 'none';    // Обнуляем пустые картинки
         } else {
-            eval('P'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
+            eval('P'+ i).style.display = 'flex'};                  
         }
+
+        S(C('picture')[0]).display = 'flex';
 
     } else if (messages.question.is_scale == 1) {
         var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
