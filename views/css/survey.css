@@ -37,13 +37,28 @@ tr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 60px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.prev_next-block {
+  min-width: 130px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px;
 }
 
 .first {
@@ -201,7 +216,7 @@ input[type=radio] {
 }
 
 .next {
-  width: 120px;
+  width: 100px;
   padding: 13px;
   display: none;
   opacity: 0;
@@ -210,7 +225,6 @@ input[type=radio] {
   -webkit-box-shadow: 0 0 4px #bbbbbb;
           box-shadow: 0 0 4px #bbbbbb;
   border-radius: 7px;
-  margin-bottom: 0px;
   cursor: pointer;
 }
 
@@ -227,6 +241,34 @@ input[type=radio] {
 }
 
 .next:hover {
+  border-width: 2px;
+}
+
+.hint {
+  width: 100px;
+  padding: 13px;
+  display: block;
+  text-align: center;
+  border: 1px solid yellow;
+  -webkit-box-shadow: 0 0 4px #bbbbbb;
+          box-shadow: 0 0 4px #bbbbbb;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.hint-level1 {
+  border-color: yellow;
+}
+
+.hint-level2 {
+  border-color: blue;
+}
+
+.hint-level3 {
+  border-color: red;
+}
+
+.hint:hover {
   border-width: 2px;
 }
 
@@ -465,9 +507,32 @@ table.prev_next {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.board-right-hint {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.board-right-hint-value {
+  font-size: 25px;
+  top: 20px;
+  right: 18px;
+  position: absolute;
+  font-weight: 600;
+  color: red;
+}
+
+.board-right-hint:hover .board-right-hint-value {
+  -webkit-animation: step-level 1s infinite;
+          animation: step-level 1s infinite;
 }
 
 .slider-box-main {
@@ -983,9 +1048,6 @@ table.prev_next {
 }
 
 .first-picture {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1098,13 +1160,18 @@ table.prev_next {
       -ms-flex-align: center;
           align-items: center;
   width: 33%;
-  padding-top: 33%;
+  padding-top: 40%;
   position: relative;
+}
+
+.picture-wriper-notext {
+  width: 33%;
+  padding-top: 33%;
 }
 
 .picture-block {
   position: absolute;
-  top: 50%;
+  top: 41%;
   right: 50%;
   -webkit-transform: translateY(-50%) translateX(50%);
           transform: translateY(-50%) translateX(50%);
@@ -1125,6 +1192,12 @@ table.prev_next {
   background: url("../images/icon/YraReshetov.png") center center/cover no-repeat;
 }
 
+.picture-block-notext {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
 .picture-block:hover {
   border: 4px solid yellow;
 }
@@ -1139,6 +1212,18 @@ table.prev_next {
   background-color: yellow;
   z-index: 1;
   display: none;
+}
+
+.picture-block-text {
+  position: absolute;
+  top: 88%;
+  right: 50%;
+  -webkit-transform: translateY(-50%) translateX(50%);
+          transform: translateY(-50%) translateX(50%);
+  display: block;
+  text-align: center;
+  width: 90%;
+  font-size: 15px;
 }
 
 .picture-addpsev:after {
@@ -1901,10 +1986,38 @@ table.prev_next {
   display: none;
 }
 
-@media (max-width: 570px) {
+@media (max-width: 1000px) {
   .picture-wriper {
     width: 50%;
+    padding-top: 62%;
+  }
+  .picture-wriper-notext {
+    width: 50%;
     padding-top: 50%;
+  }
+}
+
+@media (max-width: 570px) {
+  .picture-block-text {
+    font-size: 12px;
+  }
+  .board-right {
+    margin-top: 15px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .board-right-hint {
+    width: 40px;
+    height: 40px;
+  }
+  .board-right-hint-value {
+    font-size: 22px;
+    top: 14px;
+    right: 14px;
+    position: absolute;
+    font-weight: 600;
+    color: red;
   }
   .land-patner-pic {
     width: 85px;

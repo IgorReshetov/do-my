@@ -126,7 +126,11 @@ require_once 'views/templates/header.php';
                 </div>
             </div>
         </div>
-        <div class="board-right"></div>
+        <div class="board-right">
+            <div class="board-right-hint">
+                <div class="board-right-hint-value">3</div>
+            </div>
+        </div>
     </div>
     <table class="opros">
         <tbody>
@@ -226,38 +230,49 @@ require_once 'views/templates/header.php';
             <input class="picture-input" type="radio" name="radio" value="0">
             <div class="picture-addpsev"></div>
             <div class="picture-block"></div>
+            <div class="picture-block-text">Здесь фото Юры Решетова</div>
         </label>
         <label id="P1" class="picture-wriper">
             <input class="picture-input" type="radio" name="radio" value="0">
             <div class="picture-addpsev"></div>
             <div class="picture-block"></div>
+            <div class="picture-block-text">Здесь фото Татьяны Любимовой</div>
         </label>
         <label id="P2" class="picture-wriper">
             <input class="picture-input" type="radio" name="radio" value="0">
             <div class="picture-addpsev"></div>
             <div class="picture-block"></div>
+            <div class="picture-block-text"></div>
         </label>
         <label id="P3" class="picture-wriper">
             <input class="picture-input" type="radio" name="radio" value="0">
             <div class="picture-addpsev"></div>
             <div class="picture-block"></div>
+            <div class="picture-block-text"></div>
         </label>
         <label id="P4" class="picture-wriper">
             <input class="picture-input" type="radio" name="radio" value="0">
             <div class="picture-addpsev"></div>
             <div class="picture-block"></div>
+            <div class="picture-block-text"></div>
         </label>
         <label id="P5" class="picture-wriper">
             <input class="picture-input" type="radio" name="radio" value="0">
             <div class="picture-addpsev"></div>
             <div class="picture-block"></div>
+            <div class="picture-block-text"></div>
         </label>
         </div>
     </div>
 
     <table class="prev_next">
         <tr id = "tr-answer">
-            <td id="next" class = "next" >ОТВЕТИТЬ</td>
+            <td class="prev_next-block">
+            <div id="hint" class = "hint" >ПОДСКАЗКА</div>
+            </td>
+            <td class="prev_next-block">
+            <div id="next" class = "next" >ОТВЕТИТЬ</div>
+            </td>
         </tr>
     </table>
 

@@ -29,9 +29,18 @@ tr {
 
 #tr-answer {
     display: flex;
-    justify-content: center;
-    height: 60px;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.prev_next-block {
+    min-width: 130px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
 }
 
 .first {
@@ -186,7 +195,7 @@ input[type=radio] {
 }
 
 .next {
-    width: 120px;
+    width: 100px;
     padding: 13px;
     display: none;
     opacity: 0;
@@ -194,8 +203,8 @@ input[type=radio] {
     border: 1px solid yellow;
     box-shadow: 0 0 4px rgb(187, 187, 187);
     border-radius: 7px;
-    margin-bottom: 0px;
     cursor: pointer;
+
 }
 
 .next-level1 {
@@ -213,6 +222,34 @@ input[type=radio] {
 .next:hover {
     border-width: 2px;   
 }
+
+.hint {
+    width: 100px;
+    padding: 13px;
+    display: block;
+    text-align: center;
+    border: 1px solid yellow;
+    box-shadow: 0 0 4px rgb(187, 187, 187);
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.hint-level1 {
+    border-color: yellow;
+}
+
+.hint-level2 {
+    border-color:blue;
+}
+
+.hint-level3 {
+    border-color:red;
+}
+
+.hint:hover {
+    border-width: 2px;   
+}
+
 
 table.prev_next {
     border: none;
@@ -395,8 +432,29 @@ table.prev_next {
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
 }
+
+.board-right-hint {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.board-right-hint-value {
+    font-size: 25px;
+    top: 20px;
+    right: 18px;
+    position: absolute;
+    font-weight: 600;
+    color: red;
+}
+
+.board-right-hint:hover .board-right-hint-value{
+    animation: step-level 1s infinite;
+}
+
 
 .slider-box-main{
     display: flex;
@@ -843,7 +901,7 @@ table.prev_next {
 }
 
 .first-picture {
-    display: flex;
+    // display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0;
@@ -927,13 +985,19 @@ table.prev_next {
     justify-content: center;
     align-items: center;
     width: 33%;
-    padding-top: 33%; 
+    padding-top: 40%; 
     position: relative;
+}
+
+// когда нет текста
+.picture-wriper-notext {
+    width: 33%;
+    padding-top: 33%; 
 }
 
 .picture-block {
     position: absolute;
-    top: 50%;
+    top: 41%;
     right: 50%;
     transform: translateY(-50%) translateX(50%);
     display: flex;
@@ -947,6 +1011,13 @@ table.prev_next {
     transition: 0.1s all;
     // box-sizing: border-box;
     background: url('../images/icon/YraReshetov.png') center center /cover no-repeat;
+}
+
+// когда нет текста
+.picture-block-notext {
+    position: absolute;
+    top: 50%;
+    right: 50%;
 }
 
 .picture-block:hover  {
@@ -963,6 +1034,17 @@ table.prev_next {
     background-color: yellow;
     z-index: 1;
     display: none;
+}
+
+.picture-block-text {
+    position: absolute;
+    top: 88%;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+    display: block;
+    text-align: center;
+    width: 90%;
+    font-size: 15px;
 }
 
 .picture-addpsev:after {
@@ -1608,18 +1690,45 @@ margin-right: 30px;
     display: none;
 }
 
-@media (max-width: 570px) {
-
-    // .first-picture-addpsev {
-    //     top: 16px;
-    //     right: 17px;  
-    // }
+@media (max-width: 1000px) {
 
     .picture-wriper {
         width: 50%;
+        padding-top: 62%;
+    }
+// добавить этот класс когда у картинок нет текста
+    .picture-wriper-notext {
+        width: 50%;
         padding-top: 50%;
     }
+}
+
+
+@media (max-width: 570px) {
+
+    .picture-block-text {
+        font-size: 12px;
+    }
+
+    .board-right {
+        margin-top: 15px;
+        align-items: flex-start;
+    }
+
+    .board-right-hint {
+        width: 40px;
+        height: 40px;
+        
+    }
     
+    .board-right-hint-value {
+        font-size: 22px;
+        top: 14px;
+        right: 14px;
+        position: absolute;
+        font-weight: 600;
+        color: red;
+    }
 
     .land-patner-pic {
         width: 85px;

@@ -117,6 +117,10 @@
     @include urlcont('logo_pigeons.svg');
 }
 
+.board-right-hint {
+    @include urlcont('hint.svg');
+}
+
 .result-tru-question {
     @include urlcont('true_question.svg');
 }
