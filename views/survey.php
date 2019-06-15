@@ -135,10 +135,10 @@ require_once 'views/templates/header.php';
     <table class="opros">
         <tbody>
         <tr class = "first">
-            <th colspan="2" id="Q"></th>
+            <th id="Q" colspan="2" ></th>
         </tr>
         <tr class = "second">
-            <th class = "first-picture" colspan="2" id="QP">
+            <th id="QP" class = "first-picture" colspan="2" >
                     <div id="PF0" class="first-picture-wriper">
                         <div class="first-picture-block"></div>
                         <div class="first-picture-addpsev"></div>
