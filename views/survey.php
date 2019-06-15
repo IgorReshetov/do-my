@@ -213,10 +213,10 @@ require_once 'views/templates/header.php';
 
     <div class="range">
         <div class="range-dash">
-        <input class="range-focus" id = "range-focus" type="range" min="0" max="100" step="20" value="50">
+        <input class="range-focus" id = "range-focus" type="range" name="range" min="0" max="100" step="20" value="50">
         <div class="range-min">0 дней</div>
         <div class="range-max">100 дней</div>
-        <div class="range-value">50 дней</div>
+        <div class="range-value"></div>
         </div>
     </div>
     

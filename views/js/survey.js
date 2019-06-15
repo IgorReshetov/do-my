@@ -196,6 +196,7 @@ function init() {
 
     var inputs = document.querySelectorAll(".right input");
     var inputs_pic = document.querySelectorAll(".picture-wriper");
+    var input_range = document.getElementById("range-focus");
 
     var forward = document.getElementById("forward");
     var saveGame = document.getElementById("saveGame");
@@ -244,9 +245,13 @@ function init() {
         inputs_pic[i].onclick = next_ready_pic;
     }
 
-    //     inputs.forEach(function (item) {
-    //     item.onclick = 
-    // });
+    input_range.oninput = input_range.onclick = function() {
+        var range_val = document.getElementsByClassName('range-value');
+        range_val[0].innerHTML = input_range.value;
+        next.style.display = 'block';
+        next.style.opacity = '1';
+    }
+    
     
     next.onclick = json_Q_A;
     
@@ -619,6 +624,12 @@ function next_ready_pic() {
     }
 }
 
+function next_ready_range() {
+    // var input_range = document.getElementById("range-focus");
+    next.style.display = 'block';
+    next.style.opacity = '1';
+}
+
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
 function json_Q_A() {
     
@@ -630,11 +641,16 @@ function json_Q_A() {
     // _________________________________________________________________________
     next.style.display = 'none';
 
-    if (S(C('picture')[0]).display != "none") var inputs = document.querySelectorAll(".picture-input");
-    else if (S(C('range')[0]).display != "none") var inputs = document.querySelectorAll(".range-focus");
-    else var inputs = document.querySelectorAll(".right input");
-   
     var numAnsw, numQst, amountAnsw;
+
+    if (S(C('picture')[0]).display != "none") var inputs = document.querySelectorAll(".picture-input");
+    else if (S(C('range')[0]).display != "none") {
+        var sum = document.querySelectorAll(".range-value")[0].innerHTML;
+        amountAnsw = parseInt(sum);
+        var inputs = document.querySelectorAll(".range-focus");
+        numQst = parseInt(inputs[0].getAttribute('name').substring(1));
+    } else var inputs = document.querySelectorAll(".right input");
+   
     if(inputs[0].type == 'checkbox') numAnsw = [];
     for (var i=0; i<inputs.length; i++) {
        if (inputs[i].checked===true) {
@@ -649,10 +665,10 @@ function json_Q_A() {
                 numQst = parseInt(inputs[i].getAttribute('name').substring(1));
                 amountAnsw = 0;
             break;
-            case 'range':
-                amountAnsw = parseInt(inputs[i].getAttribute('value'));
-                numQst = parseInt(inputs[i].getAttribute('name').substring(1));
-            break;
+            // case 'range':
+            //     amountAnsw = parseInt(inputs[i].getAttribute('value'));
+            //     numQst = parseInt(inputs[i].getAttribute('name').substring(1));
+            // break;
             };
         }
     };
@@ -670,7 +686,7 @@ function json_Q_A() {
     };
 
     var data = JSON.stringify(data);
-    // console.log(data);
+    console.log(data);
 
     preloader_start();
 
@@ -940,9 +956,28 @@ function update_Q_A (messages) {
 
         S(C('picture')[0]).display = 'none';
 
+        var input_range = document.getElementById("range-focus");
+        var input_range_min = document.getElementsByClassName("range-min");
+        var input_range_max = document.getElementsByClassName("range-max");
 
+        var Q = document.getElementById("Q"); 
+        Q.innerHTML= messages.question.question;
+        input_range.setAttribute('name', 'Q' + messages.question.id_parent);
+        input_range.min = messages.question.scale_min;
+        input_range_min[0].innerHTML = messages.question.scale_min + ' ' + messages.question.scale_unit;
+        input_range.max = messages.question.scale_max;
+        input_range_max[0].innerHTML = messages.question.scale_max + ' ' + messages.question.scale_unit;
+        input_range.step = messages.question.scale_step;
 
+        input_range.oninput = input_range.onclick = function() {
+            var range_val = document.getElementsByClassName('range-value');
+            range_val[0].innerHTML = input_range.value + " " + messages.question.scale_unit;
+            next.style.display = 'block';
+            next.style.opacity = '1';
+        }
 
+    
+        S(C('range')[0]).display = 'flex';
 
 
     } else {
@@ -1035,7 +1070,6 @@ function update_Q_A (messages) {
                 eval('A'+ i).parentElement.style.display = 'none';
         } else {eval('A'+ i).parentElement.style.display = 'flex'};                                                        // Обнуляем предыдущие ответы
         }
- 
     }
 
     var result = document.getElementById("result");
