@@ -859,6 +859,8 @@ table.prev_next {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
+  display: none;
 }
 
 .range-dash {
@@ -990,6 +992,7 @@ table.prev_next {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 0;
+  display: none;
 }
 
 .first-picture-wriper {
@@ -1067,6 +1070,8 @@ table.prev_next {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
+  display: none;
 }
 
 .picture-dash {

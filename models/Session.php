@@ -24,6 +24,10 @@ class Session
             $_SESSION['level_access']= 1;
         }
 
+        if( !isset($_SESSION['hint']) ) {
+            $_SESSION['hint']= 3;
+        }
+
         if( !isset($_SESSION['play_key']) ) {
             $_SESSION['play_key'] = uniqid().rand(1000000, 9999999);
         }

@@ -28,7 +28,8 @@ if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {
         $_SESSION['active_question']= 0;
         $_SESSION['level_access']= 1;
         $_SESSION['user_answer']= array();
-        $_SESSION['play_key'] = uniqid();
+        $_SESSION['play_key'] = uniqid().rand(1000000, 9999999);
+        $_SESSION['hint']= 3;
     }
 }
 
@@ -38,7 +39,7 @@ if(isset($_REQUEST['reset'])){
     $_SESSION['level_access']= 1;
     $_SESSION['user_answer']= array();
     $_SESSION['play_key'] = uniqid().rand(1000000, 9999999);
-    
+    $_SESSION['hint']= 3;  
 }
 
 if(($active_question == $count)){

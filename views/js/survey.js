@@ -17,19 +17,19 @@ function cookie_level() {
 
     levelQst_1 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev1,  check:false,
         next_level: function(){                   
-            if (this.hit == this.countQst) {this.next_lev = true;
+            if (this.countQst-this.hit <=3) {this.next_lev = true;
             return true;
         } else return false;} 
     }; 
     levelQst_2 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev2,  check:false,
         next_level: function(){                   
-            if (this.hit == this.countQst) {this.next_lev = true;
+            if (this.countQst-this.hit <=2) {this.next_lev = true;
             return true;
         } else return false;} 
     };
     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false,
         next_level: function(){                   
-            if (this.hit == this.countQst) {this.next_lev = true;
+            if (this.countQst-this.hit <=1) {this.next_lev = true;
             return true;
         } else return false;} 
     };
@@ -649,6 +649,7 @@ function json_Q_A() {
         amountAnsw = parseInt(sum);
         var inputs = document.querySelectorAll(".range-focus");
         numQst = parseInt(inputs[0].getAttribute('name').substring(1));
+        numAnsw = 7;
     } else var inputs = document.querySelectorAll(".right input");
    
     if(inputs[0].type == 'checkbox') numAnsw = [];
@@ -682,6 +683,7 @@ function json_Q_A() {
         id_answer: numAnsw,
         amount: amountAnsw,               //Здесь нужно цеплять переменную из полоски прокрутки для вопроса диапазано  
         word: "",                //Здесь нужна переменная с вопроса с ответом подбора слова
+        hint: 0,                 //здесь нужно присвоить через переменную 1 если была подсказка в ходе.
         sign_bot: 0              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
     };
 
@@ -1177,10 +1179,10 @@ function update_afterClientAnswer(otvet, answer_user) {
     if (form_Qst == 1) {
         image.className = 'result-tru-question';  // Правка класс листа для IE
         image.style.display = "block";
-        otvet_true.innerHTML = "Спасибо за ответ. Так же как и вы ответили " + stat_info_sum + " человек (или " + stat_info_percent + "% - процентов респондентов)"   
+        otvet_true.innerHTML = "Спасибо!<br>Так же ответили " + stat_info_percent + "% участников.";  
         otvet_true.style.display = "block";
-        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
-        else {why_title.innerHTML = "Пояснение:";}
+        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "Следом будет интересный вопрос на эту тему";}
+        else {why_title.innerHTML = "";}
         why_title.style.display = "block";
         why.innerHTML = otvet.answer_is_true_comment;
         why.style.display = "block";
@@ -1195,10 +1197,10 @@ function update_afterClientAnswer(otvet, answer_user) {
         // image.classList.add('result-tru-question');
         image.style.display = "block";
         // otvet_true.innerHTML = "Вы знаете правильный ответ. Поздравляем!";
-        (rang_Qst_Stat)? otvet_true.innerHTML = "Вы знаете лучший ответ. Поздравляем!" 
-        : otvet_true.innerHTML = "Вы знаете точный ответ. Поздравляем!";
+        (rang_Qst_Stat)? otvet_true.innerHTML = "Вы знаете лучший ответ!" 
+        : otvet_true.innerHTML = "Вы знаете точный ответ!";
         otvet_true.style.display = "block";
-        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "У этого ответа нет пояснения";}
+        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "";}
         else {why_title.innerHTML = "Пояснение:";}
         why_title.style.display = "block";
         why.innerHTML = otvet.answer_is_true_comment;
@@ -1211,8 +1213,8 @@ function update_afterClientAnswer(otvet, answer_user) {
         why_title.style.display = "none";
         why.style.display = "none";
         // otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
-        (rang_Qst_Stat)? otvet_false.innerHTML = "Есть вариант лучше. Вопрос ждет вашего возвращения." 
-        : otvet_false.innerHTML = "Это неточный ответ. Вопрос ждет вашего возвращения.";
+        (rang_Qst_Stat)? otvet_false.innerHTML = "Промах.<br><br>Есть вариант лучше." 
+        : otvet_false.innerHTML = "Промах.<br><br>Это неточный ответ.";
         otvet_false.style.display = "block";
     } 
 
@@ -1236,17 +1238,12 @@ function valid_level_1() {
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
         var otvet_miss = levelQst_1.countQst - otvet.count_true;
+        
         levelQst_1.check = true;
         levelQst_1.next_level();
-        if (otvet_miss == 1) { var text = "вопрос";
-        var text1 = "этому вопросу"}
-        else {
-            if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
-                var text = "вопроса";
-                var text1 = "этим вопросам"
-            } else {var text = "вопросoв";
-            var text1 = "этим вопросам"}
-        }
+        if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4) { var text = "промаха";}
+        else {var text = "промахов";}
+        
         if (!(levelQst_1.next_lev)) {
             why.style.display = "none"; 
             why_title.style.display = "none";
@@ -1255,15 +1252,16 @@ function valid_level_1() {
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Easy\".";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Easy\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
+            why.innerHTML = "Для перехода на следующий уровень допустимо 3 промаха.";
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
 
             why.style.display = "none";
             why_title.style.display = "none";
+            otvet_false.style.display = 'none';
             image.className = 'result-pass-level1'; // Правка класс листа для IE                   
             // image.classList = [];
             // image.classList.add('result-pass-level1');
@@ -1292,15 +1290,9 @@ function valid_level_2() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet_miss == 1) { var text = "вопрос";
-        var text1 = "этому вопросу"}
-        else {
-            if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
-                var text = "вопроса";
-                var text1 = "этим вопросам"
-            } else {var text = "вопросoв";
-            var text1 = "этим вопросам"}
-        }
+        if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4) { var text = "промаха";}
+        else {var text = "промахов";}
+
         levelQst_2.check = true;
         levelQst_2.next_level();
         if (!(levelQst_2.next_lev)) {
@@ -1311,14 +1303,15 @@ function valid_level_2() {
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text +  " уровня \"Medium\".";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Medium\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
+            why.innerHTML = "Для перехода на следующий уровень допустимо 2 промаха.";
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
             why.style.display = "none";
             why_title.style.display = "none";
+            otvet_false.style.display = 'none';
             image.className = 'result-pass-level2'; // Правка класс листа для IE   
             // image.classList = [];
             // image.classList.add('result-pass-level2');
@@ -1345,15 +1338,8 @@ function valid_level_3() {
         // if (otvet.answer_is_true) levelQst_1.hit++;
         // else levelQst_1.miss++;
         // console.log(!(levelQst_1.next_level()));
-        if (otvet_miss == 1) { var text = "вопрос";
-        var text1 = "этому вопросу"}
-        else {
-            if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4){
-                var text = "вопроса";
-                var text1 = "этим вопросам"
-            } else {var text = "вопросoв";
-            var text1 = "этим вопросам"}
-        }
+        if (otvet_miss == 2 || otvet_miss == 3 || otvet_miss == 4) { var text = "промаха";}
+        else {var text = "промахов";}
         levelQst_3.check = true;
         levelQst_3.next_level();
         // console.log(levelQst_3.check);
@@ -1366,9 +1352,10 @@ function valid_level_3() {
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "Вы не ответили на <strong>"+ otvet_miss + "</strong> " + text + " уровня \"Hard\".";
+
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".";
             otvet_false.style.display = "block"; 
-            why.innerHTML = "Для перехода на следующий уровень вернитесь к " + text1;
+            why.innerHTML = "Для победы в игре допустим 1 промах.";
             why.style.display = "block";
             saveGame.style.display = "block";
         } else {
@@ -1377,6 +1364,7 @@ function valid_level_3() {
             document.getElementsByClassName('opros')[0].style.display="none";
             why.style.display = "none";
             why_title.style.display = "none";
+            otvet_false.style.display = 'none';
             image.className = 'result-pass-level3'; // Правка класс листа для IE   
             // image.classList = [];
             // image.classList.add('result-pass-level3');

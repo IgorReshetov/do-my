@@ -17,7 +17,8 @@ $data =
 'user_answer' => $_SESSION['user_answer'],
 'questions_count' => $questions_count,
 'level_access' => $_SESSION['level_access'],
-'active_question' => $_SESSION['active_question']
+'active_question' => $_SESSION['active_question'],
+'hint' => $_SESSION['hint']
 ];
 
 

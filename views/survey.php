@@ -211,7 +211,7 @@ require_once 'views/templates/header.php';
         </tbody>
     </table>
 
-    <div class="range">
+    <div class="range" id = "range">
         <div class="range-dash">
         <input class="range-focus" id = "range-focus" type="range" name="range" min="0" max="100" step="20" value="50">
         <div class="range-min">0 дней</div>
@@ -319,8 +319,8 @@ require_once 'views/templates/header.php';
                 <div id="image"></div>
             </div>
             <div class="result-info">
-                <div id="true">Вы знаете правильный ответ. Поздравляем!</div>
-                <div id="false">Вы ошиблись. Вопрос ждет вашего возвращения.</div>
+                <div id="true"></div>
+                <div id="false"></div>
             </div>
             <div class="result-why">
                 <div id="why-title">Пояснение:</div>

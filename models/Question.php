@@ -4,6 +4,7 @@ class Question
 {
     public $question;
     public $info;
+    public $hint;
     public $is_tree;
     public $is_form;
     public $is_picture;
@@ -35,6 +36,7 @@ class Question
             $this->id_parent =           $question_data['id_parent'];
             $this->question =            $question_data['question'];
             $this->info =                $question_data['info'];
+            $this->hint =                $question_data['hint'];
             $this->is_tree =                $question_data['is_tree'];
             $this->is_form = $question_data['is_form'];
             $this->is_picture = $question_data['is_picture'];

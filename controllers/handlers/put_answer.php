@@ -13,6 +13,7 @@ $id_answer = $data['id_answer'];
 $sign_bot = $data['sign_bot'];
 $amount_answer = $data['amount'];
 $word_answer = $data['word'];
+$hint = $data['hint'];
 $id_answer_sample = array();
 $comment = '';
 
@@ -39,7 +40,7 @@ foreach ($_SESSION['user_answer'] as $key => $user_answer) { //проверяе�
 
 if ($_SESSION['user_answer'][$i]['is_scale'] == 1) {// если вопрос диапазон
 
-    if ($amount_answer >= $answer->scale_min_true && $amount_answer <= $answer->scale_min_true) {
+    if ($amount_answer >= $answer->scale_min_true[0] && $amount_answer <= $answer->scale_max_true[0]) {
         $answer_is_true = 1;
         $answer_is_true_comment = $answer->is_true_comment[0];
     }else {
@@ -89,6 +90,10 @@ $_SESSION['user_answer'][$i]['answer_is_true'] = $answer_is_true;
 $_SESSION['user_answer'][$i]['answer_is_true_comment'] = $answer_is_true_comment;
 $_SESSION['user_answer'][$i]['time_answer'] = $time_answer;
 
+$_SESSION['hint'] = $_SESSION['hint'] - $hint;
+
+if ($_SESSION['hint'] < 0){$_SESSION['hint'] = 0;};
+
 $activ_question = $i+1;
 
 // var_dump($activ_question);
@@ -124,14 +129,11 @@ $count_2 = Question:: getQuestionsCount ($_SESSION['action'], 2);
 $count_3 = Question:: getQuestionsCount ($_SESSION['action'], 3);
 $count_question = count($_SESSION['user_answer']);
 $count_true = 0;
+$count_false =0;
 
 
-// на период тестирования по ветке три делает откат по нетвеченным вопросам при втором проходе
 
-// var_dump(isset($_SESSION['user_answer'][$activ_question]['answer_is_true']));
-// var_dump($_SESSION['user_answer'][$activ_question-1]['answer_is_true']);
-// var_dump($_SESSION['action']);
-
+// переключатель откатов по неотвеченным вопросам при втором проходе
 if ($_SESSION['action'] == 5 || $_SESSION['action'] == 6){
     if (isset($_SESSION['user_answer'][$activ_question]['time_answer']) && $_SESSION['user_answer'][$activ_question-1]['answer_is_true'] == NULL) {
         $activ_question = $activ_question-1;
@@ -150,21 +152,23 @@ $_SESSION['count_true']=0;
 
 if ($activ_question == $count_1['questions_count']){
     for ($i = 0; $i <= $count_1['questions_count']-1; $i++) {
-        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
+        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}else{$count_false++;}
+        
     }
     
     if ($last_question != $count_1['questions_count']){
     $_SESSION['finish']=1;
     $_SESSION['count_true']=$count_true;
     }
-
-    if ($count_true == $count_1['questions_count']) {$_SESSION['level_access'] = 2;} 
+    
+    if ($count_false <= 3) {$_SESSION['level_access'] = 2; } 
     else {$activ_question = 0;}
+    
 }
 
 if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
     for ($i = $count_1['questions_count']; $i <= $count_1['questions_count'] + $count_2['questions_count']-1; $i++) {
-        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
+        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}else{$count_false++;}
     }
 
     if ($last_question != $count_1['questions_count']+$count_2['questions_count']){
@@ -172,16 +176,16 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
         $_SESSION['count_true']=$count_true;
     }
 
-    if ($count_true == $count_2['questions_count']) {$_SESSION['level_access'] = 3;}
+    if ($count_false <= 2) {$_SESSION['level_access'] = 3;}
     else {$activ_question = $count_1['questions_count'];}
 }
 if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
     for ($i = $count_1['questions_count']+$count_2['questions_count']; $i <= $count_1['questions_count']+$count_2['questions_count']+ $count_3['questions_count']-1; $i++) {
-        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}
+        if ($_SESSION['user_answer'][$i]['answer_is_true'] == 1) {$count_true++;}else{$count_false++;}
     }
     $_SESSION['finish']=3;
     $_SESSION['count_true']=$count_true;
-    if ($count_true == $count_3['questions_count']) {$_SESSION['level_access'] = 4;}
+    if ($count_false <=1) {$_SESSION['level_access'] = 4;}
     else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
 
