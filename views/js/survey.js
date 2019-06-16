@@ -864,15 +864,14 @@ function update_Q_A (messages) {
         
         console.log(pics_Q);
         console.log(f_p_b[1]);
-        if (pics_Q.length == 1) {
+        if (pics_Q.length == 2) {
             S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
+            S(f_p_b[0]).width = "100%";
+            S(f_p_b[0]).paddingTop = "100%";
             S(O('PF0')).display = 'flex';
             S(O('PF1')).display = 'none';
-            if (cookies.level_access == 1) inputs[i].classList.add ('level1');
-                else if (cookies.level_access == 2) inputs[i].classList.add ('level2');
-                else if (cookies.level_access == 3) inputs[i].classList.add ('level3');
         } else 
-        if (pics_Q.length == 2) {          
+        if (pics_Q.length == 1) {          
             S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
             S(f_p_b[1]).background = "url(views/images/survey/" + pics_Q[1] + ") center center /cover no-repeat";
             S(O('PF0')).display = 'flex';
@@ -1233,9 +1232,12 @@ function update_afterClientAnswer(otvet, answer_user) {
     // result.style.display = "flex";
     // dark.style.display = "block";
     if (form_Qst == 1) {
-        image.className = 'result-tru-question';  // Правка класс листа для IE
+        if (cookies.level_access == 1) image.className = 'result-form-question1'; 
+            else if (cookies.level_access == 2) image.className = 'result-form-question2'; 
+               else if (cookies.level_access == 3) image.className = 'result-form-question3'; ;
+        // image.className = 'result-form-question1';  // Правка класс листа для IE
         image.style.display = "block";
-        otvet_true.innerHTML = "Спасибо!<br>Так же ответили " + stat_info_percent + "% участников.";  
+        otvet_true.innerHTML = "Так же ответили " + stat_info_percent + "% участников.";  
         otvet_true.style.display = "block";
         if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "Следом будет интересный вопрос на эту тему";}
         else {why_title.innerHTML = "";}
