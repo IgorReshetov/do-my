@@ -1239,7 +1239,7 @@ function update_afterClientAnswer(otvet, answer_user) {
         image.style.display = "block";
         otvet_true.innerHTML = "Так же ответили " + stat_info_percent + "% участников.";  
         otvet_true.style.display = "block";
-        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "Следом будет интересный вопрос на эту тему";}
+        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "Далее будет интересный вопрос на эту тему";}
         else {why_title.innerHTML = "";}
         why_title.style.display = "block";
         why.innerHTML = otvet.answer_is_true_comment;
