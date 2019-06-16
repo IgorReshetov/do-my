@@ -65,8 +65,8 @@ function init() {
         if (document.getElementById('first').children[2].children[0].children[0].classList.contains('display-none') == true){
         document.getElementById('first').children[2].children[0].children[0].classList.remove('display-none');
         
-        var el = document.getElementById('first').children[2];
-        handl_scroll_el = setInterval(scroll_to_element,10,el);
+        var coord_target = offset(document.getElementById('first').children[2]);
+        $("body,html,document").animate({scrollTop: coord_target},700);
 
         document.getElementById('first').children[2].children[0].classList.add('column-proect-light-red');
         document.getElementById('first').children[2].children[1].children[0].classList.add('opacity07');
@@ -124,7 +124,8 @@ function question(point) {
     var start_elem = document.getElementById('first');
     start_elem = start_elem.children[row+1];
         
-    handl_scroll_el = setInterval(scroll_to_element,10,start_elem);
+    var coord_target = offset(start_elem);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
     
     if (pos > 1) {start_elem.children[2].children[pos-2].classList.add('display-none')};
     start_elem.children[2].children[pos-1].classList.add('display-block');
@@ -133,8 +134,8 @@ function question(point) {
         show();
         window.setTimeout(function(){
         
-        var el = document.getElementById('first').children[0];
-        handl_scroll_el = setInterval(scroll_to_element,10,el);
+        var coord_target = offset(start_elem);
+        $("body,html,document").animate({scrollTop: coord_target},1000);
 
         }, 12000);
         window.setTimeout(function(){
@@ -165,8 +166,8 @@ function show(){
 
     window.setTimeout(function(){
 
-    var el = start_elem.children[3];
-    handl_scroll_el = setInterval(scroll_to_element,10,el);
+    var coord_target = offset(start_elem.children[3]);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
 
     start_elem.children[3].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[0]);
@@ -178,8 +179,8 @@ function show(){
 
     window.setTimeout(function(){
 
-    var el = start_elem.children[4];
-    handl_scroll_el = setInterval(scroll_to_element,10,el);
+    var coord_target = offset(start_elem.children[4]);
+    $("body,html,document").animate({scrollTop: coord_target},1000);
 
     start_elem.children[4].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[4].children[0]);
@@ -191,8 +192,8 @@ function show(){
 
     window.setTimeout(function(){
 
-    var el = start_elem.children[5];
-    handl_scroll_el = setInterval(scroll_to_element,10,el);
+    var coord_target = offset(start_elem.children[5]);;
+    $("body,html,document").animate({scrollTop: coord_target},1000);
 
     start_elem.children[5].children[0].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[0]);
@@ -221,81 +222,12 @@ function yellow(element){
     return;
 }  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// AJAX ОТПРАВКА
-
-// var data = JSON.stringify(data);
-
-// var xhr = new XMLHttpRequest();
-// xhr.open('POST', 'send_message.php', true);
-// xhr.setRequestHeader("Content-type", "application/json");
-// xhr.send(data);
-
-// AJAX ПОЛУЧЕНИЕ
-
-// var xhr = new XMLHttpRequest();
-// xhr.open('GET', 'get_messages.php?message_id='+message_id, true);
-// xhr.send();
-
-// xhr.onreadystatechange = function() {
-//     if (xhr.readyState != 4) {
-//         return;
-//     }
-
-// var messages = JSON.parse(xhr.responseText);
-// }
-
-
-
-
-// ЛОГИКА
-    // if () {
+function offset(el) {
+    var rect = el.getBoundingClientRect().top + el.clientHeight/2 + document.documentElement.clientHeight/2;
+    // console.log(rect);
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var top = rect + scrollTop - document.documentElement.clientHeight;
     
-    // } else {
-    
-    // }
-    // for(var i = 0; i < 3; i++) {}
-  
+    return top;
+}
 
-
-
-
-//  ДАННЫЕ
-    // _.forEach(function(val, index) {
-
-    // });
-
-        // .pop()
-        // .puch(el)
-        // .shift()
-        // .unshift(el)
-        // .splice(index, count)
-    
-
-    //console.log();
-
-
-    
-    // Нативный
-    // (function() {
-
-    // }
-    // var ____ = document.getElementById('____');
-     // ______.getAttribute('href');
-    // ______.setAttribute('href', 'привет');
-    // ______.style.color = 'red';
-    // div.innerHTML = '___';
-    // div.textContent = '___';
-    

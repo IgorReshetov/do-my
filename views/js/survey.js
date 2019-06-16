@@ -177,12 +177,17 @@ function init() {
         perebor_Qst();
 
         setTimeout(function(){
-            var el = O('land-block5-button');
-            console.log(el.getBoundingClientRect().top);
-            handl_scroll_el = setInterval(scroll_to_element,15,el);
-            
-            setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
+            var coord_target = offset(button1);
 
+            
+            $("body,html,document").animate({scrollTop: coord_target},2000);
+
+            console.log (coord_target);
+            // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
+            // $('html').animate({scrollTop: coord_target},2000);
+
+
+            setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
         }, 5000);
 
     };
@@ -342,6 +347,16 @@ function init() {
     gift_button_get.onclick = send_mail;
 }
 
+
+// функция определения расстояния от верха до центра элемента
+function offset(el) {
+    var rect = el.getBoundingClientRect().top + el.clientHeight/2 + document.documentElement.clientHeight/2;
+    // console.log(rect);
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var top = rect + scrollTop - document.documentElement.clientHeight;
+    
+    return top;
+}
 
 // функция отправки мэйла пользователю
 function send_mail() {
