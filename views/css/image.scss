@@ -125,6 +125,18 @@
     @include urlcont('true_question.svg');
 }
 
+.result-form-question2 {
+    @include urlcont('form_thanks.svg');
+}
+
+.result-form-question1 {
+    @include urlcont('form_thanks1.svg');
+}
+
+.result-form-question3 {
+    @include urlcont('form_thanks2.svg');
+}
+
 .result-false-question {
     @include urlcont('false_question.svg');
 }
