@@ -206,6 +206,8 @@ function init() {
     var forward = document.getElementById("forward");
     var saveGame = document.getElementById("saveGame");
     var answer_tr = document.querySelectorAll(".left");
+    var hint_button = document.getElementById("hint");
+    var horseshoe = document.getElementsByClassName("board-right-hint");
 
     // Первая замена цикла foreach
     for (var i = 0; i < answer_tr.length; i++) {
@@ -261,6 +263,11 @@ function init() {
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
+
+    hint_button.onclick = get_hint;
+
+    horseshoe[0].onclick = function() {fox.speak_about_hint();};
+
     saveGame.onclick = function() {window.location.href='index.php?page=survey&back=1'};
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
     if (mobile==0) {
@@ -838,6 +845,7 @@ function startOpros() {
     // console.log(xhr.responseText);
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);
+    if (messages.question.hint != null) fox.hint_words = messages.question.hint;
     rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
     form_Qst = messages.question.is_form;   // меняем признак вопроса (анкетный-1 / обычный-null)
     console.log(form_Qst); 
@@ -864,14 +872,14 @@ function update_Q_A (messages) {
         
         console.log(pics_Q);
         console.log(f_p_b[1]);
-        if (pics_Q.length == 2) {
+        if (pics_Q.length == 1) {
             S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
             S(f_p_b[0]).width = "100%";
             S(f_p_b[0]).paddingTop = "100%";
             S(O('PF0')).display = 'flex';
             S(O('PF1')).display = 'none';
         } else 
-        if (pics_Q.length == 1) {          
+        if (pics_Q.length == 2) {          
             S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
             S(f_p_b[1]).background = "url(views/images/survey/" + pics_Q[1] + ") center center /cover no-repeat";
             S(O('PF0')).display = 'flex';
@@ -1476,6 +1484,8 @@ function update_afterClientFoward() {
                             anime_off = true;
                         }
                         C('step-level')[0].classList.add('step-level-js-M');
+                        document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
+                        fox.hint = 3;
                         // zapros_Cookies();           // Делаем синхронный запрос
                         // Object.cookie_level();
                     }
@@ -1487,25 +1497,25 @@ function update_afterClientFoward() {
     
                         json_Q_A_next();
 
-                    if (anime_off) {anime_off=false;
-                        if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
-                            ints.push(handle_hit_3);
-                            S(C('result2')[0]).display = 'flex';
-                            S(C('step-level3')[0]).display = 'none';
-                            S(C('step-level2')[0]).display = 'none';
-                            S(C('present')[0]).display = 'flex';
-                        }
-                        else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
-                            handle_hit_4 = setInterval(anime_step_fillHit_4, 20, prevQst, numStartQst);
-                            ints.push(handle_hit_4);
-                            S(C('result2')[0]).display = 'flex';
-                            S(C('step-level3')[0]).display = 'none';
-                            S(C('step-level2')[0]).display = 'none';
-                            S(C('present')[0]).display = 'flex';
-                        }
-                        else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
-                            ints.push(handle_miss);}
-                    } else {
+                        if (anime_off) {anime_off=false;
+                            if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit_3 = setInterval(anime_step_fillHit_3,20, prevQst, numStartQst);
+                                ints.push(handle_hit_3);
+                                S(C('result2')[0]).display = 'flex';
+                                S(C('step-level3')[0]).display = 'none';
+                                S(C('step-level2')[0]).display = 'none';
+                                S(C('present')[0]).display = 'flex';
+                            }
+                            else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
+                                handle_hit_4 = setInterval(anime_step_fillHit_4, 20, prevQst, numStartQst);
+                                ints.push(handle_hit_4);
+                                S(C('result2')[0]).display = 'flex';
+                                S(C('step-level3')[0]).display = 'none';
+                                S(C('step-level2')[0]).display = 'none';
+                                S(C('present')[0]).display = 'flex';
+                            }
+                            else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
+                                ints.push(handle_miss);}
+                        } else {
                         for (var i=0; i<ints.length; i++)
                         clearInterval( ints[i] );
                         ints = [];
@@ -1513,8 +1523,10 @@ function update_afterClientFoward() {
                         handle_move_left_start = setInterval(anime_move_left_start,10, numStartQst);
                         setTimeout("handle_step = setInterval(anime_step_up,20,numStartQst)",1000);
                         anime_off = true;
-                     }
+                        }
                      C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
+                     document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
+                     fox.hint = 3;
                         // zapros_Cookies();           // Делаем синхронный запрос
                         // Object.cookie_level();
                     }
@@ -1572,6 +1584,8 @@ function update_afterClientFoward() {
             if (otvet.finish==2) {
             if (!levelQst_2.check) valid_level_2();
             else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
+                document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
+                fox.hint = 3;
                 zapros_Cookies(); 
     
                 json_Q_A_next();
@@ -2313,3 +2327,14 @@ function perebor_Qst() {
     }, 3000);
 }
 
+// _________________________________ Функция получения подсказки на вопрос ________________________________
+
+function get_hint() {
+    var count_hint;
+    var hint_div = document.getElementsByClassName('board-right-hint-value')[0];
+    if (hint_div.innerHTML == 0) return;
+    count_hint = hint_div.innerHTML - 1;
+    hint_div.innerHTML = count_hint;
+    fox.hint = fox.hint - 1;
+    fox.speak_hint();
+}

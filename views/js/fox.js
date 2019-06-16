@@ -20,7 +20,8 @@ var fox = {
         // game_start: "Желаю удачи в игре!",
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
-        
+        about_level: ["Для победы на этом уровне ты можешь допустить 3 промаха", "Для победы на этом уровне ты можешь допустить 2 промаха", "Для победы на этом уровне ты можешь допустить 1 промах"],
+        about_hint: ["У тебя есть 3 моих подсказок", "У тебя остались 2 моих подсказки", "У тебя осталась 1 подсказка",]
     },
    
     speak_HELLO: function(privet) {
@@ -43,7 +44,9 @@ var fox = {
         var hello_old = this.words.hello_old[Math.floor(Math.random() * this.words.hello_old.length)];
         var game_end = this.words.game_end[Math.floor(Math.random() * this.words.game_end.length)];
         var hello_back = this.words.hello_back_mouse;
-               
+        var about_level = this.words.about_level;
+        var about_hint = this.words.about_hint;
+
         this.sleep = false;
         setTimeout(function() {
             fox_img.className = 'fox-wakeUp';
@@ -69,7 +72,21 @@ var fox = {
               else if (privet == "multi") fox_words_text.innerHTML = multi;
               else if (privet == "toFast") fox_words_text.innerHTML = toFast;
               else if (privet == 'Qst') fox_words_text.innerHTML = Qst;
-              else if (privet == 'game_end') fox_words_text.innerHTML = game_end; 
+              else if (privet == 'game_end') fox_words_text.innerHTML = game_end;
+            else if (privet == 'about_level') {
+                    if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
+                    else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
+                    else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
+            } else if (privet == 'about_hint') {
+                if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
+                else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[2];
+                else if (fox.hint == 0) {
+                    if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
+                    else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
+                    else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
+                    }
+                else fox_words_text.innerHTML = about_hint[0];
+            } else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
             fox_words.style.display = "block";
             
             var handler_speak = setInterval(function() {
@@ -87,12 +104,21 @@ var fox = {
 
                 },100);
             setTimeout(function(){clearInterval(handler_speak)},3000);
-
-            setTimeout(function(){
-                fox_words_text.innerHTML = "";
-                fox_words.style.display = 'none';
-                fox.last_time = new Date().getTime();
-            },3000);
+            
+            if (privet == "hint") {
+                setTimeout(function(){
+                    fox_words_text.innerHTML = "";
+                    fox.hint_words = "";
+                    fox_words.style.display = 'none';
+                    fox.last_time = new Date().getTime();
+                },6000);
+            } else {
+                setTimeout(function(){
+                    fox_words_text.innerHTML = "";
+                    fox_words.style.display = 'none';
+                    fox.last_time = new Date().getTime();
+                },3000);
+            }
 
         }, 3000, speak, new_old, hello_new, hello_old, last_time, privet);
        
@@ -127,6 +153,21 @@ var fox = {
 
     speak_game_end: function () {
         this.speak_HELLO("game_end");
+    },
+
+    speak_hint: function () {
+        this.speak_HELLO("hint");
+    },
+
+    speak_about_level: function () {
+        setTimeout('this.speak_HELLO("about_level")', 10000);
+        setTimeout('this.speak_HELLO("about_hint")', 20000);
+    },
+
+    hint_words: "",
+    hint: 3,
+    speak_about_hint: function () {
+        this.speak_HELLO("about_hint");
     },
 
     time_answer: 0,
