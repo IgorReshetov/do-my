@@ -1235,7 +1235,7 @@ function update_afterClientAnswer(otvet, answer_user) {
     if (form_Qst == 1) {
         image.className = 'result-tru-question';  // Правка класс листа для IE
         image.style.display = "block";
-        otvet_true.innerHTML = "Так же ответили " + stat_info_percent + "% участников.";  
+        otvet_true.innerHTML = "Так же ответили <strong>" + stat_info_percent + "%</strong> участников.";  
         otvet_true.style.display = "block";
         if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "Далее будет интересный вопрос на эту тему";}
         else {why_title.innerHTML = "";}
