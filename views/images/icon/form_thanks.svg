@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="74.175903"
-   height="60.023125"
-   viewBox="0 0 74.175903 60.023125"
+   width="74.060204"
+   height="60.138824"
+   viewBox="0 0 74.060203 60.138825"
    version="1.1"
    id="svg172"
    sodipodi:docname="form_thanks.svg"
@@ -44,8 +44,8 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="8.742268"
-     inkscape:cx="23.457899"
-     inkscape:cy="28.24516"
+     inkscape:cx="23.457243"
+     inkscape:cy="28.245817"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -59,13 +59,13 @@
      id="defs98" />
   <g
      id="Тест"
-     transform="matrix(0.77174417,0,0,0.79020931,0.12929791,-7.2256685)"
+     transform="matrix(0.77174417,0,0,0.79020931,0.1286424,-7.1106251)"
      style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
     <g
-       id="g3966">
+       id="g138">
       <g
          id="Group-14"
-         transform="translate(37)">
+         transform="matrix(0.99844022,0,0,1.0019276,36.942876,-0.16321192)">
         <path
            d="M 26.250066,9.6108687 55.345711,20.763736 c 1.809913,0.693771 2.86856,2.587108 2.86856,4.522937 v 8.169195 l -0.148219,16.714478"
            id="Path-10"
@@ -214,14 +214,14 @@
         </g>
       </g>
       <path
-         d="M 27.929238,84.643251 C 1.485323,73.259742 3.991943,74.510397 2.406614,73.445011"
+         d="M 27.886263,84.643197 C 1.4835943,73.237746 3.9863045,74.490811 2.4034483,73.423372"
          id="path132"
          inkscape:connector-curvature="0"
-         style="fill:#ffffff;stroke:#3535ff"
+         style="fill:#ffffff;stroke:#3535ff;stroke-width:1.00018239"
          sodipodi:nodetypes="cc" />
       <g
          id="g164"
-         transform="rotate(180,22,41)">
+         transform="matrix(-0.99844022,0,0,-1.0019276,43.931958,81.994851)">
         <rect
            id="rect134"
            transform="rotate(22,38.065272,9.838446)"
@@ -359,23 +359,24 @@
            style="fill:#d8d8d8;stroke:#3535ff" />
       </g>
       <path
-         d="M 3.7423936,41.29121 C 0.98260685,42.345337 0.81092862,44.435042 0.80652645,44.678524 L 0.47249195,63.154059 C 0.0277976,70.854806 0.5965832,72.272293 3.147707,73.951654 0.33814154,70.968391 0.96360225,69.714172 5.0897647,68.366452 L 92.030399,54.685521 c 0.239533,-0.04133 3.331746,-0.797981 3.035653,-4.515175 l 0.380977,-25.80555 c -4.49e-4,-0.02828 -0.891222,-1.648975 -1.785977,-2.834869 4.009257,3.7034 -0.600961,5.624332 -0.873197,5.670639 z"
+         d="M 3.7371443,41.207591 C 0.98166226,42.26375 0.81025181,44.357483 0.8058565,44.601434 L 0.47234302,63.112583 c -0.44400072,7.715591 0.1238977,9.13581 2.67104228,10.818408 -2.80518313,-2.989013 -2.180698,-4.24565 1.9390285,-5.595968 L 91.88744,54.627721 c 0.239159,-0.04141 3.326549,-0.799519 3.030918,-4.523879 L 95.298741,24.24855 c -4.49e-4,-0.02834 -0.889832,-1.652154 -1.783192,-2.840334 4.003004,3.710539 -0.600023,5.635174 -0.871835,5.68157 z"
          id="Rectangle-14"
          inkscape:connector-curvature="0"
-         style="fill:#ffffff;stroke:#3535ff"
+         style="fill:#ffffff;stroke:#3535ff;stroke-width:1.00018239"
          sodipodi:nodetypes="csccccccccc" />
       <text
          id="спасибо"
-         transform="matrix(0.98699687,-0.16135843,0.16076398,0.98689206,0,0)"
+         transform="matrix(0.99414088,-0.16019889,0.16192762,0.97980014,0,0)"
          font-size="18"
          font-weight="400"
-         style="font-weight:400;font-size:18px;font-family:Roboto-Medium, Roboto;fill:#9b9b9b"
-         x="-14.8915"
-         y="7.6410351">
+         style="font-weight:400;font-size:18.16523552px;font-family:Roboto-Medium, Roboto;fill:#9b9b9b;stroke-width:1.00917971"
+         x="-10.534185"
+         y="7.245203">
         <tspan
-           x="2.332598"
-           y="59.95153"
-           id="tspan167">спасибо</tspan>
+           x="6.8480248"
+           y="60.035892"
+           id="tspan167"
+           style="stroke-width:1.00917971">спасибо</tspan>
       </text>
     </g>
   </g>
