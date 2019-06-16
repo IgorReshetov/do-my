@@ -1131,6 +1131,18 @@ table.prev_next {
   display: block;
 }
 
+.first-picture-addpsev.level1 {
+  background-color: yellow;
+}
+
+.first-picture-addpsev.level2 {
+  background-color: blue;
+}
+
+.first-picture-addpsev.level3 {
+  background-color: red;
+}
+
 .first-picture-addpsev:after {
   content: "?";
   font-size: 26px;
@@ -1138,6 +1150,18 @@ table.prev_next {
   left: 9px;
   top: 0px;
   position: absolute;
+}
+
+.first-picture-addpsev.level1:after {
+  color: black;
+}
+
+.first-picture-addpsev.level2:after {
+  color: white;
+}
+
+.first-picture-addpsev.level3:after {
+  color: white;
 }
 
 .first-picture-block:hover ~ .first-picture-addpsev {

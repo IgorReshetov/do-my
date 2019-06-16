@@ -833,8 +833,38 @@ function startOpros() {
 }
 
 function update_Q_A (messages) {
-    if (messages.question.info != null) S(O('QP')).display='flex';
-    else S(O('QP')).display='none';
+    if (messages.question.info != null) {
+        
+        var pics_Q = messages.question.info.split(",");
+        var f_p_b = document.getElementsByClassName('first-picture-block');
+
+        for (var i=0; i<pics_Q.length; i++) {
+           pics_Q[i] = pics_Q[i].replace(/^\s/,'');
+           console.log(f_p_b[i].nextElementSibling);
+            if (cookies.level_access == 1) f_p_b[i].nextElementSibling.classList.add ('level1');
+            else if (cookies.level_access == 2)  f_p_b[i].nextElementSibling.classList.add ('level2');
+            else if (cookies.level_access == 3)  f_p_b[i].nextElementSibling.classList.add ('level3');
+        }
+        
+        
+        console.log(pics_Q);
+        console.log(f_p_b[1]);
+        if (pics_Q.length == 1) {
+            S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
+            S(O('PF0')).display = 'flex';
+            S(O('PF1')).display = 'none';
+            if (cookies.level_access == 1) inputs[i].classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].classList.add ('level3');
+        } else 
+        if (pics_Q.length == 2) {          
+            S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
+            S(f_p_b[1]).background = "url(views/images/survey/" + pics_Q[1] + ") center center /cover no-repeat";
+            S(O('PF0')).display = 'flex';
+            S(O('PF1')).display = 'flex';
+        }
+        S(O('QP')).display='flex';
+    } else S(O('QP')).display='none';
 
 
     if (messages.question.is_picture == 1) {
@@ -860,6 +890,7 @@ function update_Q_A (messages) {
             var ans = [];
             ans.push(messages.answer.id_answer[i]);
             ans.push(messages.answer.answer[i]);
+            ans.push(messages.answer.info[i]);
             answShuffle.push(ans);
         };
 
@@ -872,12 +903,13 @@ function update_Q_A (messages) {
         // });
 
         answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
-        var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
+        var idShuffle = [], answerShuffle=[], infoShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
     
         // 4 Правка цикла for
         for (var i = 0; i < answShuffle.length; i++) {
             idShuffle.push(answShuffle[i][0]);
             answerShuffle.push(answShuffle[i][1]);
+            infoShuffle.push(answShuffle[i][2]);
         }
     
         // answShuffle.forEach(function(item, i){
@@ -888,6 +920,7 @@ function update_Q_A (messages) {
         //    console.log(answerShuffle);
     
         var inputs = document.querySelectorAll(".picture-wriper input");
+
         for (var i=0; i<inputs.length; i++) {
             inputs[i].checked = false;
             if (messages.question.is_multi_answer == '1'){ 
@@ -908,7 +941,6 @@ function update_Q_A (messages) {
             }
             inputs[i].setAttribute('name', 'P' + messages.question.id_parent);
             inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
-            
         };
         // console.log(inputs);
 
@@ -926,10 +958,11 @@ function update_Q_A (messages) {
         // for (var i=0; i<arr.length; i++) {
         //     arr[i].innerHTML = '';              // Обнуляем предыдущие ответы
         // }
-        
+        var text_pic = document.getElementsByClassName("picture-block-text");
         // 5 Правка Цикла foreach
         for (var i = 0; i < answerShuffle.length; i++) {
             eval('P'+ i).children[2].style.background = "url('views/images/smart_pic/"+answerShuffle[i]+"') center center /cover no-repeat";
+            text_pic[i].innerHTML = infoShuffle[i];
         }
 
         // answerShuffle.forEach(function(item,i) {         
