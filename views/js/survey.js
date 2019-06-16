@@ -454,16 +454,16 @@ function zapros_Cookies_start(){      //  Синхронный запрос
     
         fill_circle();
 
-        
-        
         if (cookies.level_access == 2) {
             O('next').classList.add ('next-level2');
             O('forward').classList.add ('forward-level2');
             O('saveGame').classList.add ('forward-level2');
+            O('hint').classList.add ('hint-level2');
         } else if (cookies.level_access == 3) {
             O('next').classList.add ('next-level3');
             O('forward').classList.add('forward-level3');
             O('saveGame').classList.add('forward-level3');
+            O('hint').classList.add ('hint-level3');
         } 
         // console.log(cookies);
         // console.log(prevQst);
@@ -833,6 +833,9 @@ function startOpros() {
 }
 
 function update_Q_A (messages) {
+    if (messages.question.info != null) S(O('QP')).display='flex';
+    else S(O('QP')).display='none';
+
 
     if (messages.question.is_picture == 1) {
         var A0 = document.getElementById("A0"); // Выбираем Блок для вставки ответа
@@ -892,16 +895,16 @@ function update_Q_A (messages) {
                 inputs[i].setAttribute('type', 'checkbox');
                 // inputs[i].nextElementSibling.classList.remove ('radio');  
                 // inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
-                // if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
-                // else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
-                // else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+                if (cookies.level_access == 1) inputs[i].classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].classList.add ('level3');
             } else {
                 inputs[i].setAttribute('type', 'radio');
                 // inputs[i].nextElementSibling.classList.add ('radio');  
                 // inputs[i].nextElementSibling.classList.remove ('checkbox');
-                // if (cookies.level_access == 1) inputs[i].nextElementSibling.classList.add ('level1');
-                // else if (cookies.level_access == 2) inputs[i].nextElementSibling.classList.add ('level2');
-                // else if (cookies.level_access == 3) inputs[i].nextElementSibling.classList.add ('level3');
+                if (cookies.level_access == 1) inputs[i].classList.add ('level1');
+                else if (cookies.level_access == 2) inputs[i].classList.add ('level2');
+                else if (cookies.level_access == 3) inputs[i].classList.add ('level3');
             }
             inputs[i].setAttribute('name', 'P' + messages.question.id_parent);
             inputs[i].setAttribute('value', idShuffle[i] ); //*** в цикле не получается указавать вложенные массивы 
@@ -978,6 +981,9 @@ function update_Q_A (messages) {
             next.style.opacity = '1';
         }
 
+        if (cookies.level_access == 1) input_range.classList.add ('level1');
+        else if (cookies.level_access == 2) input_range.classList.add ('level2');
+        else if (cookies.level_access == 3) input_range.classList.add ('level3');
     
         S(C('range')[0]).display = 'flex';
 
@@ -1097,10 +1103,12 @@ function update_Q_A (messages) {
         O('next').classList.add ('next-level2');
         O('forward').classList.add('forward-level2');
         O('saveGame').classList.add ('forward-level2');
+        O('hint').classList.add ('hint-level2');
     } else if (cookies.level_access == 3) {
         O('next').classList.add ('next-level3');
         O('forward').classList.add('forward-level3');
         O('saveGame').classList.add ('forward-level3');
+        O('hint').classList.add ('hint-level3');
     } 
 }
 

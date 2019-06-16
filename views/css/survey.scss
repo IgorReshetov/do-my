@@ -821,10 +821,27 @@ table.prev_next {
     cursor: pointer;
 }
 
+.range-focus.level2::-webkit-slider-thumb {
+    border:3px solid blue;
+}
 
-.range-focus::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
+.range-focus.level3::-webkit-slider-thumb {
+    border:3px solid red;
+}
+
+.range-focus.level1::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
     box-shadow: 0 0 20px yellow;
     border: 4px solid yellow;
+}
+
+.range-focus.level2::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
+    box-shadow: 0 0 20px blue;
+    border: 4px solid blue;
+}
+
+.range-focus.level3::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
+    box-shadow: 0 0 20px red;
+    border: 4px solid red;
 }
 
 // ползунок для IE
@@ -1020,8 +1037,16 @@ table.prev_next {
     right: 50%;
 }
 
-.picture-block:hover  {
+.picture-input ~ .picture-block:hover  {
     border: 4px solid yellow;
+}
+
+.picture-input.level2 ~ .picture-block:hover  {
+    border: 4px solid blue;
+}
+
+.picture-input.level3 ~ .picture-block:hover  {
+    border: 4px solid red;
 }
 
 .picture-addpsev {
@@ -1034,6 +1059,14 @@ table.prev_next {
     background-color: yellow;
     z-index: 1;
     display: none;
+}
+
+.picture-input.level2 ~ .picture-addpsev {
+    background-color: blue;
+}
+
+.picture-input.level3 ~ .picture-addpsev {
+    background-color: red;
 }
 
 .picture-block-text {
@@ -1059,6 +1092,19 @@ table.prev_next {
     transform: rotate(-45deg);
 }
 
+.picture-input.level2 ~ .picture-addpsev:after, .picture-input.level3 ~ .picture-addpsev:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    left: 6px;
+    top: 2px;
+    position: absolute;
+    transform: rotate(-45deg);
+    border-color: white;
+}
+
 .picture-input {
     display: none;
 }
@@ -1071,6 +1117,13 @@ table.prev_next {
     border: 4px solid yellow;
 }
 
+.picture-input.level2:checked ~ .picture-block {
+    border: 4px solid blue;
+}
+
+.picture-input.level3:checked ~ .picture-block {
+    border: 4px solid red;
+}
 // окно овтетов
 
 #dark {
