@@ -11,7 +11,7 @@ define('COOKIE_LIFE', 2592000);
 define('SESSION_LIFE', 2592000);
 
 //ВЕРСИЯ
-define('VER', 2);
+define('VER', 3);
 
 //КОНСТАНТЫ
 define('DEV_MODE', false);
