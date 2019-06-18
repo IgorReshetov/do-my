@@ -179,14 +179,10 @@ function init() {
         setTimeout(function(){
             var coord_target = offset(button1);
 
-            
             $("body,html,document").animate({scrollTop: coord_target},2000);
 
-            console.log (coord_target);
             // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
             // $('html').animate({scrollTop: coord_target},2000);
-
-
             setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
         }, 5000);
 
@@ -252,14 +248,8 @@ function init() {
         inputs_pic[i].onclick = next_ready_pic;
     }
 
-    input_range.oninput = input_range.onclick = function() {
-        var range_val = document.getElementsByClassName('range-value');
-        range_val[0].innerHTML = input_range.value;
-        next.style.display = 'block';
-        next.style.opacity = '1';
-    }
-    
-    
+    input_range.onchange = next_ready_range;
+      
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
@@ -476,6 +466,10 @@ function zapros_Cookies_start(){      //  Синхронный запрос
     
         fill_circle();
 
+        var hint_div = document.getElementsByClassName('board-right-hint-value')[0];
+        fox.hint = hint_div.innerHTML = cookies.hint;
+        
+
         if (cookies.level_access == 2) {
             O('next').classList.add ('next-level2');
             O('forward').classList.add ('forward-level2');
@@ -526,10 +520,16 @@ function zapros_Cookies(){      //  AСинхронный запрос
 
         numStartQst = cookies.active_question;
 
+        var hint_div = document.getElementsByClassName('board-right-hint-value')[0];
+        fox.hint = hint_div.innerHTML = cookies.hint;
+        fox.hint_flag = 0;
+
         cookie_level();
 
         preloader();
         
+        console.log(cookies);
+
         return cookies;
     }
 }
@@ -623,9 +623,11 @@ function next_ready() {
         if (inputs[i].checked == true) check_ready = true;
     }
     if (check_ready == true) {
+    S(C('prev_next-block')[1]).display = 'flex';
     next.style.display = 'block';
     next.style.opacity = '1';
     } else {
+    S(C('prev_next-block')[1]).display = 'none';
     next.style.display = 'none';
     next.style.opacity = '0';
     }
@@ -638,9 +640,11 @@ function next_ready_pic() {
         if (inputs[i].checked == true) check_ready = true;
     }
     if (check_ready == true) {
+    S(C('prev_next-block')[1]).display = 'flex';
     next.style.display = 'block';
     next.style.opacity = '1';
     } else {
+    S(C('prev_next-block')[1]).display = 'none';
     next.style.display = 'none';
     next.style.opacity = '0';
     }
@@ -648,6 +652,7 @@ function next_ready_pic() {
 
 function next_ready_range() {
     // var input_range = document.getElementById("range-focus");
+    S(C('prev_next-block')[1]).display = 'flex';
     next.style.display = 'block';
     next.style.opacity = '1';
 }
@@ -705,7 +710,7 @@ function json_Q_A() {
         id_answer: numAnsw,
         amount: amountAnsw,               //Здесь нужно цеплять переменную из полоски прокрутки для вопроса диапазано  
         word: "",                //Здесь нужна переменная с вопроса с ответом подбора слова
-        hint: 0,                 //здесь нужно присвоить через переменную 1 если была подсказка в ходе.
+        hint: fox.hint_flag,                 //здесь нужно присвоить через переменную 1 если была подсказка в ходе.
         sign_bot: 0              // ЕЩЕ НЕ ПОНЯЛ КАК ВЫТАСКИВАТЬ ПЕРЕМЕННУЮ sign_bot!!!!!!!!!!!!!!!!!!!!!!!!!
     };
 
@@ -764,6 +769,12 @@ function json_Q_A_next() {
     
         var messages = JSON.parse(xhr.responseText);
         console.log(messages);
+        if (messages.question.hint != null) {
+            fox.hint_words = messages.question.hint;
+            S(C('prev_next-block')[0]).display = 'flex';
+            S(C('prev_next-block')[1]).display = 'none';
+        } else S(C('prev_next-block')[0]).display = 'none';
+
         rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
         form_Qst = messages.question.is_form;   // меняем признак вопроса (анкетный-1 / обычный-null)
         console.log(form_Qst); 
@@ -845,10 +856,14 @@ function startOpros() {
     // console.log(xhr.responseText);
     var messages = JSON.parse(xhr.responseText);
     console.log(messages);
-    if (messages.question.hint != null) fox.hint_words = messages.question.hint;
+    if (messages.question.hint != null) {
+        fox.hint_words = messages.question.hint;
+        S(C('prev_next-block')[0]).display = 'flex';
+    } else S(C('prev_next-block')[0]).display = 'none';
+
     rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
     form_Qst = messages.question.is_form;   // меняем признак вопроса (анкетный-1 / обычный-null)
-    console.log(form_Qst); 
+    
     update_Q_A(messages);
     preloader();
     }
@@ -856,6 +871,7 @@ function startOpros() {
 }
 
 function update_Q_A (messages) {
+
     if (messages.question.info != null) {
         
         var pics_Q = messages.question.info.split(",");
@@ -863,15 +879,11 @@ function update_Q_A (messages) {
 
         for (var i=0; i<pics_Q.length; i++) {
            pics_Q[i] = pics_Q[i].replace(/^\s/,'');
-           console.log(f_p_b[i].nextElementSibling);
             if (cookies.level_access == 1) f_p_b[i].nextElementSibling.classList.add ('level1');
             else if (cookies.level_access == 2)  f_p_b[i].nextElementSibling.classList.add ('level2');
             else if (cookies.level_access == 3)  f_p_b[i].nextElementSibling.classList.add ('level3');
         }
         
-        
-        console.log(pics_Q);
-        console.log(f_p_b[1]);
         if (pics_Q.length == 1) {
             S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
             S(f_p_b[0]).width = "100%";
@@ -887,6 +899,7 @@ function update_Q_A (messages) {
         }
         S(O('QP')).display='flex';
     } else S(O('QP')).display='none';
+
 
 
     if (messages.question.is_picture == 1) {
@@ -1174,14 +1187,11 @@ function update_afterClientAnswer(otvet, answer_user) {
     for (var i=0; i<otvet.stat_question.length; i++) {
         sum_answ += otvet.stat_question[i].count_answer*1;
         if (otvet.stat_question[i].answer == answer_user.numAnsw) stat_info_sum = otvet.stat_question[i].count_answer*1;
-        console.log(stat_info_sum);
-        console.log(sum_answ);
     }
     
     stat_info_percent = Math.round(stat_info_percent = (stat_info_sum/sum_answ*100));
     // _________________________________________________________________________________
-    console.log(stat_info_percent);
-    
+      
     if (S(C('picture')[0]).display != "none") var inputs = document.querySelectorAll(".picture-input");
     else if (S(C('range')[0]).display != "none") var inputs = document.querySelectorAll(".range-focus");
     else var inputs = document.querySelectorAll(".right input");
@@ -1240,9 +1250,10 @@ function update_afterClientAnswer(otvet, answer_user) {
     // result.style.display = "flex";
     // dark.style.display = "block";
     if (form_Qst == 1) {
-        if (cookies.level_access == 1) image.className = 'result-form-question1'; 
-            else if (cookies.level_access == 2) image.className = 'result-form-question2'; 
-               else if (cookies.level_access == 3) image.className = 'result-form-question3'; ;
+        image.className = 'result-form-question2'; 
+            // if (cookies.level_access == 1) 
+            // else if (cookies.level_access == 2) image.className = 'result-form-question2'; 
+            //    else if (cookies.level_access == 3) image.className = 'result-form-question3'; ;
         // image.className = 'result-form-question1';  // Правка класс листа для IE
         image.style.display = "block";
         otvet_true.innerHTML = "Так же ответили <strong>" + stat_info_percent + "%</strong> участников.";  
@@ -1484,8 +1495,8 @@ function update_afterClientFoward() {
                             anime_off = true;
                         }
                         C('step-level')[0].classList.add('step-level-js-M');
-                        document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
-                        fox.hint = 3;
+                        // document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
+                        // fox.hint = 3;
                         // zapros_Cookies();           // Делаем синхронный запрос
                         // Object.cookie_level();
                     }
@@ -1525,8 +1536,8 @@ function update_afterClientFoward() {
                         anime_off = true;
                         }
                      C('step-level step-level-js-M')[0].classList.add('step-level-js-H');
-                     document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
-                     fox.hint = 3;
+                    //  document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
+                    //  fox.hint = 3;
                         // zapros_Cookies();           // Делаем синхронный запрос
                         // Object.cookie_level();
                     }
@@ -1584,8 +1595,8 @@ function update_afterClientFoward() {
             if (otvet.finish==2) {
             if (!levelQst_2.check) valid_level_2();
             else if (levelQst_2.check==true && levelQst_2.next_lev == true) {
-                document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
-                fox.hint = 3;
+                // document.getElementsByClassName('board-right-hint-value')[0].innerHTML=3;
+                // fox.hint = 3;
                 zapros_Cookies(); 
     
                 json_Q_A_next();
@@ -2333,8 +2344,13 @@ function get_hint() {
     var count_hint;
     var hint_div = document.getElementsByClassName('board-right-hint-value')[0];
     if (hint_div.innerHTML == 0) return;
-    count_hint = hint_div.innerHTML - 1;
-    hint_div.innerHTML = count_hint;
-    fox.hint = fox.hint - 1;
-    fox.speak_hint();
+    if (fox.hint_flag == 0) {
+        count_hint = hint_div.innerHTML - 1;
+        hint_div.innerHTML = count_hint;
+        fox.hint = fox.hint - 1;
+        fox.speak_hint();
+        fox.hint_flag = 1;
+    } else  fox.speak_hint();
+    console.log(fox.hint_flag);
+    console.log(fox.hint_words);
 }

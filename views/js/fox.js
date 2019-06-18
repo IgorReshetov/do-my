@@ -103,16 +103,17 @@ var fox = {
                 } 
 
                 },100);
-            setTimeout(function(){clearInterval(handler_speak)},3000);
+            
             
             if (privet == "hint") {
+                setTimeout(function(){clearInterval(handler_speak)},6000);
                 setTimeout(function(){
                     fox_words_text.innerHTML = "";
-                    fox.hint_words = "";
                     fox_words.style.display = 'none';
                     fox.last_time = new Date().getTime();
                 },6000);
             } else {
+                setTimeout(function(){clearInterval(handler_speak)},3000);
                 setTimeout(function(){
                     fox_words_text.innerHTML = "";
                     fox_words.style.display = 'none';
@@ -164,6 +165,7 @@ var fox = {
         setTimeout('this.speak_HELLO("about_hint")', 20000);
     },
 
+    hint_flag: 0,
     hint_words: "",
     hint: 3,
     speak_about_hint: function () {
