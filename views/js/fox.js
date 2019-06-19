@@ -20,8 +20,8 @@ var fox = {
         // game_start: "Желаю удачи в игре!",
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
-        about_level: ["Для победы на этом уровне ты можешь допустить 3 промаха", "Для победы на этом уровне ты можешь допустить 2 промаха", "Для победы на этом уровне ты можешь допустить 1 промах"],
-        about_hint: ["У тебя есть 3 моих подсказок", "У тебя остались 2 моих подсказки", "У тебя осталась 1 подсказка",]
+        about_level: ["Для победы на этом уровне <br> ты можешь допустить 3 промаха", "Для победы на этом уровне <br> ты можешь допустить 2 промаха", "Для победы на этом уровне <br> ты можешь допустить 1 промах"],
+        about_hint: ["У тебя есть 3 моих подсказки", "У тебя остались 2 моих подсказки", "У тебя осталась 1 подсказка",]
     },
    
     speak_HELLO: function(privet) {
@@ -78,7 +78,8 @@ var fox = {
                     else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
                     else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
             } else if (privet == 'about_hint') {
-                if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
+                if (fox.hint == 3) fox_words_text.innerHTML = about_hint[0];
+                else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
                 else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[2];
                 else if (fox.hint == 0) {
                     if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
@@ -112,6 +113,21 @@ var fox = {
                     fox_words.style.display = 'none';
                     fox.last_time = new Date().getTime();
                 },6000);
+            } else if (privet == "about_level") { 
+                setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
+                setTimeout(function(){
+                    if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
+                    else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
+                    else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
+                    // fox_words_text.innerHTML = "";
+                    // fox_words.style.display = 'none';
+                    // fox.last_time = new Date().getTime();
+                },6000);
+                setTimeout(function(){
+                    fox_words_text.innerHTML = "";
+                    fox_words.style.display = 'none';
+                    fox.last_time = new Date().getTime();
+                },11000);
             } else {
                 setTimeout(function(){clearInterval(handler_speak)},3000);
                 setTimeout(function(){
@@ -160,9 +176,12 @@ var fox = {
         this.speak_HELLO("hint");
     },
 
+    speak_about_level_flag: false,
     speak_about_level: function () {
-        setTimeout('this.speak_HELLO("about_level")', 10000);
-        setTimeout('this.speak_HELLO("about_hint")', 20000);
+        this.speak_HELLO("about_level");
+        this.speak_about_level_flag = true;
+        // setTimeout('this.speak_HELLO("about_level")', 10000);
+        // setTimeout('this.speak_HELLO("about_hint")', 20000);
     },
 
     hint_flag: 0,
