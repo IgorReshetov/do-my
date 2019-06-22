@@ -771,8 +771,10 @@ function json_Q_A_next() {
         console.log(messages);
         if (messages.question.hint != null) {
             fox.hint_words = messages.question.hint;
-            S(C('prev_next-block')[0]).display = 'flex';
-            S(C('prev_next-block')[1]).display = 'none';
+            if (fox.hint != 0){
+                S(C('prev_next-block')[0]).display = 'flex';
+                S(C('prev_next-block')[1]).display = 'none';
+            }
         } else S(C('prev_next-block')[0]).display = 'none';
 
         rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
@@ -858,7 +860,10 @@ function startOpros() {
     console.log(messages);
     if (messages.question.hint != null) {
         fox.hint_words = messages.question.hint;
-        S(C('prev_next-block')[0]).display = 'flex';
+        if (fox.hint != 0){
+            S(C('prev_next-block')[0]).display = 'flex';
+            S(C('prev_next-block')[1]).display = 'none';
+        }
     } else S(C('prev_next-block')[0]).display = 'none';
 
     rang_Qst_Stat = messages.question.is_stat;  // меняем форму вопроса стат (true)/точный(false)
@@ -885,15 +890,15 @@ function update_Q_A (messages) {
         }
         
         if (pics_Q.length == 1) {
-            S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
+            S(f_p_b[0]).background = "url(views/images/smart_pic/" + pics_Q[0] + ") center center /cover no-repeat";
             S(f_p_b[0].parentElement).width = "100%";
             S(f_p_b[0].parentElement).paddingTop = "100%";
             S(O('PF0')).display = 'flex';
             S(O('PF1')).display = 'none';
         } else 
         if (pics_Q.length == 2) {          
-            S(f_p_b[0]).background = "url(views/images/survey/" + pics_Q[0] + ") center center /cover no-repeat";
-            S(f_p_b[1]).background = "url(views/images/survey/" + pics_Q[1] + ") center center /cover no-repeat";
+            S(f_p_b[0]).background = "url(views/images/smart_pic/" + pics_Q[0] + ") center center /cover no-repeat";
+            S(f_p_b[1]).background = "url(views/images/smart_pic/" + pics_Q[1] + ") center center /cover no-repeat";
             S(O('PF0')).display = 'flex';
             S(O('PF1')).display = 'flex';
         }
@@ -2346,7 +2351,9 @@ function perebor_Qst() {
 function get_hint() {
     var count_hint;
     var hint_div = document.getElementsByClassName('board-right-hint-value')[0];
-    if (hint_div.innerHTML == 0) return;
+    // if (hint_div.innerHTML = 0) { 
+    //     return;
+    // }
     if (fox.hint_flag == 0) {
         count_hint = hint_div.innerHTML - 1;
         hint_div.innerHTML = count_hint;
@@ -2354,6 +2361,4 @@ function get_hint() {
         fox.speak_hint();
         fox.hint_flag = 1;
     } else  fox.speak_hint();
-    console.log(fox.hint_flag);
-    console.log(fox.hint_words);
 }

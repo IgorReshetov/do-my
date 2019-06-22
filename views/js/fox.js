@@ -21,7 +21,7 @@ var fox = {
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
         about_level: ["Для победы на этом уровне <br> ты можешь допустить 3 промаха", "Для победы на этом уровне <br> ты можешь допустить 2 промаха", "Для победы на этом уровне <br> ты можешь допустить 1 промах"],
-        about_hint: ["У тебя есть 3 моих подсказки", "У тебя остались 2 моих подсказки", "У тебя осталась 1 подсказка", "У тебя не осталось моих подсказок"]
+        about_hint: ["У тебя есть три моих подсказки", "У тебя есть две моих подсказки", "У тебя осталась одна моя подсказка", "У тебя не осталось моих подсказок"]
     },
    
     speak_HELLO: function(privet) {
@@ -81,7 +81,6 @@ var fox = {
         setTimeout(function() {
             fox_img.className = 'fox-speak';
             if (privet == "start"){
-                    
                     if (new_old.attributes.user.nodeValue == 'new') fox_words_text.innerHTML = hello_new;
                     else if (new_old.attributes.user.nodeValue == 'old') fox_words_text.innerHTML = hello_old;
                     else if (new_old.attributes.user.nodeValue == 'back') fox_words_text.innerHTML = hello_back;
