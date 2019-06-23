@@ -417,7 +417,7 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-text"><?=$prize?></div>
                 </div>
                 <div class="block-telefon">
-                    <iframe class= "telefon" frameborder="0" sandbox="allow-forms || allow-scripts" width ="500" height="300" src="https://lyubov-i-golubi.ru"></iframe>
+                    <!-- <iframe class= "telefon" frameborder="0" width ="500" height="300" src="https://lyubov-i-golubi.ru"></iframe> -->
                 </div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
