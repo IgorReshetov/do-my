@@ -1498,6 +1498,21 @@ table.prev_next {
   width: 200px;
 }
 
+.block-telefon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .gift {
   display: none;
   margin-top: 10px;
@@ -2078,6 +2093,9 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
+  .telefon {
+    width: 300px;
+  }
   .picture-block-text {
     font-size: 12px;
   }

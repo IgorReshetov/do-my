@@ -193,6 +193,8 @@ $level_access = $_SESSION['level_access'];
 
 if ($user->id_user == NULL) {User::signUpAuto($last_session_id, $ip_user); $user = new User ($last_session_id);}
 if (is_array($_SESSION['user_answer'][$last_question]['id_answer'])) {$string = implode(", ", $_SESSION['user_answer'][$last_question]['id_answer']);} else {$string = $_SESSION['user_answer'][$last_question]['id_answer'];}
+if ($_SESSION['user_answer'][$last_question]['is_scale'] == 1) {$string = $amount_answer;}
+
 User::putUserAnswer($user->id_user, $_SESSION['action'], $_SESSION['user_answer'][$last_question]['id_question'], $string, $_SESSION['user_answer'][$last_question]['answer_is_true'], $_SESSION['play_key']);
 
 
