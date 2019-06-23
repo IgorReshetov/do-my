@@ -8,7 +8,7 @@ var fox = {
 
     words: {
         hello_new: "Привет.<br>Давай дружить!",
-        hello_old: ["Привет!<br>Я скучал)", "Привет!<br>С возвращением!" ],
+        hello_old: ["Привет!<br>Я скучал)", "Привет!<br>С возвращением!"],
         hello_back_mouse: "фр..фр..<br>Давай играть!",
         long_no_action: "Эгей, эгегей.<br>Давай, давай",
         email_enter: "Будь внимателен!",
@@ -21,7 +21,7 @@ var fox = {
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
         about_level: ["Для победы на этом уровне <br> ты можешь допустить 3 промаха", "Для победы на этом уровне <br> ты можешь допустить 2 промаха", "Для победы на этом уровне <br> ты можешь допустить 1 промах"],
-        about_hint: ["У тебя есть три моих подсказки", "У тебя есть две моих подсказки", "У тебя осталась одна моя подсказка", "У тебя не осталось моих подсказок"]
+        about_hint: ["У тебя есть пять моих подсказки","У тебя есть четыре моих подсказки","У тебя есть три моих подсказки", "У тебя есть две моих подсказки", "У тебя осталась одна моя подсказка", "У тебя не осталось моих подсказок"]
     },
    
     speak_HELLO: function(privet) {
@@ -49,10 +49,11 @@ var fox = {
 
         this.sleep = false;
         
-        fox.speak = true;
+        
 
-        if (privet == 'hint' || privet == 'about_hint') {
+        if (privet == 'hint' || privet == 'about_hint' || privet == 'about_level') {
             setTimeout(function() {
+                fox_words.style.display = "none";
                 fox_img.className = 'fox-wakeUp';
                 var handler_wakeUp = setInterval(function(){
                     if(fox_img.classList.contains('fox-wakeUp')) {
@@ -78,37 +79,18 @@ var fox = {
             }, 2000);
         }
 
-        setTimeout(function() {
+        if (fox.speak == true && fox.speak_about_level_flag == true) {
+            setTimeout(function() {
             fox_img.className = 'fox-speak';
-            if (privet == "start"){
-                    if (new_old.attributes.user.nodeValue == 'new') fox_words_text.innerHTML = hello_new;
-                    else if (new_old.attributes.user.nodeValue == 'old') fox_words_text.innerHTML = hello_old;
-                    else if (new_old.attributes.user.nodeValue == 'back') fox_words_text.innerHTML = hello_back;
-            } else if (privet == "survey") fox_words_text.innerHTML = start_game;
-              else if (privet == "delay") fox_words_text.innerHTML = delay;
-              else if (privet == "multi") fox_words_text.innerHTML = multi;
-              else if (privet == "toFast") fox_words_text.innerHTML = toFast;
-              else if (privet == 'Qst') fox_words_text.innerHTML = Qst;
-              else if (privet == 'game_end') fox_words_text.innerHTML = game_end;
-            else if (privet == 'about_level') {
+            if (privet == 'about_level') {
                     if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
                     else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
                     else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
-            } else if (privet == 'about_hint') {
-                if (fox.hint == 3) fox_words_text.innerHTML = about_hint[0];
-                else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
-                else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[2];
-                else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[3];
-                    // {
-                    // if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
-                    // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
-                    // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
-                    // }
-                else fox_words_text.innerHTML = about_hint[0];
-            } else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
-            fox_words.style.display = "block";
+            } 
             
-            var handler_speak = setInterval(function() {
+            fox_words.style.display = "block";
+
+            var handler_speak_lev = setInterval(function() {
                 if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
@@ -120,24 +102,17 @@ var fox = {
                         fox_img.className = 'fox-speak';
                     }, 100);
                 } 
-
-                },100);
+            },100);
             
-            if (privet == "hint") {
-                setTimeout(function(){clearInterval(handler_speak)},6000);
+            if (privet == "about_level") { 
+                // setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
                 setTimeout(function(){
-                    fox_words_text.innerHTML = "";
-                    fox_words.style.display = 'none';
-                    fox.last_time = new Date().getTime();
-                    fox.speak=false;
-                },6000);
-            } else if (privet == "about_level") { 
-                setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
-                setTimeout(function(){
-                    if (fox.hint == 3) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[3];
+                    if (fox.hint == 5) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[5];
                     // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                     // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                     // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -146,22 +121,123 @@ var fox = {
                     // fox.last_time = new Date().getTime();
                 },6000);
                 setTimeout(function(){
+                    clearInterval(handler_speak_lev); 
+                    fox.speak_about_level_flag = false;
                     fox_words_text.innerHTML = "";
                     fox_words.style.display = 'none';
                     fox.last_time = new Date().getTime();
                     fox.speak=false;
                 },11000);
-            } else {
-                setTimeout(function(){clearInterval(handler_speak)},3000);
-                setTimeout(function(){
-                    fox_words_text.innerHTML = "";
-                    fox_words.style.display = 'none';
-                    fox.last_time = new Date().getTime();
-                    fox.speak=false;
-                },3000);
             }
-
-        }, 3000, speak, new_old, hello_new, hello_old, last_time, privet);
+            // } else {
+            //     setTimeout(function(){clearInterval(handler_speak)},3000);
+            //     setTimeout(function(){
+            //         if (fox.speak_about_level_flag == false) {fox_words_text.innerHTML = "";
+            //         fox_words.style.display = 'none';
+            //         fox.last_time = new Date().getTime();
+            //         fox.speak=false;
+            //         }
+            //     },3000);
+            // }
+            }, 3000, speak, new_old, hello_new, hello_old, last_time, privet);
+        } else {
+            setTimeout(function() {
+                
+                fox_img.className = 'fox-speak';
+                if (privet == "start"){
+                    if (fox.speak_about_level_flag == false) {
+                        if (new_old.attributes.user.nodeValue == 'new') fox_words_text.innerHTML = hello_new;
+                        else if (new_old.attributes.user.nodeValue == 'old') fox_words_text.innerHTML = hello_old;
+                        else if (new_old.attributes.user.nodeValue == 'back') fox_words_text.innerHTML = hello_back;
+                    } else return;
+                } else if (privet == "survey") fox_words_text.innerHTML = start_game;
+                  else if (privet == "delay") fox_words_text.innerHTML = delay;
+                  else if (privet == "multi") {
+                    if (fox.speak_about_level_flag == false) {
+                      fox_words_text.innerHTML = multi;
+                    } else return
+                  } 
+                  else if (privet == "toFast") fox_words_text.innerHTML = toFast;
+                  else if (privet == 'Qst') {
+                        if (fox.speak_about_level_flag == false) {
+                        fox_words_text.innerHTML = Qst;
+                        } else return;
+                } else if (privet == 'game_end') fox_words_text.innerHTML = game_end;
+                else if (privet == 'about_level') {
+                        if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
+                        else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
+                        else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
+                } else if (privet == 'about_hint') {
+                    if (fox.hint == 5) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[5];
+                        // {
+                        // if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
+                        // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
+                        // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
+                        // }
+                    else fox_words_text.innerHTML = about_hint[0];
+                } else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
+                
+                fox_words.style.display = "block";
+                
+                var handler_speak = setInterval(function() {
+                        if(fox_img.classList.contains('fox-speak')) {
+                        fox_img.className = 'fox-speak2';
+                    setTimeout( function(){
+                        fox_img.className = 'fox-speak3';
+                    }, 100);
+                } else if (fox_img.classList.contains('fox-speak3' )) {
+                        fox_img.className = 'fox-speak2';
+                    setTimeout( function(){
+                        fox_img.className = 'fox-speak';
+                    }, 100);
+                } 
+                },100);
+                
+                if (privet == "hint") {
+                    setTimeout(function(){clearInterval(handler_speak)},6000);
+                    setTimeout(function(){
+                        fox_words_text.innerHTML = "";
+                        fox_words.style.display = 'none';
+                        fox.last_time = new Date().getTime();
+                        fox.speak=false;
+                    },6000);
+                } else if (privet == "about_level") { 
+                    setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
+                    setTimeout(function(){
+                        if (fox.hint == 3) fox_words_text.innerHTML = about_hint[0];
+                        else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
+                        else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[2];
+                        else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[3];
+                        // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
+                        // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
+                        // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
+                        // fox_words_text.innerHTML = "";
+                        // fox_words.style.display = 'none';
+                        // fox.last_time = new Date().getTime();
+                    },6000);
+                    setTimeout(function(){
+                        fox_words_text.innerHTML = "";
+                        fox_words.style.display = 'none';
+                        fox.last_time = new Date().getTime();
+                        fox.speak=false;
+                    },11000);
+                } else {
+                    setTimeout(function(){clearInterval(handler_speak)},3000);
+                    setTimeout(function(){
+                        if (fox.speak_about_level_flag == false) {fox_words_text.innerHTML = "";
+                        fox_words.style.display = 'none';
+                        fox.last_time = new Date().getTime();
+                        fox.speak=false;
+                        }
+                    },3000);
+                }
+                }, 3000, speak, new_old, hello_new, hello_old, last_time, privet);
+        }
        
         this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
             
@@ -173,6 +249,7 @@ var fox = {
     },
 
     speake_start: function () {
+        fox.speak = true;
         this.speak_HELLO("start");
     },
 
@@ -181,11 +258,49 @@ var fox = {
     },
 
     speak_multi: function () {
+        if (fox.speak_about_level_flag == true) {
+            var handler_multi = setInterval(function(){
+                if (fox.speak_about_level_flag == false) {
+                    fox.speak_HELLO("multi");
+                    fox.speak = true;
+                    clearInterval(handler_multi);
+                }
+            },500)
+        } else if (fox.speak == true) {
+                var handler_multi_1 = setInterval(function(){
+                    if (fox.speak == false) {
+                        fox.speak_HELLO("multi");
+                        fox.speak = true;
+                        clearInterval(handler_multi_1);
+                    }
+                },1000)
+        } else {
+        fox.speak = true;
         this.speak_HELLO("multi");
+        }
     },
 
     speak_about_Qst: function () {
+        if (fox.speak_about_level_flag == true) {
+            var handler_Qst = setInterval(function(){
+                if (fox.speak_about_level_flag == false) {
+                    fox.speak_HELLO("Qst");
+                    fox.speak = true;
+                    clearInterval(handler_Qst);
+                }
+            },500)
+        } else if (fox.speak == true) {
+            var handler_multi_1 = setInterval(function(){
+                if (fox.speak == false) {
+                    fox.speak_HELLO("Qst");
+                    fox.speak = true;
+                    clearInterval(handler_multi_1);
+                }
+            },1000)
+        } else {
+        fox.speak = true;
         this.speak_HELLO("Qst");
+        }
     },
 
     speak_hurry: function () {
@@ -202,18 +317,19 @@ var fox = {
 
     speak_about_level_flag: false,
     speak_about_level: function () {
-        if (fox.speak == true) {
-            var handler_level = setInterval(function(){
-                if (fox.speak == false) {
-                    fox.speak_HELLO("about_level");
-                    fox.speak_about_level_flag = true;
-                    clearInterval(handler_level);
-                }
-            },100)
-        } else {
-        this.speak_HELLO("about_level");
+        // if (fox.speak == true) {
+        //     var handler_level = setInterval(function(){
+        //         if (fox.speak == false) {
+        //             fox.speak_HELLO("about_level");
+        //             fox.speak_about_level_flag = true;
+        //             clearInterval(handler_level);
+        //         }
+        //     },100)
+        // } else {
         this.speak_about_level_flag = true;
-        }
+        this.speak_HELLO("about_level");
+        
+        // }
     },
 
     hint_flag: 0,

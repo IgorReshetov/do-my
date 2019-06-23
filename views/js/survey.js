@@ -523,7 +523,7 @@ function zapros_Cookies(){      //  AСинхронный запрос
         var hint_div = document.getElementsByClassName('board-right-hint-value')[0];
         fox.hint = hint_div.innerHTML = cookies.hint;
         fox.hint_flag = 0;
-
+        console.log(cookies);
         cookie_level();
 
         preloader();
@@ -603,14 +603,16 @@ function fill_circle() {
             else if (i>=numQstLevel_1 + numQstLevel_2)
             circles[i].style.border = '1px solid red';  
     }
+
+
     for (var i=0; i<cookies.user_answer.length; i++) {
         if (cookies.user_answer[i].answer_is_true == '1' && i<numQstLevel_1 )
             circles[i].style.background = 'yellow';
-            else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 && i<numQstLevel_1 + numQstLevel_2)
+        else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 && i<numQstLevel_1 + numQstLevel_2)
             circles[i].style.background = 'blue';
-            else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 + numQstLevel_2)
+        else if (cookies.user_answer[i].answer_is_true == '1' && i>=numQstLevel_1 + numQstLevel_2)
             circles[i].style.background = 'red';
-        else circles[i].style.background = 'grey';
+        else if (cookies.user_answer[i].answer_is_true === null) circles[i].style.background = 'grey';   
     }
 
 }
@@ -790,7 +792,7 @@ function json_Q_A_next() {
 }
 
 function startOpros() {
-    fox.speak_about_level();
+    
 
     // if (Math.random()<0.33) fox.speak_about_Qst();  
     if (countQst==numStartQst) {
@@ -808,10 +810,15 @@ function startOpros() {
     
     // handle = setInterval(anime_level,100); // Анимация - плавное появление круга с номером вопроса
     if (prevQst==numStartQst && cookies.user_answer.length > 0) {
+        fox.speak_about_level();
         handle_move_left_start = setInterval(anime_move_left_start,4, numStartQst);
         setTimeout("handle_step = setInterval(anime_step_up,100,numStartQst)",1000);
      } 
-    else handle_step = setInterval(anime_step_up,50,numStartQst);
+    else {
+        handle_step = setInterval(anime_step_up,50,numStartQst);
+        fox.speak_about_level();
+    }
+
 
     var status_Game = document.getElementsByClassName('board');
     status_Game[0].style.display = "flex";
@@ -964,7 +971,8 @@ function update_Q_A (messages) {
         for (var i=0; i<inputs.length; i++) {
             inputs[i].checked = false;
             if (messages.question.is_multi_answer == '1'){ 
-                if (!fox.speak_about_level_flag)  fox.speak_multi();
+                // if (!fox.speak_about_level_flag)  
+                fox.speak_multi();
                 inputs[i].setAttribute('type', 'checkbox');
                 // inputs[i].nextElementSibling.classList.remove ('radio');  
                 // inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
@@ -1102,7 +1110,8 @@ function update_Q_A (messages) {
         for (var i=0; i<inputs.length; i++) {
             inputs[i].checked = false;
             if (messages.question.is_multi_answer == '1'){ 
-                if (!fox.speak_about_level_flag) fox.speak_multi();
+                // if (!fox.speak_about_level_flag)
+                fox.speak_multi();
                 inputs[i].setAttribute('type', 'checkbox');
                 inputs[i].nextElementSibling.classList.remove ('radio');  
                 inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
