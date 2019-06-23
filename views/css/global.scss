@@ -232,7 +232,6 @@ font-weight: 600;
     white-space: nowrap;
     color: black;
     text-align: center;
-
 }
 
 .fox-words-down::before {
@@ -478,6 +477,10 @@ font-weight: 600;
 
 
 @media (max-width: 570px) {
+
+    .fox-words-text {
+        font-size: 14px;
+    }
     
     .hiden-menu-user, .hiden-menu-user-promo{
         transform: translateY(-50%);
