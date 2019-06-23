@@ -134,7 +134,7 @@ $count_false =0;
 
 
 // переключатель откатов по неотвеченным вопросам при втором проходе
-if ($_SESSION['action'] == 5 || $_SESSION['action'] == 6){
+if ($_SESSION['action'] == 50 || $_SESSION['action'] == 60){
     if (isset($_SESSION['user_answer'][$activ_question]['time_answer']) && $_SESSION['user_answer'][$activ_question-1]['answer_is_true'] == NULL) {
         $activ_question = $activ_question-1;
         // echo 'сработка';
