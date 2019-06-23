@@ -511,6 +511,9 @@ a.icon-menu {
 }
 
 @media (max-width: 570px) {
+  .fox-words-text {
+    font-size: 14px;
+  }
   .hiden-menu-user, .hiden-menu-user-promo {
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
