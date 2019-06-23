@@ -903,7 +903,9 @@ function update_Q_A (messages) {
             S(O('PF0')).display = 'flex';
             S(O('PF1')).display = 'none';
         } else 
-        if (pics_Q.length == 2) {          
+        if (pics_Q.length == 2) {
+            S(f_p_b[0].parentElement).width = "50%";
+            S(f_p_b[0].parentElement).paddingTop = "50%";          
             S(f_p_b[0]).background = "url(views/images/smart_pic/" + pics_Q[0] + ") center center /cover no-repeat";
             S(f_p_b[1]).background = "url(views/images/smart_pic/" + pics_Q[1] + ") center center /cover no-repeat";
             S(O('PF0')).display = 'flex';
@@ -1041,6 +1043,7 @@ function update_Q_A (messages) {
         }
 
         S(C('picture')[0]).display = 'none';
+        C('range-value')[0].innerHTML = '';
 
         var input_range = document.getElementById("range-focus");
         var input_range_min = document.getElementsByClassName("range-min");
@@ -1314,6 +1317,7 @@ function update_afterClientAnswer(otvet, answer_user) {
 }
 
 function valid_level_1() {
+    scrollTo(0,0);
     var result = document.getElementById("result");
     var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
@@ -1367,6 +1371,7 @@ function valid_level_1() {
 }
 
 function valid_level_2() {
+    scrollTo(0,0);
     var result = document.getElementById("result");
     var dark = document.getElementById("dark");
     var otvet_true = document.getElementById("true");
@@ -1417,6 +1422,7 @@ function valid_level_2() {
 }
 
 function valid_level_3() {
+    scrollTo(0,0);
     var otvet_true = document.getElementById("true");
     var otvet_false = document.getElementById("false");
     var image = document.getElementById("image");
@@ -1467,7 +1473,7 @@ function valid_level_3() {
 }
 
 function update_afterClientFoward() {
-  
+    
     var countQst_lev1 = parseInt(cookies.questions_count[0].questions_count);
     var countQst_lev2 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count);
     var countQst_lev3 = parseInt(cookies.questions_count[0].questions_count) + parseInt(cookies.questions_count[1].questions_count) + parseInt(cookies.questions_count[2].questions_count);

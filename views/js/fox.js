@@ -20,7 +20,7 @@ var fox = {
         // game_start: "Желаю удачи в игре!",
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
-        about_level: ["Для победы на этом уровне <br> ты можешь допустить 3 промаха", "Для победы на этом уровне <br> ты можешь допустить 2 промаха", "Для победы на этом уровне <br> ты можешь допустить 1 промах"],
+        about_level: ["Для победы на этом уровне<br>ты можешь допустить 3 промаха", "Для победы на этом уровне<br>ты можешь допустить 2 промаха", "Для победы на этом уровне<br>ты можешь допустить 1 промах"],
         about_hint: ["У тебя есть пять моих подсказок","У тебя есть четыре моих подсказки","У тебя есть три моих подсказки", "У тебя есть две моих подсказки", "У тебя осталась одна моя подсказка", "У тебя не осталось моих подсказок"]
     },
    
@@ -209,10 +209,12 @@ var fox = {
                 } else if (privet == "about_level") { 
                     setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
                     setTimeout(function(){
-                        if (fox.hint == 3) fox_words_text.innerHTML = about_hint[0];
-                        else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[1];
-                        else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[2];
-                        else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[3];
+                        if (fox.hint == 5) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[5];
                         // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                         // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                         // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -267,14 +269,14 @@ var fox = {
                     clearInterval(handler_multi);
                 }
             },500)
-        } else if (fox.speak == true) {
-                var handler_multi_1 = setInterval(function(){
-                    if (fox.speak == false) {
-                        fox.speak_HELLO("multi");
-                        fox.speak = true;
-                        clearInterval(handler_multi_1);
-                    }
-                },1000)
+        // } else if (fox.speak == true) {
+        //         var handler_multi_1 = setInterval(function(){
+        //             if (fox.speak == false) {
+        //                 fox.speak_HELLO("multi");
+        //                 fox.speak = true;
+        //                 clearInterval(handler_multi_1);
+        //             }
+        //         },1000)
         } else {
         fox.speak = true;
         this.speak_HELLO("multi");
@@ -291,14 +293,14 @@ var fox = {
                     clearInterval(handler_Qst);
                 }
             },500)
-        } else if (fox.speak == true) {
-            var handler_multi_1 = setInterval(function(){
-                if (fox.speak == false) {
-                    fox.speak_HELLO("Qst");
-                    fox.speak = true;
-                    clearInterval(handler_multi_1);
-                }
-            },1000)
+        // } else if (fox.speak == true) {
+        //     var handler_multi_1 = setInterval(function(){
+        //         if (fox.speak == false) {
+        //             fox.speak_HELLO("Qst");
+        //             fox.speak = true;
+        //             clearInterval(handler_multi_1);
+        //         }
+        //     },1000)
         } else {
         fox.speak = true;
         this.speak_HELLO("Qst");
