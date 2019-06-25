@@ -416,9 +416,7 @@ require_once 'views/templates/header.php';
                     </div>
                     <div class="gift-block-text-text"><?=$prize?></div>
                 </div>
-                <!-- <div class="block-telefon">
-                    <iframe class= "telefon" frameborder="0" width ="500" height="300" src="https://lyubov-i-golubi.ru"></iframe>
-                </div>  -->
+                
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-red"></div>
@@ -457,7 +455,7 @@ require_once 'views/templates/header.php';
 
             </div>
             <div class="gift-block3">
-                <div class="gift-block3-head">Получите ответы на свой email:</div>
+                <div class="gift-block3-head">Получите подарок на свой email:</div>
                 <div class="gift-get" id = "gift-get">
                     <div class="gift-mail-small-box">
                         <input class="gift-get-mail" onfocus="fox.speak_multi();" id = "mail" name = "mail" type="text" placeholder= "Введите email">
