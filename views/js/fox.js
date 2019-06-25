@@ -13,7 +13,7 @@ var fox = {
         long_no_action: "Эгей, эгегей.<br>Давай, давай",
         email_enter: "Будь внимателен!",
         toFast: "Не спеши!",
-        after_Qst: ["Это мой любимый", "Это самый любимый", "Интересный вопрос", "Рр...<br>будь осторожен", "Фр..фр..<br>Ничего себе"],
+        after_Qst: ["Это мой любимый<br>вопрос", "Это самый любимый<br>вопрос", "Интересный вопрос", "Рр...<br>будь осторожен", "Фр..фр..<br>Ничего себе"],
         // __________Резерв___________
         // wakeUp: ["Вы еще здесь", "Может быть вам пора отдохнуть - промежуточные результаты игры сохраняются", "Мы ждем ваших действий"],
         help: ["Выбери вариант ответов", "Нажми ответить", "Будь внимателен"],
@@ -51,9 +51,23 @@ var fox = {
         
         
 
-        if (privet == 'hint' || privet == 'about_hint' || privet == 'about_level') {
+        if ( privet == 'about_hint' || privet == 'about_level') {
             setTimeout(function() {
                 fox_words.style.display = "none";
+                fox_img.className = 'fox-wakeUp';
+                var handler_wakeUp = setInterval(function(){
+                    if(fox_img.classList.contains('fox-wakeUp')) {
+                        fox_img.className = 'fox-wakeUp2';
+                    } else if (fox_img.classList.contains('fox-wakeUp2')) {
+                        fox_img.className = 'fox-wakeUp';
+                    }
+                },500);
+                setTimeout(function(){clearInterval(handler_wakeUp)},1000);
+            }, 0);
+        } else if (privet == 'hint') {
+            fox_words_text.innerHTML = fox.hint_words;
+            fox_words.style.display = "block";
+            setTimeout(function() {
                 fox_img.className = 'fox-wakeUp';
                 var handler_wakeUp = setInterval(function(){
                     if(fox_img.classList.contains('fox-wakeUp')) {
@@ -180,7 +194,8 @@ var fox = {
                         // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
                         // }
                     else fox_words_text.innerHTML = about_hint[0];
-                } else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
+                } 
+                // else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
                 
                 fox_words.style.display = "block";
                 

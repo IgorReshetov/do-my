@@ -1494,14 +1494,10 @@ function update_afterClientFoward() {
                         if (anime_off) {anime_off = false;
                             if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor != "rgb(128,128,128)") { handle_hit = setInterval(anime_step_fillHit,20, prevQst, numStartQst);
                                 ints.push(handle_hit);
-                                S(C('result1')[0]).display = 'flex';
-                                S(C('step-level2')[0]).display = 'none';
                             }
                             else if (otvet.answer_is_true == 1 && S(C('step-survey')[prevQst]).backgroundColor == "rgb(128,128,128)" ) {
                                 handle_hit_2 = setInterval(anime_step_fillHit_2, 20, prevQst, numStartQst);
                                 ints.push(handle_hit_2);
-                                S(C('result1')[0]).display = 'flex';
-                                S(C('step-level2')[0]).display = 'none';
                             }
                             else if (otvet.answer_is_true == '0' || otvet.answer_is_true == null) { handle_miss = setInterval(anime_step_fillMiss, 20, prevQst, numStartQst);
                                 ints.push(handle_miss);}
@@ -1955,15 +1951,23 @@ function update_afterClientFoward() {
     if (numStartQst >= 0 && numStartQst<levelQst_1.countQst) {
         level[0].innerHTML = numStartQst + 1 + "/" + levelQst_1.countQst;
         level[0].style.borderColor = "yellow";
+       
         // if(fox.time_answer_toFast == true) fox.speak_hurry();
 
         // if (Math.random()<0.33) fox.speak_about_Qst();
     } else if (numStartQst>= levelQst_1.countQst && numStartQst < (levelQst_1.countQst + levelQst_2.countQst)) {
         level[0].innerHTML = (numStartQst*1 + 1) - levelQst_1.countQst + "/" + levelQst_2.countQst;
         level[0].style.borderColor = "blue";
+        S(C('result1')[0]).display = 'flex';
+        S(C('step-level2')[0]).display = 'none';
     } else if (numStartQst>= (levelQst_1.countQst + levelQst_2.countQst) && numStartQst < countQst) {
         level[0].innerHTML = (numStartQst + 1) - (levelQst_1.countQst + levelQst_2.countQst) + "/" + levelQst_3.countQst;
         level[0].style.borderColor = "red";
+        S(C('result1')[0]).display = 'flex';
+        S(C('result2')[0]).display = 'flex';
+        S(C('step-level2')[0]).display = 'none';
+        S(C('step-level3')[0]).display = 'none';
+        S(C('present')[0]).display = 'flex';
     } else if (numStartQst==countQst) { 
         // document.getElementsByClassName('title')[0].style.display="none";
         // level[0].innerHTML = "Done";
