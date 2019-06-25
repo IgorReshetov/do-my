@@ -133,22 +133,21 @@ function question(point) {
     if (row == 1 && pos == 3) {
         show();
         window.setTimeout(function(){
-        
-        var coord_target = offset(start_elem);
-        $("body,html,document").animate({scrollTop: coord_target},1000);
+                
+        $("body,html,document").animate({scrollTop: 0},2000);
 
-        }, 12000);
+        }, 8000);
         window.setTimeout(function(){
         document.getElementById('first').children[1].children[1].classList.remove('column2-image1');
         document.getElementById('first').children[1].children[1].classList.add('column2-image1-aim');
         document.getElementById('first').children[0].innerHTML = 'Полезные квизы и викторины';
-        }, 14000);
+        }, 10000);
         return false;}
     blue(start_elem.children[2]);
     window.setTimeout(function(){
     start_elem.children[0].children[pos-1].classList.add('display-block');
     start_elem.children[0].classList.add('column-proect-light-red');
-    }, 3000);
+    }, 2000);
     start_elem.setAttribute('left', pos);
     start_elem.children[1].children[0].classList.add('opacity07');
     return;
@@ -175,7 +174,7 @@ function show(){
     start_elem.children[3].children[2].children[1].classList.add('display-none');
     start_elem.children[3].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[3].children[2]);
-    }, 3000);
+    }, 2000);
 
     window.setTimeout(function(){
 
@@ -188,7 +187,7 @@ function show(){
     start_elem.children[4].children[2].children[1].classList.add('display-none');
     start_elem.children[4].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[4].children[2]);
-    }, 6000);
+    }, 4000);
 
     window.setTimeout(function(){
 
@@ -201,7 +200,7 @@ function show(){
     start_elem.children[5].children[2].children[1].classList.add('display-none');
     start_elem.children[5].children[2].children[2].classList.add('display-block');
     yellow(start_elem.children[5].children[2]);
-    }, 9000);
+    }, 6000);
    
     return;
 }
@@ -210,7 +209,7 @@ function blue(element){
     element.classList.add('column-proect-light-blue');
     window.setTimeout(function(){
         element.classList.remove('column-proect-light-blue');
-    }, 3000);
+    }, 2000);
     return;
 }  
 
@@ -218,7 +217,7 @@ function yellow(element){
     element.classList.add('column-proect-light-yellow');
     window.setTimeout(function(){
         element.classList.remove('column-proect-light-yellow');
-    }, 3000);
+    }, 2000);
     return;
 }  
 
