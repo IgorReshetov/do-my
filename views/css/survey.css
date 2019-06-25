@@ -1867,6 +1867,10 @@ table.prev_next {
   display: none;
 }
 
+.gift-get-check-left {
+  margin-left: 45px;
+}
+
 .addpsev-privacy {
   width: 20px;
   height: 20px;
@@ -1881,7 +1885,6 @@ table.prev_next {
           box-shadow: 0 0 4px #bbbbbb;
   position: relative;
   cursor: pointer;
-  margin-left: 45px;
 }
 
 .addpsev-privacy:hover {
@@ -2404,6 +2407,9 @@ table.prev_next {
 }
 
 @media (max-width: 410px) {
+  .gift-get-check-left {
+    margin-left: 20px;
+  }
   table {
     min-width: 300px;
   }

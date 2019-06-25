@@ -143,7 +143,8 @@ function init() {
     preloader();
     menu();
 
-   
+    fox.speake_start();
+
     history.pushState({param: 'Value'}, '', 'index.php?page=survey');// автозамена URL при сбросе через GET параметр
 
     // history.pushState(null,null, 'newpage');    // добавляет новый URL в историю
@@ -152,7 +153,6 @@ function init() {
 
     // fox.speak_survey();
 
-    fox.speake_start();
     fox.enter_leave_mouse();
     fox.wakeUp_mouse();
     fox.no_active_user();
