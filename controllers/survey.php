@@ -13,7 +13,7 @@ $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count'
 $active_question = $_SESSION['active_question'];
 
 
-$title = "Победите в игре, узнайте как не ошибиться при выборе и получите скидку на квартиру в ЖК \"Любовь и голуби\"";
+$title = "Квиз: Как выбрать квартиру?";
 $prize = "Скидку более миллиона рублей на квартиру в ЖК \"Любовь и голуби\"";
 
 

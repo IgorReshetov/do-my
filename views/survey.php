@@ -287,10 +287,6 @@ require_once 'views/templates/header.php';
                 <div class="land-block-question land-block1-question">Что это?</div>
                 <div class="land-block-answer land-block1-answer">Умная игра, где вы получите знания и призы</div>
             </div>
-            <div class="land-patner">
-                <div class="land-patner-text">Партнер игры</div>
-                <div class="land-patner-pic"></div>
-            </div>
         </div>
         <div class="land-block land-block2">
             <div class="land-block-text land-block2-text">
@@ -311,7 +307,7 @@ require_once 'views/templates/header.php';
             <div class="land-block-text land-block4-text">
                 <div class="land-block-question  land-block4-question">Зачем?</div>
                 <div class="land-block-answer land-block-answer1"><b>1.</b> Чтобы не ошибиться при покупке квартиры.</div>
-                <div class="land-block-answer land-block-answer1"><b>2.</b> Получить приз: скидку на квартиру в ЖК <b>"Любовь и голуби"</b>, которая возможно подойдет именно вам</div>
+                <div class="land-block-answer land-block-answer1"><b>2.</b> Получить приз: скидку на квартиру, которая возможно подойдет именно вам.</div>
             </div>  
         </div>
         <div class="land-block land-block5">
