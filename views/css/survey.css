@@ -931,6 +931,7 @@ table.prev_next {
       -ms-flex-pack: start;
           justify-content: start;
   position: relative;
+  margin-left: 5px;
 }
 
 .step-survey-start {

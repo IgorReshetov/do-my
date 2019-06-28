@@ -2051,7 +2051,6 @@ function anime_step_down(prevQst, numStartQst) {         // Анимация DOW
     num_step -= 2;                     // y - предыдущий вопрос
     num_margin_right += 1;
     num_margin_left += 1;
-    sur_left -= 1;
     if (num_step == control_size_down) {
         clearInterval(handle_down);
         handle_move_left_right = setInterval(anime_move_left_right,1, prevQst, numStartQst);
@@ -2142,7 +2141,7 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
 
 
 // ___________________________________________________________________________________________
-var margin_left = 0; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
+var margin_left = 5; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
 var const_margin = 5;   
 var status_screen = 1;
 var size_circle = 12; // размер шарика
