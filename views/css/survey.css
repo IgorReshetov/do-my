@@ -945,6 +945,7 @@ table.prev_next {
 .range-focus {
   -webkit-appearance: none;
   width: 90%;
+  cursor: pointer;
 }
 
 .range-focus::-webkit-slider-runnable-track {
@@ -1025,48 +1026,48 @@ table.prev_next {
   height: 30px;
   width: 30px;
   background-color: white;
-  border: 3px solid yellow;
-  box-shadow: 0 0 1px yellow;
+  border: 3px solid yellow !important;
+  box-shadow: 0 0 1px yellow !important;
   border-radius: 100%;
   cursor: pointer;
 }
 
 .range-focus.level2::-ms-thumb {
-  border: 3px solid blue;
+  border: 3px solid blue !important;
 }
 
 .range-focus.level3::-ms-thumb {
-  border: 3px solid red;
+  border: 3px solid red !important;
 }
 
 .range-focus::-ms-thumb:hover {
-  box-shadow: 0 0 5px yellow;
-  border: 4px solid yellow;
-}
-
-.range-focus::-ms-thumb:active {
   box-shadow: 0 0 5px yellow !important;
   border: 4px solid yellow !important;
 }
 
-.range-focus.level2::-ms-thumb:hover {
-  box-shadow: 0 0 5px blue;
-  border: 4px solid blue;
+.range-focus::-ms-thumb:active {
+  box-shadow: 0 0 5px yellow;
+  border: 4px solid yellow;
 }
 
-.range-focus::-ms-thumb:active {
+.range-focus.level2::-ms-thumb:hover {
   box-shadow: 0 0 5px blue !important;
   border: 4px solid blue !important;
 }
 
+.range-focus::-ms-thumb:active {
+  box-shadow: 0 0 5px blue;
+  border: 4px solid blue;
+}
+
 .range-focus.level3::-ms-thumb:hover {
-  box-shadow: 0 0 5px red;
-  border: 4px solid red;
+  box-shadow: 0 0 5px red !important;
+  border: 4px solid red !important;
 }
 
 .range-focus::-ms-thumb:active {
-  box-shadow: 0 0 5px red !important;
-  border: 4px solid red !important;
+  box-shadow: 0 0 5px red;
+  border: 4px solid red;
 }
 
 .range-min {
