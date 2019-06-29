@@ -615,7 +615,8 @@ function fill_circle() {
         else if (cookies.user_answer[i].answer_is_true === null) circles[i].style.background = 'grey';   
     }
 
-    S(C('step-survey-finish')[0]).left = (countQst*45 + 10) + 'px';
+    if (mobile == 0) S(C('step-survey-finish')[0]).left = (countQst*45 + 10) + 'px';
+    else S(C('step-survey-finish')[0]).left = (countQst*27 + 10) + 'px';
 }
 
 // Появление кнопки ОТВЕТИТЬ
@@ -2152,10 +2153,12 @@ function resize_step() {
         num_step = 15; num_margin_right = 30;
         control_size_up = 22; control_size_down = 15; 
         start_margin_left = 5; last_margin = 5; const_margin = 5; status_screen=1; size_circle = 12; margin_left = 5;
+        S(C('step-survey-finish')[0]).left = (countQst*45 + 10) + 'px';
     } else {size_step = size_step_start = 29;
         num_step = 10; num_margin_right = 17;
         control_size_up = 13; control_size_down = 10; 
         start_margin_left = 2; last_margin = 2; const_margin = 2; status_screen=0; size_circle = 17; margin_left = 2;
+        S(C('step-survey-finish')[0]).left = (countQst*27 + 10) + 'px';
     }
 }
 

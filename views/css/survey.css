@@ -2164,6 +2164,20 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
+  .step-survey-start {
+    left: -40px;
+    top: 11px;
+    position: absolute;
+    color: #636363;
+    font-size: 12px;
+  }
+  .step-survey-finish {
+    left: 50px;
+    top: 11px;
+    position: absolute;
+    color: #636363;
+    font-size: 12px;
+  }
   .slider-box-survey-arround {
     margin-left: 0px;
     margin-right: 0px;
