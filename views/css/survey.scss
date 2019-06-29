@@ -720,7 +720,7 @@ table.prev_next {
 .slider-box-survey-hidden{
     height: 35px;
     max-width: 100%;
-    min-width: 147px;
+    // min-width: 147px;
     overflow: hidden;
     margin-left: 12px;
     margin-right: 12px;
@@ -1876,6 +1876,16 @@ margin-right: 30px;
 
 
 @media (max-width: 570px) {
+
+    .slider-box-survey-arround {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .slider-box-survey-hidden {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
     
     .slider-survey {
        margin-left: 2px;
