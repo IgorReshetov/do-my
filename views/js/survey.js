@@ -325,7 +325,7 @@ function init() {
         touch_OBJ = e.changedTouches[0]
         console.log(slider_left); 
         var dist = parseInt(touch_OBJ.clientX) - start_X 
-        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -750)? -750 : slider_left + dist ) + 'px'
+        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -900)? -900 : slider_left + dist ) + 'px'
         e.preventDefault()
     }, false);
   
@@ -615,6 +615,8 @@ function fill_circle() {
         else if (cookies.user_answer[i].answer_is_true === null) circles[i].style.background = 'grey';   
     }
 
+    if (mobile == 0) S(C('step-survey-finish')[0]).left = (countQst*47-1) + 'px';
+    else S(C('step-survey-finish')[0]).left = (countQst*29-1) + 'px';
 }
 
 // Появление кнопки ОТВЕТИТЬ
@@ -2020,21 +2022,26 @@ function anime_level() {
     S(C('slider-level')[0]).opacity = num_opacity;
     
 }
-var num_step =15, num_margin_right = 30, 
-control_size_up = 20, control_size_down = 15; // Анимация UP маленького круга степ-сурвей перед ответом
+var num_step =15, num_margin_right = 30, num_margin_left = 0,
+control_size_up = 21, control_size_down = 15; // Анимация UP маленького круга степ-сурвей перед ответом
 
 function anime_step_up(numStartQst) {                            // x - текущий вопрос
-    num_step += 1;
+    num_step += 2;
     num_margin_right -= 1;
-    if (num_step == control_size_up) {
+    num_margin_left -= 1;
+   
+    if (num_step >= control_size_up) {
         clearInterval(handle_step);
         anime_off = true;
         ints=[];
         flag_slaider=0;
     }
     S(C('step-survey')[numStartQst]).marginRight = num_margin_right + 'px';
+    S(C('step-survey')[numStartQst]).marginLeft = num_margin_left + 'px';
     S(C('step-survey')[numStartQst]).width = num_step + 'px';
     S(C('step-survey')[numStartQst]).height = num_step + 'px';
+
+    // S(C('step-survey-start')[0]).left = sur_left + 'px';
 
   }
 
@@ -2042,16 +2049,20 @@ var flag_slaider =0; // флаг для отслеживания дваижен�
 
 function anime_step_down(prevQst, numStartQst) {         // Анимация DOWN круга степ-сурвей после ответа
     flag_slaider =1;
-    num_step -= 1;                     // y - предыдущий вопрос
+    num_step -= 2;                     // y - предыдущий вопрос
     num_margin_right += 1;
+    num_margin_left += 1;
     if (num_step == control_size_down) {
         clearInterval(handle_down);
         handle_move_left_right = setInterval(anime_move_left_right,1, prevQst, numStartQst);
         ints.push(handle_move_left_right);
     }
     S(C('step-survey')[prevQst]).marginRight = num_margin_right + 'px';
+    S(C('step-survey')[prevQst]).marginLeft = num_margin_left + 'px';
     S(C('step-survey')[prevQst]).width = num_step + 'px';
     S(C('step-survey')[prevQst]).height = num_step + 'px';
+
+    // S(C('step-survey-start')[0]).left = sur_left + 'px';
     
 }
 
@@ -2131,7 +2142,7 @@ function anime_step_fillHit_6(prevQst, numStartQst) {          // закраши
 
 
 // ___________________________________________________________________________________________
-var margin_left = 0; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
+var margin_left = 5; var last_margin = 5; var size_step = 29; var start_margin_left = 5; var size_step_start = 29;
 var const_margin = 5;   
 var status_screen = 1;
 var size_circle = 12; // размер шарика
@@ -2140,12 +2151,14 @@ function resize_step() {
     if (mobile == 0) {
         size_step = size_step_start = 47;
         num_step = 15; num_margin_right = 30;
-        control_size_up = 20; control_size_down = 15; 
-        start_margin_left = 5; last_margin = 5; const_margin = 5; status_screen=1; size_circle = 12;
+        control_size_up = 22; control_size_down = 15; 
+        start_margin_left = 5; last_margin = 5; const_margin = 5; status_screen=1; size_circle = 12; margin_left = 5;
+        S(C('step-survey-finish')[0]).left = (countQst*47-1) + 'px';
     } else {size_step = size_step_start = 29;
         num_step = 10; num_margin_right = 17;
         control_size_up = 13; control_size_down = 10; 
-        start_margin_left = 2; last_margin = 2; const_margin = 2; status_screen=0; size_circle = 17;
+        start_margin_left = 2; last_margin = 2; const_margin = 2; status_screen=0; size_circle = 17; margin_left = 2;
+        S(C('step-survey-finish')[0]).left = (countQst*29-1) + 'px';
     }
 }
 

@@ -692,19 +692,65 @@ table.prev_next {
     min-width: 150px;
     margin: auto;
     margin-top: 2px;
+    margin-left: 20px;
+    margin-right: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
-.slider-box-survey {
+
+.slider-box-survey-margin1 {
+    // height: 35px;
+    // max-width: 100%;
+    // min-width: 147px;
+    margin-left: 50%;
+    // margin-right: 10px;
+}
+
+.slider-box-survey-margin2 {
+    // height: 35px;
+    // max-width: 100%;
+    // min-width: 147px;
+    margin-left: -13px;
+    margin-right: -13px;
+}
+
+.slider-box-survey-hidden{
     height: 35px;
     max-width: 100%;
-    min-width: 147px;
+    // min-width: 147px;
     overflow: hidden;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
+
+.slider-box-survey-hidden:before {
+    content: '';
+    display: block;
+    left: 50%;
+    top: -15px;
+    position: absolute;
+    width: 0px;
+    height: 15px;
+    border-left: 1px solid rgb(99, 99, 99);
+    // z-index: 99;     
+}
+
+.slider-box-survey-hidden:after {
+    content: '';
+    display: block;
+    left: 50%;
+    bottom: -15px;
+    position: absolute;
+    width: 0px;
+    height: 15px;
+    border-left: 1px solid rgb(99, 99, 99);
+    // z-index: 99;     
+}
+
+
 
 .slider-box-survey-before {
     height: 15px;
@@ -749,8 +795,25 @@ table.prev_next {
     display: flex;
     align-items: center;
     justify-content: start;
+    position: relative;
     // transition: 10s all;
     margin-left: 5px;
+}
+
+.step-survey-start {
+    left: - 70px;
+    top: 7px;
+    position: absolute;
+    color: rgb(99, 99, 99);
+    font-size: 17px; 
+}
+
+.step-survey-finish {
+    left: 50px;
+    top: 7px;
+    position: absolute;
+    color: rgb(99, 99, 99);
+    font-size: 17px;   
 }
 
 .step-survey{
@@ -1826,6 +1889,41 @@ margin-right: 30px;
 
 
 @media (max-width: 570px) {
+
+    .step-survey-start {
+        left: - 40px;
+        top: 11px;
+        position: absolute;
+        color: rgb(99, 99, 99);
+        font-size: 12px; 
+    }
+    
+    .step-survey-finish {
+        left: 50px;
+        top: 11px;
+        position: absolute;
+        color: rgb(99, 99, 99);
+        font-size: 12px;   
+    }
+
+    .slider-box-survey-arround {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .slider-box-survey-hidden {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .slider-survey {
+       margin-left: 2px;
+    }
+
+    .slider-box-survey-margin2 {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
 
     .telefon {
         width: 300px;
