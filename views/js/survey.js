@@ -1309,8 +1309,8 @@ function update_afterClientAnswer(otvet, answer_user) {
         why_title.style.display = "none";
         why.style.display = "none";
         // otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
-        (rang_Qst_Stat)? otvet_false.innerHTML = "Промах.<br><br>Есть вариант лучше." 
-        : otvet_false.innerHTML = "Промах.<br><br>Это неточный ответ.";
+        (rang_Qst_Stat)? otvet_false.innerHTML = "Промах<br><br>Есть вариант лучше" 
+        : otvet_false.innerHTML = "Промах<br><br>Это неточный ответ";
         otvet_false.style.display = "block";
     } 
 
@@ -1363,7 +1363,7 @@ function valid_level_1() {
             // image.classList = [];
             // image.classList.add('result-pass-level1');
             image.style.display = "block";
-            otvet_true.innerHTML = "Поздравляем!<br>Вы прошли уровень \"Easy\".";
+            otvet_true.innerHTML = "Поздравляем!<br>Вы прошли уровень \"Easy\"";
             otvet_true.style.display = "block";
         }
     // } 
@@ -1414,7 +1414,7 @@ function valid_level_2() {
             // image.classList = [];
             // image.classList.add('result-pass-level2');
             image.style.display = "block";
-            otvet_true.innerHTML = "Поздравляем!<br>Вы прошли уровень \"Medium\".";
+            otvet_true.innerHTML = "Поздравляем!<br>Вы прошли уровень \"Medium\"";
             otvet_true.style.display = "block";
         }
     // } 
@@ -1468,7 +1468,7 @@ function valid_level_3() {
             // image.classList = [];
             // image.classList.add('result-pass-level3');
             image.style.display = "block";
-            otvet_true.innerHTML = "Поздравляем!<br>Вы прошли уровень \"Hard\".";
+            otvet_true.innerHTML = "Поздравляем!<br>Вы прошли уровень \"Hard\"";
             otvet_true.style.display = "block";
             
         }
