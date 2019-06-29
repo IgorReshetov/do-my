@@ -184,7 +184,7 @@ function init() {
             // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
             // $('html').animate({scrollTop: coord_target},2000);
             setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
-        }, 5000);
+        }, 10000);
 
     };
     
@@ -2358,11 +2358,11 @@ function perebor_Qst() {
     setTimeout(function(){
         S(C('land-block-answer land-block2-answer2')[0]).display = "none";
         S(C('land-block-answer land-block2-answer3')[0]).display = "block";
-    }, 1500);
+    }, 5000);
     setTimeout(function(){
         S(C('land-block-answer land-block2-answer3')[0]).display = "none";
         S(C('land-block-answer land-block2-answer4')[0]).display = "block";
-    }, 3000);
+    }, 9000);
 }
 
 // _________________________________ Функция получения подсказки на вопрос ________________________________
