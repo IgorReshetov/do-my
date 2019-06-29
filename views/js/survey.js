@@ -953,7 +953,7 @@ function update_Q_A (messages) {
         //     answShuffle.push(ans);
         // });
 
-        answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
+        (form_Qst)? answShuffle = answShuffle : answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
         var idShuffle = [], answerShuffle=[], infoShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
     
         // 4 Правка цикла for
@@ -1095,7 +1095,7 @@ function update_Q_A (messages) {
         //     answShuffle.push(ans);
         // });
 
-        answShuffle = answShuffle.shuffle();        //Перемешываем массив с элементами ответов
+        (form_Qst)? answShuffle = answShuffle : answShuffle = answShuffle.shuffle();    //Перемешываем массив с элементами ответов
         var idShuffle = [], answerShuffle=[];       //Разбиваем на два массива*** делаем это, т.к. цикл не видит второго уровня и требуется еще один вложенный цикл
     
         // 4 Правка цикла for
