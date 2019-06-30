@@ -13,7 +13,7 @@ $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count'
 $active_question = $_SESSION['active_question'];
 
 
-$title = "Квиз: Как выбрать квартиру?";
+$title = "Тест: Как выбрать квартиру?";
 $prize = "Скидку более миллиона рублей на квартиру в ЖК \"Любовь и голуби\"";
 
 
@@ -22,7 +22,7 @@ if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {
     
 } else {
     if ($active_question < $count) {$play = 'play2';}
-    if ($active_question == $count) {$play = 'play3'; $title = "Поздравляем, вы прошли квиз!";}
+    if ($active_question == $count) {$play = 'play3'; $title = "Поздравляем, вы прошли тест!";}
     if ($active_question > $count) {
         $play = 'play4';
         $_SESSION['active_question']= 0;

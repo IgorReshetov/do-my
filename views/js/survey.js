@@ -1463,7 +1463,7 @@ function valid_level_3() {
             // image.classList.add('result-loss-level');
             image.style.display = "block";
 
-            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Победа в игре - не больше 1 промаха.";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Для прохождения теста - не больше 1 промаха.";
             otvet_false.style.display = "block"; 
             // why.innerHTML = "Победа возможна с 1 промахом.";
             // why.style.display = "block";

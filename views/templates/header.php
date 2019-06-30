@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Полезные квизы и викторины">
+    <meta name="description" content="Полезные тесты и квизы">
     <title><?php echo "$admin_page_title" ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="views/css/style.css?ver=<?=VER?>">
@@ -66,16 +66,16 @@
                     echo ('<a href="index.php?page=start&back=1" class="hiden-menu-user-getpromo">На главную страницу</a>');
                 }
                 ?>
-                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным квизам</div>
+                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным тестам</div>
                 <div class="hiden-menu-user-getpromo" id = "inwork">Проверить промокод</div>
 
                 <?php
                 if ($_SESSION['active_question'] > 0 && $page != "survey"){
-                    echo ('<a href="index.php?page=survey&back=1" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
+                    echo ('<a href="index.php?page=survey&back=1" class="hiden-menu-user-getpromo">Продолжить тест</a>');
                 }
 
                 if ($_SESSION['active_question'] > 0){
-                    echo ('<a href="index.php?page=survey&reset=1&back=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
+                    echo ('<a href="index.php?page=survey&reset=1&back=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу теста</a>');
                 }
 
                 if ($page != "project") {
@@ -93,7 +93,7 @@
             </div>
             <div class="menu-wraper-promo" id = "menu-wraper-promo">
             <div class="hiden-menu-user-promo" id = "menu12">
-                <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
+                <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным тестам введите ваш email:</div>
                 
                 <div class="hiden-menu-input-wraper">
                 <input class="hiden-menu-user-promo-block" onfocus="fox.speak_multi();" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
