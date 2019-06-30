@@ -934,7 +934,7 @@ table.prev_next {
 }
 
 .step-survey-start {
-  left: -70px;
+  left: -67px;
   top: 7px;
   position: absolute;
   color: #636363;
@@ -2178,6 +2178,26 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
+  .slider-box-survey-hidden:before {
+    content: '';
+    display: block;
+    left: 50%;
+    top: -3px;
+    position: absolute;
+    width: 0px;
+    height: 10px;
+    border-left: 1px solid #636363;
+  }
+  .slider-box-survey-hidden:after {
+    content: '';
+    display: block;
+    left: 50%;
+    bottom: -4px;
+    position: absolute;
+    width: 0px;
+    height: 10px;
+    border-left: 1px solid #636363;
+  }
   .step-survey-start {
     left: -40px;
     top: 11px;
