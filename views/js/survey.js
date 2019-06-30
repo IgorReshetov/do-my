@@ -248,8 +248,9 @@ function init() {
         inputs_pic[i].onclick = next_ready_pic;
     }
 
-    input_range.onchange = next_ready_range;
-      
+    input_range.onfocus = next_ready_range;
+    input_range.ontouchstart = next_ready_range;
+
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
