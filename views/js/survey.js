@@ -971,12 +971,12 @@ function update_Q_A (messages) {
         //    console.log(answerShuffle);
     
         var inputs = document.querySelectorAll(".picture-wriper input");
+        if (messages.question.is_multi_answer == '1') fox.speak_multi();
 
         for (var i=0; i<inputs.length; i++) {
             inputs[i].checked = false;
             if (messages.question.is_multi_answer == '1'){ 
                 // if (!fox.speak_about_level_flag)  
-                fox.speak_multi();
                 inputs[i].setAttribute('type', 'checkbox');
                 // inputs[i].nextElementSibling.classList.remove ('radio');  
                 // inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;
@@ -1110,13 +1110,13 @@ function update_Q_A (messages) {
         // });
         //    console.log(idShuffle);  
         //    console.log(answerShuffle);
-    
+        if (messages.question.is_multi_answer == '1') fox.speak_multi();
+
         var inputs = document.querySelectorAll(".right input");
         for (var i=0; i<inputs.length; i++) {
             inputs[i].checked = false;
             if (messages.question.is_multi_answer == '1'){ 
                 // if (!fox.speak_about_level_flag)
-                fox.speak_multi();
                 inputs[i].setAttribute('type', 'checkbox');
                 inputs[i].nextElementSibling.classList.remove ('radio');  
                 inputs[i].nextElementSibling.classList.add ('checkbox'); // Установка чекбоксов или радиокнопок;

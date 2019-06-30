@@ -5,6 +5,7 @@ var fox = {
     sleep: true,
     speak: false,
     last_time: 0,
+    ints_speak: [],
 
     words: {
         hello_new: "Привет.<br>Давай дружить!",
@@ -21,11 +22,11 @@ var fox = {
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
         about_level: ["Для победы на этом уровне<br>ты можешь допустить 3 промаха", "Для победы на этом уровне<br>ты можешь допустить 2 промаха", "Для победы на этом уровне<br>ты можешь допустить 1 промах"],
-        about_hint: ["У тебя есть пять моих подсказок","У тебя есть четыре моих подсказки","У тебя есть три моих подсказки", "У тебя есть две моих подсказки", "У тебя осталась одна моя подсказка", "У тебя не осталось моих подсказок"]
+        about_hint: ["У тебя есть 7 моих подсказок","У тебя есть 6 моих подсказок","У тебя есть 5 моих подсказок","У тебя есть 4 моих подсказки","У тебя есть 3 моих подсказки", "У тебя есть 2 моих подсказки", "У тебя осталась 1 моя подсказка", "У тебя не осталось моих подсказок"]
     },
    
     speak_HELLO: function(privet) {
-        
+
         var last_time = this.last_time;
         var new_old = document.getElementById("fox-start");
         var fox_img = document.getElementById("fox");
@@ -49,7 +50,7 @@ var fox = {
 
         this.sleep = false;
         
-        
+        this.speak = true
 
         if ( privet == 'about_hint' || privet == 'about_level') {
             setTimeout(function() {
@@ -93,7 +94,7 @@ var fox = {
             }, 2000);
         }
 
-        if (fox.speak == true && fox.speak_about_level_flag == true) {
+        if (fox.speak_about_level_flag == true) {
             setTimeout(function() {
             fox_img.className = 'fox-speak';
             if (privet == 'about_level') {
@@ -121,12 +122,14 @@ var fox = {
             if (privet == "about_level") { 
                 // setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
                 setTimeout(function(){
-                    if (fox.hint == 5) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[3];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[4];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[5];
+                    if (fox.hint == 7) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[5];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[6];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[7];
                     // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                     // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                     // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -139,8 +142,12 @@ var fox = {
                     fox.speak_about_level_flag = false;
                     fox_words_text.innerHTML = "";
                     fox_words.style.display = 'none';
+                    if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
+                        new Function(fox.ints_speak.shift())();
+                        return;
+                    } else fox.speak=false; // если слов в очереди день то выключаем свойство говорит
                     fox.last_time = new Date().getTime();
-                    fox.speak=false;
+                    
                 },11000);
             }
             // } else {
@@ -182,12 +189,14 @@ var fox = {
                         else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
                         else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
                 } else if (privet == 'about_hint') {
-                    if (fox.hint == 5) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[3];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[4];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[5];
+                    if (fox.hint == 7) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[5];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[6];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[7];
                         // {
                         // if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
                         // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
@@ -218,18 +227,23 @@ var fox = {
                     setTimeout(function(){
                         fox_words_text.innerHTML = "";
                         fox_words.style.display = 'none';
+                        if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
+                            new Function(fox.ints_speak.shift())();
+                            return;
+                        } else fox.speak=false; // если слов в очереди день то выключаем свойство говорит
                         fox.last_time = new Date().getTime();
-                        fox.speak=false;
                     },6000);
                 } else if (privet == "about_level") { 
                     setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
                     setTimeout(function(){
-                        if (fox.hint == 5) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[3];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[4];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[5];
+                        if (fox.hint == 7) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[5];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[6];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[7];
                         // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                         // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                         // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -240,17 +254,25 @@ var fox = {
                     setTimeout(function(){
                         fox_words_text.innerHTML = "";
                         fox_words.style.display = 'none';
+                        if (fox.ints_speak.length > 0) {// если есть очередь высказываний, говорим следующее слово
+                            new Function(fox.ints_speak.shift())();
+                            return;
+                        } else fox.speak=false; // если слов в очереди день то выключаем свойство говорит
                         fox.last_time = new Date().getTime();
-                        fox.speak=false;
+                        
                     },11000);
                 } else {
                     setTimeout(function(){clearInterval(handler_speak)},3000);
                     setTimeout(function(){
-                        if (fox.speak_about_level_flag == false) {fox_words_text.innerHTML = "";
-                        fox_words.style.display = 'none';
-                        fox.last_time = new Date().getTime();
-                        fox.speak=false;
-                        }
+                        // if (fox.speak_about_level_flag == false) {
+                            fox_words_text.innerHTML = "";
+                            fox_words.style.display = 'none';
+                            if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
+                                new Function(fox.ints_speak.shift())();
+                                return;
+                            } else fox.speak=false; // если слов в очереди день то выключаем свойство говорит
+                            fox.last_time = new Date().getTime();
+                        // }
                     },3000);
                 }
                 }, 3000, speak, new_old, hello_new, hello_old, last_time, privet);
@@ -266,7 +288,6 @@ var fox = {
     },
 
     speake_start: function () {
-        fox.speak = true;
         this.speak_HELLO("start");
     },
 
@@ -276,14 +297,19 @@ var fox = {
 
     speak_key_multi: false,
     speak_multi: function () {
-        if (fox.speak_about_level_flag == true) {
-            var handler_multi = setInterval(function(){
-                if (fox.speak_about_level_flag == false) {
-                    fox.speak_HELLO("multi");
-                    fox.speak = true;
-                    clearInterval(handler_multi);
-                }
-            },500)
+        if (this.speak == true){
+             this.ints_speak.push("fox.speak_HELLO('multi')");
+             console.log(fox.ints_speak);
+        }else fox.speak_HELLO("multi");
+
+        // if (fox.speak_about_level_flag == true) {
+        //     var handler_multi = setInterval(function(){
+        //         if (fox.speak_about_level_flag == false) {
+        //             fox.speak_HELLO("multi");
+        //             fox.speak = true;
+        //             clearInterval(handler_multi);
+        //         }
+        //     },500)
         // } else if (fox.speak == true) {
         //         var handler_multi_1 = setInterval(function(){
         //             if (fox.speak == false) {
@@ -292,45 +318,52 @@ var fox = {
         //                 clearInterval(handler_multi_1);
         //             }
         //         },1000)
-        } else {
-        fox.speak = true;
-        this.speak_HELLO("multi");
-        }
+        // } else {
+        // fox.speak = true;
+        // this.speak_HELLO("multi");
+        // }
     },
 
     speak_key_Qst: false,
     speak_about_Qst: function () {
-        if (fox.speak_about_level_flag == true) {
-            var handler_Qst = setInterval(function(){
-                if (fox.speak_about_level_flag == false) {
-                    fox.speak_HELLO("Qst");
-                    fox.speak = true;
-                    clearInterval(handler_Qst);
-                }
-            },500)
-        // } else if (fox.speak == true) {
-        //     var handler_multi_1 = setInterval(function(){
-        //         if (fox.speak == false) {
+        if (this.speak == true) this.ints_speak.push("fox.speak_HELLO('Qst')");
+        else fox.speak_HELLO("Qst");
+
+        // if (fox.speak_about_level_flag == true) {
+        //     var handler_Qst = setInterval(function(){
+        //         if (fox.speak_about_level_flag == false) {
         //             fox.speak_HELLO("Qst");
         //             fox.speak = true;
-        //             clearInterval(handler_multi_1);
+        //             clearInterval(handler_Qst);
         //         }
-        //     },1000)
-        } else {
-        fox.speak = true;
-        this.speak_HELLO("Qst");
-        }
+        //     },500)
+        // // } else if (fox.speak == true) {
+        // //     var handler_multi_1 = setInterval(function(){
+        // //         if (fox.speak == false) {
+        // //             fox.speak_HELLO("Qst");
+        // //             fox.speak = true;
+        // //             clearInterval(handler_multi_1);
+        // //         }
+        // //     },1000)
+        // } else {
+        // fox.speak = true;
+        // this.speak_HELLO("Qst");
+        // }
     },
 
     speak_hurry: function () {
-        this.speak_HELLO("toFast");
+        if (this.speak == true) this.ints_speak.push("fox.speak_HELLO('toFast')");
+        else fox.speak_HELLO("toFast");
     },
 
     speak_game_end: function () {
-        this.speak_HELLO("game_end");
+        if (this.speak == true) this.ints_speak.push("fox.speak_HELLO('game_end')");
+        else fox.speak_HELLO("game_end");
+        
     },
 
     speak_hint: function () {
+        this.ints.length = 0;
         this.speak_HELLO("hint");
     },
 
