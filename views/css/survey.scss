@@ -1745,14 +1745,14 @@ margin-right: 30px;
 .land {
     display: flex;
     flex-direction: column;
-    height: 1150px;
+    height: 900px;
     margin-bottom: 40px;
     margin-top: -2px;    
 }
 
 .land-block {
     display: flex;
-    height: 230px;
+    height: 250px;
     position: relative;
     // border: 1px solid rgb(0, 0, 0); 
 }
@@ -1807,8 +1807,8 @@ margin-right: 30px;
 }
 
 .land-block-answer {
-    text-align: justify;
-    font-size: 18px;
+    text-align: center;
+    font-size: 22px;
     // width: 100%;
 }
 
@@ -1820,7 +1820,7 @@ margin-right: 30px;
 
 .land-block5-button {
     border-radius: 40px;
-    font-size: 20px;
+    font-size: 23px;
     background-color: yellow;
     width: 200px;
     color: black;
@@ -1851,7 +1851,8 @@ margin-right: 30px;
 }
 
 .land-block1-text {
-    transform: translateY(-50%) translateX(10%);
+    transform: translateY(-50%) translateX(50%);
+
 }
 
 .land-block2-text {
@@ -2220,16 +2221,25 @@ margin-right: 30px;
     }
 
     .land {
-        height: 1100px;
+        height: 750px;
         // margin-top: -2px;
     }
     
     .land-block {
-        height: 220px;
+        height: 300px;
     }
 
     .land-block1-text {
-        transform: translateY(-50%) translateX(25%);
+        transform: translateY(-40%) translateX(50%);
+    }
+
+    .land-block-answer {
+        font-size: 18px;
+    }
+
+    .land-block5-button {
+        font-size: 20px;
+        width: 150px;
     }
     
     .land-block2-text {
@@ -2349,12 +2359,12 @@ margin-right: 30px;
     }
 
     .land {
-        height: 900px;
+        height: 640px;
         
     }
     
     .land-block {
-        height: 180px;
+        height: 250px;
     }
 
     .land-block-question {
@@ -2363,7 +2373,7 @@ margin-right: 30px;
     }
     
     .land-block-answer {
-        font-size: 13px;
+        font-size: 17px;
     }
    
 }

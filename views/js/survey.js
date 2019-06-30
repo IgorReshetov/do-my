@@ -174,17 +174,17 @@ function init() {
     var button1 = document.getElementById('land-block5-button');
     if (button1 != null){
         button1.onclick = startOpros;
-        perebor_Qst();
+        // perebor_Qst();
+        setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
+        // setTimeout(function(){
+        //     var coord_target = offset(button1);
 
-        setTimeout(function(){
-            var coord_target = offset(button1);
+        //     $("body,html,document").animate({scrollTop: coord_target},2000);
 
-            $("body,html,document").animate({scrollTop: coord_target},2000);
-
-            // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
-            // $('html').animate({scrollTop: coord_target},2000);
-            setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
-        }, 10000);
+        //     // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
+        //     // $('html').animate({scrollTop: coord_target},2000);
+        //     setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
+        // }, 10000);
 
     };
     
@@ -2378,16 +2378,16 @@ function  getPageSize(){
     return {'page':{'width':pageWidth,'height':pageHeight},'window':{'width':windowWidth,'height':windowHeight}}
 }
 
-function perebor_Qst() {
-    setTimeout(function(){
-        S(C('land-block-answer land-block2-answer2')[0]).display = "none";
-        S(C('land-block-answer land-block2-answer3')[0]).display = "block";
-    }, 5000);
-    setTimeout(function(){
-        S(C('land-block-answer land-block2-answer3')[0]).display = "none";
-        S(C('land-block-answer land-block2-answer4')[0]).display = "block";
-    }, 9000);
-}
+// function perebor_Qst() {
+//     setTimeout(function(){
+//         S(C('land-block-answer land-block2-answer2')[0]).display = "none";
+//         S(C('land-block-answer land-block2-answer3')[0]).display = "block";
+//     }, 5000);
+//     setTimeout(function(){
+//         S(C('land-block-answer land-block2-answer3')[0]).display = "none";
+//         S(C('land-block-answer land-block2-answer4')[0]).display = "block";
+//     }, 9000);
+// }
 
 // _________________________________ Функция получения подсказки на вопрос ________________________________
 

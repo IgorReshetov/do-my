@@ -290,31 +290,9 @@ require_once 'views/templates/header.php';
         <div class="land" id = "land">
         <div class="land-block land-block1">
             <div class="land-block-text land-block1-text">
-                <div class="land-block-question land-block1-question">Что это?</div>
-                <div class="land-block-answer land-block1-answer">Интерактивный тест, где вы получите знания и бонусы</div>
+                <div class="land-block-question land-block1-question"></div>
+                <div class="land-block-answer land-block1-answer">Получите оптимальную квартиру со скидкой<br>за 15 минут теста<br>вместо месяца самостоятельного поиска</div>
             </div>
-        </div>
-        <div class="land-block land-block2">
-            <div class="land-block-text land-block2-text">
-                <div class="land-block-question land-block2-question">Что делать?</div>
-                <div class="land-block-answer land-block2-answer1">Найти ответы на ключевые вопросы выбора квартиры, например:</div>
-                <div class="land-block-answer land-block2-answer2">Сколько по времени лучше выбирать квартиру?</div>
-                <div class="land-block-answer land-block2-answer3">Где лучше выбрать квартиру в новом доме?</div>
-                <div class="land-block-answer land-block2-answer4">Какие дома наиболее долговечны?</div>
-            </div> 
-        </div>
-        <div class="land-block land-block3">
-            <div class="land-block-text land-block3-text">
-                <div class="land-block-question land-block3-question">Как долго?</div>
-                <div class="land-block-answer land-block-answer">15 минут</div>
-            </div>
-        </div>
-        <div class="land-block land-block4">
-            <div class="land-block-text land-block4-text">
-                <div class="land-block-question  land-block4-question">Зачем?</div>
-                <div class="land-block-answer land-block-answer1"><b>1.</b>Чтобы не ошибиться при покупке квартиры.</div>
-                <div class="land-block-answer land-block-answer1"><b>2.</b>Получить рекомендации и скидку на квартиру, которая возможно подойдет именно вам.</div>
-            </div>  
         </div>
         <div class="land-block land-block5">
             <div class="land-block-text land-block5-button" id = "land-block5-button">Начать</div>
@@ -356,7 +334,7 @@ require_once 'views/templates/header.php';
         <div class="gift-center">
             <div class="gift-heard">
                 <div class="gift-heard-text">
-                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш тест.</div>
+                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш тест</div>
                 </div>
                 <div class="gift-heard-present">
                     <div class="gift-block-present"></div>

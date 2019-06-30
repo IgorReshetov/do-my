@@ -2031,7 +2031,7 @@ table.prev_next {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 1150px;
+  height: 900px;
   margin-bottom: 40px;
   margin-top: -2px;
 }
@@ -2040,7 +2040,7 @@ table.prev_next {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 230px;
+  height: 250px;
   position: relative;
 }
 
@@ -2097,8 +2097,8 @@ table.prev_next {
 }
 
 .land-block-answer {
-  text-align: justify;
-  font-size: 18px;
+  text-align: center;
+  font-size: 22px;
 }
 
 .land-block2-answer2, .land-block2-answer3, .land-block2-answer4 {
@@ -2108,7 +2108,7 @@ table.prev_next {
 
 .land-block5-button {
   border-radius: 40px;
-  font-size: 20px;
+  font-size: 23px;
   background-color: yellow;
   width: 200px;
   color: black;
@@ -2139,8 +2139,8 @@ table.prev_next {
 }
 
 .land-block1-text {
-  -webkit-transform: translateY(-50%) translateX(10%);
-          transform: translateY(-50%) translateX(10%);
+  -webkit-transform: translateY(-50%) translateX(50%);
+          transform: translateY(-50%) translateX(50%);
 }
 
 .land-block2-text {
@@ -2462,14 +2462,21 @@ table.prev_next {
     bottom: -40px;
   }
   .land {
-    height: 1100px;
+    height: 750px;
   }
   .land-block {
-    height: 220px;
+    height: 300px;
   }
   .land-block1-text {
-    -webkit-transform: translateY(-50%) translateX(25%);
-            transform: translateY(-50%) translateX(25%);
+    -webkit-transform: translateY(-40%) translateX(50%);
+            transform: translateY(-40%) translateX(50%);
+  }
+  .land-block-answer {
+    font-size: 18px;
+  }
+  .land-block5-button {
+    font-size: 20px;
+    width: 150px;
   }
   .land-block2-text {
     -webkit-transform: translateY(-50%) translateX(75%);
@@ -2573,16 +2580,16 @@ table.prev_next {
     font-size: 12px;
   }
   .land {
-    height: 900px;
+    height: 640px;
   }
   .land-block {
-    height: 180px;
+    height: 250px;
   }
   .land-block-question {
     font-size: 17px;
   }
   .land-block-answer {
-    font-size: 13px;
+    font-size: 17px;
   }
 }
 
