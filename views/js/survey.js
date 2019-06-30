@@ -326,7 +326,7 @@ function init() {
         touch_OBJ = e.changedTouches[0]
         console.log(slider_left); 
         var dist = parseInt(touch_OBJ.clientX) - start_X 
-        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -900)? -900 : slider_left + dist ) + 'px'
+        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -2000)? -2000 : slider_left + dist ) + 'px'
         e.preventDefault()
     }, false);
   
