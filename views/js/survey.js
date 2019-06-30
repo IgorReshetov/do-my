@@ -249,7 +249,8 @@ function init() {
     }
 
     input_range.onfocus = next_ready_range;
-      
+    input_range.ontouchstart = next_ready_range;
+
     next.onclick = json_Q_A;
     
     forward.onclick = update_afterClientFoward;
