@@ -249,7 +249,7 @@ function init() {
     }
 
     input_range.onfocus = next_ready_range;
-    input_range.ontouchstart = next_ready_range;
+    // input_range.ontouchstart = next_ready_range;
 
     next.onclick = json_Q_A;
     
@@ -1061,12 +1061,22 @@ function update_Q_A (messages) {
         input_range_max[0].innerHTML = messages.question.scale_max + ' ' + messages.question.scale_unit;
         input_range.step = messages.question.scale_step;
 
-        input_range.oninput = input_range.onclick = function() {
-            var range_val = document.getElementsByClassName('range-value');
-            range_val[0].innerHTML = input_range.value + " " + messages.question.scale_unit;
-            next.style.display = 'block';
-            next.style.opacity = '1';
+       
+           input_range.ontouchstart = input_range.oninput = input_range.onclick = function() {
+                var range_val = document.getElementsByClassName('range-value');
+                range_val[0].innerHTML = input_range.value + " " + messages.question.scale_unit;
+                S(C('prev_next-block')[1]).display = 'flex';
+                next.style.display = 'block';
+                next.style.opacity = '1';
         }
+     
+            //  = function() {
+            //     var range_val = document.getElementsByClassName('range-value');
+            //     range_val[0].innerHTML = input_range.value + " " + messages.question.scale_unit;
+            //     // next.style.display = 'block';
+            //     // next.style.opacity = '1';
+            // }
+      
 
         if (cookies.level_access == 1) input_range.classList.add ('level1');
         else if (cookies.level_access == 2) input_range.classList.add ('level2');
