@@ -248,7 +248,7 @@ function init() {
         inputs_pic[i].onclick = next_ready_pic;
     }
 
-    input_range.onfocus = next_ready_range;
+    input_range.onchange = next_ready_range;
       
     next.onclick = json_Q_A;
     
@@ -325,7 +325,7 @@ function init() {
         touch_OBJ = e.changedTouches[0]
         console.log(slider_left); 
         var dist = parseInt(touch_OBJ.clientX) - start_X 
-        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -2000)? -2000 : slider_left + dist ) + 'px'
+        slider_moove[0].style.marginLeft = ( (slider_left + dist > 50)? 50 : (slider_left + dist < -900)? -900 : slider_left + dist ) + 'px'
         e.preventDefault()
     }, false);
   
@@ -657,8 +657,8 @@ function next_ready_pic() {
 function next_ready_range() {
     // var input_range = document.getElementById("range-focus");
     S(C('prev_next-block')[1]).display = 'flex';
-    S(O('next')).display = 'block';
-    S(O('next')).opacity = '1';
+    next.style.display = 'block';
+    next.style.opacity = '1';
 }
 
 // Создаем обработчик для отправки запроса JSON <<XHR LEVEL 1>> ПРИ НАЖАТИИ НА КНОПКУ ОТВЕТИТЬ
@@ -1060,15 +1060,9 @@ function update_Q_A (messages) {
         input_range_max[0].innerHTML = messages.question.scale_max + ' ' + messages.question.scale_unit;
         input_range.step = messages.question.scale_step;
 
-        input_range.oninput = function() {
+        input_range.oninput = input_range.onclick = function() {
             var range_val = document.getElementsByClassName('range-value');
             range_val[0].innerHTML = input_range.value + " " + messages.question.scale_unit;
-        }
-
-        input_range.onclick = function() {
-            var range_val = document.getElementsByClassName('range-value');
-            range_val[0].innerHTML = input_range.value + " " + messages.question.scale_unit;
-            var next = document.getElementById('next');
             next.style.display = 'block';
             next.style.opacity = '1';
         }
