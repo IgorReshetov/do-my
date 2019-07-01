@@ -396,12 +396,15 @@ require_once 'views/templates/header.php';
                     </div>
                     <div class="gift-block-text-text"><?=$prize?></div>
                 </div>
-                
+                <div class="block-telefon">
+                    <div class="block-telefon-head">Для получения скидки закажите звонок подрядчика:</div>
+                    <iframe class= "telefon" frameborder="0" sandbox="allow-forms allow-scripts allow-popups" scrolling="no" width ="500" height="450" src="https://proff-servise.ru/landing/form/"></iframe>
+                </div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-red"></div>
                     </div>
-                    <div class="gift-block-text-text">Ответы на вопросы нашего теста, чтобы впредь вы никода не ошибались при выборе квартиры</div>
+                    <div class="gift-block-text-text">Индивидуальные рекомендации, чтобы впредь вы никода не ошибались при ремонте квартиры</div>
                 </div> 
                 
                 <!-- выбор двых параметров пожеланий -->
@@ -435,7 +438,7 @@ require_once 'views/templates/header.php';
 
             </div>
             <div class="gift-block3">
-                <div class="gift-block3-head">Получите подарок на свой email:</div>
+                <div class="gift-block3-head">Получите рекомендации на свой email:</div>
                 <div class="gift-get" id = "gift-get">
                     <div class="gift-mail-small-box">
                         <input class="gift-get-mail" onfocus="fox.speak_multi();" id = "mail" name = "mail" type="text" placeholder= "Введите email">

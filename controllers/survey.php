@@ -14,7 +14,7 @@ $active_question = $_SESSION['active_question'];
 
 
 $title = "Тест: Как выбрать квартиру?";
-$prize = "Скидку более миллиона рублей на квартиру в ЖК \"Любовь и голуби\"";
+$prize = "Скидку 10% на профессиональный ремонт";
 
 
 if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {

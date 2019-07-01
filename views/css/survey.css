@@ -1590,9 +1590,22 @@ table.prev_next {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.block-telefon-head {
+  font-size: 18px;
+  max-width: 500px;
+}
+
+.telefon {
+  height: 450px;
 }
 
 .gift {
@@ -2178,6 +2191,9 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
+  .block-telefon-head {
+    font-size: 16px;
+  }
   .slider-box-survey-hidden:before {
     content: '';
     display: block;
