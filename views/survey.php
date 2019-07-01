@@ -291,7 +291,7 @@ require_once 'views/templates/header.php';
         <div class="land-block land-block1">
             <div class="land-block-text land-block1-text">
                 <div class="land-block-question land-block1-question"></div>
-                <div class="land-block-answer land-block1-answer">Получите оптимальную квартиру со скидкой<br>за 15 минут теста<br>вместо месяца самостоятельного поиска</div>
+                <div class="land-block-answer land-block1-answer">Получите оптимальную квартиру<br>за 15 минут теста<br>вместо месяца самостоятельного поиска</div>
             </div>
         </div>
         <div class="land-block land-block5">
