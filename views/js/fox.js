@@ -21,8 +21,8 @@ var fox = {
         // game_start: "Желаю удачи в игре!",
         // level_end: ["Отличный результат!", "Попробуй еще раз", "Ты отличный знаток"],
         game_end: ["Mолодец!", "Крутяшно!", "Я в тебя верил!"],
-        about_level: ["Для победы на этом уровне<br>ты можешь допустить 3 промаха", "Для победы на этом уровне<br>ты можешь допустить 2 промаха", "Для победы на этом уровне<br>ты можешь допустить 1 промах"],
-        about_hint: ["У тебя есть 7 моих подсказок","У тебя есть 6 моих подсказок","У тебя есть 5 моих подсказок","У тебя есть 4 моих подсказки","У тебя есть 3 моих подсказки", "У тебя есть 2 моих подсказки", "У тебя осталась 1 моя подсказка", "У тебя не осталось моих подсказок"]
+        about_level: ["Для победы на этом уровне<br>ты можешь допустить 4 промаха", "Для победы на этом уровне<br>ты можешь допустить 3 промаха", "Для победы на этом уровне<br>ты можешь допустить 2 промаха"],
+        about_hint: ["У тебя есть 9 моих подсказок","У тебя есть 8 моих подсказок","У тебя есть 7 моих подсказок","У тебя есть 6 моих подсказок","У тебя есть 5 моих подсказок","У тебя есть 4 моих подсказки","У тебя есть 3 моих подсказки", "У тебя есть 2 моих подсказки", "У тебя осталась 1 моя подсказка", "У тебя не осталось моих подсказок"]
     },
    
     speak_HELLO: function(privet) {
@@ -122,14 +122,16 @@ var fox = {
             if (privet == "about_level") { 
                 // setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
                 setTimeout(function(){
-                    if (fox.hint == 7) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[3];
-                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[4];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[5];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[6];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[7];
+                    if (fox.hint == 9) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 8) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 7) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[5];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[6];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[7];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[8];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[9];
                     // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                     // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                     // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -189,14 +191,16 @@ var fox = {
                         else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
                         else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
                 } else if (privet == 'about_hint') {
-                    if (fox.hint == 7) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[3];
-                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[4];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[5];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[6];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[7];
+                    if (fox.hint == 9) fox_words_text.innerHTML = about_hint[0];
+                    else if (fox.hint == 8) fox_words_text.innerHTML = about_hint[1];
+                    else if (fox.hint == 7) fox_words_text.innerHTML = about_hint[2];
+                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[3];
+                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[4];
+                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[5];
+                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[6];
+                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[7];
+                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[8];
+                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[9];
                         // {
                         // if (cookies.level_access == 1) fox_words_text.innerHTML = about_level[0];
                         // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_level[1];
@@ -236,14 +240,16 @@ var fox = {
                 } else if (privet == "about_level") { 
                     setTimeout(function(){clearInterval(handler_speak); fox.speak_about_level_flag = false},11000);
                     setTimeout(function(){
-                        if (fox.hint == 7) fox_words_text.innerHTML = about_hint[0];
-                    else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[1];
-                    else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[2];
-                    else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[3];
-                    else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[4];
-                    else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[5];
-                    else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[6];
-                    else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[7];
+                        if (fox.hint == 9) fox_words_text.innerHTML = about_hint[0];
+                        else if (fox.hint == 8) fox_words_text.innerHTML = about_hint[1];
+                        else if (fox.hint == 7) fox_words_text.innerHTML = about_hint[2];
+                        else if (fox.hint == 6) fox_words_text.innerHTML = about_hint[3];
+                        else if (fox.hint == 5) fox_words_text.innerHTML = about_hint[4];
+                        else if (fox.hint == 4) fox_words_text.innerHTML = about_hint[5];
+                        else if (fox.hint == 3) fox_words_text.innerHTML = about_hint[6];
+                        else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[7];
+                        else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[8];
+                        else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[9];
                         // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                         // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                         // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
