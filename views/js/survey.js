@@ -1048,11 +1048,14 @@ function update_Q_A (messages) {
         S(C('picture')[0]).display = 'none';
         C('range-value')[0].innerHTML = '';
 
+        var range_center = Math.round((messages.question.scale_max - messages.question.scale_min)/(messages.question.scale_step*2))* messages.question.scale_step + parseInt(messages.question.scale_min);
         var input_range = document.getElementById("range-focus");
         var input_range_min = document.getElementsByClassName("range-min");
         var input_range_max = document.getElementsByClassName("range-max");
-
-        var Q = document.getElementById("Q"); 
+        var Q = document.getElementById("Q");
+        
+        
+        setTimeout(function(){input_range.value = range_center;},10);
         Q.innerHTML= messages.question.question;
         input_range.setAttribute('name', 'Q' + messages.question.id_parent);
         input_range.min = messages.question.scale_min;
