@@ -1055,7 +1055,8 @@ function update_Q_A (messages) {
         var input_range_max = document.getElementsByClassName("range-max");
         var Q = document.getElementById("Q"); 
 
-        input_range.value = range_center;
+        setTimeout(function(){input_range.value = range_center;},0);
+        console.log(input_range.value);
         Q.innerHTML= messages.question.question;
         input_range.setAttribute('name', 'Q' + messages.question.id_parent);
         input_range.min = messages.question.scale_min;
