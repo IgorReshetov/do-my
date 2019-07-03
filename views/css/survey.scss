@@ -1471,6 +1471,16 @@ margin-right: 30px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.gift-block2-head-spisok {
+    font-size: 18px;
+    text-align: start;
+    margin-left: 44px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .gift-block1-row {
@@ -1890,6 +1900,10 @@ margin-right: 30px;
 
 
 @media (max-width: 570px) {
+
+    .gift-block2-head-spisok {
+        font-size: 16px;
+    }
 
     .slider-box-survey-hidden:before {
         content: '';

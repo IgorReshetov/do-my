@@ -389,7 +389,8 @@ require_once 'views/templates/header.php';
             ?>
                 </div>
             <div class="gift-block2">
-                <div class="gift-block2-head">Мы подготовили для вас:</div>
+                <div class="gift-block2-head">Идеальной для вас будет квартира в ЖК "Любовь и голуби"</div>
+                <div class="gift-block2-head-spisok">Мы подготовили вам в подарок:</div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-yellow"></div>
