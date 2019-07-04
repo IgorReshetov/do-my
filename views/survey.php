@@ -271,6 +271,61 @@ require_once 'views/templates/header.php';
         </div>
     </div>
 
+    <div class="crossword">
+        <div class="crossword-dash">
+            <div id="L1" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="П"> 
+                </div>  
+            </div>
+            <div id="L2" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="Р">  
+                </div>
+            </div>
+            <div id="L3" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="И">  
+                </div>
+            </div>
+            <div id="L4" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="В">
+                </div>
+            </div>
+            <div id="L5" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="Е">
+                </div>
+            </div>
+            <div id="L6" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="Т">
+                </div>
+            </div>
+            <div id="L7" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="!">
+                </div>
+            </div>
+            <div id="L8" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="М">
+                </div>
+            </div>
+            <div id="L9" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="И">
+                </div>
+            </div>
+            <div id="L10" class="crossword-letter">
+                <div class="cross-wriper">
+                <input class="crossword-input" type="text" name="letter" value="Р">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <table class="prev_next">
         <tr id = "tr-answer">
             <td class="prev_next-block">
