@@ -25,7 +25,7 @@ class Session
         }
 
         if( !isset($_SESSION['hint']) ) {
-            $_SESSION['hint']= 9;
+            $_SESSION['hint']= 1;
         }
 
         if( !isset($_SESSION['play_key']) ) {

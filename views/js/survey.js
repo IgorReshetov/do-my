@@ -1363,7 +1363,7 @@ function valid_level_1() {
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Easy\".<br><br>Переход на следующий уровень - не больше 4 промахов.";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Easy\".<br><br>Переход на следующий уровень - не больше 3 промахов.";
             // otvet_false.style.display = "block"; 
             // why.innerHTML = "Переход на следующий уровень возможен c 3 промахами.";
             why.style.display = "block";
@@ -1415,7 +1415,7 @@ function valid_level_2() {
             // image.classList = [];
             // image.classList.add('result-loss-level');
             image.style.display = "block";
-            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Medium\".<br><br>Переход на следующий уровень - не больше 3 промахов.";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Medium\".<br><br>Переход на следующий уровень - не больше 2 промахов.";
             otvet_false.style.display = "block"; 
             // why.innerHTML = "Для перехода на следующий уровень допустимо 2 промаха.";
             // why.style.display = "block";
@@ -1466,7 +1466,7 @@ function valid_level_3() {
             // image.classList.add('result-loss-level');
             image.style.display = "block";
 
-            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Для прохождения теста - не больше 2 промахов.";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Для прохождения теста - не больше 1 промаха.";
             otvet_false.style.display = "block"; 
             // why.innerHTML = "Победа возможна с 1 промахом.";
             // why.style.display = "block";
