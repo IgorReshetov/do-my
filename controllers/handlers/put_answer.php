@@ -161,7 +161,7 @@ if ($activ_question == $count_1['questions_count']){
     $_SESSION['count_true']=$count_true;
     }
     
-    if ($count_false <= 4) {$_SESSION['level_access'] = 2; } 
+    if ($count_false <= 3) {$_SESSION['level_access'] = 2; } 
     else {$activ_question = 0;}
     
 }
@@ -176,7 +176,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
         $_SESSION['count_true']=$count_true;
     }
 
-    if ($count_false <= 3) {$_SESSION['level_access'] = 3;}
+    if ($count_false <= 2) {$_SESSION['level_access'] = 3;}
     else {$activ_question = $count_1['questions_count'];}
 }
 if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
@@ -185,7 +185,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$
     }
     $_SESSION['finish']=3;
     $_SESSION['count_true']=$count_true;
-    if ($count_false <=2) {$_SESSION['level_access'] = 4;}
+    if ($count_false <=1) {$_SESSION['level_access'] = 4;}
     else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
 
