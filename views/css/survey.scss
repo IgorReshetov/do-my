@@ -1244,54 +1244,6 @@ table.prev_next {
     border: 4px solid red;
 }
 
-// окно с кроссвордом
-
-.crossword {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    // display: none;
-}
-
-.crossword-dash {
-    display: flex;
-    // margin: 0 5px;
-    min-width: 330px;
-    width: 50%;
-    justify-content: center;
-    flex-wrap: wrap;
-
-}
-
-.crossword-letter {
-    display: flex;
-    margin: 5px;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid yellow;
-    box-shadow: 0 0 10px rgb(134, 134, 134);
-    border-radius: 10px;
-    width: 10%;
-    // height: calc(width*100%);
-    position: relative;
-}
-
-.cross-wriper {
-    width: 100%;
-    padding-top: 100%;
-}
-
-input[name=letter] {
-    position: absolute;
-    width: calc(100% - 4px);
-    font-size: 3.5vw;
-    // height: 95%;
-    text-align: center;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-}
 
 // окно овтетов
 
