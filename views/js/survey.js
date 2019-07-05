@@ -17,19 +17,19 @@ function cookie_level() {
 
     levelQst_1 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev1,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=4) {this.next_lev = true;
+            if (this.countQst-this.hit <=3) {this.next_lev = true;
             return true;
         } else return false;} 
     }; 
     levelQst_2 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev2,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=3) {this.next_lev = true;
+            if (this.countQst-this.hit <=2) {this.next_lev = true;
             return true;
         } else return false;} 
     };
     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=2) {this.next_lev = true;
+            if (this.countQst-this.hit <=1) {this.next_lev = true;
             return true;
         } else return false;} 
     };
