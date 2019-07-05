@@ -42,8 +42,8 @@
                     <div class="centr-fox"> 
                         <div id = "fox" class="fox-sleep"></div>
                         <div class="fox-words-down">
-                        <p class="fox-words-text"></p>
-                    </div>
+                            <p class="fox-words-text"></p>
+                        </div>
                     </div>
                     
                     <div class="user-menu">

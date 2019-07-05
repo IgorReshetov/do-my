@@ -369,12 +369,13 @@ var fox = {
     },
 
     speak_hint: function () {
+        this.ints_speak.length = 0;
         var fox_img = document.getElementById("fox");
         var fox_words = fox_img.nextElementSibling;
         var fox_words_text = fox_img.nextElementSibling.firstElementChild;
         fox_words_text.innerHTML = fox.hint_words;
         fox_words.style.display = "block";
-        this.ints_speak.length = 0;
+        
         if (this.speak == true) return;
         else this.speak_HELLO("hint");
     },
