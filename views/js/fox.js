@@ -142,8 +142,10 @@ var fox = {
                 setTimeout(function(){
                     clearInterval(handler_speak_lev); 
                     fox.speak_about_level_flag = false;
-                    fox_words_text.innerHTML = "";
-                    fox_words.style.display = 'none';
+                    if (fox.speak_hint_flag == false)  {
+                        fox_words_text.innerHTML = "";
+                        fox_words.style.display = 'none';
+                    }
                     if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
                         new Function(fox.ints_speak.shift())();
                         return;
@@ -209,7 +211,9 @@ var fox = {
                     else fox_words_text.innerHTML = about_hint[0];
                 } 
                 // else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
-                
+                if (fox.speak_hint_flag == true)  {
+                    fox_words_text.innerHTML = fox.hint_words;
+                }
                 fox_words.style.display = "block";
                 
                 var handler_speak = setInterval(function() {
@@ -231,6 +235,7 @@ var fox = {
                     setTimeout(function(){
                         fox_words_text.innerHTML = "";
                         fox_words.style.display = 'none';
+                        fox.speak_hint_flag = false;
                         if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
                             new Function(fox.ints_speak.shift())();
                             return;
@@ -258,8 +263,12 @@ var fox = {
                         // fox.last_time = new Date().getTime();
                     },6000);
                     setTimeout(function(){
-                        fox_words_text.innerHTML = "";
-                        fox_words.style.display = 'none';
+                        if (fox.speak_hint_flag == false)  {
+                            fox_words_text.innerHTML = "";
+                            fox_words.style.display = 'none';
+                        }
+                        // fox_words_text.innerHTML = "";
+                        // fox_words.style.display = 'none';
                         if (fox.ints_speak.length > 0) {// если есть очередь высказываний, говорим следующее слово
                             new Function(fox.ints_speak.shift())();
                             return;
@@ -271,8 +280,16 @@ var fox = {
                     setTimeout(function(){clearInterval(handler_speak)},3000);
                     setTimeout(function(){
                         // if (fox.speak_about_level_flag == false) {
-                            fox_words_text.innerHTML = "";
-                            fox_words.style.display = 'none';
+                            if (fox.speak_hint_flag == false)  {
+                                fox_words_text.innerHTML = "";
+                                fox_words.style.display = 'none';
+                            } else {
+                                fox_words_text.innerHTML = fox.hint_words;
+                                fox_words.style.display = 'block';
+                                return;
+                            }
+                            // fox_words_text.innerHTML = "";
+                            // fox_words.style.display = 'none';
                             if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
                                 new Function(fox.ints_speak.shift())();
                                 return;
@@ -287,8 +304,14 @@ var fox = {
         this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
             
             setTimeout(function(){
-                fox_img.className='fox-sleep';
-                fox.sleep=true;
+                if (fox.speak_hint_flag == false) {
+                    fox_img.className='fox-sleep';
+                    fox.sleep=true;
+                } else {
+                    fox_words_text.innerHTML = fox.hint_words;
+                    fox_words.style.display = 'block';
+                    return;
+                }
             }, 5000)
         });
     },
@@ -368,7 +391,9 @@ var fox = {
         
     },
 
+    speak_hint_flag: false,
     speak_hint: function () {
+        this.speak_hint_flag = true;
         this.ints_speak.length = 0;
         var fox_img = document.getElementById("fox");
         var fox_words = fox_img.nextElementSibling;
@@ -376,8 +401,10 @@ var fox = {
         fox_words_text.innerHTML = fox.hint_words;
         fox_words.style.display = "block";
         
-        if (this.speak == true) return;
-        else this.speak_HELLO("hint");
+        if (this.speak == true) {
+            this.speak_hint_flag = false;
+            return;
+        } else this.speak_HELLO("hint");
     },
 
     speak_about_level_flag: false,
