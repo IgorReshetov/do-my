@@ -1047,6 +1047,53 @@ table.prev_next {
   border: 4px solid red;
 }
 
+.range-focus::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #b9b9b9;
+  border-radius: 20px;
+}
+
+.range-focus::-moz-range-thumb {
+  -webkit-appearance: none;
+  margin-top: -13px;
+  -moz-appearance: none;
+       appearance: none;
+  height: 35px;
+  width: 35px;
+  background-color: white;
+  border: 3px solid yellow;
+  border-radius: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.range-focus.level2::-moz-range-thumb {
+  border: 3px solid blue;
+}
+
+.range-focus.level3::-moz-range-thumb {
+  border: 3px solid red;
+}
+
+.range-focus.level1::-moz-range-thumb:hover, .range-focus::-moz-range-thumb:active {
+  box-shadow: 0 0 20px yellow;
+  border: 4px solid yellow;
+}
+
+.range-focus.level2::-moz-range-thumb:hover, .range-focus::-moz-range-thumb:active {
+  box-shadow: 0 0 20px blue;
+  border: 4px solid blue;
+}
+
+.range-focus.level3::-webkit-slider-thumb:hover, .range-focus::-webkit-slider-thumb:active {
+  -webkit-box-shadow: 0 0 20px red;
+          box-shadow: 0 0 20px red;
+  border: 4px solid red;
+}
+
 .range-focus::-ms-track {
   background: transparent;
   border-color: transparent;

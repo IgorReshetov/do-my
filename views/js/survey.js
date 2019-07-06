@@ -29,7 +29,7 @@ function cookie_level() {
     };
     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=1) {this.next_lev = true;
+            if (this.countQst-this.hit <=2) {this.next_lev = true;
             return true;
         } else return false;} 
     };
@@ -1469,7 +1469,7 @@ function valid_level_3() {
             // image.classList.add('result-loss-level');
             image.style.display = "block";
 
-            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Для прохождения теста - не больше 1 промаха.";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Для прохождения теста - не больше 2 промахов.";
             otvet_false.style.display = "block"; 
             // why.innerHTML = "Победа возможна с 1 промахом.";
             // why.style.display = "block";
