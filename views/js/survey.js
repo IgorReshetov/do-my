@@ -257,7 +257,7 @@ function init() {
 
     hint_button.onclick = get_hint;
 
-    horseshoe[0].onclick = function() {fox.speak_about_hint();};
+    horseshoe[0].onclick = fox.speak_about_hint;
 
     saveGame.onclick = function() {window.location.href='index.php?page=survey&back=1'};
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера

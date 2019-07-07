@@ -309,6 +309,7 @@ var fox = {
         this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
             
             setTimeout(function(){
+                if(fox.speak_hint_flag == true) return;
                 fox_img.className='fox-sleep';
                 fox.sleep=true;
             }, 5000)
@@ -426,9 +427,9 @@ var fox = {
     hint_flag: 0,
     hint_words: "",
     hint: 3,
-    speak_about_hint: function () {
-        if(this.speak == true) return;
-        this.speak_HELLO("about_hint");
+    speak_about_hint: function() {
+        if(fox.speak == true) return;
+        fox.speak_HELLO("about_hint");
     },
 
     time_answer: 0,
