@@ -892,20 +892,36 @@ table.prev_next {
     border:3px solid red;
 }
 
-.range-focus.level1::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
+.range-focus.level1::-webkit-slider-thumb:hover{
     box-shadow: 0 0 20px yellow;
     border: 4px solid yellow;
 }
 
-.range-focus.level2::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
+.range-focus.level1::-webkit-slider-thumb:active{
+    box-shadow: 0 0 20px yellow;
+    border: 4px solid yellow;
+}
+
+.range-focus.level2::-webkit-slider-thumb:hover{
     box-shadow: 0 0 20px blue;
     border: 4px solid blue;
 }
 
-.range-focus.level3::-webkit-slider-thumb:hover,  .range-focus::-webkit-slider-thumb:active{
+.range-focus.level2::-webkit-slider-thumb:active{
+    box-shadow: 0 0 20px blue;
+    border: 4px solid blue;
+}
+
+.range-focus.level3::-webkit-slider-thumb:hover{
     box-shadow: 0 0 20px red;
     border: 4px solid red;
 }
+
+.range-focus.level3::-webkit-slider-thumb:active{
+    box-shadow: 0 0 20px red;
+    border: 4px solid red;
+}
+
 
 // ползунок для мозилы
 .range-focus::-moz-range-track {
@@ -952,7 +968,7 @@ table.prev_next {
     border: 4px solid blue;
 }
 
-.range-focus.level3::-webkit-slider-thumb:hover,  .range-focus.level2::-webkit-slider-thumb:active{
+.range-focus.level3::-moz-range-thumb:hover,  .range-focus.level3::-moz-range-thumb:active{
     box-shadow: 0 0 20px red;
     border: 4px solid red;
 }
