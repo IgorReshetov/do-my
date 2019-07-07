@@ -13,8 +13,8 @@ $count = Question:: getQuestionsCount ($_SESSION['action'], 1)['questions_count'
 $active_question = $_SESSION['active_question'];
 
 
-$title = "Тест: Как выбрать квартиру?";
-$prize = "Скидку более миллиона рублей на квартиру в ЖК \"Любовь и голуби\"";
+$title = "Тест: Как сделать ремонт?";
+$prize = "Скидку на ремонт 10% со сроком выполнения работ 1 месяц от подрядчика Проффсервис";
 
 
 if ($active_question == 0 && count($_SESSION['user_answer']) == 0) {
