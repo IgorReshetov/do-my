@@ -210,7 +210,7 @@ var fox = {
                 } 
                 // else if (privet == 'hint' && fox.hint_words != '') fox_words_text.innerHTML = fox.hint_words;
                 
-                fox_words.style.display = "block";
+                
                 
                 if (privet == "hint") {
                     var handler_speak_hint = setInterval(function() {
@@ -227,6 +227,7 @@ var fox = {
                     } 
                     },100);
                 } else {
+                    fox_words.style.display = "block";
                     var handler_speak = setInterval(function() {
                         if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
