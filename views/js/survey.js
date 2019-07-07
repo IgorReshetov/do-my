@@ -2022,6 +2022,8 @@ function update_afterClientFoward() {
     }          
 
     fox.ints_speak.length = 0;
+    fox.speak_about_hint = false;
+    C('fox-words-text')[0].innerHTML = "";
     S(C('fox-words-down')[0]).display = "none";
 
     if(fox.time_answer_toFast == true) fox.speak_hurry();

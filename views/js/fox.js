@@ -70,14 +70,14 @@ var fox = {
             fox_words.style.display = "block";
             setTimeout(function() {
                 fox_img.className = 'fox-wakeUp';
-                var handler_wakeUp = setInterval(function(){
+                var handler_wakeUp_hint = setInterval(function(){
                     if(fox_img.classList.contains('fox-wakeUp')) {
                         fox_img.className = 'fox-wakeUp2';
                     } else if (fox_img.classList.contains('fox-wakeUp2')) {
                         fox_img.className = 'fox-wakeUp';
                     }
                 },500);
-                setTimeout(function(){clearInterval(handler_wakeUp)},1000);
+                setTimeout(function(){clearInterval(handler_wakeUp_hint)},1000);
             }, 0);
         } else {
             setTimeout(function() {
@@ -94,7 +94,7 @@ var fox = {
             }, 2000);
         }
 
-        if (fox.speak_about_level_flag == true) {
+        if (fox.speak_about_level_flag == true && fox.speak_hint_flag == false) {
             setTimeout(function() {
             fox_img.className = 'fox-speak';
             if (privet == 'about_level') {
@@ -212,29 +212,47 @@ var fox = {
                 
                 fox_words.style.display = "block";
                 
-                var handler_speak = setInterval(function() {
+                if (privet == "hint") {
+                    var handler_speak_hint = setInterval(function() {
+                            if(fox_img.classList.contains('fox-speak')) {
+                            fox_img.className = 'fox-speak2';
+                        setTimeout( function(){
+                            fox_img.className = 'fox-speak3';
+                        }, 100);
+                    } else if (fox_img.classList.contains('fox-speak3' )) {
+                            fox_img.className = 'fox-speak2';
+                        setTimeout( function(){
+                            fox_img.className = 'fox-speak';
+                        }, 100);
+                    } 
+                    },100);
+                } else {
+                    var handler_speak = setInterval(function() {
                         if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
                         fox_img.className = 'fox-speak3';
                     }, 100);
-                } else if (fox_img.classList.contains('fox-speak3' )) {
+                     } else if (fox_img.classList.contains('fox-speak3' )) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
                         fox_img.className = 'fox-speak';
                     }, 100);
-                } 
-                },100);
+                     } 
+                     },100); 
+                }
                 
                 if (privet == "hint") {
-                    setTimeout(function(){clearInterval(handler_speak)},6000);
+                    setTimeout(function(){clearInterval(handler_speak_hint)},6000);
                     setTimeout(function(){
                         fox_words_text.innerHTML = "";
                         fox_words.style.display = 'none';
-                        if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
-                            new Function(fox.ints_speak.shift())();
-                            return;
-                        } else fox.speak=false; // если слов в очереди день то выключаем свойство говорит
+                        fox.speak_hint_flag = false;
+                        // if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
+                        //     new Function(fox.ints_speak.shift())();
+                        //     return;
+                        // } else 
+                        fox.speak=false; // если слов в очереди день то выключаем свойство говорит
                         fox.last_time = new Date().getTime();
                     },6000);
                 } else if (privet == "about_level") { 
@@ -270,7 +288,7 @@ var fox = {
                 } else {
                     setTimeout(function(){clearInterval(handler_speak)},3000);
                     setTimeout(function(){
-                        // if (fox.speak_about_level_flag == false) {
+                            if(fox.speak_hint_flag == true) return;
                             fox_words_text.innerHTML = "";
                             fox_words.style.display = 'none';
                             if (fox.ints_speak.length > 0) { // если есть очередь высказываний, говорим следующее слово
@@ -368,16 +386,19 @@ var fox = {
         
     },
 
+    speak_hint_flag: false,
     speak_hint: function () {
         this.ints_speak.length = 0;
-        var fox_img = document.getElementById("fox");
-        var fox_words = fox_img.nextElementSibling;
-        var fox_words_text = fox_img.nextElementSibling.firstElementChild;
-        fox_words_text.innerHTML = fox.hint_words;
-        fox_words.style.display = "block";
-        
-        if (this.speak == true) return;
-        else this.speak_HELLO("hint");
+        if (this.speak_hint_flag == true) return;
+        this.speak_hint_flag = true;
+        // this.ints_speak.length = 0;
+        // var fox_img = document.getElementById("fox");
+        // var fox_words = fox_img.nextElementSibling;
+        // var fox_words_text = fox_img.nextElementSibling.firstElementChild;
+        // fox_words_text.innerHTML = fox.hint_words;
+        // fox_words.style.display = "block";
+
+        this.speak_HELLO("hint");
     },
 
     speak_about_level_flag: false,
@@ -401,6 +422,7 @@ var fox = {
     hint_words: "",
     hint: 3,
     speak_about_hint: function () {
+        if(this.speak == true) return;
         this.speak_HELLO("about_hint");
     },
 
