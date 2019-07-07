@@ -103,9 +103,10 @@ var fox = {
                     else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
             } 
             
-            fox_words.style.display = "block";
+            // fox_words.style.display = "block";
 
             var handler_speak_lev = setInterval(function() {
+                fox_words.style.display = "block";
                 if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
@@ -132,6 +133,8 @@ var fox = {
                     else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[7];
                     else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[8];
                     else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[9];
+
+                    fox_words.style.display = "block";
                     // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                     // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                     // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -404,6 +407,7 @@ var fox = {
 
     speak_about_level_flag: false,
     speak_about_level: function () {
+        this.speak_hint_flag = false;
         // if (fox.speak == true) {
         //     var handler_level = setInterval(function(){
         //         if (fox.speak == false) {
