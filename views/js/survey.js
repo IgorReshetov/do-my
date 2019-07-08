@@ -2018,6 +2018,11 @@ function update_afterClientFoward() {
         O('next').classList.add ('next-level3');
     }          
 
+    fox.ints_speak.length = 0;
+    fox.speak_about_hint = false;
+    C('fox-words-text')[0].innerHTML = "";
+    S(C('fox-words-down')[0]).display = "none";
+
     if(fox.time_answer_toFast == true) fox.speak_hurry();
 
     if (numStartQst!==countQst && Math.random()<0.33) fox.speak_about_Qst();  
