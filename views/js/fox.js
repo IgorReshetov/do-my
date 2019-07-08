@@ -103,9 +103,10 @@ var fox = {
                     else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
             } 
             
-            fox_words.style.display = "block";
+            // fox_words.style.display = "block";
 
             var handler_speak_lev = setInterval(function() {
+                fox_words.style.display = "block";
                 if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
@@ -132,6 +133,8 @@ var fox = {
                     else if (fox.hint == 2) fox_words_text.innerHTML = about_hint[7];
                     else if (fox.hint == 1) fox_words_text.innerHTML = about_hint[8];
                     else if (fox.hint == 0) fox_words_text.innerHTML = about_hint[9];
+
+                    fox_words.style.display = "block";
                     // if (cookies.level_access == 1) fox_words_text.innerHTML = about_hint[0];
                     // else if (cookies.level_access == 2) fox_words_text.innerHTML = about_hint[1];
                     // else if (cookies.level_access == 3) fox_words_text.innerHTML = about_hint[2];
@@ -306,6 +309,7 @@ var fox = {
         this.watch ("last_time", function (id, oldval, newval) {    // Ставим прослушку на сеттер для времени последнего обновления ЛИСА
             
             setTimeout(function(){
+                if(fox.speak_hint_flag == true) return;
                 fox_img.className='fox-sleep';
                 fox.sleep=true;
             }, 5000)
@@ -377,7 +381,7 @@ var fox = {
     },
 
     speak_hurry: function () {
-        if (this.speak == true) this.ints_speak.push("fox.speak_HELLO('toFast')");
+        if (this.speak == true || this.speak_hint_flag == true) this.ints_speak.push("fox.speak_HELLO('toFast')");
         else fox.speak_HELLO("toFast");
     },
 
@@ -404,6 +408,7 @@ var fox = {
 
     speak_about_level_flag: false,
     speak_about_level: function () {
+        this.speak_hint_flag = false;
         // if (fox.speak == true) {
         //     var handler_level = setInterval(function(){
         //         if (fox.speak == false) {
@@ -422,9 +427,9 @@ var fox = {
     hint_flag: 0,
     hint_words: "",
     hint: 3,
-    speak_about_hint: function () {
-        if(this.speak == true) return;
-        this.speak_HELLO("about_hint");
+    speak_about_hint: function() {
+        if(fox.speak == true) return;
+        fox.speak_HELLO("about_hint");
     },
 
     time_answer: 0,
