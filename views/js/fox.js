@@ -381,7 +381,7 @@ var fox = {
     },
 
     speak_hurry: function () {
-        if (this.speak == true) this.ints_speak.push("fox.speak_HELLO('toFast')");
+        if (this.speak == true || this.speak_hint_flag == true) this.ints_speak.push("fox.speak_HELLO('toFast')");
         else fox.speak_HELLO("toFast");
     },
 
