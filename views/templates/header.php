@@ -129,7 +129,7 @@
                 <img src="views/images/icon/victory_level.svg" alt="">
                 <img src="views/images/icon/victory.svg" alt="">
                 <img src="views/images/icon/logo.svg" alt="">
-                <img src="views/images/icon/house.svg" alt="">
+                <img src="views/images/icon/remont.jpg" alt="">
                 <img src="views/images/icon/aim.svg" alt="">
                       
     </div>

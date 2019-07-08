@@ -13,7 +13,7 @@ require_once 'views/templates/header.php';
             <div class="start-h2-conteiner">
                 <div class="start-h2-upor-l"></div>
                 <div class="start-h2">
-                    <a href="index.php?page=survey&back=1" class="start-h2-menu">Этот тест подскажет, где вам лучше жить</a>
+                    <a href="index.php?page=survey&back=1" class="start-h2-menu">Этот тест подскажет,<br>как лучше сделать ремонт</a>
                     <a href="index.php?page=survey&back=1" class="start-qustions-flex-appendix-2"></a>
                 </div>
                 <div class="start-h2-upor-r"></div>
