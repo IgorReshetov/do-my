@@ -291,7 +291,7 @@ require_once 'views/templates/header.php';
         <div class="land-block land-block1">
             <div class="land-block-text land-block1-text">
                 <div class="land-block-question land-block1-question"></div>
-                <div class="land-block-answer land-block1-answer">Подберите профессиональную бригаду<br>за 15 минут теста<br>вместо месяца самостоятельного поиска</div>
+                <div class="land-block-answer land-block1-answer">Подберите профессиональную бригаду для ремонта<br>за 15 минут теста<br>вместо месяца самостоятельного поиска</div>
             </div>
         </div>
         <div class="land-block land-block5">
@@ -402,7 +402,7 @@ require_once 'views/templates/header.php';
                 echo ('
                 <div class="block-telefon">
                     <div class="block-telefon-head">Для получения скидки закажите звонок подрядчика:</div>
-                    <iframe class= "telefon" frameborder="0" scrolling="no" width ="500" height="450" src="https://proff-servise.ru/landing/form/?promo=7777777&param=1"></iframe>
+                    <iframe class= "telefon" frameborder="0" scrolling="no" width ="500" height="450" src="https://proff-servise.ru/landing/form/?promo='.$promo_user.'&param='.$param.'"></iframe>
                 </div>
                 ');
                 }

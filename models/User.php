@@ -159,6 +159,24 @@ class User
         return $stat;
     }
 
+    public static function getUserForm ($play_key){
+        global $mysqli;
+        
+        $query = "call getUserForm('$play_key')";
+        $mysqli->multi_query($query);
+        $result = $mysqli->store_result();
+        
+        $form = [];
+        while ($stat_data = $result->fetch_assoc()) {
+            $form[] = $stat_data;
+        }
+
+        $result->close();
+        $mysqli->next_result();
+
+        return $form;
+    }
+
     public static function getQuestionStat ($question){
         global $mysqli;
         $question = $mysqli->real_escape_string($question);
