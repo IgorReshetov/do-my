@@ -103,10 +103,10 @@ var fox = {
                     else if (cookies.level_access == 3) fox_words_text.innerHTML = about_level[2];
             } 
             
-            fox_words.style.display = "block";
+            // fox_words.style.display = "block";
 
             var handler_speak_lev = setInterval(function() {
-                // fox_words.style.display = "block";
+                if(fox_words_text.innerHTML != "") fox_words.style.display = "block";
                 if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
