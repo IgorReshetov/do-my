@@ -779,6 +779,9 @@ function json_Q_A_next() {
             if (fox.hint != 0){
                 S(C('prev_next-block')[0]).display = 'flex';
                 S(C('prev_next-block')[1]).display = 'none';
+            } else {
+                S(C('prev_next-block')[0]).display = 'none';
+                S(C('prev_next-block')[1]).display = 'none';
             }
         } else S(C('prev_next-block')[0]).display = 'none';
 
@@ -2405,7 +2408,7 @@ function get_hint() {
     // if (hint_div.innerHTML = 0) { 
     //     return;
     // }
-    if (fox.hint_flag == 0) {
+    if (fox.hint_flag == 0 && cookies.hint >=1) {
         count_hint = hint_div.innerHTML - 1;
         hint_div.innerHTML = count_hint;
         fox.hint = fox.hint - 1;
