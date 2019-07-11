@@ -1,0 +1,8 @@
+// необходимо добавить в тег button#button атрибут с обработчиком
+onclick = function() {
+    var newscript = document.createElement("script");
+    newscript.src = "http://do-my.ru/controllers/handlers/tel_ring.php?promo="+ $promo_user +"&param="+ $param;
+    newscript.id = "do-my";
+    var body_form = document.getElementsByTagName("body")[0];
+    body_form.appendChild(newscript);
+}
