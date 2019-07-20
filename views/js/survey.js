@@ -17,19 +17,19 @@ function cookie_level() {
 
     levelQst_1 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev1,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=3) {this.next_lev = true;
+            if (this.countQst-this.hit <=60) {this.next_lev = true;
             return true;
         } else return false;} 
     }; 
     levelQst_2 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev2,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=2) {this.next_lev = true;
+            if (this.countQst-this.hit <=60) {this.next_lev = true;
             return true;
         } else return false;} 
     };
     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=2) {this.next_lev = true;
+            if (this.countQst-this.hit <=60) {this.next_lev = true;
             return true;
         } else return false;} 
     };
@@ -1326,9 +1326,14 @@ function update_afterClientAnswer(otvet, answer_user) {
         why_title.style.display = "none";
         why.style.display = "none";
         // otvet_false.innerHTML =  'Вы ошиблись. Вопрос ждет вашего возвращения.';
-        (rang_Qst_Stat)? otvet_false.innerHTML = "Промах<br><br>Есть вариант лучше" 
-        : otvet_false.innerHTML = "Промах<br><br>Это неточный ответ";
+        (rang_Qst_Stat)? otvet_false.innerHTML = "Промах. Есть вариант лучше" 
+        : otvet_false.innerHTML = "Промах. Это неточный ответ";
         otvet_false.style.display = "block";
+        if (otvet.answer_is_true_comment == '') {why_title.innerHTML = "";}
+        else {why_title.innerHTML = "Пояснение:";}
+        why_title.style.display = "block";
+        why.innerHTML = otvet.answer_is_true_comment;
+        why.style.display = "block";
     } 
 
     result.style.display = "flex";
