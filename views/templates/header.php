@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Полезные квизы и викторины">
+    <meta name="description" content="Полезные тесты и квизы">
     <title><?php echo "$admin_page_title" ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="views/css/style.css?ver=<?=VER?>">
@@ -42,8 +42,8 @@
                     <div class="centr-fox"> 
                         <div id = "fox" class="fox-sleep"></div>
                         <div class="fox-words-down">
-                        <p class="fox-words-text"></p>
-                    </div>
+                            <p class="fox-words-text"></p>
+                        </div>
                     </div>
                     
                     <div class="user-menu">
@@ -66,16 +66,16 @@
                     echo ('<a href="index.php?page=start&back=1" class="hiden-menu-user-getpromo">На главную страницу</a>');
                 }
                 ?>
-                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным квизам</div>
+                <div class="hiden-menu-user-getpromo" id = "getpromo">Получить промокод по пройденным тестам</div>
                 <div class="hiden-menu-user-getpromo" id = "inwork">Проверить промокод</div>
 
                 <?php
                 if ($_SESSION['active_question'] > 0 && $page != "survey"){
-                    echo ('<a href="index.php?page=survey&back=1" class="hiden-menu-user-getpromo">Продолжить квиз</a>');
+                    echo ('<a href="index.php?page=survey&back=1" class="hiden-menu-user-getpromo">Продолжить тест</a>');
                 }
 
                 if ($_SESSION['active_question'] > 0){
-                    echo ('<a href="index.php?page=survey&reset=1&back=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу квиза</a>');
+                    echo ('<a href="index.php?page=survey&reset=1&back=1" class="hiden-menu-user-getpromo">Сбросить ходы и вернуться к началу теста</a>');
                 }
 
                 if ($page != "project") {
@@ -93,7 +93,7 @@
             </div>
             <div class="menu-wraper-promo" id = "menu-wraper-promo">
             <div class="hiden-menu-user-promo" id = "menu12">
-                <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным квизам введите ваш email:</div>
+                <div class="hiden-menu-user-promo-block" id ="hiden-menu-user-promo-header">Для получения промокодов по пройденным тестам введите ваш email:</div>
                 
                 <div class="hiden-menu-input-wraper">
                 <input class="hiden-menu-user-promo-block" onfocus="fox.speak_multi();" id = "menu-mail" name = "menu-mail" type="text" placeholder= "Введите email">
@@ -140,19 +140,20 @@
 
 <!-- Yandex.Metrika counter -->
 
+
 <!-- <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(53611348, "init", {
+   ym(53795302, "init", {
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
         webvisor:true
    });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/53611348" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+<noscript><div><img src="https://mc.yandex.ru/watch/53795302" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
 
 
 <!-- /Yandex.Metrika counter -->  

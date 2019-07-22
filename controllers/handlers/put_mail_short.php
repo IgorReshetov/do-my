@@ -11,10 +11,10 @@ $promo = User::getPromocod ($data['mail']);
 
 if (count($promo) == 0) {echo json_encode(count($promo));}
 else {
-if (count($promo) == 1) {$message_promo = "Направляем Ваш промокод по пройденному  квизу:\n\n";
-$subject = "Информация по квизу";}
-else{$message_promo = "Направляем Ваши промокоды по пройденным  квизам:\n\n";
-$subject = "Информация по квизам";
+if (count($promo) == 1) {$message_promo = "Направляем Ваш промокод по пройденному тесту:\n\n";
+$subject = "Информация по тесту";}
+else{$message_promo = "Направляем Ваши промокоды по пройденным  тестам:\n\n";
+$subject = "Информация по тестам";
 }
 
 $mailTo = $data['mail']; // кому
@@ -24,7 +24,7 @@ $from = "fox@do-my.ru"; // от кого
 
 foreach ($promo as $key => $row) {
  $promo_user = substr($row{'promocode'}, -7);
- $message_promo .= $promo_user." по квизу \"".$row{'action_name'}."\"\n";
+ $message_promo .= $promo_user." по тесту \"".$row{'action_name'}."\"\n";
  $message_promo .= "\n";
 }
 

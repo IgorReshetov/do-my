@@ -185,7 +185,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$
     }
     $_SESSION['finish']=3;
     $_SESSION['count_true']=$count_true;
-    if ($count_false <=1) {$_SESSION['level_access'] = 4;}
+    if ($count_false <=2) {$_SESSION['level_access'] = 4;}
     else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
 

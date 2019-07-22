@@ -7,13 +7,13 @@ require_once 'views/templates/header.php';
     </div>
 
     <div class="wrapper">
-        <h1 class = "start-h1" id= "fox-start" user = "<?=$user?>">Полезные квизы и викторины</h1>
+        <h1 class = "start-h1" id= "fox-start" user = "<?=$user?>">Полезные тесты и квизы</h1>
         
         <div class="start-block">
             <div class="start-h2-conteiner">
                 <div class="start-h2-upor-l"></div>
                 <div class="start-h2">
-                    <a href="index.php?page=survey&back=1" class="start-h2-menu">Эта игра подскажет, где вам лучше жить</a>
+                    <a href="index.php?page=survey&back=1" class="start-h2-menu">Этот тест подскажет, где вам лучше жить</a>
                     <a href="index.php?page=survey&back=1" class="start-qustions-flex-appendix-2"></a>
                 </div>
                 <div class="start-h2-upor-r"></div>

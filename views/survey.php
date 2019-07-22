@@ -290,31 +290,9 @@ require_once 'views/templates/header.php';
         <div class="land" id = "land">
         <div class="land-block land-block1">
             <div class="land-block-text land-block1-text">
-                <div class="land-block-question land-block1-question">Что это?</div>
-                <div class="land-block-answer land-block1-answer">Умная игра, где вы получите знания и призы</div>
+                <div class="land-block-question land-block1-question"></div>
+                <div class="land-block-answer land-block1-answer">Получите оптимальную квартиру<br>за 15 минут теста<br>вместо месяца самостоятельного поиска</div>
             </div>
-        </div>
-        <div class="land-block land-block2">
-            <div class="land-block-text land-block2-text">
-                <div class="land-block-question land-block2-question">Что делать?</div>
-                <div class="land-block-answer land-block2-answer1">Найти ответы на ключевые вопросы выбора квартиры, например:</div>
-                <div class="land-block-answer land-block2-answer2">Сколько по времени лучше выбирать квартиру?</div>
-                <div class="land-block-answer land-block2-answer3">Где лучше выбрать квартиру в новом доме?</div>
-                <div class="land-block-answer land-block2-answer4">Какие дома наиболее долговечны?</div>
-            </div> 
-        </div>
-        <div class="land-block land-block3">
-            <div class="land-block-text land-block3-text">
-                <div class="land-block-question land-block3-question">Как долго?</div>
-                <div class="land-block-answer land-block-answer">15 минут</div>
-            </div>
-        </div>
-        <div class="land-block land-block4">
-            <div class="land-block-text land-block4-text">
-                <div class="land-block-question  land-block4-question">Зачем?</div>
-                <div class="land-block-answer land-block-answer1"><b>1.</b> Чтобы не ошибиться при покупке квартиры.</div>
-                <div class="land-block-answer land-block-answer1"><b>2.</b> Получить приз: скидку на квартиру, которая возможно подойдет именно вам.</div>
-            </div>  
         </div>
         <div class="land-block land-block5">
             <div class="land-block-text land-block5-button" id = "land-block5-button">Начать</div>
@@ -356,14 +334,14 @@ require_once 'views/templates/header.php';
         <div class="gift-center">
             <div class="gift-heard">
                 <div class="gift-heard-text">
-                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш квиз.</div>
+                    <div class="gift-heard-blok-text">Поздравляем! <br> Вы завершили наш тест</div>
                 </div>
                 <div class="gift-heard-present">
                     <div class="gift-block-present"></div>
                 </div>
             </div>
             <div class="gift-block1"></div>
-                <div class="gift-block1-head">Результаты прохождения квиза:</div>
+                <div class="gift-block1-head">Результаты прохождения теста:</div>
                 <div class="gift-block1-row">
             
             <?php
@@ -411,7 +389,8 @@ require_once 'views/templates/header.php';
             ?>
                 </div>
             <div class="gift-block2">
-                <div class="gift-block2-head">Мы подготовили для вас:</div>
+                <div class="gift-block2-head">Идеальной для вас будет квартира в ЖК "Любовь и голуби"</div>
+                <div class="gift-block2-head-spisok">Мы подготовили вам в подарок:</div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-yellow"></div>
@@ -423,7 +402,7 @@ require_once 'views/templates/header.php';
                     <div class="gift-block-text-icon">
                         <div class="gift-block-text-icon-red"></div>
                     </div>
-                    <div class="gift-block-text-text">Ответы на вопросы нашего квиза, чтобы впредь вы никода не ошибались при выборе квартиры</div>
+                    <div class="gift-block-text-text">Ответы на вопросы нашего теста, чтобы впредь вы никода не ошибались при выборе квартиры</div>
                 </div> 
                 
                 <!-- выбор двых параметров пожеланий -->

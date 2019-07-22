@@ -350,11 +350,11 @@ table.prev_next {
 }
 
 .play1:before {
-  content: "Начать игру";
+  content: "Начать тест";
 }
 
 .play2:before {
-  content: "Продолжить игру";
+  content: "Продолжить тест";
   font-size: 23px;
 }
 
@@ -364,7 +364,7 @@ table.prev_next {
 }
 
 .play4:before {
-  content: "Повторить игру";
+  content: "Повторить тест";
   font-size: 23px;
 }
 
@@ -1029,23 +1029,43 @@ table.prev_next {
   border: 3px solid red;
 }
 
-.range-focus.level1::-webkit-slider-thumb:hover, .range-focus::-webkit-slider-thumb:active {
+.range-focus.level1::-webkit-slider-thumb:hover {
   -webkit-box-shadow: 0 0 20px yellow;
           box-shadow: 0 0 20px yellow;
   border: 4px solid yellow;
 }
 
-.range-focus.level2::-webkit-slider-thumb:hover, .range-focus::-webkit-slider-thumb:active {
+.range-focus.level1::-webkit-slider-thumb:active {
+  -webkit-box-shadow: 0 0 20px yellow;
+          box-shadow: 0 0 20px yellow;
+  border: 4px solid yellow;
+}
+
+.range-focus.level2::-webkit-slider-thumb:hover {
   -webkit-box-shadow: 0 0 20px blue;
           box-shadow: 0 0 20px blue;
   border: 4px solid blue;
 }
 
-.range-focus.level3::-webkit-slider-thumb:hover, .range-focus::-webkit-slider-thumb:active {
+.range-focus.level2::-webkit-slider-thumb:active {
+  -webkit-box-shadow: 0 0 20px blue;
+          box-shadow: 0 0 20px blue;
+  border: 4px solid blue;
+}
+
+.range-focus.level3::-webkit-slider-thumb:hover {
   -webkit-box-shadow: 0 0 20px red;
           box-shadow: 0 0 20px red;
   border: 4px solid red;
 }
+
+
+.range-focus.level3::-webkit-slider-thumb:active {
+  -webkit-box-shadow: 0 0 20px red;
+          box-shadow: 0 0 20px red;
+  border: 4px solid red;
+}
+
 
 .range-focus::-moz-range-track {
   width: 100%;
@@ -1742,6 +1762,16 @@ table.prev_next {
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.gift-block2-head-spisok {
+  font-size: 18px;
+  text-align: start;
+  margin-left: 44px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .gift-block1-row {
@@ -2082,7 +2112,7 @@ table.prev_next {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 1150px;
+  height: 900px;
   margin-bottom: 40px;
   margin-top: -2px;
 }
@@ -2091,7 +2121,7 @@ table.prev_next {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 230px;
+  height: 250px;
   position: relative;
 }
 
@@ -2148,8 +2178,8 @@ table.prev_next {
 }
 
 .land-block-answer {
-  text-align: justify;
-  font-size: 18px;
+  text-align: center;
+  font-size: 22px;
 }
 
 .land-block2-answer2, .land-block2-answer3, .land-block2-answer4 {
@@ -2159,7 +2189,7 @@ table.prev_next {
 
 .land-block5-button {
   border-radius: 40px;
-  font-size: 20px;
+  font-size: 23px;
   background-color: yellow;
   width: 200px;
   color: black;
@@ -2190,8 +2220,8 @@ table.prev_next {
 }
 
 .land-block1-text {
-  -webkit-transform: translateY(-50%) translateX(10%);
-          transform: translateY(-50%) translateX(10%);
+  -webkit-transform: translateY(-50%) translateX(50%);
+          transform: translateY(-50%) translateX(50%);
 }
 
 .land-block2-text {
@@ -2229,6 +2259,9 @@ table.prev_next {
 }
 
 @media (max-width: 570px) {
+  .gift-block2-head-spisok {
+    font-size: 16px;
+  }
   .slider-box-survey-hidden:before {
     content: '';
     display: block;
@@ -2373,7 +2406,7 @@ table.prev_next {
             transform: rotate(-5deg);
   }
   .play2:before {
-    content: "Продолжить игру";
+    content: "Продолжить тест";
     font-size: 20px;
   }
   .play3:before {
@@ -2381,7 +2414,7 @@ table.prev_next {
     font-size: 19px;
   }
   .play4:before {
-    content: "Повторить игру";
+    content: "Повторить тест";
     font-size: 20px;
   }
   .result-image {
@@ -2513,14 +2546,21 @@ table.prev_next {
     bottom: -40px;
   }
   .land {
-    height: 1100px;
+    height: 750px;
   }
   .land-block {
-    height: 220px;
+    height: 300px;
   }
   .land-block1-text {
-    -webkit-transform: translateY(-50%) translateX(25%);
-            transform: translateY(-50%) translateX(25%);
+    -webkit-transform: translateY(-40%) translateX(50%);
+            transform: translateY(-40%) translateX(50%);
+  }
+  .land-block-answer {
+    font-size: 18px;
+  }
+  .land-block5-button {
+    font-size: 20px;
+    width: 150px;
   }
   .land-block2-text {
     -webkit-transform: translateY(-50%) translateX(75%);
@@ -2624,16 +2664,16 @@ table.prev_next {
     font-size: 12px;
   }
   .land {
-    height: 900px;
+    height: 640px;
   }
   .land-block {
-    height: 180px;
+    height: 250px;
   }
   .land-block-question {
     font-size: 17px;
   }
   .land-block-answer {
-    font-size: 13px;
+    font-size: 17px;
   }
 }
 

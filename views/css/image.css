@@ -84,7 +84,7 @@
 }
 
 .land {
-  background: url("../images/icon/background_start_desktop.svg") center -10px/cover no-repeat;
+  background: url("../images/icon/background_start_desktop.svg") center -213px/cover no-repeat;
 }
 
 .land-patner-pic {
@@ -205,7 +205,7 @@
 
 @media (max-width: 570px) {
   .land {
-    background: url("../images/icon/background_start_mob.svg") center center/contain no-repeat;
+    background: url("../images/icon/background_start_mob.svg") center center/cover no-repeat;
   }
 }
 /*# sourceMappingURL=image.css.map */

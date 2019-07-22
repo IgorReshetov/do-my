@@ -140,7 +140,7 @@ function question(point) {
         window.setTimeout(function(){
         document.getElementById('first').children[1].children[1].classList.remove('column2-image1');
         document.getElementById('first').children[1].children[1].classList.add('column2-image1-aim');
-        document.getElementById('first').children[0].innerHTML = 'Полезные квизы и викторины';
+        document.getElementById('first').children[0].innerHTML = 'Полезные тесты и квизы';
         }, 10000);
         return false;}
     blue(start_elem.children[2]);

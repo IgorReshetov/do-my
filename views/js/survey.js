@@ -29,7 +29,7 @@ function cookie_level() {
     };
     levelQst_3 = {hit:0, miss:0, next_lev:false, countQst: countQst_lev3,  check:false,
         next_level: function(){                   
-            if (this.countQst-this.hit <=1) {this.next_lev = true;
+            if (this.countQst-this.hit <=2) {this.next_lev = true;
             return true;
         } else return false;} 
     };
@@ -174,17 +174,17 @@ function init() {
     var button1 = document.getElementById('land-block5-button');
     if (button1 != null){
         button1.onclick = startOpros;
-        perebor_Qst();
+        // perebor_Qst();
+        setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
+        // setTimeout(function(){
+        //     var coord_target = offset(button1);
 
-        setTimeout(function(){
-            var coord_target = offset(button1);
+        //     $("body,html,document").animate({scrollTop: coord_target},2000);
 
-            $("body,html,document").animate({scrollTop: coord_target},2000);
-
-            // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
-            // $('html').animate({scrollTop: coord_target},2000);
-            setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
-        }, 10000);
+        //     // handl_scroll_el = setInterval(scroll_to_downPage,15,top_scroll_Y);
+        //     // $('html').animate({scrollTop: coord_target},2000);
+        //     setTimeout(function(){C('land-block-text land-block5-button')[0].classList.add('land-block5-button-scroll')},2500);
+        // }, 10000);
 
     };
     
@@ -1055,10 +1055,12 @@ function update_Q_A (messages) {
         var input_range = document.getElementById("range-focus");
         var input_range_min = document.getElementsByClassName("range-min");
         var input_range_max = document.getElementsByClassName("range-max");
-        var Q = document.getElementById("Q");
-        
-        
+
+        var Q = document.getElementById("Q"); 
+
         setTimeout(function(){input_range.value = range_center;},10);
+        console.log(input_range.value);
+
         Q.innerHTML= messages.question.question;
         input_range.setAttribute('name', 'Q' + messages.question.id_parent);
         input_range.min = messages.question.scale_min;
@@ -1469,7 +1471,7 @@ function valid_level_3() {
             // image.classList.add('result-loss-level');
             image.style.display = "block";
 
-            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Победа в игре - не больше 1 промаха.";
+            otvet_false.innerHTML = "У вас <strong>"+ otvet_miss + "</strong> " + text +  " на уровне \"Hard\".<br><br>Для прохождения теста - не больше 2 промахов.";
             otvet_false.style.display = "block"; 
             // why.innerHTML = "Победа возможна с 1 промахом.";
             // why.style.display = "block";
@@ -2389,16 +2391,16 @@ function  getPageSize(){
     return {'page':{'width':pageWidth,'height':pageHeight},'window':{'width':windowWidth,'height':windowHeight}}
 }
 
-function perebor_Qst() {
-    setTimeout(function(){
-        S(C('land-block-answer land-block2-answer2')[0]).display = "none";
-        S(C('land-block-answer land-block2-answer3')[0]).display = "block";
-    }, 5000);
-    setTimeout(function(){
-        S(C('land-block-answer land-block2-answer3')[0]).display = "none";
-        S(C('land-block-answer land-block2-answer4')[0]).display = "block";
-    }, 9000);
-}
+// function perebor_Qst() {
+//     setTimeout(function(){
+//         S(C('land-block-answer land-block2-answer2')[0]).display = "none";
+//         S(C('land-block-answer land-block2-answer3')[0]).display = "block";
+//     }, 5000);
+//     setTimeout(function(){
+//         S(C('land-block-answer land-block2-answer3')[0]).display = "none";
+//         S(C('land-block-answer land-block2-answer4')[0]).display = "block";
+//     }, 9000);
+// }
 
 // _________________________________ Функция получения подсказки на вопрос ________________________________
 
@@ -2408,7 +2410,9 @@ function get_hint() {
     // if (hint_div.innerHTML = 0) { 
     //     return;
     // }
-    if (fox.hint_flag == 0 && cookies.hint >=1) {
+
+    if (fox.hint_flag == 0 && cookies.hint >= 1) {
+
         count_hint = hint_div.innerHTML - 1;
         hint_div.innerHTML = count_hint;
         fox.hint = fox.hint - 1;
