@@ -106,7 +106,9 @@ var fox = {
             // fox_words.style.display = "block";
 
             var handler_speak_lev = setInterval(function() {
+
                 fox_words.style.display = "block";
+
                 if(fox_img.classList.contains('fox-speak')) {
                         fox_img.className = 'fox-speak2';
                     setTimeout( function(){
