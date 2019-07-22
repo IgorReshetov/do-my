@@ -291,7 +291,7 @@ require_once 'views/templates/header.php';
         <div class="land-block land-block1">
             <div class="land-block-text land-block1-text">
                 <div class="land-block-question land-block1-question"></div>
-                <div class="land-block-answer land-block1-answer">Подберите <b>профессиональную</b> бригаду&nbspдля&nbspремонта<br>за <b>15 минут</b> теста<br>вместо месяца самостоятельного поиска</div>
+                <div class="land-block-answer land-block1-answer">Прокачайте знания о ремонте <br>за 10 минут теста</div>
             </div>
         </div>
         <div class="land-block land-block5">
@@ -389,7 +389,7 @@ require_once 'views/templates/header.php';
             ?>
                 </div>
             <div class="gift-block2">
-                <div class="gift-block2-head">Наилучшим для вас будет ремонт от подрядчика ПроффCервис</div>
+                <!-- <div class="gift-block2-head">Наилучшим для вас будет ремонт от подрядчика ПроффCервис</div> -->
                 <div class="gift-block2-head-spisok">Мы подготовили вам в подарок:</div>
                 <div class="gift-block2-text">
                     <div class="gift-block-text-icon">
