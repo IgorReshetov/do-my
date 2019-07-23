@@ -257,7 +257,7 @@ function init() {
 
     hint_button.onclick = get_hint;
 
-    horseshoe[0].onclick = function() {fox.speak_about_hint();};
+    horseshoe[0].onclick = fox.speak_about_hint;
 
     saveGame.onclick = function() {window.location.href='index.php?page=survey&back=1'};
                                                         // Делаем активными стрекли влево-вправо для просмотра слайдера
@@ -1055,10 +1055,12 @@ function update_Q_A (messages) {
         var input_range = document.getElementById("range-focus");
         var input_range_min = document.getElementsByClassName("range-min");
         var input_range_max = document.getElementsByClassName("range-max");
+
         var Q = document.getElementById("Q"); 
 
         setTimeout(function(){input_range.value = range_center;},10);
         console.log(input_range.value);
+
         Q.innerHTML= messages.question.question;
         input_range.setAttribute('name', 'Q' + messages.question.id_parent);
         input_range.min = messages.question.scale_min;
@@ -2413,7 +2415,9 @@ function get_hint() {
     // if (hint_div.innerHTML = 0) { 
     //     return;
     // }
+
     if (fox.hint_flag == 0 && cookies.hint >= 1) {
+
         count_hint = hint_div.innerHTML - 1;
         hint_div.innerHTML = count_hint;
         fox.hint = fox.hint - 1;

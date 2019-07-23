@@ -34,7 +34,9 @@ frameborder="0">Просмотр pdf файла не возможен - ваш �
         webvisor:true
    });
 </script>
+
 <noscript><div><img src="https://mc.yandex.ru/watch/53795302" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+
 
 
 <!-- /Yandex.Metrika counter --> 
