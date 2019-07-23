@@ -45,7 +45,7 @@ if ($_SESSION['user_answer'][$i]['is_scale'] == 1) {// если вопрос д�
         $answer_is_true_comment = $answer->is_true_comment[0];
     }else {
         $answer_is_true = NULL;
-        $answer_is_true_comment =  NULL;
+        $answer_is_true_comment =  $answer->is_true_comment[0];
     }
 
 } else if ($_SESSION['user_answer'][$i]['is_word'] == 1){// если вопрос слово
@@ -73,14 +73,15 @@ if (is_array($id_answer)) {
         $answer_is_true_comment = $comment;
     }else {
         $answer_is_true = NULL;
-        $answer_is_true_comment =  NULL;
+        $answer_is_true_comment =  $comment;
     }
 }else{
     foreach ($answer->id_answer as $key => $id_answer_check){ //определяем позицию ответа в массиве и делаем замену id на позицию
         if ($id_answer == $id_answer_check) {$id_answer = $key;}
+        $comment = $comment.$answer->is_true_comment[$key];
     }
     $answer_is_true = $answer->is_true[$id_answer];
-    $answer_is_true_comment = $answer->is_true_comment[$id_answer];
+    $answer_is_true_comment = $comment;
 }
 }
 
@@ -161,7 +162,7 @@ if ($activ_question == $count_1['questions_count']){
     $_SESSION['count_true']=$count_true;
     }
     
-    if ($count_false <= 3) {$_SESSION['level_access'] = 2; } 
+    if ($count_false <= 60) {$_SESSION['level_access'] = 2; } 
     else {$activ_question = 0;}
     
 }
@@ -176,7 +177,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']){
         $_SESSION['count_true']=$count_true;
     }
 
-    if ($count_false <= 2) {$_SESSION['level_access'] = 3;}
+    if ($count_false <= 60) {$_SESSION['level_access'] = 3;}
     else {$activ_question = $count_1['questions_count'];}
 }
 if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$count_3['questions_count']){
@@ -185,7 +186,7 @@ if ($activ_question == $count_1['questions_count']+$count_2['questions_count']+$
     }
     $_SESSION['finish']=3;
     $_SESSION['count_true']=$count_true;
-    if ($count_false <=2) {$_SESSION['level_access'] = 4;}
+    if ($count_false <=60) {$_SESSION['level_access'] = 4;}
     else {$activ_question = $count_1['questions_count']+$count_2['questions_count'];}
 }
 

@@ -15,8 +15,8 @@ require_once 'views/templates/header.php';
         </div>
         <div class="column2-proect column-proect column2-image1" id="top-image"><img src="views/images/icon/question_ring.svg" class="<?=($proect_left[0]+$proect_right[0] > 2)?'opacity07':''?> <?=($proect_left[0]+$proect_right[0] > 3)?'display-none':''?>"></div>
         <div class="column3-proect column-proect column-proect-light-red">
-            <div class="column-proect-text <?=($proect_right[0] == 1)?'display-block':''?>">Здесь будут только тесты по жилью?</div>
-            <div class="column-proect-text <?=($proect_right[0] == 2)?'display-block':''?>">Начинаем с жилья. Дальше будут тесты обо всем на свете.</div> 
+            <div class="column-proect-text <?=($proect_right[0] == 1)?'display-block':''?>">Здесь будут только тесты по ремонтам?</div>
+            <div class="column-proect-text <?=($proect_right[0] == 2)?'display-block':''?>">Начинаем с ремонтов. Дальше будут тесты обо всем на свете.</div> 
         </div>
     </div>
 

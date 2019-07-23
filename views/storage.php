@@ -13,7 +13,7 @@
 <div class="bloc-pdf-load">
 <a href="<?=$file_paht?>" id = "pfd-load" class="pfd-load" book = "<?=$book?>">ОСТАВИТЬ ЗАЯВКУ В ЖК "ЛЮБОВЬ И ГОЛУБИ"</a>
 </div>
-<iframe class= "proba" src="https://lyubov-i-golubi.ru/"></iframe>
+
 <iframe class = "pdf-block"src="https://docs.google.com/viewer?url=<?=$file_paht?>&embedded=true" 
 frameborder="0">Просмотр pdf файла не возможен - ваш браузер не поддерживает фреймы</iframe>
 

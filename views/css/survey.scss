@@ -1465,9 +1465,19 @@ table.prev_next {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.block-telefon-head {
+    font-size: 18px;
+    max-width: 500px;
+}
+
+.telefon {
+    height: 450px;
 }
 
 .gift {
@@ -2033,8 +2043,13 @@ margin-right: 30px;
         margin-right: -8px;
     }
 
+    .block-telefon-head {
+        font-size: 16px;
+    }
+
     .telefon {
         width: 300px;
+        height: 480px;
     }
 
     .picture-block-text {
