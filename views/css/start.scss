@@ -300,3 +300,22 @@
         margin-bottom: 150px;
         }
 }
+
+// ___________________ Блок карусели ________________________
+
+#carousel {
+position: relative;
+width: 600px;
+height: 300px;
+border: 1px solid black;
+margin: 50px auto;
+}
+
+#carousel .item {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background: rgba(0,0,0,0.3) url('../images/survey/Dolphin.png') center center / contain no-repeat;
+    border: 1px solid #000000;
+    border-radius: 15px;
+  }

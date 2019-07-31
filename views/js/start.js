@@ -1,9 +1,132 @@
 window.onload = init;
 var flag = 0;
 
-function init() {
+function degToRad(input) { return input * (Math.PI/180);}
 
-menu();
+function out(arg) { document.getElementById("debug").innerHTML = arg; }
+
+
+var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
+    //Переманные и установки сферы
+    var me = this;
+
+    //Изменяемые переменные 
+
+    var carouselW = 600;
+    var carouselH = 300;
+    var itemW = 100;
+    var itemH = 200;
+    var noOfItemsToAdd = 5;
+    var stepItems=[0]
+    for (var i=1; i<noOfItemsToAdd; i++) {
+        var step = 360/noOfItemsToAdd;
+        var lastStep = 360 - step*(noOfItemsToAdd-i);
+        stepItems.push(lastStep);
+    }
+    console.log(stepItems);
+    //константы
+    var carousel = document.getElementById("carousel");
+    var itemContainer = carousel.getElementsByClassName('item-container');
+    var items = [];
+    var deg = 0;
+    var rangeX = carouselW - itemW;
+    var rangeY = carouselH - itemH;
+    var arr_img = ['Dolphin', 'elephant', 'gorilla','Hippopotamus','lion', 'Turtle', 'Panda'];
+    
+
+
+    build();
+
+    function build() {
+        console.log("Carousel.build()");
+
+        for (var i=0; i< noOfItemsToAdd; i++) {
+            addItem();
+        }
+
+        //Начало анимации
+        animate();
+    }
+
+    // Создаем методы конструктора
+
+    function addItem() {    // Добавление нового элемента
+        console.log("Carousel.addItem()");
+
+        var item = document.createElement("div");
+        item.classList.add("item"); 
+        carousel.appendChild(item);
+
+        var itemObj = {
+            item:item
+        }
+
+        items.push(itemObj);
+    }
+
+    function animate() {       // Анимация движения карусели
+        deg += 0.01;
+        
+        
+
+        for (var i=0; i < items.length; i++) {
+           
+           var degItem = deg + stepItems[i]/3;
+            
+            var cos = 0.5 + (Math.cos(degItem) * 0.5);
+            var sin = 0.5 + (Math.sin(degItem) * 0.5);
+            out(cos);
+            var itemObj = items[i];
+            var posX = cos * rangeX;
+            var posY = sin * rangeY;
+            itemObj.item.style.left = posX + "px";
+            itemObj.item.style.top = posY + "px";
+
+            degItem=deg+360/3*i;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+
+
+
+    //Дополнительные функции
+    function degToRad(input) {return input * (Math.PI/180);  }
+
+
+
+}
+
+
+
+
+function init() {
+    var myCarousel = new Carousel();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    menu();
 
 fox.speake_start();
 

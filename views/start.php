@@ -9,6 +9,15 @@ require_once 'views/templates/header.php';
     <div class="wrapper">
         <h1 class = "start-h1" id= "fox-start" user = "<?=$user?>">Полезные тесты и квизы</h1>
         
+        <!-- ___________________БЛОК КАРУСЕЛЬ___________________ -->
+        <div id="carousel">
+            <div class="item-container"></div>
+        </div>
+
+        <div id="debug" style="font-size: 26px"></div>
+
+     
+        <!-- _______________КОНЕЦ БЛОКА КАРУСЕЛЬ__________________ -->
         <div class="start-block">
             <div class="start-h2-conteiner">
                 <div class="start-h2-upor-l"></div>
@@ -27,13 +36,13 @@ require_once 'views/templates/header.php';
             </div>
         </div>
        
-        <div class="start-linia">
+        <!-- <div class="start-linia">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 400 700" preserveAspectRatio="none" class="start-svg">
                 <path width="100%"  height="500px" fill="none" stroke="#0000ff"  stroke-width="10" d="M20,300 Q100,700, 380,670" />
             </svg>
             <div class="start-planeta-img"></div>
             <div class = "house"></div>
-        </div>
+        </div> -->
         
         
     </div>
