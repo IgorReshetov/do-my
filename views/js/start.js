@@ -9,26 +9,32 @@ function out(arg) { document.getElementById("debug").innerHTML = arg; }
 var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     //Переманные и установки сферы
     var me = this;
-
+    
     //Изменяемые переменные 
 
     var carouselW = 600;
-    var carouselH = 300;
+    var carouselH = 400;
     var itemW = 100;
     var itemH = 200;
-    var noOfItemsToAdd = 5;
+    var numbers_of_elems = 7;
+
     var stepItems=[0]
-    for (var i=1; i<noOfItemsToAdd; i++) {
-        var step = 360/noOfItemsToAdd;
-        var lastStep = 360 - step*(noOfItemsToAdd-i);
+    for (var i=1; i<numbers_of_elems; i++) {
+        var step = 2*Math.PI/numbers_of_elems;
+        var lastStep = 2*Math.PI - step*(numbers_of_elems-i);
         stepItems.push(lastStep);
     }
     console.log(stepItems);
     //константы
     var carousel = document.getElementById("carousel");
     var itemContainer = carousel.getElementsByClassName('item-container');
+    var btnNext = document.getElementsByClassName("btn-next")[0];
+    var btnPrev = document.getElementsByClassName("btn-prev")[0];
+
     var items = [];
     var deg = 0;
+    var last_deg = 0;
+    var L_R;
     var rangeX = carouselW - itemW;
     var rangeY = carouselH - itemH;
     var arr_img = ['Dolphin', 'elephant', 'gorilla','Hippopotamus','lion', 'Turtle', 'Panda'];
@@ -40,13 +46,61 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     function build() {
         console.log("Carousel.build()");
 
-        for (var i=0; i< noOfItemsToAdd; i++) {
+        for (var i=0; i< numbers_of_elems; i++) {
             addItem();
+            var numItem = document.createElement("p");
+            console.log(items[i]);
+            items[i].item.style.backgroundImage = "url('views/images/survey/" + arr_img[i] + ".png')"
+            items[i].item.appendChild(numItem);
+            numItem.innerHTML = i+1;
+            numItem.style.textAlign = "center";
+
+            var degItem = deg+stepItems[i];
+            degItem += (Math.PI)/4;
+            var cos = 0.5 + (Math.cos(degItem) * 0.5);
+            var sin = 0.5 + (Math.sin(degItem) * 0.5);
+            var itemObj = items[i];
+            var posX = cos * rangeX;
+            var posY = sin * rangeY;
+            itemObj.item.style.left = posX + "px";
+            itemObj.item.style.top = posY + "px";
+
+            var zindex = 1 + Math.round(sin * 100);
+            itemObj.item.style.zIndex = zindex;
+
+            var scale = 0.5 + (cos * 0.5);
+            scale += sin/4;
+            out(scale);
+            itemObj.item.style.transform = "scale(" + scale + ") skew(20deg, -20deg)";
+
+
+            var opacity = (cos);
+            opacity += 1.5*sin;
+            itemObj.item.style.opacity = opacity;
         }
 
+        //Обработчики событий
+        btnNext.addEventListener('click', handler_mouse_next)
+        btnPrev.addEventListener('click', handler_mouse_prev)
+
         //Начало анимации
+        // animate();
+    }
+
+    //Функции нажатия на кнопки Следующий/предыдущий
+    
+    function handler_mouse_next() {
+        console.log ("Нажал следующий");
+        L_R = 1;
         animate();
     }
+
+    function handler_mouse_prev() {
+        console.log ("Нажал предыдущий");
+        L_R = -1;
+        animate();
+    }
+
 
     // Создаем методы конструктора
 
@@ -56,7 +110,7 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
         var item = document.createElement("div");
         item.classList.add("item"); 
         carousel.appendChild(item);
-
+      
         var itemObj = {
             item:item
         }
@@ -65,24 +119,43 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     }
 
     function animate() {       // Анимация движения карусели
-        deg += 0.01;
-        
-        
+        deg -= L_R*0.02;
+        out (deg);
+        if (L_R == 1) {
+            if (deg <= -2*Math.PI/numbers_of_elems + last_deg) {
+                last_deg = deg;
+                return
+            }
+        } else if (deg >= 2*Math.PI/numbers_of_elems + last_deg) {
+            last_deg = deg;
+            return
+        }
 
         for (var i=0; i < items.length; i++) {
            
-           var degItem = deg + stepItems[i]/3;
-            
+            var degItem = deg+stepItems[i];
+            degItem += (Math.PI)/4;
             var cos = 0.5 + (Math.cos(degItem) * 0.5);
             var sin = 0.5 + (Math.sin(degItem) * 0.5);
-            out(cos);
             var itemObj = items[i];
             var posX = cos * rangeX;
             var posY = sin * rangeY;
             itemObj.item.style.left = posX + "px";
             itemObj.item.style.top = posY + "px";
 
-            degItem=deg+360/3*i;
+            var zindex = 1 + Math.round(sin * 100);
+            itemObj.item.style.zIndex = zindex;
+
+            var scale = 0.5 + (cos * 0.5);
+            scale += sin/4;
+            // out(scale);
+            itemObj.item.style.transform = "scale(" + scale + ") skew(20deg, -20deg)";
+
+
+            var opacity = (cos);
+            opacity += 1.5*sin;
+            itemObj.item.style.opacity = opacity;
+
         }
 
         requestAnimationFrame(animate);

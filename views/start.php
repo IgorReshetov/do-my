@@ -10,10 +10,13 @@ require_once 'views/templates/header.php';
         <h1 class = "start-h1" id= "fox-start" user = "<?=$user?>">Полезные тесты и квизы</h1>
         
         <!-- ___________________БЛОК КАРУСЕЛЬ___________________ -->
-        <div id="carousel">
-            <div class="item-container"></div>
+        <div class="wrapper-carousel">
+            <div id="carousel">
+                <div class="item-container"></div>
+            </div>
+            <button class="btn btn-prev">Предыдущий</button>
+            <button class="btn btn-next">Следующий</button>
         </div>
-
         <div id="debug" style="font-size: 26px"></div>
 
      

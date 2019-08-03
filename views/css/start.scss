@@ -303,12 +303,16 @@
 
 // ___________________ Блок карусели ________________________
 
+.wrapper-carousel {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    // border: 1px solid black;
+    margin: 50px auto;
+}
+
 #carousel {
-position: relative;
-width: 600px;
-height: 300px;
-border: 1px solid black;
-margin: 50px auto;
+transform: skew(-20deg, 20deg);
 }
 
 #carousel .item {
@@ -318,4 +322,32 @@ margin: 50px auto;
     background: rgba(0,0,0,0.3) url('../images/survey/Dolphin.png') center center / contain no-repeat;
     border: 1px solid #000000;
     border-radius: 15px;
-  }
+    transform: skew(20deg, -20deg);
+}
+
+.wrapper-carousel .btn{
+    position: absolute;
+    background:  blue;
+    z-index: 400;
+    font-size: 16px;
+    color: aliceblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    
+}
+
+.wrapper-carousel .btn:hover{
+    background: rgb(29, 119, 255);
+}
+
+.wrapper-carousel .btn-prev{
+    left: -10%;
+    bottom: -10%;
+}
+
+.wrapper-carousel .btn-next{
+    right: -20%;
+    bottom: -10%;
+}
