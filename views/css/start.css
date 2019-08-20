@@ -323,43 +323,56 @@
 }
 
 #carousel {
-  -webkit-transform: skew(-20deg, 20deg);
-          transform: skew(-20deg, 20deg);
+  -webkit-transform: skew(35deg, -35deg);
+          transform: skew(35deg, -35deg);
 }
 
 #carousel .item {
   position: absolute;
   width: 100px;
-  height: 200px;
+  height: 100px;
   background: rgba(0, 0, 0, 0.3) url("../images/survey/Dolphin.png") center center/contain no-repeat;
   border: 1px solid #000000;
-  border-radius: 15px;
-  -webkit-transform: skew(20deg, -20deg);
-          transform: skew(20deg, -20deg);
+  border-radius: 100%;
+  -webkit-transform: skew(-35deg, 35deg);
+          transform: skew(-35deg, 35deg);
 }
 
 .wrapper-carousel .btn {
   position: absolute;
-  background: blue;
   z-index: 400;
-  font-size: 16px;
-  color: aliceblue;
-  border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
-  padding: 5px;
 }
 
-.wrapper-carousel .btn:hover {
-  background: #1d77ff;
+.wrapper-carousel .btn-prev:hover {
+  border-top: 4px solid blue;
+  border-left: 4px solid blue;
+}
+
+.wrapper-carousel .btn-next:hover {
+  border-top: 4px solid blue;
+  border-right: 4px solid blue;
 }
 
 .wrapper-carousel .btn-prev {
+  border-top: 2px solid blue;
+  border-left: 2px solid blue;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  width: 50px;
+  height: 50px;
   left: -10%;
   bottom: -10%;
 }
 
 .wrapper-carousel .btn-next {
+  border-top: 2px solid blue;
+  border-right: 2px solid blue;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  width: 50px;
+  height: 50px;
   right: -20%;
   bottom: -10%;
 }

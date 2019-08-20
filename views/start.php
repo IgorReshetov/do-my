@@ -14,8 +14,8 @@ require_once 'views/templates/header.php';
             <div id="carousel">
                 <div class="item-container"></div>
             </div>
-            <button class="btn btn-prev">Предыдущий</button>
-            <button class="btn btn-next">Следующий</button>
+            <div class="btn btn-prev"></div>
+            <div class="btn btn-next"></div>
         </div>
         <div id="debug" style="font-size: 26px"></div>
 
