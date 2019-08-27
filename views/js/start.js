@@ -17,9 +17,9 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     var itemW = 100;
     var itemH = 200;
 
-    var numbers_of_elems = 3;   // Количество элементов
+    var numbers_of_elems = 10;   // Количество элементов
 
-    var stepItems=[0]
+    var stepItems=[0];
     for (var i=1; i<numbers_of_elems; i++) {
         var step = 2*Math.PI/numbers_of_elems;
         var lastStep = 2*Math.PI - step*(numbers_of_elems-i);
@@ -31,6 +31,14 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     var itemContainer = carousel.getElementsByClassName('item-container');
     var btnNext = document.getElementsByClassName("btn-next")[0];
     var btnPrev = document.getElementsByClassName("btn-prev")[0];
+    var btn_scale = document.getElementById("scale");
+    var btn_opasity = document.getElementById("opasity");
+    var btn_width = document.getElementById("width");
+    var btn_height =  document.getElementById("height");
+    var btn_plus = document.getElementsByClassName("btn-carusel plus");
+    var btn_minus = document.getElementsByClassName("btn-carusel minus");
+
+
 
     var items = [];
     var deg = 0;
@@ -42,7 +50,7 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     var arr_img = ['Dolphin', 'elephant', 'gorilla','Hippopotamus','lion', 'Turtle', 'Panda'];
     
     var options = {
-        duration: 500,
+        duration: 5000,
         timing: makeEaseOut(linear),
         animate: animate
     }
@@ -63,27 +71,27 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
             numItem.style.textAlign = "center";
 
             var degItem = deg+stepItems[i];
-            degItem += (Math.PI)/1.3;
+            // degItem += (Math.PI);
             var cos = 0.5 + (Math.cos(degItem) * 0.5);
             var sin = 0.5 + (Math.sin(degItem) * 0.5);
             var itemObj = items[i];
-            var posX = cos * rangeX*0.9;
-            var posY = sin * rangeY*1.5;
+            var posX = cos * rangeX;
+            var posY = sin * rangeY;
             itemObj.item.style.left = posX + "px";
             itemObj.item.style.top = posY + "px";
 
             var zindex = 1 + Math.round(sin * 100);
             itemObj.item.style.zIndex = zindex;
+           
+            // var scale =1-cos+sin/2;
+            // // scale -=Math.sin((Math.PI)/0.5);
+            // // out(scale);
+            // itemObj.item.style.transform = "scale(" + scale + ") skew(-35deg, 35deg)";
 
-            var scale =1-cos+sin/2;
-            // scale -=Math.sin((Math.PI)/0.5);
-            // out(scale);
-            itemObj.item.style.transform = "scale(" + scale + ") skew(-35deg, 35deg)";
 
-
-            var opacity = 1-cos+sin/2;
-            // opacity += 1.5*sin;
-            itemObj.item.style.opacity = opacity;
+            // var opacity = 1-cos+sin/2;
+            // // opacity += 1.5*sin;
+            // itemObj.item.style.opacity = opacity;
         }
 
         //Обработчики событий
@@ -151,13 +159,13 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
         for (var i=0; i < items.length; i++) {
            
             // var degItem = deg+stepItems[i];
-            var degItem = last_deg + L_R*(2*Math.PI/numbers_of_elems)*progress + stepItems[i];
+            var degItem = last_deg + L_R*(2*Math.PI)*progress + stepItems[i];
             degItem += (Math.PI)/1.3;
             var cos = 0.5 + (Math.cos(degItem) * 0.5);
             var sin = 0.5 + (Math.sin(degItem) * 0.5);
             var itemObj = items[i];
             var posX = cos * rangeX;
-            var posY = sin * rangeY*1.5;
+            var posY = sin * rangeY;
             itemObj.item.style.left = posX + "px";
             itemObj.item.style.top = posY + "px";
 
@@ -165,15 +173,15 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
             itemObj.item.style.zIndex = zindex;
 
             // var scale = 0.5 + (cos * 0.5);
-            var scale =1-cos+sin/2;
-            // scale += sin/2;
-            // out(scale);
-            itemObj.item.style.transform = "scale(" + scale + ") skew(-35deg, 35deg)";
+            // var scale =1-cos+sin/2;
+            // // scale += sin/2;
+            // // out(scale);
+            // itemObj.item.style.transform = "scale(" + scale + ") skew(-35deg, 35deg)";
 
 
-            var opacity = 1-cos+sin/2;
-            // opacity += 1.5*sin;
-            itemObj.item.style.opacity = opacity;
+            // var opacity = 1-cos+sin/2;
+            // // opacity += 1.5*sin;
+            // itemObj.item.style.opacity = opacity;
 
         }
         if(progress==1) {last_deg += L_R*2*Math.PI/numbers_of_elems;

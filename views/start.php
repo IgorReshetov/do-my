@@ -18,6 +18,26 @@ require_once 'views/templates/header.php';
             <div class="btn btn-next"></div>
         </div>
         <div id="debug" style="font-size: 26px"></div>
+        <div id = "opasity">
+            <div class="name-bord">Opas</div>
+            <button class = "btn-carusel plus">+</button>
+            <button class = "btn-carusel minus">-</button>
+        </div>
+        <div id = "scale">
+            <div class="name-bord">Scale</div>
+            <button class = "btn-carusel plus">+</button>
+            <button class = "btn-carusel minus">-</button>
+        </div>
+        <div id = "width">
+            <div class="name-bord">Ширина</div>
+            <button class = "btn-carusel plus">+</button>
+            <button class = "btn-carusel minus">-</button>
+        </div>
+        <div id = "height">
+            <div class="name-bord">Высота</div>
+            <button class = "btn-carusel plus">+</button>
+            <button class = "btn-carusel minus">-</button>
+        </div>
 
      
         <!-- _______________КОНЕЦ БЛОКА КАРУСЕЛЬ__________________ -->
