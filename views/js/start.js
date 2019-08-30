@@ -5,19 +5,28 @@ function degToRad(input) { return input * (Math.PI/180);}
 
 function out(arg) { document.getElementById("debug").innerHTML = arg; }
 
+// var btn_plus = document.getElementsByClassName("btn-carusel plus");
+// btn_plus[3].onclick = function(){
+//     console.log("привет");
+//     skewX +=5;
+//     carousel.innerHTML = '';
+//     items = [];
+//     Carousel(skewX);
+//     new Carousel();
+// }
 
-var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
+var Carousel = function(skewX) {             // СБОРКА КОНСТРУКТОРА
     //Переманные и установки сферы
     var me = this;
     
     //Изменяемые переменные 
 
-    var carouselW = 600;
-    var carouselH = 400;
+    var carouselW = 500;
+    var carouselH = 300;
     var itemW = 100;
-    var itemH = 200;
+    var itemH = 100;
 
-    var numbers_of_elems = 10;   // Количество элементов
+    var numbers_of_elems = 7;   // Количество элементов
 
     var stepItems=[0];
     for (var i=1; i<numbers_of_elems; i++) {
@@ -28,17 +37,20 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     console.log(stepItems);
     //константы
     var carousel = document.getElementById("carousel");
-    var itemContainer = carousel.getElementsByClassName('item-container');
+    // var itemContainer = carousel.getElementsByClassName('item-container');
     var btnNext = document.getElementsByClassName("btn-next")[0];
     var btnPrev = document.getElementsByClassName("btn-prev")[0];
-    var btn_scale = document.getElementById("scale");
-    var btn_opasity = document.getElementById("opasity");
-    var btn_width = document.getElementById("width");
-    var btn_height =  document.getElementById("height");
+    var bord_value = document.getElementsByClassName("bord-value");
     var btn_plus = document.getElementsByClassName("btn-carusel plus");
     var btn_minus = document.getElementsByClassName("btn-carusel minus");
-
-
+  
+    // переменные панели управления
+    var opacity = 0;
+    var scale_bord = 1, scaleY = 0.2;
+    var rotate = 0;
+    var skewX = 0, skewC = 0;
+    var rotate = 0, rotate_C = 0;
+    // ______________________________
 
     var items = [];
     var deg = 0;
@@ -50,7 +62,7 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     var arr_img = ['Dolphin', 'elephant', 'gorilla','Hippopotamus','lion', 'Turtle', 'Panda'];
     
     var options = {
-        duration: 5000,
+        duration: 500,
         timing: makeEaseOut(linear),
         animate: animate
     }
@@ -60,18 +72,20 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
 
     function build() {
         console.log("Carousel.build()");
+        // var rangeX = carouselW - itemW;
+        // var rangeY = carouselH - itemH;
 
         for (var i=0; i< numbers_of_elems; i++) {
             addItem();
             var numItem = document.createElement("p");
-            console.log(items[i]);
+            // console.log(items[i]);
             items[i].item.style.backgroundImage = "url('views/images/survey/" + arr_img[i] + ".png')"
             items[i].item.appendChild(numItem);
             numItem.innerHTML = i+1;
             numItem.style.textAlign = "center";
 
             var degItem = deg+stepItems[i];
-            // degItem += (Math.PI);
+            degItem += (Math.PI)/2;
             var cos = 0.5 + (Math.cos(degItem) * 0.5);
             var sin = 0.5 + (Math.sin(degItem) * 0.5);
             var itemObj = items[i];
@@ -83,23 +97,170 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
             var zindex = 1 + Math.round(sin * 100);
             itemObj.item.style.zIndex = zindex;
            
+            if (i==0) {
+                bord_value[0].innerHTML = opacity.toFixed(2);
+                bord_value[1].innerHTML = scale_bord.toFixed(2);
+                bord_value[2].innerHTML = scaleY.toFixed(2);
+                carousel.style.transform = "skew(" + skewC + "deg) rotate(" + rotate_C +"deg)";
+                bord_value[3].innerHTML = rotate_C.toFixed(2);
+                bord_value[4].innerHTML = skewC.toFixed(2);
+                carousel.style.width = carouselW + "px";
+                carousel.style.height = carouselH + "px";
+                bord_value[5].innerHTML = carouselW.toFixed();
+                bord_value[6].innerHTML = carouselH.toFixed();
+            }
+            var scale = (scaleY + sin)*scale_bord;
+            // scale -=Math.sin((Math.PI)/0.5);
+            // out(scale);
+            itemObj.item.style.transform = "scale(" + scale + ") skew(" + skewX + "deg) rotate(" + rotate +"deg)";
+            if (skewX == 5) console.log("Нажал второй раз")
             // var scale =1-cos+sin/2;
             // // scale -=Math.sin((Math.PI)/0.5);
             // // out(scale);
             // itemObj.item.style.transform = "scale(" + scale + ") skew(-35deg, 35deg)";
 
-
+            var opac =  sin + opacity;
             // var opacity = 1-cos+sin/2;
             // // opacity += 1.5*sin;
-            // itemObj.item.style.opacity = opacity;
+            itemObj.item.style.opacity = opac;
         }
 
         //Обработчики событий
         btnNext.addEventListener('click', handler_mouse_next);
         btnPrev.addEventListener('click', handler_mouse_prev);
 
+        btn_minus[0].addEventListener('click', down_opas);
+        btn_plus[0].addEventListener('click', up_opas);
+
+        btn_minus[1].addEventListener('click', down_scale);
+        btn_plus[1].addEventListener('click', up_scale);
+
+        btn_minus[2].addEventListener('click', down_scaleY);
+        btn_plus[2].addEventListener('click', up_scaleY);
+
+        btn_minus[3].addEventListener('click', down_rotate);
+        btn_plus[3].addEventListener('click', up_rotate);
+
+        btn_minus[4].addEventListener('click', down_skewX);
+        btn_plus[4].addEventListener('click', up_skewX);
+
+        btn_minus[5].addEventListener('click', down_carouselW);
+        btn_plus[5].addEventListener('click', up_carouselW);
+
+        btn_minus[6].addEventListener('click', down_carouselH);
+        btn_plus[6].addEventListener('click', up_carouselH);
         //Начало анимации
         // animate();
+    }
+
+    function up_opas(e){
+        console.log(e.target);
+        opacity +=0.05;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_opas(){
+        opacity -=0.05;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function up_scale(e){
+        console.log(e.target);
+        scale_bord +=0.05;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_scale(){
+        scale_bord -=0.05;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function up_scaleY(e){
+        console.log(e.target);
+        scaleY +=0.1;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_scaleY(){
+        scaleY -=0.1;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function up_rotate(){
+        rotate_C +=5;
+        rotate -= 5;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_rotate(){
+        rotate_C -=5;
+        rotate += 5;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function up_skewX(){
+        console.log("привет");
+        skewC +=5;
+        skewX -=5;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_skewX(){
+        skewC -=5;
+        skewX +=5;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function up_carouselW(e){
+        carouselW +=20;
+        rangeX = carouselW - itemW;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_carouselW(){
+        carouselW -=20;
+        rangeX = carouselW - itemW;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function up_carouselH(e){
+        carouselH +=20;
+        rangeY = carouselH - itemW;
+        carousel.innerHTML = '';
+        items = [];
+        build();
+    }
+
+    function down_carouselH(){
+        carouselH -=20;
+        rangeY = carouselH - itemH;
+        carousel.innerHTML = '';
+        items = [];
+        build();
     }
 
     //Функции нажатия на кнопки Следующий/предыдущий
@@ -127,7 +288,7 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
     // Создаем методы конструктора
 
     function addItem() {    // Добавление нового элемента
-        console.log("Carousel.addItem()");
+        // console.log("Carousel.addItem()");
 
         var item = document.createElement("div");
         item.classList.add("item"); 
@@ -159,8 +320,8 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
         for (var i=0; i < items.length; i++) {
            
             // var degItem = deg+stepItems[i];
-            var degItem = last_deg + L_R*(2*Math.PI)*progress + stepItems[i];
-            degItem += (Math.PI)/1.3;
+            var degItem = last_deg + L_R*(2*Math.PI/numbers_of_elems)*progress + stepItems[i];
+            degItem += (Math.PI)/2;
             var cos = 0.5 + (Math.cos(degItem) * 0.5);
             var sin = 0.5 + (Math.sin(degItem) * 0.5);
             var itemObj = items[i];
@@ -171,17 +332,21 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
 
             var zindex = 1 + Math.round(sin * 100);
             itemObj.item.style.zIndex = zindex;
-
-            // var scale = 0.5 + (cos * 0.5);
+            
+            var scale = (scaleY + sin)*scale_bord;
+            // scale -=Math.sin((Math.PI)/0.5);
+            // out(scale);
+            itemObj.item.style.transform = "scale(" + scale + ") skew(" + skewX + "deg) rotate(" + rotate +"deg)";
+            if (skewX == 5) console.log("Нажал второй раз")
             // var scale =1-cos+sin/2;
-            // // scale += sin/2;
+            // // scale -=Math.sin((Math.PI)/0.5);
             // // out(scale);
             // itemObj.item.style.transform = "scale(" + scale + ") skew(-35deg, 35deg)";
 
-
+            var opac =  sin + opacity;
             // var opacity = 1-cos+sin/2;
             // // opacity += 1.5*sin;
-            // itemObj.item.style.opacity = opacity;
+            itemObj.item.style.opacity = opac;
 
         }
         if(progress==1) {last_deg += L_R*2*Math.PI/numbers_of_elems;
@@ -192,13 +357,15 @@ var Carousel = function() {             // СБОРКА КОНСТРУКТОРА
         // requestAnimationFrame(animate);
     }
 
-
+    
 
 
     //Дополнительные функции
     function degToRad(input) {return input * (Math.PI/180);  }
 
+    function scale_carusel() {
 
+    }
 
 }
 

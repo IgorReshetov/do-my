@@ -12,7 +12,7 @@ require_once 'views/templates/header.php';
         <!-- ___________________БЛОК КАРУСЕЛЬ___________________ -->
         <div class="wrapper-carousel">
             <div id="carousel">
-                <div class="item-container"></div>
+                <!-- <div class="item-container"></div> -->
             </div>
             <div class="btn btn-prev"></div>
             <div class="btn btn-next"></div>
@@ -20,21 +20,45 @@ require_once 'views/templates/header.php';
         <div id="debug" style="font-size: 26px"></div>
         <div id = "opasity">
             <div class="name-bord">Opas</div>
+            <div class="bord-value"></div>
             <button class = "btn-carusel plus">+</button>
             <button class = "btn-carusel minus">-</button>
         </div>
-        <div id = "scale">
-            <div class="name-bord">Scale</div>
+        <div id="scale-wrapper">
+            <div id = "scale">
+                <div class="name-bord">Scale</div>
+                <div class="bord-value"></div>
+                <button class = "btn-carusel plus">+</button>
+                <button class = "btn-carusel minus">-</button>
+            </div>
+            <div id = "scale2">
+                <div class="name-bord">Scale_Y</div>
+                <div class="bord-value"></div>
+                <button class = "btn-carusel plus">+</button>
+                <button class = "btn-carusel minus">-</button>
+            </div>
+        </div>
+        <div id = "rotate">
+            <div class="name-bord">Rotate</div>
+            <div class="bord-value"></div>
+            <button class = "btn-carusel plus">+</button>
+            <button class = "btn-carusel minus">-</button>
+        </div>
+        <div id = "skew">
+            <div class="name-bord">Skew</div>
+            <div class="bord-value"></div>
             <button class = "btn-carusel plus">+</button>
             <button class = "btn-carusel minus">-</button>
         </div>
         <div id = "width">
             <div class="name-bord">Ширина</div>
+            <div class="bord-value"></div>
             <button class = "btn-carusel plus">+</button>
             <button class = "btn-carusel minus">-</button>
         </div>
         <div id = "height">
             <div class="name-bord">Высота</div>
+            <div class="bord-value"></div>
             <button class = "btn-carusel plus">+</button>
             <button class = "btn-carusel minus">-</button>
         </div>

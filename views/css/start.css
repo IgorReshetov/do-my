@@ -317,13 +317,14 @@
 
 .wrapper-carousel {
   position: relative;
-  width: 600px;
+  width: 500px;
   height: 300px;
   margin: 50px auto;
 }
 
 #carousel {
-  border: 1px solid black;
+  width: 100%;
+  height: 100%;
 }
 
 #carousel .item {
@@ -390,6 +391,20 @@
   margin-bottom: 10px;
 }
 
+#scale2 {
+  width: 50px;
+  height: 30px;
+  border: 2px solid black;
+  margin-left: 200px;
+  margin-bottom: 10px;
+}
+
+#scale-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #width {
   width: 50px;
   height: 30px;
@@ -405,10 +420,27 @@
   margin-left: 200px;
 }
 
+#rotate {
+  width: 50px;
+  height: 30px;
+  border: 2px solid black;
+  margin-left: 200px;
+  margin-bottom: 10px;
+}
+
+#skew {
+  width: 50px;
+  height: 30px;
+  border: 2px solid black;
+  margin-left: 200px;
+  margin-bottom: 10px;
+}
+
 .name-bord {
   width: 100%;
   text-align: center;
   font-size: 50%;
+  margin-bottom: 0px;
 }
 
 .btn-carusel {
@@ -431,7 +463,12 @@
   left: -70px;
 }
 
-#scale, #width, #opasity, #height {
+#scale, #scale2, #width, #opasity, #height, #rotate, #skew {
   position: relative;
+  text-align: center;
+}
+
+.bord-value {
+  background: grey;
 }
 /*# sourceMappingURL=start.css.map */
